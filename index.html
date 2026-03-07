@@ -447,7 +447,7 @@
     }
 
     /* ══════════════════════════════════════
-       BID
+       CONTACT
     ══════════════════════════════════════ */
     #bid { flex-direction: row; }
 
@@ -473,15 +473,17 @@
     }
 
     .bid-email {
+      display: inline-block;
       font-family: var(--tab-font);
-      font-size: 12px; letter-spacing: 0.1em;
-      color: var(--ink); opacity: .45;
+      font-size: 11px; letter-spacing: 0.22em;
+      color: #fff; background: var(--red);
       text-decoration: none;
-      border-bottom: 1px solid rgba(26,26,26,.2);
-      padding-bottom: 2px;
-      transition: opacity .3s;
+      padding: 18px 52px;
+      text-transform: uppercase;
+      transition: background .3s, transform .2s;
+      cursor: pointer;
     }
-    .bid-email:hover { opacity: .85; }
+    .bid-email:hover { background: #a01008; transform: scale(1.02); }
 
     .bid-note {
       font-family: var(--tab-font);
@@ -499,15 +501,17 @@
 
     .sub-toggle {
       font-family: var(--tab-font);
-      font-size: 8px; letter-spacing: .18em;
-      color: #999; text-transform: uppercase;
-      background: none; border: none; cursor: pointer;
+      font-size: 10px; letter-spacing: .18em;
+      color: var(--ink); text-transform: uppercase;
+      background: none;
+      border: 1.5px solid var(--ink);
+      cursor: pointer;
       display: block; margin: 0 auto;
-      padding: 0; text-decoration: underline;
-      text-underline-offset: 3px;
-      transition: color .2s;
+      padding: 16px 44px;
+      text-decoration: none;
+      transition: background .3s, color .3s;
     }
-    .sub-toggle:hover { color: #555; }
+    .sub-toggle:hover { background: var(--ink); color: var(--cream); }
 
     .sub-form {
       display: none; flex-direction: column; gap: 0;
@@ -614,7 +618,7 @@
   <button class="m-nav-btn" onclick="navigateTo(2)">WORK</button>
   <button class="m-nav-btn" onclick="navigateTo(3)">APPROACH</button>
   <button class="m-nav-btn" onclick="navigateTo(4)">GIVE</button>
-  <button class="m-nav-btn" onclick="navigateTo(5)">BID</button>
+  <button class="m-nav-btn" onclick="navigateTo(5)">CONTACT</button>
 </nav>
 
 <!-- DESKTOP TABS -->
@@ -792,20 +796,19 @@
     </div>
   </section>
 
-  <!-- ══ BID ══ -->
+  <!-- ══ CONTACT ══ -->
   <section class="card" id="bid">
     <div class="card-edge"></div>
     <div class="col-label">
-      <span class="sec-label">Bid</span>
+      <span class="sec-label">Contact</span>
     </div>
 
     <div class="bid-content">
       <h2 class="bid-headline">Building something exceptional?<br/>So are we.</h2>
       <p class="bid-sub">
-        Lux Brand Co. regularly posts subcontractor opportunities on PlanHub. If you've reviewed a project and want to get in touch, we'd like to hear from you.
-      </p>
+        Whether you&#39;re a brand seeking a construction partner or a qualified subcontractor looking to collaborate, we&#39;d love to hear from you.</p>
 
-      <a href="/cdn-cgi/l/email-protection#254c4b434a654947464a0b464a48"><span class="__cf_email__" data-cfemail="b4dddad2dbf4d8d6d7db9ad7dbd9">[email&#160;protected]</span></a>
+      <a class="bid-email" href="mailto:info@lbco.com">GET IN TOUCH</a>
 
       <!-- Sub form — tucked away, requires hunting -->
       <div class="sub-form-wrap">
@@ -822,7 +825,7 @@
 
       <p class="bid-note">
         Lux Brand Co. &nbsp;·&nbsp; Nationwide Luxury Retail Construction<br/>
-        Qualified subcontractors welcome
+        Luxury retail construction, nationwide
       </p>
     </div>
   </section>
@@ -863,14 +866,14 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // ════════════════════════════════════════════════════════
   //  LUX BRAND Co. — BOOK PAGE TURN v4 (clean, no template literals)
   //  Book model: right spine = unread stack, left = read stack
   //  Pages hinge from LEFT edge (spine). Forward = rotateY(0 → -178).
   // ════════════════════════════════════════════════════════
 
-  var LABELS = ['LUX BRAND Co.','WHO','WORK','APPROACH','GIVE','BID'];
+  var LABELS = ['LUX BRAND Co.','WHO','WORK','APPROACH','GIVE','CONTACT'];
   var active    = 0;
   var animating = false;
   var isDragging   = false;
