@@ -292,6 +292,11 @@
     .lbc-logo {
       width: clamp(10rem, 38vw, 26rem);
       height: auto; display: block; margin: 0 auto 2rem;
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+    }
+    .lbc-logo:hover {
+      transform: scale(1.08);
     }
 
     .hero-tagline {
@@ -823,7 +828,11 @@
         </form>
       </div>
 
-      <p class="bid-note">
+      <a href="https://4urspace.com/vendor/lux_brand_co_(lbc)/0/osseo/506_central_ave/55369/3008?allowguest=true"
+           target="_blank" rel="noopener noreferrer"
+           style="display:inline-block; font-size:9px; letter-spacing:1.8px; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--mid); padding-bottom:2px; margin-top:24px; text-transform:uppercase; transition:opacity .3s;"
+           onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">VIEW FULL PORTFOLIO &rarr;</a>
+        <p class="bid-note">
         Lux Brand Co. &nbsp;·&nbsp; Nationwide Luxury Retail Construction<br/>
         Qualified subcontractors &amp; brand partners welcome
       </p>
