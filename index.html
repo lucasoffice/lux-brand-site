@@ -1206,10 +1206,10 @@
 
   document.addEventListener('DOMContentLoaded', function() {
     buildTabs();
-    if (scrollEl) {
-      scrollEl.addEventListener('scroll', function() {
+    if (scroll) {
+      scroll.addEventListener('scroll', function() {
         if (!animating && !isDragging) {
-          var idx = Math.round(scrollEl.scrollLeft / window.innerWidth);
+          var idx = Math.round(scroll.scrollLeft / window.innerWidth);
           if (idx !== active) {
             active = idx;
             buildTabs();
