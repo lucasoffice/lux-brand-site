@@ -836,7 +836,8 @@
 <div id="page-turn-canvas" style="
   position:fixed; top:0; left:0; right:0; bottom:0;
   pointer-events:none; z-index:200; overflow:hidden;
-  perspective:2000px; perspective-origin:center center;
+  perspective:2400px; perspective-origin:50% 50%;
+  transform-style: preserve-3d;
 ">
   <div id="page-turn-sheet" style="
     display:none;
@@ -844,14 +845,17 @@
     width:100vw; height:100vh;
     transform-origin:left center;
     backface-visibility:hidden;
-    background: linear-gradient(108deg, transparent 38%, rgba(255,255,255,.16) 50%, transparent 62%),
-                linear-gradient(to bottom, #f0ebe1, #e6e1d7);
-    box-shadow: 8px 0 32px rgba(0,0,0,0.22);
+    background:
+      linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.22) 48%, rgba(255,255,255,0.06) 56%, transparent 68%),
+      linear-gradient(to right, rgba(0,0,0,0.04) 0%, transparent 6%, transparent 94%, rgba(0,0,0,0.07) 100%),
+      linear-gradient(to bottom, #f4efe5 0%, #ede8de 60%, #e4dfd5 100%);
+    box-shadow: 10px 0 60px rgba(0,0,0,0.30), -2px 0 8px rgba(0,0,0,0.08);
   ">
     <!-- Bright crease at the spine (left edge) -->
     <div style="position:absolute;top:0;left:0;width:10px;height:100%;
-      background:linear-gradient(to right,rgba(0,0,0,.12) 0%,rgba(255,255,255,.85) 30%,rgba(255,255,255,.5) 60%,rgba(0,0,0,.04) 100%);
-      pointer-events:none;"></div>
+      background:linear-gradient(to right,rgba(0,0,0,0.20) 0%,rgba(255,255,255,0.95) 25%,rgba(255,255,255,0.55) 55%,rgba(0,0,0,0.06) 100%);
+      pointer-events:none;
+      box-shadow: 2px 0 6px rgba(0,0,0,0.10);"></div>
     <!-- Cast shadow on page beneath (right side of sheet) -->
     <div style="position:absolute;top:0;right:-50px;width:50px;height:100%;
       background:linear-gradient(to right,rgba(0,0,0,.16) 0%,rgba(0,0,0,.04) 60%,transparent 100%);
@@ -943,8 +947,8 @@
   function flipForward(from, to) {
     animating = true;
     var steps = to - from;
-    var flipMs = steps === 1 ? 520 : Math.max(180, 380 - steps * 30);
-    var gapMs  = steps === 1 ? 0   : Math.max(50,  90  - steps * 8);
+    var flipMs = steps === 1 ? 1900 : Math.max(700, 1400 - steps * 70);
+    var gapMs  = steps === 1 ? 0   : Math.max(200, 400 - steps * 20);
     var step = 0;
 
     function doStep() {
@@ -966,8 +970,8 @@
   function flipBackward(from, to) {
     animating = true;
     var steps = from - to;
-    var flipMs = steps === 1 ? 500 : Math.max(180, 360 - steps * 28);
-    var gapMs  = steps === 1 ? 0   : Math.max(50,  85  - steps * 7);
+    var flipMs = steps === 1 ? 1700 : Math.max(700, 1200 - steps * 65);
+    var gapMs  = steps === 1 ? 0   : Math.max(200, 380 - steps * 18);
     var step = 0;
 
     function doStep() {
@@ -986,45 +990,64 @@
   }
 
   // ─── ANIMATE SHEET ────────────────────────────────────────
-  // forward:  rotateY 0 → -45 (lift) → -178 (sweep)
-  // backward: rotateY -178 → 0
+  // Rewritten v5: double-rAF paint guarantee + perspective() on transform
+  // forward:  rotateY(0) → rotateY(-178)  slow-start, fast-mid, slow-land
+  // backward: rotateY(-178) → rotateY(0)  same curve, mirrored feel
   function animateSheet(dir, ms, onMid) {
-    sheet.style.display = 'block';
-    sheet.style.transition = 'none';
+    sheet.style.display        = 'block';
+    sheet.style.transition     = 'none';
     sheet.style.transformOrigin = 'left center';
 
-    var liftMs  = Math.round(ms * 0.30);
-    var sweepMs = Math.round(ms * 0.60);
-    var midAt   = Math.round(ms * 0.50);
+    // perspective() on the element transform gives real 3-D depth
+    // without relying on a parent perspective container
+    var PERSP = 1400;
 
     if (dir === 'forward') {
-      sheet.style.transform  = 'rotateY(0deg)';
-      sheet.style.boxShadow  = '12px 0 40px rgba(0,0,0,0.35)';
+      // Start: page flat, facing viewer, deep shadow on right edge
+      sheet.style.transform = 'perspective(' + PERSP + 'px) rotateY(0deg)';
+      sheet.style.boxShadow = '-8px 0 0 0 rgba(0,0,0,0), 8px 0 48px rgba(0,0,0,0.45)';
 
+      // Double rAF: first frame sets initial state, second frame starts transition
       requestAnimationFrame(function() {
-        sheet.style.transition = 'transform ' + liftMs + 'ms cubic-bezier(0.4,0,1,1)';
-        sheet.style.transform  = 'rotateY(-45deg)';
-
-        setTimeout(function() {
-          sheet.style.transition = 'transform ' + sweepMs + 'ms cubic-bezier(0,0,0.15,1), box-shadow ' + sweepMs + 'ms ease';
-          sheet.style.transform  = 'rotateY(-178deg)';
-          sheet.style.boxShadow  = '0 0 2px rgba(0,0,0,0.05)';
-        }, liftMs);
-
-        setTimeout(onMid, midAt);
-        setTimeout(function() { sheet.style.display = 'none'; sheet.style.transition = ''; }, ms + 60);
+        requestAnimationFrame(function() {
+          // Easing: slow start (page peels reluctantly), fast mid, very soft land
+          // cubic-bezier(0.25, 0, 0.10, 1) — custom "book page" curve
+          sheet.style.transition =
+            'transform ' + ms + 'ms cubic-bezier(0.22, 0, 0.08, 1),' +
+            'box-shadow ' + ms + 'ms cubic-bezier(0.22, 0, 0.08, 1)';
+          sheet.style.transform = 'perspective(' + PERSP + 'px) rotateY(-178deg)';
+          sheet.style.boxShadow = '-6px 0 28px rgba(0,0,0,0.18), 0 0 0 0 rgba(0,0,0,0)';
+          setTimeout(onMid, Math.round(ms * 0.52));
+          setTimeout(function() {
+            sheet.style.display = 'none';
+            sheet.style.transition = '';
+            sheet.style.transform = '';
+            sheet.style.boxShadow = '';
+          }, ms + 80);
+        });
       });
 
     } else {
-      sheet.style.transform  = 'rotateY(-178deg)';
-      sheet.style.boxShadow  = '0 0 2px rgba(0,0,0,0.05)';
+      // Start: page folded behind, left-edge shadow
+      sheet.style.transform = 'perspective(' + PERSP + 'px) rotateY(-178deg)';
+      sheet.style.boxShadow = '-6px 0 28px rgba(0,0,0,0.18), 0 0 0 0 rgba(0,0,0,0)';
 
       requestAnimationFrame(function() {
-        sheet.style.transition = 'transform ' + ms + 'ms cubic-bezier(0.25,0.46,0.45,0.94), box-shadow ' + ms + 'ms ease';
-        sheet.style.transform  = 'rotateY(0deg)';
-        sheet.style.boxShadow  = '12px 0 40px rgba(0,0,0,0.3)';
-        setTimeout(onMid, Math.round(ms * 0.48));
-        setTimeout(function() { sheet.style.display = 'none'; sheet.style.transition = ''; }, ms + 60);
+        requestAnimationFrame(function() {
+          // Backward easing: slightly more aggressive start (page springs back)
+          sheet.style.transition =
+            'transform ' + ms + 'ms cubic-bezier(0.18, 0, 0.06, 1),' +
+            'box-shadow ' + ms + 'ms cubic-bezier(0.18, 0, 0.06, 1)';
+          sheet.style.transform = 'perspective(' + PERSP + 'px) rotateY(0deg)';
+          sheet.style.boxShadow = '-8px 0 0 0 rgba(0,0,0,0), 8px 0 48px rgba(0,0,0,0.40)';
+          setTimeout(onMid, Math.round(ms * 0.52));
+          setTimeout(function() {
+            sheet.style.display = 'none';
+            sheet.style.transition = '';
+            sheet.style.transform = '';
+            sheet.style.boxShadow = '';
+          }, ms + 80);
+        });
       });
     }
   }
@@ -1176,4 +1199,26 @@
   }
 
   // ─── INIT ─────────────────────────────────────────────────
-  window.addEventListener('resize', funct
+  window.addEventListener('resize', function() {
+    isMobile = window.innerWidth < 768;
+    buildTabs();
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    buildTabs();
+    if (scrollEl) {
+      scrollEl.addEventListener('scroll', function() {
+        if (!animating && !isDragging) {
+          var idx = Math.round(scrollEl.scrollLeft / window.innerWidth);
+          if (idx !== active) {
+            active = idx;
+            buildTabs();
+          }
+        }
+      });
+    }
+  });
+
+</script>
+</body>
+</html>
