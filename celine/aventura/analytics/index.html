@@ -2,134 +2,122 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Analytics | CELINE Aventura</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#faf9f7;color:#1a1a1a;min-height:100vh}
-.header{background:#1a1a1a;color:#fff;padding:32px 40px;display:flex;align-items:center;justify-content:space-between}
-.header h1{font-size:14px;letter-spacing:6px;text-transform:uppercase;font-weight:400}
-.header .sub{font-size:11px;letter-spacing:3px;opacity:.6;margin-top:4px}
-.refresh-btn{background:none;border:1px solid rgba(255,255,255,.3);color:#fff;padding:8px 20px;font-size:11px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;transition:all .3s}
-.refresh-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
-.container{max-width:1200px;margin:0 auto;padding:32px 24px}
-.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:32px}
-.stat-card{background:#fff;border:1px solid #e8e6e3;padding:28px 24px;text-align:center}
-.stat-card .number{font-size:36px;font-weight:300;letter-spacing:2px;margin-bottom:6px}
-.stat-card .label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#888}
-.section{background:#fff;border:1px solid #e8e6e3;margin-bottom:24px;padding:28px}
-.section-title{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#888;margin-bottom:20px;font-weight:400}
-.chart-container{position:relative;height:240px;margin-bottom:8px}
-.bar-chart{display:flex;align-items:flex-end;gap:3px;height:200px;padding-top:10px}
-.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
-.bar{background:#1a1a1a;width:100%;min-height:2px;transition:height .6s ease;border-radius:1px 1px 0 0}
-.bar-label{font-size:9px;color:#999;margin-top:6px;letter-spacing:1px}
-.bar-value{font-size:9px;color:#666;margin-bottom:4px}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-@media(max-width:768px){.two-col{grid-template-columns:1fr}}
-.list-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #f0eeeb}
-.list-item:last-child{border-bottom:none}
-.list-item .name{font-size:13px;color:#333}
-.list-item .count{font-size:13px;color:#888;font-weight:300}
-.list-item .bar-bg{flex:1;margin:0 16px;height:4px;background:#f0eeeb;border-radius:2px;overflow:hidden}
-.list-item .bar-fill{height:100%;background:#1a1a1a;border-radius:2px;transition:width .6s ease}
-table{width:100%;border-collapse:collapse;font-size:12px}
-th{text-align:left;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#999;font-weight:400;padding:12px 8px;border-bottom:2px solid #e8e6e3}
-td{padding:10px 8px;border-bottom:1px solid #f0eeeb;color:#555}
-tr:hover td{background:#faf9f7}
-.loading{text-align:center;padding:80px 20px;color:#999;font-size:12px;letter-spacing:3px;text-transform:uppercase}
-.empty-state{text-align:center;padding:60px 20px;color:#bbb;font-size:12px;letter-spacing:2px}
-.time-badge{display:inline-block;background:#f0eeeb;padding:2px 8px;border-radius:2px;font-size:10px;color:#888}
-.live-dot{width:8px;height:8px;background:#4caf50;border-radius:50%;display:inline-block;margin-right:8px;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.status-bar{display:flex;align-items:center;font-size:11px;color:#888;letter-spacing:1px}
+body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#f7f5f2;color:#1a1a1a;-webkit-font-smoothing:antialiased}
+header{background:#1a1a1a;color:#fff;padding:18px 40px;display:flex;justify-content:space-between;align-items:center}
+header h1{font-size:14px;letter-spacing:6px;text-transform:uppercase;font-weight:400}
+header small{display:block;font-size:11px;letter-spacing:2px;color:#999;margin-top:2px}
+#statusBar{display:flex;align-items:center;gap:12px}
+#statusDot{width:7px;height:7px;border-radius:50%;background:#5a5}
+#statusText{font-size:11px;letter-spacing:1px;color:#999}
+.btn{font-size:11px;letter-spacing:3px;text-transform:uppercase;border:1px solid #fff;background:none;color:#fff;padding:6px 16px;cursor:pointer;font-family:inherit}
+.btn:hover{background:#fff;color:#1a1a1a}
+#loading{display:flex;justify-content:center;align-items:center;min-height:60vh;font-size:13px;letter-spacing:2px;color:#999}
+#content{display:none;padding:30px 40px 60px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:30px}
+.card{background:#fff;border:1px solid #e8e4df;padding:28px 20px;text-align:center}
+.card .val{font-size:32px;font-weight:300;letter-spacing:1px;color:#1a1a1a}
+.card .lbl{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#999;margin-top:6px}
+.panel{background:#fff;border:1px solid #e8e4df;padding:28px;margin-bottom:30px}
+.panel h2{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#999;margin-bottom:20px;font-weight:400}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:30px}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:13px}
+.bar-row .bar-label{min-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-row .bar-track{flex:1;height:3px;background:#eee;position:relative}
+.bar-row .bar-fill{height:100%;background:#1a1a1a;position:absolute;left:0;top:0}
+.bar-row .bar-count{min-width:30px;text-align:right;color:#999;font-size:12px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#999;font-weight:400;padding:8px 12px;border-bottom:1px solid #e8e4df}
+td{padding:10px 12px;border-bottom:1px solid #f0ece7}
+td:first-child span{background:#f7f5f2;padding:3px 8px;font-size:12px;border-radius:2px}
+
+/* Chart */
+.chart-area{position:relative;display:flex;align-items:flex-end;gap:0;padding-left:36px;padding-bottom:28px}
+.chart-grid{position:absolute;left:36px;right:0;bottom:28px;top:0}
+.chart-grid-line{position:absolute;left:0;right:0;border-top:1px solid #f0ece7}
+.chart-grid-line span{position:absolute;right:calc(100% + 8px);top:-6px;font-size:10px;color:#bbb}
+.chart-col{display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
+.chart-bar-wrap{width:100%;display:flex;align-items:flex-end;justify-content:center}
+.chart-bar{background:#1a1a1a;border-radius:2px 2px 0 0;min-height:2px;position:relative;transition:background 0.15s}
+.chart-bar:hover{background:#444}
+.chart-bar .chart-tip{display:none;position:absolute;top:-26px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#fff;font-size:11px;padding:3px 10px;border-radius:2px;white-space:nowrap}
+.chart-bar:hover .chart-tip{display:block}
+.chart-date{font-size:10px;color:#999;margin-top:8px;white-space:nowrap}
+
+/* US Map */
+.map-container{position:relative;width:100%;max-width:760px;margin:0 auto}
+.map-container svg{width:100%;height:auto;display:block}
+.map-container svg path{fill:#eae6e1;stroke:#fff;stroke-width:1.2;transition:fill 0.2s}
+.map-container svg path.hit{fill:#1a1a1a}
+.map-pin{position:absolute;transform:translate(-50%,-50%);z-index:2}
+.map-pin-dot{width:12px;height:12px;border-radius:50%;background:#b03030;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.3)}
+.map-pin-pulse{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:24px;height:24px;border-radius:50%;background:rgba(176,48,48,0.2);animation:pulse 2s infinite}
+@keyframes pulse{0%{transform:translate(-50%,-50%) scale(0.8);opacity:1}100%{transform:translate(-50%,-50%) scale(2);opacity:0}}
+.map-pin-label{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);background:#1a1a1a;color:#fff;font-size:11px;padding:4px 10px;border-radius:2px;white-space:nowrap;opacity:0;transition:opacity 0.2s;pointer-events:none}
+.map-pin:hover .map-pin-label{opacity:1}
+.map-note{text-align:center;margin-top:12px;font-size:11px;color:#bbb;letter-spacing:1px}
+
+@media(max-width:800px){
+.cards{grid-template-columns:repeat(2,1fr)}
+.row2{grid-template-columns:1fr}
+#content{padding:20px}
+}
 </style>
 </head>
 <body>
-<div class="header">
-  <div>
-    <h1>CELINE &mdash; Aventura</h1>
-    <div class="sub">Page Analytics</div>
-  </div>
-  <div style="display:flex;align-items:center;gap:20px">
-    <div class="status-bar"><span class="live-dot"></span> <span id="statusText">Loading...</span></div>
-    <button class="refresh-btn" onclick="loadData()">Refresh</button>
-  </div>
-</div>
-
-<div class="container">
-  <div id="loading" class="loading">Loading analytics data...</div>
-  <div id="content" style="display:none">
-
-    <div class="stats-row">
-      <div class="stat-card">
-        <div class="number" id="totalViews">0</div>
-        <div class="label">Total Views</div>
-      </div>
-      <div class="stat-card">
-        <div class="number" id="uniqueDays">0</div>
-        <div class="label">Active Days</div>
-      </div>
-      <div class="stat-card">
-        <div class="number" id="topDevice">—</div>
-        <div class="label">Top Device</div>
-      </div>
-      <div class="stat-card">
-        <div class="number" id="topCity">—</div>
-        <div class="label">Top City</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">Views Over Time</div>
-      <div class="chart-container">
-        <div class="bar-chart" id="timelineChart"></div>
-      </div>
-    </div>
-
-    <div class="two-col">
-      <div class="section">
-        <div class="section-title">Devices</div>
-        <div id="deviceList"></div>
-      </div>
-      <div class="section">
-        <div class="section-title">Locations</div>
-        <div id="locationList"></div>
-      </div>
-    </div>
-
-    <div class="two-col">
-      <div class="section">
-        <div class="section-title">Screen Sizes</div>
-        <div id="screenList"></div>
-      </div>
-      <div class="section">
-        <div class="section-title">Referrers</div>
-        <div id="referrerList"></div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">Recent Visits</div>
-      <div style="overflow-x:auto">
-        <table>
-          <thead>
-            <tr><th>Time</th><th>Device</th><th>Screen</th><th>Location</th><th>Referrer</th></tr>
-          </thead>
-          <tbody id="visitTable"></tbody>
-        </table>
-      </div>
-    </div>
-
-  </div>
-</div>
-
+<header>
+<div><h1>Celine &mdash; Aventura</h1><small>Page Analytics</small></div>
+<div id="statusBar"><div id="statusDot"></div><span id="statusText">Loading&hellip;</span><button class="btn" onclick="loadData()">Refresh</button></div>
+</header>
+<div id="loading">Loading analytics&hellip;</div>
+<div id="content"></div>
 <script>
 var API='https://script.google.com/macros/s/AKfycbxlnVFuRC1RpcpZoSipE2Xg1_HppezbkOUdb_02Nb4QSILnFPG9Q_PvJ_M4dBfThnm_/exec';
 
+/* Approximate city coords on 960x600 US map */
+var CITY_XY={
+'Fort Myers,Florida':[696,512],'Miami,Florida':[738,530],'Orlando,Florida':[718,478],
+'Tampa,Florida':[688,488],'Jacksonville,Florida':[700,445],'Aventura,Florida':[735,525],
+'New York,New York':[808,218],'Los Angeles,California':[112,368],
+'Chicago,Illinois':[568,258],'Houston,Texas':[452,478],'Dallas,Texas':[432,428],
+'San Francisco,California':[88,308],'Seattle,Washington':[148,138],
+'Boston,Massachusetts':[838,195],'Atlanta,Georgia':[668,415],
+'Denver,Colorado':[328,308],'Phoenix,Arizona':[242,405],'Portland,Oregon':[138,185],
+'Austin,Texas':[428,465],'Nashville,Tennessee':[618,370],
+'Charlotte,North Carolina':[718,368],'San Diego,California':[148,408],
+'Philadelphia,Pennsylvania':[798,248],'Washington,District of Columbia':[778,288],
+'Minneapolis,Minnesota':[492,195],'Detroit,Michigan':[618,235],
+'Las Vegas,Nevada':[192,348],'Salt Lake City,Utah':[258,298],
+'Raleigh,North Carolina':[738,348],'Pittsburgh,Pennsylvania':[728,255],
+'Columbus,Ohio':[658,285],'Indianapolis,Indiana':[612,295],
+'Kansas City,Missouri':[488,328],'St. Louis,Missouri':[548,328],
+'New Orleans,Louisiana':[548,478],'Milwaukee,Wisconsin':[548,218],
+'Cape Coral,Florida':[702,510],'Naples,Florida':[710,518]
+};
+
+/* State center coords for fallback */
+var STATE_XY={
+'Alabama':[638,432],'Alaska':[160,535],'Arizona':[242,398],'Arkansas':[538,405],
+'California':[118,345],'Colorado':[325,318],'Connecticut':[828,215],'Delaware':[800,272],
+'Florida':[708,495],'Georgia':[672,425],'Hawaii':[275,535],'Idaho':[218,218],
+'Illinois':[568,298],'Indiana':[612,292],'Iowa':[518,262],'Kansas':[438,335],
+'Kentucky':[642,338],'Louisiana':[538,468],'Maine':[858,128],'Maryland':[788,282],
+'Massachusetts':[842,198],'Michigan':[598,222],'Minnesota':[488,192],'Mississippi':[578,442],
+'Missouri':[528,345],'Montana':[288,168],'Nebraska':[418,278],'Nevada':[178,305],
+'New Hampshire':[838,168],'New Jersey':[808,258],'New Mexico':[298,402],'New York':[798,192],
+'North Carolina':[728,358],'North Dakota':[408,168],'Ohio':[652,278],'Oklahoma':[438,382],
+'Oregon':[142,192],'Pennsylvania':[768,242],'Rhode Island':[848,208],'South Carolina':[708,398],
+'South Dakota':[408,218],'Tennessee':[628,372],'Texas':[398,455],'Utah':[248,312],
+'Vermont':[828,158],'Virginia':[738,312],'Washington':[148,142],'West Virginia':[698,302],
+'Wisconsin':[538,202],'Wyoming':[308,238],'District of Columbia':[782,288]
+};
+
 var _jsonpCounter=0;
 function loadData(){
-  document.getElementById('statusText').textContent='Fetching...';
+  document.getElementById('statusText').textContent='Fetching\u2026';
   var cbName='_cb'+(_jsonpCounter++);
   window[cbName]=function(rows){
     try{
@@ -138,8 +126,9 @@ function loadData(){
       document.getElementById('content').style.display='block';
       document.getElementById('statusText').textContent='Updated '+new Date().toLocaleTimeString();
     }catch(e){
-      document.getElementById('loading').innerHTML='<div style="color:#c00">Error rendering data.</div>';
+      document.getElementById('loading').innerHTML='<div style="color:#c00">Error: '+esc(e.message)+'</div>';
       document.getElementById('statusText').textContent='Error';
+      console.error(e);
     }
     delete window[cbName];
     var s=document.getElementById('jp-'+cbName);
@@ -156,68 +145,240 @@ function loadData(){
   document.body.appendChild(script);
 }
 
-function render(rows){
-  document.getElementById('totalViews').textContent=rows.length;
-  var days=new Set(rows.map(function(r){var d=new Date(r.Timestamp);return d.toISOString().split('T')[0]}));
-  document.getElementById('uniqueDays').textContent=days.size;
-  var devCounts=countField(rows,'Device');
-  var topDev=Object.entries(devCounts).sort(function(a,b){return b[1]-a[1]})[0];
-  document.getElementById('topDevice').textContent=topDev?topDev[0]:'—';
-  var cityCounts=countField(rows,'City');
-  var topCity=Object.entries(cityCounts).sort(function(a,b){return b[1]-a[1]})[0];
-  document.getElementById('topCity').textContent=topCity?topCity[0]:'—';
-  renderTimeline(rows);
-  renderList('deviceList',devCounts);
-  var locCounts={};
-  rows.forEach(function(r){var loc=[r.City,r.Region,r.Country].filter(Boolean).join(', ')||'Unknown';locCounts[loc]=(locCounts[loc]||0)+1});
-  renderList('locationList',locCounts);
-  var screenCounts=countField(rows,'Screen');
-  renderList('screenList',screenCounts);
-  var refCounts={};
-  rows.forEach(function(r){var ref=r.Referrer||'Direct';if(ref.length>40)ref=ref.substring(0,40)+'...';refCounts[ref]=(refCounts[ref]||0)+1});
-  renderList('referrerList',refCounts);
-  var tbody=document.getElementById('visitTable');
-  tbody.innerHTML='';
-  var recent=rows.slice().reverse().slice(0,50);
-  recent.forEach(function(r){
-    var tr=document.createElement('tr');
-    var t=new Date(r.Timestamp);
-    var timeStr=t.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' '+t.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-    var loc=[r.City,r.Region].filter(Boolean).join(', ')||'—';
-    var ref=r.Referrer||'Direct';
-    if(ref.length>30)ref=ref.substring(0,30)+'...';
-    tr.innerHTML='<td><span class="time-badge">'+timeStr+'</span></td><td>'+esc(r.Device||'—')+'</td><td>'+esc(r.Screen||'—')+'</td><td>'+esc(loc)+'</td><td>'+esc(ref)+'</td>';
-    tbody.appendChild(tr);
-  });
-  if(recent.length===0){tbody.innerHTML='<tr><td colspan="5" class="empty-state">No visits recorded yet</td></tr>'}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+function countField(rows,field){
+  var map={};
+  for(var i=0;i<rows.length;i++){var v=rows[i][field]||'(unknown)';map[v]=(map[v]||0)+1;}
+  var arr=[];for(var k in map)arr.push({name:k,count:map[k]});
+  arr.sort(function(a,b){return b.count-a.count});
+  return arr;
 }
 
-function countField(rows,field){var c={};rows.forEach(function(r){c[r[field]||'Unknown']=(c[r[field]||'Unknown']||0)+1});return c}
-
-function renderList(id,counts){
-  var el=document.getElementById(id);
-  var sorted=Object.entries(counts).sort(function(a,b){return b[1]-a[1]});
-  var max=sorted[0]?sorted[0][1]:1;
-  if(sorted.length===0){el.innerHTML='<div class="empty-state">No data yet</div>';return}
-  el.innerHTML=sorted.slice(0,8).map(function(item){var name=item[0],count=item[1];return '<div class="list-item"><span class="name">'+esc(name)+'</span><div class="bar-bg"><div class="bar-fill" style="width:'+(count/max*100).toFixed(1)+'%"></div></div><span class="count">'+count+'</span></div>'}).join('');
+function renderList(items,max){
+  if(!max)max=items.length;
+  var top=items[0]?items[0].count:1;
+  var h='';
+  for(var i=0;i<Math.min(items.length,max);i++){
+    var pct=Math.round((items[i].count/top)*100);
+    h+='<div class="bar-row"><span class="bar-label">'+esc(items[i].name)+'</span><span class="bar-track"><span class="bar-fill" style="width:'+pct+'%"></span></span><span class="bar-count">'+items[i].count+'</span></div>';
+  }
+  return h;
 }
 
 function renderTimeline(rows){
-  var chart=document.getElementById('timelineChart');
-  var byDay={};
-  rows.forEach(function(r){var d=new Date(r.Timestamp).toISOString().split('T')[0];byDay[d]=(byDay[d]||0)+1});
-  var entries=Object.entries(byDay).sort(function(a,b){return a[0].localeCompare(b[0])});
-  if(entries.length===0){chart.innerHTML='<div class="empty-state" style="width:100%;display:flex;align-items:center;justify-content:center">No data yet</div>';return}
-  var allDays=[];
-  var start=new Date(entries[0][0]);
-  var end=new Date(entries[entries.length-1][0]);
-  for(var dd=new Date(start);dd<=end;dd.setDate(dd.getDate()+1)){var key=dd.toISOString().split('T')[0];allDays.push([key,byDay[key]||0])}
-  var display=allDays.length>30?allDays.slice(-30):allDays;
-  var max=Math.max.apply(null,display.map(function(d){return d[1]}).concat([1]));
-  chart.innerHTML=display.map(function(item){var day=item[0],count=item[1];var h=Math.max((count/max)*180,2);var label=new Date(day+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'});return '<div class="bar-col"><div class="bar-value">'+(count||'')+'</div><div class="bar" style="height:'+h+'px"></div><div class="bar-label">'+(display.length<=15?label:'')+'</div></div>'}).join('');
+  var days={};
+  for(var i=0;i<rows.length;i++){
+    var ts=rows[i].Timestamp||'';
+    var d=ts.substring(0,10);
+    if(d)days[d]=(days[d]||0)+1;
+  }
+  var keys=Object.keys(days).sort();
+  if(!keys.length)return '<div style="color:#999;text-align:center;padding:40px">No data yet</div>';
+
+  var maxVal=0;
+  for(var i=0;i<keys.length;i++){if(days[keys[i]]>maxVal)maxVal=days[keys[i]];}
+
+  /* Nice ceiling for y-axis */
+  var gridMax;
+  if(maxVal<=5)gridMax=5;
+  else if(maxVal<=10)gridMax=10;
+  else if(maxVal<=20)gridMax=20;
+  else gridMax=Math.ceil(maxVal/10)*10;
+
+  var gridStep;
+  if(gridMax<=5)gridStep=1;
+  else if(gridMax<=10)gridStep=2;
+  else gridStep=Math.ceil(gridMax/5);
+
+  var chartH=180;
+  var barW=Math.min(36, Math.max(12, Math.floor(600/keys.length)));
+  var colW=Math.max(barW+16, 56);
+
+  var h='<div class="chart-area" style="height:'+(chartH+40)+'px">';
+  h+='<div class="chart-grid" style="height:'+chartH+'px">';
+  for(var g=0;g<=gridMax;g+=gridStep){
+    var bottom=(g/gridMax)*100;
+    h+='<div class="chart-grid-line" style="bottom:'+bottom+'%"><span>'+g+'</span></div>';
+  }
+  h+='</div>';
+
+  for(var i=0;i<keys.length;i++){
+    var val=days[keys[i]];
+    var hPct=Math.max((val/gridMax)*100,2);
+    var parts=keys[i].split('-');
+    var mos=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var label=mos[parseInt(parts[1],10)-1]+' '+parseInt(parts[2],10);
+    h+='<div class="chart-col" style="width:'+colW+'px">';
+    h+='<div class="chart-bar-wrap" style="height:'+chartH+'px"><div class="chart-bar" style="height:'+hPct+'%;width:'+barW+'px"><span class="chart-tip">'+val+' view'+(val!==1?'s':'')+'</span></div></div>';
+    h+='<div class="chart-date">'+label+'</div>';
+    h+='</div>';
+  }
+  h+='</div>';
+  return h;
 }
 
-function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+function renderMap(rows){
+  /* Collect US visits by city+state */
+  var locs={};
+  for(var i=0;i<rows.length;i++){
+    var city=rows[i].City||'';
+    var region=rows[i].Region||'';
+    var country=rows[i].Country||'';
+    if(country!=='United States'&&country!=='US')continue;
+    var key=city+','+region;
+    if(!locs[key])locs[key]={city:city,region:region,count:0};
+    locs[key].count+=1;
+  }
+
+  /* Which states have hits */
+  var hitStates={};
+  for(var k in locs)hitStates[locs[k].region]=true;
+
+  var h='<div class="map-container">';
+  /* Simplified US state rects as SVG */
+  h+='<svg viewBox="60 60 840 500" xmlns="http://www.w3.org/2000/svg">';
+  var states=[
+    ['Washington','M120,88 L198,88 L198,148 L120,148Z'],
+    ['Oregon','M98,148 L198,148 L198,218 L98,218Z'],
+    ['California','M78,218 L158,218 L158,418 L78,348Z'],
+    ['Nevada','M158,218 L218,218 L218,368 L158,368Z'],
+    ['Idaho','M198,128 L258,128 L258,248 L198,248Z'],
+    ['Montana','M238,98 L368,98 L368,178 L238,178Z'],
+    ['Wyoming','M268,178 L358,178 L358,258 L268,258Z'],
+    ['Utah','M218,258 L288,258 L288,368 L218,368Z'],
+    ['Colorado','M288,278 L388,278 L388,358 L288,358Z'],
+    ['Arizona','M198,368 L288,368 L288,458 L198,458Z'],
+    ['New Mexico','M268,368 L358,368 L358,458 L268,458Z'],
+    ['North Dakota','M368,118 L468,118 L468,188 L368,188Z'],
+    ['South Dakota','M368,188 L468,188 L468,248 L368,248Z'],
+    ['Nebraska','M378,248 L488,248 L488,308 L378,308Z'],
+    ['Kansas','M388,308 L498,308 L498,368 L388,368Z'],
+    ['Oklahoma','M388,368 L508,368 L508,418 L388,418Z'],
+    ['Texas','M348,418 L488,418 L488,538 L348,498Z'],
+    ['Minnesota','M458,118 L548,118 L548,218 L458,218Z'],
+    ['Iowa','M478,228 L568,228 L568,288 L478,288Z'],
+    ['Missouri','M498,288 L578,288 L578,378 L498,378Z'],
+    ['Arkansas','M508,378 L578,378 L578,438 L508,438Z'],
+    ['Louisiana','M508,438 L578,438 L578,508 L508,508Z'],
+    ['Wisconsin','M508,138 L588,138 L588,228 L508,228Z'],
+    ['Illinois','M548,238 L598,238 L598,348 L548,348Z'],
+    ['Michigan','M568,138 L648,138 L648,248 L568,248Z'],
+    ['Indiana','M598,248 L638,248 L638,338 L598,338Z'],
+    ['Ohio','M628,228 L698,228 L698,308 L628,308Z'],
+    ['Kentucky','M598,308 L698,308 L698,368 L598,368Z'],
+    ['Tennessee','M588,348 L698,348 L698,398 L588,398Z'],
+    ['Mississippi','M558,398 L608,398 L608,478 L558,478Z'],
+    ['Alabama','M608,388 L658,388 L658,478 L608,478Z'],
+    ['Georgia','M648,378 L718,378 L718,468 L648,468Z'],
+    ['Florida','M658,458 L758,458 L738,558 L678,518Z'],
+    ['South Carolina','M678,358 L748,358 L748,408 L678,408Z'],
+    ['North Carolina','M678,318 L788,318 L788,368 L678,368Z'],
+    ['Virginia','M688,278 L788,278 L788,328 L688,328Z'],
+    ['West Virginia','M678,268 L718,268 L718,318 L678,318Z'],
+    ['Pennsylvania','M718,208 L808,208 L808,258 L718,258Z'],
+    ['New York','M748,138 L848,138 L848,218 L748,218Z'],
+    ['Vermont','M818,108 L848,108 L848,168 L818,168Z'],
+    ['New Hampshire','M828,118 L858,118 L858,178 L828,178Z'],
+    ['Maine','M838,68 L888,68 L888,148 L838,148Z'],
+    ['Massachusetts','M818,183 L878,183 L878,208 L818,208Z'],
+    ['Connecticut','M813,208 L853,208 L853,228 L813,228Z'],
+    ['Rhode Island','M848,193 L868,193 L868,213 L848,213Z'],
+    ['New Jersey','M798,228 L828,228 L828,273 L798,273Z'],
+    ['Delaware','M793,258 L813,258 L813,288 L793,288Z'],
+    ['Maryland','M748,268 L798,268 L798,293 L748,293Z']
+  ];
+  for(var i=0;i<states.length;i++){
+    var cls=hitStates[states[i][0]]?'hit':'';
+    h+='<path d="'+states[i][1]+'" class="'+cls+'"><title>'+states[i][0]+'</title></path>';
+  }
+  h+='</svg>';
+
+  /* Place pins for each city */
+  var locArr=[];
+  for(var k in locs)locArr.push(locs[k]);
+  locArr.sort(function(a,b){return b.count-a.count});
+
+  for(var i=0;i<locArr.length;i++){
+    var loc=locArr[i];
+    var ck=loc.city+','+loc.region;
+    var coords=CITY_XY[ck]||STATE_XY[loc.region];
+    if(!coords)continue;
+    /* Map 960x600 to the viewBox 60,60,840,500 → percentage of container */
+    var xPct=((coords[0]-60)/840)*100;
+    var yPct=((coords[1]-60)/500)*100;
+    var dotSize=Math.min(10+loc.count*2,22);
+    h+='<div class="map-pin" style="left:'+xPct+'%;top:'+yPct+'%">';
+    h+='<div class="map-pin-pulse"></div>';
+    h+='<div class="map-pin-dot" style="width:'+dotSize+'px;height:'+dotSize+'px"></div>';
+    h+='<div class="map-pin-label">'+esc(loc.city)+(loc.region?', '+esc(loc.region):'')+' &mdash; '+loc.count+'</div>';
+    h+='</div>';
+  }
+
+  h+='<div class="map-note">United States visits</div>';
+  h+='</div>';
+  return h;
+}
+
+function render(rows){
+  var total=rows.length;
+  var daySet={};
+  for(var i=0;i<rows.length;i++){var ts=rows[i].Timestamp||'';daySet[ts.substring(0,10)]=1;}
+  var activeDays=Object.keys(daySet).length;
+
+  var devices=countField(rows,'Device');
+  var cities=countField(rows,'City');
+  var screens=countField(rows,'Screen');
+
+  for(var i=0;i<rows.length;i++){rows[i]._ref=rows[i].Referrer||'Direct';}
+  var referrers=countField(rows,'_ref');
+
+  for(var i=0;i<rows.length;i++){
+    var p=[];
+    if(rows[i].City)p.push(rows[i].City);
+    if(rows[i].Region)p.push(rows[i].Region);
+    if(rows[i].Country)p.push(rows[i].Country);
+    rows[i]._loc=p.join(', ')||'(unknown)';
+  }
+  var locations=countField(rows,'_loc');
+
+  var topDevice=devices[0]?devices[0].name:'\u2014';
+  var topCity=cities[0]?cities[0].name:'\u2014';
+
+  var html='';
+  html+='<div class="cards">';
+  html+='<div class="card"><div class="val">'+total+'</div><div class="lbl">Total Views</div></div>';
+  html+='<div class="card"><div class="val">'+activeDays+'</div><div class="lbl">Active Days</div></div>';
+  html+='<div class="card"><div class="val">'+esc(topDevice)+'</div><div class="lbl">Top Device</div></div>';
+  html+='<div class="card"><div class="val">'+esc(topCity)+'</div><div class="lbl">Top City</div></div>';
+  html+='</div>';
+
+  html+='<div class="panel"><h2>Views Over Time</h2>'+renderTimeline(rows)+'</div>';
+  html+='<div class="panel"><h2>Visitor Locations</h2>'+renderMap(rows)+'</div>';
+
+  html+='<div class="row2">';
+  html+='<div class="panel"><h2>Devices</h2>'+renderList(devices,8)+'</div>';
+  html+='<div class="panel"><h2>Locations</h2>'+renderList(locations,8)+'</div>';
+  html+='</div>';
+  html+='<div class="row2">';
+  html+='<div class="panel"><h2>Screen Sizes</h2>'+renderList(screens,8)+'</div>';
+  html+='<div class="panel"><h2>Referrers</h2>'+renderList(referrers,8)+'</div>';
+  html+='</div>';
+
+  html+='<div class="panel"><h2>Recent Visits</h2><table><tr><th>Time</th><th>Device</th><th>Screen</th><th>Location</th><th>Referrer</th></tr>';
+  var sorted=rows.slice().sort(function(a,b){return(b.Timestamp||'').localeCompare(a.Timestamp||'')});
+  for(var i=0;i<Math.min(sorted.length,20);i++){
+    var r=sorted[i];
+    var dt=new Date(r.Timestamp||'');
+    var mos=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var tStr=mos[dt.getMonth()]+' '+dt.getDate()+' '+dt.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
+    var loc=[];if(r.City)loc.push(r.City);if(r.Region)loc.push(r.Region);
+    html+='<tr><td><span>'+esc(tStr)+'</span></td><td>'+esc(r.Device||'-')+'</td><td>'+esc(r.Screen||'-')+'</td><td>'+esc(loc.join(', ')||'-')+'</td><td>'+esc(r.Referrer||'Direct')+'</td></tr>';
+  }
+  html+='</table></div>';
+
+  document.getElementById('content').innerHTML=html;
+}
 
 loadData();
 setInterval(loadData,60000);
