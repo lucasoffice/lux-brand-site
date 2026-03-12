@@ -49,9 +49,7 @@ td:first-child span{background:#f7f5f2;padding:3px 8px;font-size:12px;border-rad
 
 /* US Map */
 .map-container{position:relative;width:100%;max-width:760px;margin:0 auto}
-.map-container svg{width:100%;height:auto;display:block}
-.map-container svg path{fill:#eae6e1;stroke:#fff;stroke-width:1.2;transition:fill 0.2s}
-.map-container svg path.hit{fill:#1a1a1a}
+.map-container img.map-bg{width:100%;height:auto;display:block;opacity:0.85}
 .map-pin{position:absolute;transform:translate(-50%,-50%);z-index:2}
 .map-pin-dot{width:12px;height:12px;border-radius:50%;background:#b03030;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,0.3)}
 .map-pin-pulse{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:24px;height:24px;border-radius:50%;background:rgba(176,48,48,0.2);animation:pulse 2s infinite}
@@ -231,68 +229,8 @@ function renderMap(rows){
     locs[key].count+=1;
   }
 
-  /* Which states have hits */
-  var hitStates={};
-  for(var k in locs)hitStates[locs[k].region]=true;
-
   var h='<div class="map-container">';
-  /* Simplified US state rects as SVG */
-  h+='<svg viewBox="60 60 840 500" xmlns="http://www.w3.org/2000/svg">';
-  var states=[
-    ['Washington','M120,88 L198,88 L198,148 L120,148Z'],
-    ['Oregon','M98,148 L198,148 L198,218 L98,218Z'],
-    ['California','M78,218 L158,218 L158,418 L78,348Z'],
-    ['Nevada','M158,218 L218,218 L218,368 L158,368Z'],
-    ['Idaho','M198,128 L258,128 L258,248 L198,248Z'],
-    ['Montana','M238,98 L368,98 L368,178 L238,178Z'],
-    ['Wyoming','M268,178 L358,178 L358,258 L268,258Z'],
-    ['Utah','M218,258 L288,258 L288,368 L218,368Z'],
-    ['Colorado','M288,278 L388,278 L388,358 L288,358Z'],
-    ['Arizona','M198,368 L288,368 L288,458 L198,458Z'],
-    ['New Mexico','M268,368 L358,368 L358,458 L268,458Z'],
-    ['North Dakota','M368,118 L468,118 L468,188 L368,188Z'],
-    ['South Dakota','M368,188 L468,188 L468,248 L368,248Z'],
-    ['Nebraska','M378,248 L488,248 L488,308 L378,308Z'],
-    ['Kansas','M388,308 L498,308 L498,368 L388,368Z'],
-    ['Oklahoma','M388,368 L508,368 L508,418 L388,418Z'],
-    ['Texas','M348,418 L488,418 L488,538 L348,498Z'],
-    ['Minnesota','M458,118 L548,118 L548,218 L458,218Z'],
-    ['Iowa','M478,228 L568,228 L568,288 L478,288Z'],
-    ['Missouri','M498,288 L578,288 L578,378 L498,378Z'],
-    ['Arkansas','M508,378 L578,378 L578,438 L508,438Z'],
-    ['Louisiana','M508,438 L578,438 L578,508 L508,508Z'],
-    ['Wisconsin','M508,138 L588,138 L588,228 L508,228Z'],
-    ['Illinois','M548,238 L598,238 L598,348 L548,348Z'],
-    ['Michigan','M568,138 L648,138 L648,248 L568,248Z'],
-    ['Indiana','M598,248 L638,248 L638,338 L598,338Z'],
-    ['Ohio','M628,228 L698,228 L698,308 L628,308Z'],
-    ['Kentucky','M598,308 L698,308 L698,368 L598,368Z'],
-    ['Tennessee','M588,348 L698,348 L698,398 L588,398Z'],
-    ['Mississippi','M558,398 L608,398 L608,478 L558,478Z'],
-    ['Alabama','M608,388 L658,388 L658,478 L608,478Z'],
-    ['Georgia','M648,378 L718,378 L718,468 L648,468Z'],
-    ['Florida','M658,458 L758,458 L738,558 L678,518Z'],
-    ['South Carolina','M678,358 L748,358 L748,408 L678,408Z'],
-    ['North Carolina','M678,318 L788,318 L788,368 L678,368Z'],
-    ['Virginia','M688,278 L788,278 L788,328 L688,328Z'],
-    ['West Virginia','M678,268 L718,268 L718,318 L678,318Z'],
-    ['Pennsylvania','M718,208 L808,208 L808,258 L718,258Z'],
-    ['New York','M748,138 L848,138 L848,218 L748,218Z'],
-    ['Vermont','M818,108 L848,108 L848,168 L818,168Z'],
-    ['New Hampshire','M828,118 L858,118 L858,178 L828,178Z'],
-    ['Maine','M838,68 L888,68 L888,148 L838,148Z'],
-    ['Massachusetts','M818,183 L878,183 L878,208 L818,208Z'],
-    ['Connecticut','M813,208 L853,208 L853,228 L813,228Z'],
-    ['Rhode Island','M848,193 L868,193 L868,213 L848,213Z'],
-    ['New Jersey','M798,228 L828,228 L828,273 L798,273Z'],
-    ['Delaware','M793,258 L813,258 L813,288 L793,288Z'],
-    ['Maryland','M748,268 L798,268 L798,293 L748,293Z']
-  ];
-  for(var i=0;i<states.length;i++){
-    var cls=hitStates[states[i][0]]?'hit':'';
-    h+='<path d="'+states[i][1]+'" class="'+cls+'"><title>'+states[i][0]+'</title></path>';
-  }
-  h+='</svg>';
+  h+='<img class="map-bg" src="map.png" alt="United States">';
 
   /* Place pins for each city */
   var locArr=[];
@@ -304,7 +242,7 @@ function renderMap(rows){
     var ck=loc.city+','+loc.region;
     var coords=CITY_XY[ck]||STATE_XY[loc.region];
     if(!coords)continue;
-    /* Map 960x600 to the viewBox 60,60,840,500 → percentage of container */
+    /* Map 960x600 coords to percentage positions on map image */
     var xPct=((coords[0]-60)/840)*100;
     var yPct=((coords[1]-60)/500)*100;
     var dotSize=Math.min(10+loc.count*2,22);
