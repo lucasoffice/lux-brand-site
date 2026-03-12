@@ -327,5 +327,21 @@ document.querySelectorAll('.understand-card,.team-member,.check-item,.diff-item,
 
 
 </script>
+
+<script>
+window.addEventListener('load',function(){
+  var imgs=document.querySelectorAll('.photo-row img');
+  [0,1].forEach(function(i){
+    var img=imgs[i];if(!img)return;
+    var c=document.createElement('canvas');
+    c.width=img.naturalHeight;c.height=img.naturalWidth;
+    var ctx=c.getContext('2d');
+    ctx.translate(c.width/2,c.height/2);
+    ctx.rotate(Math.PI/2);
+    ctx.drawImage(img,-img.naturalWidth/2,-img.naturalHeight/2);
+    img.src=c.toDataURL('image/jpeg',0.92);
+  });
+});
+</script>
 </body>
 </html>
