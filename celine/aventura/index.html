@@ -55,7 +55,7 @@ section{padding:7rem 0;max-width:1100px;margin:0 auto}
 .understand-card h3{font-family:var(--sans);font-weight:400;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem}
 .understand-card p{font-size:0.82rem;color:var(--mid);font-weight:300;line-height:1.7}
 
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3rem;border-top:1px solid rgba(0,0,0,0.08);border-left:1px solid rgba(0,0,0,0.08)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3rem;border-top:1px solid rgba(0,0,0,0.08);border-left:1px solid rgba(0,0,0,0.08)}.team-grid-row2{display:grid;grid-template-columns:repeat(2,1fr);gap:0;max-width:733px;border-left:1px solid rgba(0,0,0,0.08)}
 .team-member{padding:2.5rem;border-right:1px solid rgba(0,0,0,0.08);border-bottom:1px solid rgba(0,0,0,0.08)}
 .team-member .initials{width:48px;height:48px;border:1px solid var(--black);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-style:italic;font-size:0.9rem;margin-bottom:1.25rem}
 .team-member h3{font-family:var(--sans);font-weight:400;font-size:0.85rem;margin-bottom:0.25rem}
@@ -106,7 +106,7 @@ footer a{color:var(--mid);text-decoration:none}
 @media(max-width:900px){
   .understand-grid,.diff-item{grid-template-columns:1fr}
   .understand-card{border-right:none!important}
-  .photo-row,.team-grid{grid-template-columns:1fr}
+  .photo-row,.team-grid,.team-grid-row2{grid-template-columns:1fr}
   nav ul{display:none}
   .section-inner,.pricing-inner{padding:0 1.5rem}
   .pricing-row.pr-gc{margin:0}
@@ -186,7 +186,7 @@ footer a{color:var(--mid);text-decoration:none}
     <p class="section-label">Your Project Team</p>
     <div class="section-num">02</div>
     <h2 class="section-title">The people behind<br>the promise.</h2>
-    <div class="section-body"><p>This project will be led by our most senior project manager and most experienced superintendent. These are the people who will be on your calls, in your inbox, and on your job site.</p></div>
+    <div class="section-body"><p>This project will be staffed with our most senior leadership, our most experienced field superintendent, and dedicated coordination support. These are the people who will be on your calls, in your inbox, and on your job site.</p></div>
     <div class="team-grid">
       <div class="team-member">
         <div class="initials">LS</div>
@@ -201,10 +201,24 @@ footer a{color:var(--mid);text-decoration:none}
         <p>Background in interior design, millwork, and custom furniture. Runs the bid, manages sub relationships, and coordinates between your team, the architect, and all trade partners. Identified the miter fold detail on the storefront cladding from his woodworking background.</p>
       </div>
       <div class="team-member">
+        <div class="initials">RC</div>
+        <h3>Robert Colvin</h3>
+        <p class="role">Site Superintendent</p>
+        <p>50 years in the construction industry. Has recently completed multiple projects at Aventura Mall and throughout the Miami market, bringing established relationships with local subcontractors and firsthand knowledge of the facility, its access requirements, and the Turnberry team. Our most seasoned veteran in the field.</p>
+      </div>
+    </div>
+    <div class="team-grid-row2">
+      <div class="team-member">
         <div class="initials">SR</div>
         <h3>Shawn Rasmusen</h3>
         <p class="role">Operations Manager</p>
         <p>Leads operations and landlord coordination. Already established working relationships with Erin Thomas and the Turnberry team at Aventura Mall, resolving barricade logistics and tenant coordination ahead of project start.</p>
+      </div>
+      <div class="team-member">
+        <div class="initials">KA</div>
+        <h3>Krystal Avila</h3>
+        <p class="role">Project Coordinator</p>
+        <p>Manages submittals, RFIs, procurement tracking, and documentation flow across all active projects. Ensures nothing falls through the cracks between the field, the office, and your team. The operational backbone that keeps deliverables on schedule and communication organized.</p>
       </div>
     </div>
   </div>
