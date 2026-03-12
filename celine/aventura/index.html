@@ -387,17 +387,18 @@ window.addEventListener('load',function(){
 <script>
 (function(){
   try{
-    var d=navigator.userAgent,dev=/Mobile|Android|iPhone/i.test(d)?'Mobile':'Desktop';
+    var ua=navigator.userAgent,dev=/Mobile|Android|iPhone/i.test(ua)?'Mobile':'Desktop';
     var scr=screen.width+'x'+screen.height;
     var lang=navigator.language||'';
     var ref=document.referrer||'';
     var pg=location.href;
+    var endpoint='https://script.google.com/macros/s/AKfycbxlnVFuRC1RpcpZoSipE2Xg1_HppezbkOUdb_02Nb4QSILnFPG9Q_PvJ_M4dBfThnm_/exec';
     fetch('https://ipapi.co/json/').then(function(r){return r.json()}).then(function(g){
       var payload={device:dev,screen:scr,language:lang,referrer:ref,page:pg,city:g.city||'',region:g.region||'',country:g.country_name||''};
-      fetch('https://script.google.com/macros/s/AKfycbxlnVFuRC1RpcpZoSipE2Xg1_HppezbkOUdb_02Nb4QSILnFPG9Q_PvJ_M4dBfThnm_/exec',{method:'POST',mode:'no-cors',body:JSON.stringify(payload)});
+      return fetch(endpoint,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)});
     }).catch(function(){
       var payload={device:dev,screen:scr,language:lang,referrer:ref,page:pg,city:'',region:'',country:''};
-      fetch('https://script.google.com/macros/s/AKfycbxlnVFuRC1RpcpZoSipE2Xg1_HppezbkOUdb_02Nb4QSILnFPG9Q_PvJ_M4dBfThnm_/exec',{method:'POST',mode:'no-cors',body:JSON.stringify(payload)});
+      fetch(endpoint,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)});
     });
   }catch(e){}
 })();
