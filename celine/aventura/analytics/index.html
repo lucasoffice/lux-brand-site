@@ -75,42 +75,42 @@ td:first-child span{background:#f7f5f2;padding:3px 8px;font-size:12px;border-rad
 <script>
 var API='https://script.google.com/macros/s/AKfycbxlnVFuRC1RpcpZoSipE2Xg1_HppezbkOUdb_02Nb4QSILnFPG9Q_PvJ_M4dBfThnm_/exec';
 
-/* Approximate city coords on 960x600 US map */
+/* City coords as direct [x%, y%] on map image */
 var CITY_XY={
-'Fort Myers,Florida':[696,512],'Miami,Florida':[738,530],'Orlando,Florida':[718,478],
-'Tampa,Florida':[688,488],'Jacksonville,Florida':[700,445],'Aventura,Florida':[735,525],
-'New York,New York':[808,218],'Los Angeles,California':[112,368],
-'Chicago,Illinois':[568,258],'Houston,Texas':[452,478],'Dallas,Texas':[432,428],
-'San Francisco,California':[88,308],'Seattle,Washington':[148,138],
-'Boston,Massachusetts':[838,195],'Atlanta,Georgia':[668,415],
-'Denver,Colorado':[328,308],'Phoenix,Arizona':[242,405],'Portland,Oregon':[138,185],
-'Austin,Texas':[428,465],'Nashville,Tennessee':[618,370],
-'Charlotte,North Carolina':[718,368],'San Diego,California':[148,408],
-'Philadelphia,Pennsylvania':[798,248],'Washington,District of Columbia':[778,288],
-'Minneapolis,Minnesota':[492,195],'Detroit,Michigan':[618,235],
-'Las Vegas,Nevada':[192,348],'Salt Lake City,Utah':[258,298],
-'Raleigh,North Carolina':[738,348],'Pittsburgh,Pennsylvania':[728,255],
-'Columbus,Ohio':[658,285],'Indianapolis,Indiana':[612,295],
-'Kansas City,Missouri':[488,328],'St. Louis,Missouri':[548,328],
-'New Orleans,Louisiana':[548,478],'Milwaukee,Wisconsin':[548,218],
-'Cape Coral,Florida':[702,510],'Naples,Florida':[710,518]
+'Fort Myers,Florida':[76,79],'Miami,Florida':[79,83],'Orlando,Florida':[77,74],
+'Tampa,Florida':[74,74],'Jacksonville,Florida':[76,66],'Aventura,Florida':[79,82],
+'New York,New York':[90,27],'Los Angeles,California':[8,55],
+'Chicago,Illinois':[61,30],'Houston,Texas':[45,75],'Dallas,Texas':[43,64],
+'San Francisco,California':[4,42],'Seattle,Washington':[12,8],
+'Boston,Massachusetts':[93,22],'Atlanta,Georgia':[71,58],
+'Denver,Colorado':[31,40],'Phoenix,Arizona':[21,60],'Portland,Oregon':[10,15],
+'Austin,Texas':[42,70],'Nashville,Tennessee':[65,50],
+'Charlotte,North Carolina':[78,48],'San Diego,California':[10,60],
+'Philadelphia,Pennsylvania':[88,31],'Washington,District of Columbia':[86,36],
+'Minneapolis,Minnesota':[51,19],'Detroit,Michigan':[67,26],
+'Las Vegas,Nevada':[16,48],'Salt Lake City,Utah':[23,36],
+'Raleigh,North Carolina':[81,46],'Pittsburgh,Pennsylvania':[80,31],
+'Columbus,Ohio':[72,34],'Indianapolis,Indiana':[66,36],
+'Kansas City,Missouri':[49,42],'St. Louis,Missouri':[57,42],
+'New Orleans,Louisiana':[57,74],'Milwaukee,Wisconsin':[59,24],
+'Cape Coral,Florida':[76,79],'Naples,Florida':[76,80]
 };
 
-/* State center coords for fallback */
+/* State center coords as [x%, y%] for fallback */
 var STATE_XY={
-'Alabama':[638,432],'Alaska':[160,535],'Arizona':[242,398],'Arkansas':[538,405],
-'California':[118,345],'Colorado':[325,318],'Connecticut':[828,215],'Delaware':[800,272],
-'Florida':[708,495],'Georgia':[672,425],'Hawaii':[275,535],'Idaho':[218,218],
-'Illinois':[568,298],'Indiana':[612,292],'Iowa':[518,262],'Kansas':[438,335],
-'Kentucky':[642,338],'Louisiana':[538,468],'Maine':[858,128],'Maryland':[788,282],
-'Massachusetts':[842,198],'Michigan':[598,222],'Minnesota':[488,192],'Mississippi':[578,442],
-'Missouri':[528,345],'Montana':[288,168],'Nebraska':[418,278],'Nevada':[178,305],
-'New Hampshire':[838,168],'New Jersey':[808,258],'New Mexico':[298,402],'New York':[798,192],
-'North Carolina':[728,358],'North Dakota':[408,168],'Ohio':[652,278],'Oklahoma':[438,382],
-'Oregon':[142,192],'Pennsylvania':[768,242],'Rhode Island':[848,208],'South Carolina':[708,398],
-'South Dakota':[408,218],'Tennessee':[628,372],'Texas':[398,455],'Utah':[248,312],
-'Vermont':[828,158],'Virginia':[738,312],'Washington':[148,142],'West Virginia':[698,302],
-'Wisconsin':[538,202],'Wyoming':[308,238],'District of Columbia':[782,288]
+'Alabama':[67,64],'Alaska':[14,88],'Arizona':[21,58],'Arkansas':[55,60],
+'California':[8,48],'Colorado':[31,40],'Connecticut':[92,26],'Delaware':[89,34],
+'Florida':[77,76],'Georgia':[73,60],'Hawaii':[28,88],'Idaho':[19,22],
+'Illinois':[61,34],'Indiana':[66,35],'Iowa':[54,30],'Kansas':[44,44],
+'Kentucky':[70,44],'Louisiana':[56,72],'Maine':[95,10],'Maryland':[86,36],
+'Massachusetts':[93,24],'Michigan':[65,22],'Minnesota':[51,18],'Mississippi':[60,64],
+'Missouri':[55,46],'Montana':[27,12],'Nebraska':[42,34],'Nevada':[14,42],
+'New Hampshire':[93,16],'New Jersey':[89,32],'New Mexico':[28,58],'New York':[88,22],
+'North Carolina':[80,48],'North Dakota':[42,14],'Ohio':[72,33],'Oklahoma':[44,56],
+'Oregon':[10,16],'Pennsylvania':[84,30],'Rhode Island':[94,26],'South Carolina':[77,55],
+'South Dakota':[42,22],'Tennessee':[67,50],'Texas':[40,68],'Utah':[22,40],
+'Vermont':[92,14],'Virginia':[82,42],'Washington':[12,10],'West Virginia':[78,38],
+'Wisconsin':[58,20],'Wyoming':[30,24],'District of Columbia':[86,36]
 };
 
 var _jsonpCounter=0;
@@ -242,9 +242,9 @@ function renderMap(rows){
     var ck=loc.city+','+loc.region;
     var coords=CITY_XY[ck]||STATE_XY[loc.region];
     if(!coords)continue;
-    /* Map 960x600 coords to percentage positions on map image */
-    var xPct=((coords[0]-60)/840)*100;
-    var yPct=((coords[1]-60)/500)*100;
+    /* Coords are already direct percentages on the map image */
+    var xPct=coords[0];
+    var yPct=coords[1];
     var dotSize=Math.min(10+loc.count*2,22);
     h+='<div class="map-pin" style="left:'+xPct+'%;top:'+yPct+'%">';
     h+='<div class="map-pin-pulse"></div>';
