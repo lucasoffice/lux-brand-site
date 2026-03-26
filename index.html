@@ -610,6 +610,78 @@
     .fade-up { animation: fadeUp .9s ease both; }
     .fade-up-2 { animation: fadeUp .9s .18s ease both; }
     .fade-up-3 { animation: fadeUp .9s .34s ease both; }
+    .fade-up-4 { animation: fadeUp .9s .50s ease both; }
+
+    /* ── HERO VALUE PROP ── */
+    .hero-value {
+      font-family: var(--body-font);
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      opacity: .45;
+      margin-top: 1.4rem;
+      line-height: 1.6;
+    }
+    @media (min-width: 768px) {
+      .hero-value {
+        font-size: 15px;
+        letter-spacing: 0.10em;
+      }
+    }
+
+    /* ── SCROLL INDICATOR ── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 48px;
+      right: 60px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeUp .9s .8s ease both;
+      transition: opacity 0.4s ease;
+    }
+    .scroll-hint.hidden { opacity: 0 !important; pointer-events: none; }
+    .scroll-hint-text {
+      font-family: var(--tab-font);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: .4;
+      font-weight: 400;
+    }
+    .scroll-hint-arrow {
+      width: 32px;
+      height: 1px;
+      background: var(--ink);
+      opacity: .3;
+      position: relative;
+      animation: nudgeRight 2.5s 1.5s ease infinite;
+    }
+    .scroll-hint-arrow::after {
+      content: '';
+      position: absolute;
+      right: 0; top: -4px;
+      width: 8px; height: 8px;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      transform: rotate(-45deg);
+      opacity: .5;
+    }
+    @keyframes nudgeRight {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(6px); }
+    }
+    @media (max-width: 767px) {
+      .scroll-hint {
+        bottom: 32px;
+        right: 50%;
+        transform: translateX(50%);
+      }
+    }
 
     /* page-turn shimmer on tab hover */
     .tab { will-change: transform; }
@@ -643,6 +715,12 @@
       </a>
 
       <p class="hero-tagline fade-up-2">LUXURY RETAIL CONSTRUCTION</p>
+      <p class="hero-value fade-up-4">25 years building for the world’s most demanding brands</p>
+    </div>
+    <!-- Scroll indicator — hidden once user scrolls past hero -->
+    <div class="scroll-hint" id="scrollHint" onclick="navigateTo(1)">
+      <span class="scroll-hint-text">Explore</span>
+      <div class="scroll-hint-arrow"></div>
     </div>
   </section>
 
@@ -1228,6 +1306,15 @@
           if (idx !== active) {
             active = idx;
             buildTabs();
+          }
+        }
+        /* Hide scroll hint once user scrolls past hero */
+        var hint = document.getElementById('scrollHint');
+        if (hint) {
+          if (scroll.scrollLeft > window.innerWidth * 0.15) {
+            hint.classList.add('hidden');
+          } else {
+            hint.classList.remove('hidden');
           }
         }
       });
