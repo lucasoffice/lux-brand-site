@@ -98,6 +98,64 @@
       overflow: visible;
     }
 
+    /* ── AGED TAB SYSTEM — each tab gets unique wear ── */
+    .tab.aged-0 {
+      background: linear-gradient(175deg, #e8e2d4 0%, #ede9df 40%, #e5dfd2 100%);
+    }
+    .tab.aged-1 {
+      background: linear-gradient(172deg, #eae4d6 0%, #e6e0d2 50%, #ddd7c9 100%);
+      width: 31px;
+    }
+    .tab.aged-2 {
+      background: linear-gradient(178deg, #e3ddd0 0%, #ebe5d8 60%, #e0dacb 100%);
+    }
+    .tab.aged-3 {
+      background: linear-gradient(170deg, #e7e1d3 0%, #ede7da 45%, #e2dccf 100%);
+      width: 29px;
+    }
+    .tab.aged-4 {
+      background: linear-gradient(176deg, #e5dfd1 0%, #e9e3d5 55%, #dfd9cb 100%);
+    }
+    .tab.aged-5 {
+      background: linear-gradient(174deg, #e4ded0 0%, #ebe5d7 40%, #e1dace 100%);
+      width: 31px;
+    }
+
+    /* Stain overlays — coffee rings, smudges from the job site */
+    .tab .tab-stain {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+    }
+    .tab.aged-1 .tab-stain {
+      width: 18px; height: 18px;
+      top: 25%; left: 3px;
+      background: radial-gradient(ellipse, rgba(139,109,71,0.10) 0%, transparent 70%);
+      opacity: 1;
+    }
+    .tab.aged-2 .tab-stain {
+      width: 22px; height: 14px;
+      bottom: 20%; left: 2px;
+      background: radial-gradient(ellipse, rgba(120,95,60,0.12) 0%, transparent 65%);
+      opacity: 1;
+    }
+    .tab.aged-5 .tab-stain {
+      width: 16px; height: 16px;
+      top: 60%; left: 5px;
+      background: radial-gradient(ellipse, rgba(130,100,65,0.11) 0%, transparent 60%);
+      opacity: 1;
+    }
+
+    /* The WORK tab (most referenced) gets heaviest wear */
+    .tab.most-used {
+      background: linear-gradient(175deg, #ddd7c8 0%, #e3ddd0 40%, #d9d3c5 100%) !important;
+    }
+    .tab.most-used span {
+      opacity: .6 !important;
+    }
+
     .tab-right {
       right: 0;
       border-left: 1px solid #c8c2b2;
@@ -238,6 +296,9 @@
       position: relative; z-index: 3;
     }
     .tab.active span { opacity: 1; }
+    /* Worn labels — some faded from handling */
+    .tab.aged-2 span { opacity: .4; letter-spacing: 0.14em; }
+    .tab.aged-4 span { opacity: .45; }
 
     /* page-turn styles now inline on DOM element */
 
@@ -294,24 +355,39 @@
       height: auto; display: block; margin: 0 auto 2rem;
       transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.5s;
       cursor: pointer;
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.20))
+              drop-shadow(0 3px 8px rgba(0,0,0,0.14));
     }
     .lbc-logo:hover {
       transform: scale(1.12);
-      filter: drop-shadow(0 6px 20px rgba(0,0,0,0.15));
+      filter: drop-shadow(0 16px 40px rgba(0,0,0,0.25))
+              drop-shadow(0 5px 12px rgba(0,0,0,0.18));
     }
 
     .hero-tagline {
       font-family: var(--tab-font);
       font-size: 14px;
-      font-weight: 300;
-      letter-spacing: 0.25em; color: var(--ink);
-      opacity: .7;
+      font-weight: 500;
+      letter-spacing: 0.35em; color: var(--ink);
+      opacity: 1;
+      text-shadow:
+        0 2px 3px rgba(0,0,0,0.08),
+        0 -1px 0 rgba(255,255,255,0.7);
+    }
+    .hero-tagline::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: var(--red);
+      margin: 1.2rem auto 0;
+      opacity: 0.5;
     }
     @media (min-width: 768px) {
       .hero-tagline {
         font-size: 22px;
-        font-weight: 300;
-        letter-spacing: 0.3em;
+        font-weight: 500;
+        letter-spacing: 0.35em;
       }
     }
 
@@ -619,9 +695,12 @@
       font-weight: 300;
       letter-spacing: 0.08em;
       color: var(--ink);
-      opacity: .45;
+      opacity: .55;
       margin-top: 1.4rem;
       line-height: 1.6;
+      text-shadow:
+        0 1px 2px rgba(0,0,0,0.06),
+        0 -1px 0 rgba(255,255,255,0.5);
     }
     @media (min-width: 768px) {
       .hero-value {
@@ -996,9 +1075,9 @@
         wR.style.cssText = 'position:absolute;top:' + (i*pct) + '%;height:' + pct + '%;right:0;width:32px;pointer-events:all;';
 
         var bR = document.createElement('button');
-        bR.className = 'tab tab-right' + (i === active ? ' active' : '');
+        bR.className = 'tab tab-right aged-' + i + (i === active ? ' active' : '') + (i === 2 ? ' most-used' : '');
         bR.style.cssText = 'position:absolute;top:0;bottom:0;right:0;width:32px;';
-        bR.innerHTML = '<span>' + label + '</span>';
+        bR.innerHTML = '<span>' + label + '</span><div class="tab-stain"></div>';
 
         (function(idx) {
           bR.addEventListener('click', function() {
@@ -1020,9 +1099,9 @@
         wL.style.cssText = 'position:absolute;top:' + (i*pct) + '%;height:' + pct + '%;left:0;width:32px;pointer-events:all;';
 
         var bL = document.createElement('button');
-        bL.className = 'tab tab-left';
+        bL.className = 'tab tab-left aged-' + i + (i === 2 ? ' most-used' : '');
         bL.style.cssText = 'position:absolute;top:0;bottom:0;left:0;width:32px;';
-        bL.innerHTML = '<span>' + label + '</span>';
+        bL.innerHTML = '<span>' + label + '</span><div class="tab-stain"></div>';
 
         (function(idx) {
           bL.addEventListener('click', function() {
