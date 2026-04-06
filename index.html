@@ -794,7 +794,7 @@
   </style>
 </head>
 <body>
-<nav id="top-nav"><div class="nav-inner"><a class="nav-link active" data-idx="0">HOME</a><a class="nav-link" data-idx="1">WHO</a><a class="nav-link" data-idx="2">WORK</a><a class="nav-link" data-idx="3">APPROACH</a><a class="nav-link" data-idx="4">LEGACY</a><a class="nav-link" data-idx="5">CONTACT</a></div></nav>
+<nav id="top-nav"><div class="nav-inner"><a class="nav-link active" data-idx="0" onclick="navClick(0)">HOME</a><a class="nav-link" data-idx="1" onclick="navClick(1)">WHO</a><a class="nav-link" data-idx="2" onclick="navClick(2)">WORK</a><a class="nav-link" data-idx="3" onclick="navClick(3)">APPROACH</a><a class="nav-link" data-idx="4" onclick="navClick(4)">LEGACY</a><a class="nav-link" data-idx="5" onclick="navClick(5)">CONTACT</a></div></nav><script>function navClick(i){navigateTo(i);var ls=document.querySelectorAll(".nav-link");for(var j=0;j<ls.length;j++)ls[j].classList.remove("active");ls[i].classList.add("active");}</script>
 
 <!-- MOBILE NAV -->
 <nav id="mobile-nav">
@@ -1325,20 +1325,7 @@
     }
     active = i;
     buildTabs();
-(function wireTopNav(){
-  var nav=document.getElementById("top-nav");
-  if(!nav)return;
-  var navLinks=nav.querySelectorAll(".nav-link");
-  navLinks.forEach(function(link){
-    link.addEventListener("click",function(e){
-      e.preventDefault();
-      var idx=parseInt(link.getAttribute("data-idx"));
-      navigateTo(idx);
-      navLinks.forEach(function(l){l.classList.remove("active");});
-      link.classList.add("active");
-    });
-  });
-})();
+/* nav wiring via inline onclick */
     var mBtns = document.querySelectorAll('.m-nav-btn');
     for (var b = 0; b < mBtns.length; b++) {
       mBtns[b].classList.toggle('active', b === i);
