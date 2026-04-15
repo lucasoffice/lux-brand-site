@@ -895,7 +895,9 @@ document.querySelectorAll('.sidebar nav a').forEach(a=>{
           country: j.country_name || null,
           region: j.region || null,
           city: j.city || null,
-          ip_asn: j.org || j.asn || null
+          ip_asn: j.org || j.asn || null,
+          lat: (typeof j.latitude === 'number') ? j.latitude : null,
+          lng: (typeof j.longitude === 'number') ? j.longitude : null
         };
       }
     } catch (e) {}
