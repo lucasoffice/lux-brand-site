@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAG Heuer Springfield · Analytics</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#0f1115;color:#e5e7eb;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;min-height:100vh}
+a{color:#34d399;text-decoration:none}
+
+.wrap{max-width:1200px;margin:0 auto;padding:40px 28px}
+.hdr{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1f2937;padding-bottom:22px;margin-bottom:32px;flex-wrap:wrap;gap:12px}
+.hdr h1{font-size:22px;font-weight:900;letter-spacing:1px;color:#fff}
+.hdr h1 span{color:#10b981}
+.hdr .sub{font-size:11px;font-weight:700;letter-spacing:2px;color:#6b7280;text-transform:uppercase}
+.hdr .refresh{background:transparent;border:1px solid #1f2937;color:#9ca3af;padding:8px 16px;font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:inherit}
+.hdr .refresh:hover{border-color:#10b981;color:#10b981}
+
+/* PIN GATE */
+.gate{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:70vh;gap:18px}
+.gate h2{font-size:14px;letter-spacing:3px;color:#6b7280;font-weight:700;text-transform:uppercase}
+.gate input{background:#111827;border:1px solid #1f2937;color:#fff;padding:16px 20px;font-size:24px;font-family:ui-monospace,monospace;letter-spacing:8px;text-align:center;outline:none;border-radius:6px;width:220px}
+.gate input:focus{border-color:#10b981}
+.gate button{background:#10b981;color:#0f1115;border:none;padding:12px 26px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:inherit}
+.gate .err{color:#ef4444;font-size:12px;letter-spacing:.5px;min-height:18px}
+
+/* STATS GRID */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:32px}
+.kpi{background:#111827;border:1px solid #1f2937;padding:22px 20px;border-radius:6px}
+.kpi .k-l{font-size:10px;font-weight:700;letter-spacing:2px;color:#6b7280;text-transform:uppercase;margin-bottom:8px}
+.kpi .k-v{font-size:30px;font-weight:900;color:#fff;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.kpi .k-s{font-size:11px;color:#9ca3af;margin-top:6px}
+.kpi.accent .k-v{color:#10b981}
+.kpi.red .k-v{color:#ef4444}
+
+/* PANEL */
+.panel{background:#111827;border:1px solid #1f2937;border-radius:6px;margin-bottom:24px}
+.panel-h{padding:18px 22px;border-bottom:1px solid #1f2937;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px}
+.panel-h h3{font-size:11px;font-weight:800;letter-spacing:2.5px;color:#fff;text-transform:uppercase}
+.panel-h .ph-sub{font-size:11px;color:#6b7280}
+.panel-b{padding:16px 22px;overflow-x:auto}
+
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #1f2937;white-space:nowrap}
+th{font-size:9.5px;font-weight:800;letter-spacing:2px;color:#6b7280;text-transform:uppercase;background:#0f1115;position:sticky;top:0}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+tr:hover{background:#0f1115}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.dot.g{background:#10b981} .dot.y{background:#f59e0b} .dot.r{background:#ef4444}
+
+.bar{display:inline-block;background:#10b981;height:8px;vertical-align:middle;border-radius:2px;margin-right:8px}
+
+.chip{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:1.5px;padding:3px 7px;background:#1f2937;color:#9ca3af;text-transform:uppercase;border-radius:3px;margin-right:6px}
+.chip.pdf{background:#7f1d1d;color:#fecaca}
+.chip.cmt{background:#064e3b;color:#a7f3d0}
+.chip.scroll{background:#1e3a8a;color:#bfdbfe}
+
+.empty{padding:40px;text-align:center;color:#6b7280;font-style:italic;font-size:13px}
+</style></head>
+<body>
+
+<!-- PIN GATE -->
+<div id="gate" class="gate">
+  <h2>TAG Heuer Springfield · Analytics</h2>
+  <input id="pin" type="password" inputmode="numeric" maxlength="4" placeholder="••••" autofocus>
+  <button id="pinBtn">Unlock</button>
+  <div id="pinErr" class="err"></div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dash" class="wrap" style="display:none">
+  <div class="hdr">
+    <div>
+      <h1>TAG Heuer <span>·</span> Springfield <span>·</span> Analytics</h1>
+      <div class="sub" id="rangeLbl">Last 30 days</div>
+    </div>
+    <button class="refresh" id="refreshBtn">↻ Refresh</button>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="panel">
+    <div class="panel-h"><h3>Recent Visits</h3><span class="ph-sub" id="rvSub"></span></div>
+    <div class="panel-b" id="visitsBody"></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-h"><h3>Section Engagement</h3><span class="ph-sub">Which sections visitors actually read</span></div>
+    <div class="panel-b" id="sectionsBody"></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-h"><h3>Top Referrers &amp; UTM Sources</h3></div>
+    <div class="panel-b" id="referrersBody"></div>
+  </div>
+</div>
+
+<script>
+const SUPA_URL = 'https://snnjgkpetxfdomizomkm.supabase.co';
+const SUPA_KEY = 'sb_publishable_zclWHubeOPTuxXOooxGswA_dJOSVlMV';
+
+let PIN = null;
+
+const pinInput = document.getElementById('pin');
+const pinBtn = document.getElementById('pinBtn');
+const pinErr = document.getElementById('pinErr');
+
+const tryUnlock = async () => {
+  pinErr.textContent = '';
+  const val = pinInput.value.trim();
+  if (!/^\d{4}$/.test(val)) { pinErr.textContent = 'Enter the 4-digit PIN.'; return; }
+  const r = await fetch(`${SUPA_URL}/rest/v1/rpc/get_springfield_analytics`, {
+    method: 'POST',
+    headers: { apikey: SUPA_KEY, Authorization: 'Bearer ' + SUPA_KEY, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ p: val })
+  });
+  if (!r.ok) {
+    const t = await r.text();
+    pinErr.textContent = r.status === 400 || r.status === 401 || r.status === 403 ? 'Incorrect PIN.' : ('Error: ' + t.substring(0,100));
+    return;
+  }
+  PIN = val;
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('dash').style.display = 'block';
+  const payload = await r.json();
+  render(payload);
+};
+
+pinBtn.addEventListener('click', tryUnlock);
+pinInput.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+
+document.getElementById('refreshBtn').addEventListener('click', async () => {
+  const r = await fetch(`${SUPA_URL}/rest/v1/rpc/get_springfield_analytics`, {
+    method: 'POST',
+    headers: { apikey: SUPA_KEY, Authorization: 'Bearer ' + SUPA_KEY, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ p: PIN })
+  });
+  if (r.ok) render(await r.json());
+});
+
+const esc = s => (s==null?'':String(s)).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtT = iso => { try { return new Date(iso).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}); } catch { return iso; } };
+const fmtDur = sec => {
+  if (!sec || sec < 1) return '—';
+  if (sec < 60) return sec + 's';
+  const m = Math.floor(sec/60), s = sec % 60;
+  return m + 'm ' + s + 's';
+};
+
+const render = (data) => {
+  // Data shape from the RPC:
+  // { kpis: {...}, visits: [...], sections: [...], referrers: [...] }
+  const k = data.kpis || {};
+  document.getElementById('kpis').innerHTML = `
+    <div class="kpi"><div class="k-l">Total Pageviews</div><div class="k-v">${k.pageviews||0}</div><div class="k-s">in the last 30 days</div></div>
+    <div class="kpi accent"><div class="k-l">Unique Visitors</div><div class="k-v">${k.unique_visitors||0}</div><div class="k-s">distinct devices</div></div>
+    <div class="kpi"><div class="k-l">Sessions</div><div class="k-v">${k.sessions||0}</div><div class="k-s">distinct visits</div></div>
+    <div class="kpi"><div class="k-l">Avg. Time on Page</div><div class="k-v">${fmtDur(k.avg_seconds||0)}</div><div class="k-s">heartbeat-based</div></div>
+    <div class="kpi red"><div class="k-l">PDF Downloads</div><div class="k-v">${k.pdf_downloads||0}</div><div class="k-s">cost summary opened</div></div>
+    <div class="kpi accent"><div class="k-l">Comments Posted</div><div class="k-v">${k.comments_posted||0}</div><div class="k-s">collaboration log</div></div>
+  `;
+
+  // Recent visits
+  const visits = data.visits || [];
+  document.getElementById('rvSub').textContent = visits.length + ' recent sessions';
+  if (!visits.length) {
+    document.getElementById('visitsBody').innerHTML = '<div class="empty">No visits yet.</div>';
+  } else {
+    let html = '<table><thead><tr><th>When</th><th>Who (Geo · ISP)</th><th>Device</th><th class="num">Time</th><th class="num">Scroll</th><th>Events</th><th>Source</th></tr></thead><tbody>';
+    visits.forEach(v => {
+      const geo = [v.city, v.region, v.country].filter(Boolean).join(', ');
+      const isp = v.ip_asn ? ` · <span style="color:#9ca3af">${esc(v.ip_asn)}</span>` : '';
+      const engagement = v.pdf_downloaded || v.commented;
+      const chips = [
+        v.scroll_pct != null ? `<span class="chip scroll">${v.scroll_pct}%</span>` : '',
+        v.pdf_downloaded ? `<span class="chip pdf">PDF</span>` : '',
+        v.commented ? `<span class="chip cmt">POST</span>` : ''
+      ].join('');
+      const dot = engagement ? 'g' : (v.seconds > 30 ? 'y' : 'r');
+      const src = v.utm_source ? `<span class="chip">${esc(v.utm_source)}</span>` : (v.referrer ? esc(new URL(v.referrer).hostname) : 'direct');
+      html += `<tr>
+        <td>${fmtT(v.last_seen)}</td>
+        <td><span class="dot ${dot}"></span>${esc(geo||'—')}${isp}</td>
+        <td>${esc(v.device||'—')}</td>
+        <td class="num">${fmtDur(v.seconds)}</td>
+        <td class="num">${v.scroll_pct != null ? v.scroll_pct+'%' : '—'}</td>
+        <td>${chips||'—'}</td>
+        <td>${src}</td>
+      </tr>`;
+    });
+    html += '</tbody></table>';
+    document.getElementById('visitsBody').innerHTML = html;
+  }
+
+  // Section engagement
+  const sections = data.sections || [];
+  if (!sections.length) {
+    document.getElementById('sectionsBody').innerHTML = '<div class="empty">No section data yet.</div>';
+  } else {
+    const max = Math.max(...sections.map(s => s.viewers)) || 1;
+    let html = '<table><thead><tr><th>Section</th><th>Unique Viewers</th><th>% of Visitors</th></tr></thead><tbody>';
+    sections.forEach(s => {
+      const barW = Math.round((s.viewers / max) * 240);
+      html += `<tr>
+        <td style="text-transform:uppercase;letter-spacing:1.5px;font-weight:700">${esc(s.section)}</td>
+        <td><span class="bar" style="width:${barW}px"></span>${s.viewers}</td>
+        <td class="num">${s.pct}%</td>
+      </tr>`;
+    });
+    html += '</tbody></table>';
+    document.getElementById('sectionsBody').innerHTML = html;
+  }
+
+  // Referrers
+  const refs = data.referrers || [];
+  if (!refs.length) {
+    document.getElementById('referrersBody').innerHTML = '<div class="empty">No referrer data yet.</div>';
+  } else {
+    let html = '<table><thead><tr><th>Source</th><th class="num">Visits</th></tr></thead><tbody>';
+    refs.forEach(r => {
+      html += `<tr><td>${esc(r.source)}</td><td class="num">${r.n}</td></tr>`;
+    });
+    html += '</tbody></table>';
+    document.getElementById('referrersBody').innerHTML = html;
+  }
+};
+</script>
+</body></html>
