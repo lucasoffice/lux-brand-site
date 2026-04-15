@@ -12,6 +12,8 @@ html,body{background:#fff;color:#111;font-family:'Helvetica Neue',Helvetica,Aria
 .sidebar nav{display:flex;flex-direction:column;gap:14px;margin-bottom:auto}
 .sidebar nav a{font-size:10.5px;font-weight:700;letter-spacing:1.8px;color:#000;text-decoration:none;transition:color .2s}
 .sidebar nav a:hover{color:#008150}
+.sidebar nav a.nav-highlight{background:#008150;color:#fff;padding:10px 12px;margin:2px 0;display:inline-block;transition:background .2s}
+.sidebar nav a.nav-highlight:hover{background:#005f3c;color:#fff}
 .sidebar-footer{font-size:9.5px;font-weight:700;letter-spacing:1.8px;color:#888;line-height:1.8;padding-top:28px;border-top:1px solid #e5e5e5}
 .sidebar-footer .rc{color:#E3001D;margin-top:6px;display:block}
 
@@ -155,6 +157,10 @@ main{margin-left:220px;min-height:100vh}
 .cmt .cmt-status.incorporated{background:#008150;color:#fff}
 .cmt .cmt-date{font-size:10px;font-weight:700;letter-spacing:1.5px;color:#aaa;text-transform:uppercase}
 .cmt .cmt-body{font-size:13.5px;color:#222;line-height:1.6;white-space:pre-wrap}
+.cmt .cmt-del{position:absolute;top:12px;right:12px;background:none;border:1px solid #e0e0e0;color:#aaa;font-size:10px;font-weight:700;letter-spacing:1px;padding:4px 8px;cursor:pointer;font-family:inherit;transition:all .2s}
+.cmt .cmt-del:hover{border-color:#E3001D;color:#E3001D}
+.cmt .cmt-del.confirming{background:#E3001D;border-color:#E3001D;color:#fff;animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
 .cmt .cmt-lux{margin-top:16px;padding:16px;background:#fafafa;border-left:3px solid #008150}
 .cmt .cmt-lux .lux-h{font-size:9.5px;font-weight:800;letter-spacing:2px;color:#008150;text-transform:uppercase;margin-bottom:6px}
 .cmt .cmt-lux .lux-b{font-size:13px;color:#222;line-height:1.6}
@@ -219,8 +225,8 @@ main{margin-left:220px;min-height:100vh}
     <a href="#pricing">PRICING</a>
     <a href="#timeline">TIMELINE</a>
     <a href="#next-steps">NEXT STEPS</a>
-    <a href="#collab">COLLABORATION LOG</a>
-    <a href="#difference">DIFFERENCE</a>
+    <a href="#collab" class="nav-highlight">COLLABORATION LOG</a>
+    <a href="#difference">GUARDRAILS</a>
   </nav>
   <div class="sidebar-footer">
     SPRINGFIELD, NJ<br>
@@ -239,7 +245,7 @@ main{margin-left:220px;min-height:100vh}
 <div class="hero">
   <div class="hero-label">Prepared for TAG Heuer — Operations</div>
   <h1>Springfield, NJ</h1>
-  <p class="tagline">A multi-floor renovation designed around the precision of the work that already happens here — jewelers, watchmakers, and operations — with minimal disruption to daily production.</p>
+  <p class="tagline">Three-floor office and workshop renovation. Six phases, minimal disruption to production.</p>
   <div class="meta">Initial Planning Call · TAG Heuer Springfield Operations · April 2026</div>
   <span class="rc-tag">Rough Costing Exercise — Not a Formal Bid</span>
 </div>
@@ -267,29 +273,29 @@ main{margin-left:220px;min-height:100vh}
 <div class="sect" id="overview">
   <div class="sect-num">01</div>
   <div class="sect-label">Overview</div>
-  <h2>A refresh of a working building — not a showroom.</h2>
-  <p class="sect-sub">Three floors, roughly 49,200 square feet, last touched around 2007. Housed by jewelers, watchmakers, and operations/packaging teams whose workflow has outgrown the layout. The goal is to open up dead space, improve the path between departments, and solve the freight elevator constraint without disturbing daily output.</p>
+  <h2>A refresh of a working building.</h2>
+  <p class="sect-sub">Three floors, ~49,200 SF, last renovated circa 2007. Occupied by jewelers, watchmakers, and operations/packaging teams. Scope: open up dead space, improve flow between departments, and address the freight elevator constraint without disrupting production.</p>
 
   <div class="u-grid">
     <div class="u-card">
       <div class="u-num">Observation 01</div>
-      <h3>Freight logistics are the hidden cost.</h3>
-      <p>The freight elevator only reaches Floor 1, but storage lives on Floor 2. Every pallet pays a tax in labor and time. Any reconfiguration should be planned around this before finishes are ordered.</p>
+      <h3>Freight elevator constraint.</h3>
+      <p>The freight elevator only reaches Floor 1; storage lives on Floor 2. To be resolved in the plans before finishes are ordered.</p>
     </div>
     <div class="u-card">
       <div class="u-num">Observation 02</div>
-      <h3>Production cannot stop.</h3>
-      <p>Jewelers and watchmakers work on pieces of significant value on fixed benches. The renovation must be invisible to production — which means half-floor phasing, off-hours demo, and zero dust migration into active zones.</p>
+      <h3>Production cannot pause.</h3>
+      <p>Jewelers and watchmakers work at fixed benches on high-value pieces. Phasing and off-hours demo isolate noise and dust from active zones.</p>
     </div>
     <div class="u-card">
       <div class="u-num">Observation 03</div>
-      <h3>Three floors, one building, one workflow.</h3>
-      <p>Each floor is roughly 16,400 SF but the floors were renovated independently in 2007 and don't speak the same visual language. Treating this as one connected renovation — rather than three separate ones — is where the efficiency lives.</p>
+      <h3>Three floors, one renovation.</h3>
+      <p>Each floor is ~16,400 SF. The 2007 renovations were handled floor-by-floor and don't share a unified finish set. One coordinated renovation is more efficient than three separate ones.</p>
     </div>
     <div class="u-card">
       <div class="u-num">Observation 04</div>
-      <h3>The plans aren't real yet.</h3>
-      <p>Current layout is schematic-level sketches from the master watchmaker — not formal architectural drawings. Wall linear footage is the largest remaining unknown in the number, and the single biggest lever on the final budget.</p>
+      <h3>Plans are schematic, not formal.</h3>
+      <p>Current layout is sketches from the master watchmaker, not formal architectural drawings. Wall linear footage is the largest unknown and the biggest lever on the final number.</p>
     </div>
   </div>
 </div>
@@ -298,7 +304,7 @@ main{margin-left:220px;min-height:100vh}
 <div class="sect" id="scope">
   <div class="sect-num">02</div>
   <div class="sect-label">Scope</div>
-  <h2>What's in, what's out — on the record.</h2>
+  <h2>What's in, what's out.</h2>
   <p class="sect-sub">The base number covers construction and finishes. A separate vendor will handle furniture, jeweler stations, and specialty workbenches. Architectural drawings are TAG Heuer's scope.</p>
 
   <div class="scope-grid">
@@ -332,23 +338,23 @@ main{margin-left:220px;min-height:100vh}
   <div class="sect-num">03</div>
   <div class="sect-label">Approach</div>
   <h2>Half a floor at a time. Demo off-hours. Everything else on the clock.</h2>
-  <p class="sect-sub">The cheapest project is one that doesn't require union labor or overnight shifts across the entire scope. The approach isolates the loud, disruptive work to off-hours windows and keeps the remaining trades on standard hours — open shop, normal pace.</p>
+  <p class="sect-sub">Disruptive work runs off-hours; standard trades run on normal open-shop hours. Half-floor phasing keeps production live on the untouched half at all times.</p>
 
   <div class="approach-grid">
     <div class="app-item">
       <div class="app-n">01</div>
       <h4>Half-floor phasing</h4>
-      <p>Six phases, half a floor each, with a one-week overlap between phases. Production stays live on the untouched half at all times — no floor is ever fully down.</p>
+      <p>Six phases, half a floor each, with a one-week overlap between phases. No floor is ever fully down.</p>
     </div>
     <div class="app-item">
       <div class="app-n">02</div>
-      <h4>Off-hours demolition only</h4>
-      <p>Demo is the single most disruptive trade. One week per phase, performed off-hours, with dust containment and independent HVAC isolation from active zones.</p>
+      <h4>Off-hours demolition</h4>
+      <p>One week per phase, off-hours, with dust containment and HVAC isolation from active zones.</p>
     </div>
     <div class="app-item">
       <div class="app-n">03</div>
-      <h4>Open shop on standard hours</h4>
-      <p>Framing, finishes, electrical, and punch on normal hours with open-shop labor. This is where the cost advantage compounds — union premium avoided, overtime avoided.</p>
+      <h4>Open shop, standard hours</h4>
+      <p>Framing, finishes, electrical, and punch on normal hours with open-shop labor.</p>
     </div>
   </div>
 </div>
@@ -358,7 +364,7 @@ main{margin-left:220px;min-height:100vh}
   <div class="sect-num">04</div>
   <div class="sect-label">Team · Assigned to Springfield</div>
   <h2>The people who would run this project.</h2>
-  <p class="sect-sub">Not the Lux Brand Co roster — the core team that would be assigned to Springfield specifically. Each of the five below has a defined role on this project, from estimate through punch. Additional trade leads, field supervision, and subcontractor partners will be named as scope finalizes and the formal bid is assembled.</p>
+  <p class="sect-sub">The five people assigned to Springfield. Additional trade leads and field supervision will be named once scope is finalized.</p>
 
   <div class="team-grid">
     <div class="tm">
@@ -366,35 +372,35 @@ main{margin-left:220px;min-height:100vh}
       <div class="initials">LS</div>
       <h3>LUKE SHANK</h3>
       <div class="role">OWNER &amp; DIRECTOR OF CONSTRUCTION</div>
-      <p>Licensed contractor. Finished carpenter by trade. 25 years in luxury retail and commercial construction. Built this costing exercise directly from the initial planning call with Jacquelyn and will run the client relationship end-to-end through estimate, walkthrough, and build.</p>
+      <p>Licensed contractor. 25 years in luxury retail and commercial construction. Client lead through estimate, walkthrough, and build.</p>
     </div>
     <div class="tm">
       <div class="assigned">Assigned · Springfield</div>
       <div class="initials">JB</div>
       <h3>JON BUCK</h3>
       <div class="role">SENIOR PROJECT MANAGER</div>
-      <p>Background in interior design, millwork, and custom furniture. Runs the bid, manages sub relationships, and coordinates between TAG Heuer, the architect, and all trade partners. Will lead the transition from rough costing to formal bid once plans and wall LF are confirmed.</p>
+      <p>Background in interior design, millwork, and custom furniture. Manages sub relationships and coordinates between TAG Heuer, the architect, and trade partners.</p>
     </div>
     <div class="tm">
       <div class="assigned">Assigned · Springfield</div>
       <div class="initials">SR</div>
       <h3>SHAWN RASMUSEN</h3>
       <div class="role">OPERATIONS MANAGER</div>
-      <p>Leads operations, landlord coordination, and trade sequencing across every active project. Owns the off-hours demo logistics and phase overlap choreography that keep Springfield's production running uninterrupted through all six phases.</p>
+      <p>Operations, landlord coordination, and trade sequencing. Owns off-hours demo logistics and phase overlap across the six phases.</p>
     </div>
     <div class="tm">
       <div class="assigned">Assigned · Springfield</div>
       <div class="initials">KA</div>
       <h3>KRYSTAL AVILA</h3>
       <div class="role">PROJECT COORDINATOR</div>
-      <p>Manages submittals, RFIs, procurement tracking, and documentation flow across all active projects. Ensures nothing falls through the cracks between the field, the office, and TAG Heuer. The operational backbone that keeps deliverables on schedule and communication organized.</p>
+      <p>Manages submittals, RFIs, procurement tracking, and documentation flow between the field, the office, and TAG Heuer.</p>
     </div>
     <div class="tm">
       <div class="assigned">Assigned · Springfield</div>
       <div class="initials">JM</div>
       <h3>JENNY MORROW</h3>
       <div class="role">DIRECTOR OF ACCOUNTING</div>
-      <p>Oversees all project billing, contract review, and financial documentation. Ensures payment applications, change orders, and lien waivers are processed accurately and on schedule, keeping the financial side of this project as organized as the construction side.</p>
+      <p>Project billing, contract review, and financial documentation. Handles payment applications, change orders, and lien waivers.</p>
     </div>
   </div>
 </div>
@@ -404,7 +410,7 @@ main{margin-left:220px;min-height:100vh}
   <div class="sect-num">05</div>
   <div class="sect-label">Pricing</div>
   <h2>Preliminary budget — three floors, base scope only.</h2>
-  <p class="sect-sub">The number below is a rough costing exercise, not a bid. It will move up or down when the wall linear footage is finalized, when the site walkthrough confirms existing conditions, and when the second-floor schematic is locked. The figure is deliberately at the higher end of TAG Heuer's internal $1M–$5M range — it is easier to adjust a number down than to defend one that grew.</p>
+  <p class="sect-sub">The number below is a rough costing exercise, not a bid. It will move up or down when the wall linear footage is finalized, when the site walkthrough confirms existing conditions, and when the second-floor schematic is locked.</p>
 
   <table class="price-table">
     <tr class="section-head"><td>Construction — per floor × 3</td><td>Subtotal</td></tr>
@@ -477,7 +483,7 @@ main{margin-left:220px;min-height:100vh}
   <div class="sect-num">07</div>
   <div class="sect-label">Next Steps</div>
   <h2>Seven open items. Owners named.</h2>
-  <p class="sect-sub">What has to happen to move this from a rough costing exercise to a formal bid. Nothing abstract — each item has a name next to it.</p>
+  <p class="sect-sub">What has to happen to move from rough costing to a formal bid. Owners named.</p>
 
   <div class="ns-list">
     <div class="ns-row">
@@ -523,7 +529,7 @@ main{margin-left:220px;min-height:100vh}
   <div class="sect-num">08</div>
   <div class="sect-label">Collaboration Log · Live</div>
   <h2>A shared space for TAG Heuer's questions, ideas, and concerns.</h2>
-  <p class="sect-sub">Not a static document. Anyone on TAG Heuer's team can post here — questions, clarifications, ideas, or concerns — and every note is visible to everyone. Notes accumulate into the agenda for the next scheduled review meeting; Lux folds the outcomes into the costing and updates the site. The thread below is the record of how this project evolves from rough costing to formal bid.</p>
+  <p class="sect-sub">Anyone on TAG Heuer's team can post questions, clarifications, ideas, or concerns — all visible to everyone. Notes accumulate into the agenda for the next review meeting. Outcomes are folded back into the costing and the site.</p>
 
   <div class="collab-banner">
     <span class="cb-l">Next Review Meeting</span>
@@ -573,30 +579,20 @@ main{margin-left:220px;min-height:100vh}
 <!-- 09 DIFFERENCE -->
 <div class="sect" id="difference">
   <div class="sect-num">09</div>
-  <div class="sect-label">The Difference</div>
-  <h2>Why Lux, for this one.</h2>
-  <p class="sect-sub">Not a generic pitch — four reasons specific to Springfield.</p>
+  <div class="sect-label">Guardrails</div>
+  <h2>How this project will be handled.</h2>
+  <p class="sect-sub">Two constraints shaping every decision on Springfield.</p>
 
   <div class="diff-grid">
     <div class="diff-item">
       <div class="diff-num">01</div>
-      <h4>Phasing built around production, not convenience.</h4>
-      <p>The six-phase, half-floor structure was designed to keep jewelers and watchmakers at their benches every working hour. Demo is quarantined to off-hours; everything else runs on standard hours — the cost of that discipline is already in the number.</p>
+      <h4>Production first.</h4>
+      <p>Phasing keeps jewelers and watchmakers at their benches every working hour. Demo is off-hours only; standard trades run on normal hours. The cost of that discipline is already in the number.</p>
     </div>
     <div class="diff-item">
       <div class="diff-num">02</div>
-      <h4>Confidentiality is a constraint, not a footnote.</h4>
-      <p>Springfield staff don't know a renovation is being scoped. Site walkthroughs happen off-hours. No photography of active production areas. All documentation — including this microsite — is confidential and audience-controlled.</p>
-    </div>
-    <div class="diff-item">
-      <div class="diff-num">03</div>
-      <h4>A costing exercise that corrects itself.</h4>
-      <p>When the carpet math didn't pencil at the original $25/tile assumption, we flagged it and re-priced at ~$9/SF installed before delivering the summary. The number is designed to land where the project actually lives — not where an anchor would flatter the proposal.</p>
-    </div>
-    <div class="diff-item">
-      <div class="diff-num">04</div>
-      <h4>One point of contact, start to finish.</h4>
-      <p>The person who built the estimate is the same person TAG Heuer will deal with from walkthrough through punch. No handoffs between sales and delivery, no org chart to navigate — the relationship and the build are run by the same hand.</p>
+      <h4>Confidentiality.</h4>
+      <p>Springfield staff aren't aware a renovation is being scoped. Walkthroughs are off-hours. No photography of active production areas. All documentation — including this page — is audience-controlled.</p>
     </div>
   </div>
 </div>
@@ -657,6 +653,11 @@ document.querySelectorAll('.sidebar nav a').forEach(a=>{
       const r = await fetch(`${REST}/${table}`, { method: 'POST', headers: { ...HEAD, 'Prefer': 'return=representation' }, body: JSON.stringify(row) });
       if (!r.ok) throw new Error((await r.text()) || r.statusText);
       return r.json();
+    },
+    del: async (table, query) => {
+      const r = await fetch(`${REST}/${table}?${query}`, { method: 'DELETE', headers: HEAD });
+      if (!r.ok) throw new Error((await r.text()) || r.statusText);
+      return true;
     }
   };
 
@@ -685,6 +686,7 @@ document.querySelectorAll('.sidebar nav a').forEach(a=>{
     el.className = 'cmt' + (c.pinned ? ' pinned':'');
     el.dataset.id = c.id;
     el.innerHTML = `
+      <button class="cmt-del" data-action="delete" title="Delete">×  DELETE</button>
       <div class="cmt-head">
         <div class="cmt-who">${esc(c.display_name)}${c.department ? `<span class="cmt-dept">${esc(c.department)}</span>`:''}</div>
         <div class="cmt-meta">
@@ -702,6 +704,39 @@ document.querySelectorAll('.sidebar nav a').forEach(a=>{
     `;
     return el;
   };
+
+  // Delete button — 2-step confirm
+  thread.addEventListener('click', async (e) => {
+    const btn = e.target.closest('.cmt-del');
+    if (!btn) return;
+    e.preventDefault();
+    const card = btn.closest('.cmt');
+    const id = card && card.dataset.id;
+    if (!id) return;
+    if (!btn.classList.contains('confirming')) {
+      btn.classList.add('confirming');
+      btn.textContent = 'CONFIRM DELETE';
+      // Auto-revert after 4 seconds if not re-clicked
+      setTimeout(() => {
+        btn.classList.remove('confirming');
+        btn.textContent = '×  DELETE';
+      }, 4000);
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = 'DELETING…';
+    try {
+      await api.del('comments', `id=eq.${encodeURIComponent(id)}`);
+      card.style.opacity = '0.3';
+      card.style.transition = 'opacity .3s';
+      setTimeout(() => { card.remove(); refreshEmpty(); }, 300);
+    } catch (err) {
+      btn.disabled = false;
+      btn.classList.remove('confirming');
+      btn.textContent = '×  DELETE';
+      alert('Could not delete: ' + err.message);
+    }
+  });
 
   const refreshEmpty = () => {
     const hasKids = thread.querySelectorAll('.cmt').length > 0;
@@ -818,6 +853,99 @@ document.querySelectorAll('.sidebar nav a').forEach(a=>{
   // Initial load
   loadComments();
   loadMeetings();
+
+  /* ----- ANALYTICS TRACKER ----- */
+  const UUID = () => (crypto.randomUUID ? crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => { const r=Math.random()*16|0; return (c==='x'?r:(r&0x3|0x8)).toString(16); }));
+  let visitorId = localStorage.getItem('lbco_vid');
+  if (!visitorId) { visitorId = UUID(); localStorage.setItem('lbco_vid', visitorId); }
+  let sessionId = sessionStorage.getItem('lbco_sid');
+  if (!sessionId) { sessionId = UUID(); sessionStorage.setItem('lbco_sid', sessionId); }
+
+  const urlParams = new URLSearchParams(location.search);
+  const baseVisit = {
+    visitor_id: visitorId,
+    session_id: sessionId,
+    page_url: location.pathname,
+    referrer: document.referrer || null,
+    user_agent: navigator.userAgent,
+    viewport_w: window.innerWidth,
+    viewport_h: window.innerHeight,
+    screen_w: screen.width,
+    screen_h: screen.height,
+    language: navigator.language || null,
+    timezone: (Intl.DateTimeFormat().resolvedOptions().timeZone) || null,
+    utm_source: urlParams.get('utm_source'),
+    utm_medium: urlParams.get('utm_medium'),
+    utm_campaign: urlParams.get('utm_campaign')
+  };
+
+  const logEvent = (type, data) => {
+    // Fire-and-forget; swallow errors
+    api.insert('visits', { ...baseVisit, event_type: type, event_data: data || null }).catch(()=>{});
+  };
+
+  // Enrich with geo, then emit pageview
+  (async () => {
+    let geo = {};
+    try {
+      const r = await fetch('https://ipapi.co/json/');
+      if (r.ok) {
+        const j = await r.json();
+        geo = {
+          country: j.country_name || null,
+          region: j.region || null,
+          city: j.city || null,
+          ip_asn: j.org || j.asn || null
+        };
+      }
+    } catch (e) {}
+    Object.assign(baseVisit, geo);
+    logEvent('pageview');
+  })();
+
+  // Heartbeat every 15s while visible
+  setInterval(() => { if (document.visibilityState === 'visible') logEvent('heartbeat'); }, 15000);
+
+  // Scroll depth milestones
+  const scrollHit = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    const pct = Math.min(100, Math.round((window.scrollY / max) * 100));
+    [25, 50, 75, 100].forEach(m => {
+      if (pct >= m && !scrollHit[m]) { scrollHit[m] = true; logEvent('scroll_depth', { pct: m }); }
+    });
+  }, { passive: true });
+
+  // Section views (IntersectionObserver)
+  const seenSections = new Set();
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.target.id && !seenSections.has(e.target.id)) {
+        seenSections.add(e.target.id);
+        logEvent('section_view', { section: e.target.id });
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.sect[id]').forEach(s => secObs.observe(s));
+
+  // PDF download click
+  document.querySelectorAll('a.dl-btn').forEach(a => {
+    a.addEventListener('click', () => logEvent('pdf_download', { href: a.getAttribute('href') }));
+  });
+
+  // Comment posted
+  const origBtn = document.getElementById('cfSend');
+  if (origBtn) {
+    origBtn.addEventListener('click', () => {
+      // After successful post, the ".ok" status fires; wait a tick
+      setTimeout(() => {
+        if (document.getElementById('cfStatus').classList.contains('ok')) {
+          logEvent('comment_posted');
+        }
+      }, 1200);
+    });
+  }
 })();
 </script>
 
