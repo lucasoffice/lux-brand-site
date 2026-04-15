@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TAG Heuer Springfield · Analytics</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{background:#0f1115;color:#e5e7eb;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;min-height:100vh}
@@ -54,6 +56,23 @@ tr:hover{background:#0f1115}
 .chip.scroll{background:#1e3a8a;color:#bfdbfe}
 
 .empty{padding:40px;text-align:center;color:#6b7280;font-style:italic;font-size:13px}
+
+/* MAP */
+#map{height:420px;width:100%;background:#0f1115;border-radius:4px;overflow:hidden}
+.leaflet-container{background:#0a1020 !important;font-family:inherit !important}
+.leaflet-popup-content-wrapper{background:#111827;color:#e5e7eb;border-radius:4px;box-shadow:0 6px 22px rgba(0,0,0,.6)}
+.leaflet-popup-tip{background:#111827}
+.leaflet-popup-content{margin:12px 14px;font-size:12px;line-height:1.5}
+.leaflet-popup-content strong{color:#10b981;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;display:block;margin-bottom:4px}
+.leaflet-popup-content .pop-isp{color:#9ca3af;font-size:11px;margin-top:6px}
+.leaflet-popup-content .pop-stats{margin-top:8px;padding-top:8px;border-top:1px solid #1f2937;display:flex;gap:14px}
+.leaflet-popup-content .pop-stats span{font-variant-numeric:tabular-nums}
+.leaflet-popup-content .pop-stats em{color:#6b7280;font-style:normal;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;display:block}
+.leaflet-control-attribution{background:rgba(15,17,21,.8) !important;color:#6b7280 !important;font-size:9px !important}
+.leaflet-control-attribution a{color:#9ca3af !important}
+.map-legend{display:flex;align-items:center;gap:14px;font-size:10.5px;color:#6b7280;letter-spacing:1px;text-transform:uppercase;margin-top:12px;padding:0 6px}
+.map-legend .dot{display:inline-block;background:#10b981;opacity:.7;border:2px solid #10b981;border-radius:50%;width:10px;height:10px;vertical-align:middle;margin-right:6px}
+.map-legend .dot.lg{width:18px;height:18px}
 </style></head>
 <body>
 
@@ -76,6 +95,17 @@ tr:hover{background:#0f1115}
   </div>
 
   <div class="kpis" id="kpis"></div>
+
+  <div class="panel">
+    <div class="panel-h"><h3>Where Visits Are Coming From</h3><span class="ph-sub" id="mapSub">Aggregated by city</span></div>
+    <div class="panel-b">
+      <div id="map"></div>
+      <div class="map-legend">
+        <span><span class="dot"></span>1 visit</span>
+        <span><span class="dot lg"></span>Many visits — size scales with count</span>
+      </div>
+    </div>
+  </div>
 
   <div class="panel">
     <div class="panel-h"><h3>Recent Visits</h3><span class="ph-sub" id="rvSub"></span></div>
@@ -145,9 +175,77 @@ const fmtDur = sec => {
   return m + 'm ' + s + 's';
 };
 
+let map = null;
+let markerLayer = null;
+
+const renderMap = (points) => {
+  if (typeof L === 'undefined') {
+    // Leaflet hasn't loaded yet — retry briefly
+    setTimeout(() => renderMap(points), 300);
+    return;
+  }
+  if (!map) {
+    map = L.map('map', { zoomControl: true, attributionControl: true, worldCopyJump: true }).setView([20, 0], 2);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> · © <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+    // Label layer on top for city names
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd',
+      maxZoom: 19,
+      pane: 'overlayPane'
+    }).addTo(map);
+  }
+  if (markerLayer) { markerLayer.remove(); markerLayer = null; }
+  if (!points || !points.length) return;
+
+  markerLayer = L.layerGroup();
+  const maxVisits = Math.max(...points.map(p => p.visits || 1));
+  const latlngs = [];
+
+  points.forEach(p => {
+    if (p.lat == null || p.lng == null) return;
+    // Radius scales from 6 to 22px based on relative visit count
+    const r = 6 + Math.round(((p.visits || 1) / maxVisits) * 16);
+    const marker = L.circleMarker([p.lat, p.lng], {
+      radius: r,
+      color: '#10b981',
+      weight: 2,
+      fillColor: '#10b981',
+      fillOpacity: 0.45
+    });
+    const label = [p.city, p.region, p.country].filter(Boolean).join(', ') || '—';
+    const isp = p.ip_asn ? `<div class="pop-isp">${esc(p.ip_asn)}</div>` : '';
+    marker.bindPopup(`
+      <strong>${esc(label)}</strong>
+      ${isp}
+      <div class="pop-stats">
+        <span><em>Visits</em>${p.visits || 0}</span>
+        <span><em>Unique</em>${p.unique_visitors || 0}</span>
+      </div>
+    `);
+    markerLayer.addLayer(marker);
+    latlngs.push([p.lat, p.lng]);
+  });
+
+  markerLayer.addTo(map);
+
+  // Fit bounds if we have multiple points, otherwise zoom on the one we have
+  if (latlngs.length > 1) {
+    map.fitBounds(L.latLngBounds(latlngs).pad(0.3));
+  } else if (latlngs.length === 1) {
+    map.setView(latlngs[0], 6);
+  }
+
+  document.getElementById('mapSub').textContent = points.length + ' cities · ' + points.reduce((s,p)=>s+(p.visits||0),0) + ' total visits';
+};
+
 const render = (data) => {
   // Data shape from the RPC:
-  // { kpis: {...}, visits: [...], sections: [...], referrers: [...] }
+  // { kpis: {...}, visits: [...], sections: [...], referrers: [...], map_points: [...] }
+  renderMap(data.map_points || []);
   const k = data.kpis || {};
   document.getElementById('kpis').innerHTML = `
     <div class="kpi"><div class="k-l">Total Pageviews</div><div class="k-v">${k.pageviews||0}</div><div class="k-s">in the last 30 days</div></div>
