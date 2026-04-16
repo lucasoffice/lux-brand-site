@@ -308,6 +308,7 @@ let files = [];
 let currentMode = 'static';
 let generatedHTML = '';
 let liveUrl = '';
+let lastPlan = null;
 
 // Backend endpoints — hardcoded from CloudFormation stack outputs (bid-builder-stack, us-west-2)
 const CONFIG = {
@@ -439,6 +440,7 @@ async function runPipeline() {
   document.getElementById('success-panel').className = 'success-panel';
   generatedHTML = '';
   liveUrl = '';
+  lastPlan = null;
 
   try {
     // ── STEP 1: EXTRACT ──────────────────────
@@ -478,10 +480,18 @@ async function runPipeline() {
     if (brandUrl) {
       log(`Scraping ${brandUrl}…`, 'dim');
       try {
-        scrapeResult = await post('scrape', { url: brandUrl });
-        const colorCount = scrapeResult.colors_found?.length || 0;
-        const fontCount = scrapeResult.fonts_found?.length || 0;
-        log(`Scraped: ${colorCount} colors, ${fontCount} font references extracted`, 'ok');
+        scrapeResult = await post('scrape', { url: brandUrl, brand });
+        const pages = scrapeResult.pages_scraped || 0;
+        const ds = scrapeResult.design_system || {};
+        const primary = ds.primary_color?.hex || '—';
+        const primaryConf = ds.primary_color?.confidence || '—';
+        const displayFont = ds.display_font?.family?.split(',')[0]?.replace(/['"]/g,'').trim() || '—';
+        const bodyFont = ds.body_font?.family?.split(',')[0]?.replace(/['"]/g,'').trim() || '—';
+        const feel = ds.type_personality?.feel || '—';
+        log(`Scraped ${pages} page(s) · primary ${primary} (${primaryConf}) · display ${displayFont} · body ${bodyFont} · feel ${feel}`, 'ok');
+        if (ds.scrape_error) {
+          log(`Note — ${ds.scrape_error}`, 'dim');
+        }
       } catch(e) {
         log(`Scrape failed (${e.message}) — Claude will infer from training data`, 'dim');
         scrapeResult = { ok: false };
@@ -493,14 +503,19 @@ async function runPipeline() {
 
     // ── STEP 3: BUILD ────────────────────────
     setDot(3, 'running');
-    log('Sending to Claude — generating index.html…', 'dim');
-    log('This takes 60–120 seconds for a complete site…', 'dim');
+    log('Sending to Claude — Planner then Writer (two-pass)…', 'dim');
+    log('This takes 90–180 seconds for a complete site…', 'dim');
 
-    const buildResult = await post('build', { project, scrape: scrapeResult });
+    const designSystem = scrapeResult.design_system || {};
+    const buildResult = await post('build', { project, design_system: designSystem });
     generatedHTML = buildResult.html;
+    lastPlan = buildResult.plan || null;
 
     setDot(3, 'done');
-    log(`Site generated — ${(generatedHTML.length / 1024).toFixed(0)}KB HTML`, 'ok');
+    const sectionCount = lastPlan?.sections?.length || '?';
+    const elementTarget = lastPlan?.total_semantic_elements_target || '?';
+    log(`Planner produced brief — ${sectionCount} sections · target ${elementTarget} elements`, 'ok');
+    log(`Writer generated site — ${(generatedHTML.length / 1024).toFixed(0)}KB HTML`, 'ok');
 
     // ── STEP 4: DEPLOY ───────────────────────
     setDot(4, 'running');
@@ -519,6 +534,11 @@ async function runPipeline() {
       log(`Existing site found at base path — deployed as ${deployResult.brand_slug}/${deployResult.location_slug}/ to avoid overwrite`, 'accent');
     }
     log(`Cloudflare cache purged — ${deployResult.cloudflare_purge}`, 'ok');
+    if (deployResult.propagation_pending) {
+      log(`Site may take up to 30 seconds to appear — refresh if you see a 404 (checked ${deployResult.propagation_attempts} times over ${deployResult.propagation_elapsed_s}s)`, 'accent');
+    } else {
+      log(`Live and responding (propagated in ${deployResult.propagation_elapsed_s}s)`, 'ok');
+    }
     log(`Live: ${liveUrl}`, 'accent');
 
     // ── SUCCESS ──────────────────────────────
@@ -527,13 +547,31 @@ async function runPipeline() {
     const collisionNote = deployResult.collision_detected
       ? `<span style="color:var(--accent)">Collision detected — suffix applied to preserve existing site.</span><br>`
       : '';
+    const propagationNote = deployResult.propagation_pending
+      ? `<span style="color:var(--accent)">May take up to 30 seconds to appear — refresh if you see a 404.</span><br>`
+      : '';
+    const planSummary = lastPlan
+      ? `Plan: ${lastPlan.sections?.length || '?'} sections · target ${lastPlan.total_semantic_elements_target || '?'} elements · <a href="#" id="view-plan-link" style="color:var(--accent)">view plan JSON</a><br>`
+      : '';
     document.getElementById('success-meta').innerHTML = `
       ${collisionNote}
+      ${propagationNote}
+      ${planSummary}
       Path: ${deployResult.brand_slug}/${deployResult.location_slug}/<br>
       GitHub commit: ${deployResult.github_commit?.slice(0, 7)}<br>
       Cloudflare: ${deployResult.cloudflare_purge}<br>
       Generated: ${(generatedHTML.length / 1024).toFixed(0)}KB · ${new Date().toLocaleTimeString()}
     `;
+    // Wire the View Plan link if present
+    const planLink = document.getElementById('view-plan-link');
+    if (planLink && lastPlan) {
+      planLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const w = window.open('', '_blank');
+        w.document.write('<pre style="font-family:monospace;font-size:12px;padding:20px;background:#111;color:#eee;white-space:pre-wrap;">' + JSON.stringify(lastPlan, null, 2).replace(/</g,'&lt;') + '</pre>');
+        w.document.title = 'Planner Brief — ' + brand + ' / ' + location;
+      });
+    }
     document.getElementById('open-link').href = liveUrl;
     panel.className = 'success-panel visible';
     showToast('Site is live', 'success');
@@ -585,6 +623,7 @@ function resetForm() {
   for (let i = 1; i <= 4; i++) setDot(i, '');
   generatedHTML = '';
   liveUrl = '';
+  lastPlan = null;
 }
 
 // ─────────────────────────────────────────────
