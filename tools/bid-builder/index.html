@@ -268,21 +268,7 @@ hr{border:none;border-top:1px solid var(--border);margin:36px 0}
 
     <hr>
 
-    <!-- SECTION 4: API ENDPOINT -->
-    <div class="section-num">04</div>
-    <h2 class="section-title">Backend</h2>
-    <p class="section-desc">The API Gateway URL from your CloudFormation stack outputs.</p>
-
-    <div class="field-group">
-      <label class="field-label">API Base URL *</label>
-      <input class="field-input" id="f-api-url" type="text" placeholder="https://xxxxxxxxxx.execute-api.us-west-2.amazonaws.com/prod">
-      <div class="field-hint">From the <code style="font-family:var(--font-mono);font-size:10px;color:var(--accent)">ApiBaseUrl</code> stack output. Stored in localStorage.</div>
-    </div>
-    <div class="field-group">
-      <label class="field-label">Build Function URL *</label>
-      <input class="field-input" id="f-build-url" type="text" placeholder="https://xxxxxxxxxxxxxxxxxx.lambda-url.us-west-2.on.aws/">
-      <div class="field-hint">From the <code style="font-family:var(--font-mono);font-size:10px;color:var(--accent)">BuildFunctionUrl</code> stack output. Bypasses API Gateway timeout for site generation.</div>
-    </div>
+    <!-- Section 04 removed — backend URLs are hardcoded in the script below. -->
 
     <!-- BUILD BUTTON -->
     <button class="build-btn" id="build-btn" onclick="runPipeline()">
@@ -323,17 +309,12 @@ let currentMode = 'static';
 let generatedHTML = '';
 let liveUrl = '';
 
-// Persist API URL
-const savedApiUrl = localStorage.getItem('bid-builder-api-url');
-if (savedApiUrl) document.getElementById('f-api-url').value = savedApiUrl;
-document.getElementById('f-api-url').addEventListener('change', e => {
-  localStorage.setItem('bid-builder-api-url', e.target.value.trim());
-});
-const savedBuildUrl = localStorage.getItem('bid-builder-build-url');
-if (savedBuildUrl) document.getElementById('f-build-url').value = savedBuildUrl;
-document.getElementById('f-build-url').addEventListener('change', e => {
-  localStorage.setItem('bid-builder-build-url', e.target.value.trim());
-});
+// Backend endpoints — hardcoded from CloudFormation stack outputs (bid-builder-stack, us-west-2)
+const CONFIG = {
+  apiBase:    'https://fp08ohieab.execute-api.us-west-2.amazonaws.com/prod',
+  processUrl: 'https://yiezfkphr4ybln4n7w2brlmm3e0gvzon.lambda-url.us-west-2.on.aws/',
+  buildUrl:   'https://sa5rgu6omehg4mrnlvslq2t5oq0jxvno.lambda-url.us-west-2.on.aws/'
+};
 
 // ─────────────────────────────────────────────
 // FILE HANDLING
@@ -421,16 +402,15 @@ async function fileToBase64(file) {
 }
 
 async function post(endpoint, body) {
-  // /build uses the Lambda Function URL directly to bypass API Gateway 29s timeout.
+  // /build and /process use Lambda Function URLs directly to bypass API Gateway 29s timeout.
   // All other endpoints go through API Gateway as normal.
   let url;
   if (endpoint === 'build') {
-    const buildUrl = v('f-build-url').replace(/\/$/, '');
-    if (!buildUrl) throw new Error('Build Function URL not set — check stack outputs for BuildFunctionUrl');
-    url = buildUrl;
+    url = CONFIG.buildUrl.replace(/\/$/, '');
+  } else if (endpoint === 'process') {
+    url = CONFIG.processUrl.replace(/\/$/, '');
   } else {
-    const apiBase = v('f-api-url').replace(/\/$/, '');
-    url = `${apiBase}/${endpoint}`;
+    url = CONFIG.apiBase.replace(/\/$/, '') + '/' + endpoint;
   }
   const res = await fetch(url, {
     method: 'POST',
@@ -448,11 +428,9 @@ async function post(endpoint, body) {
 async function runPipeline() {
   const brand = v('f-brand');
   const location = v('f-location');
-  const apiBase = v('f-api-url');
 
   if (!brand) { showToast('Brand name required', 'error'); return; }
   if (!location) { showToast('Location required', 'error'); return; }
-  if (!apiBase) { showToast('API base URL required', 'error'); return; }
 
   const btn = document.getElementById('build-btn');
   btn.disabled = true;
@@ -537,13 +515,21 @@ async function runPipeline() {
     liveUrl = deployResult.live_url;
     setDot(4, 'done');
     log(`Pushed — commit ${deployResult.github_commit?.slice(0, 7)}`, 'ok');
+    if (deployResult.collision_detected) {
+      log(`Existing site found at base path — deployed as ${deployResult.brand_slug}/${deployResult.location_slug}/ to avoid overwrite`, 'accent');
+    }
     log(`Cloudflare cache purged — ${deployResult.cloudflare_purge}`, 'ok');
     log(`Live: ${liveUrl}`, 'accent');
 
     // ── SUCCESS ──────────────────────────────
     const panel = document.getElementById('success-panel');
     document.getElementById('success-url').innerHTML = `<a href="${liveUrl}" target="_blank">${liveUrl}</a>`;
+    const collisionNote = deployResult.collision_detected
+      ? `<span style="color:var(--accent)">Collision detected — suffix applied to preserve existing site.</span><br>`
+      : '';
     document.getElementById('success-meta').innerHTML = `
+      ${collisionNote}
+      Path: ${deployResult.brand_slug}/${deployResult.location_slug}/<br>
       GitHub commit: ${deployResult.github_commit?.slice(0, 7)}<br>
       Cloudflare: ${deployResult.cloudflare_purge}<br>
       Generated: ${(generatedHTML.length / 1024).toFixed(0)}KB · ${new Date().toLocaleTimeString()}
