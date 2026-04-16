@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bid Builder — LUX Brand Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0a0a0a;--white:#fafaf8;--gray-1:#1a1a18;--gray-2:#252522;--gray-3:#333330;
+  --gray-4:#4a4a46;--gray-5:#888882;--gray-6:#b8b8b2;--accent:#c8a96e;--accent-dim:#8a7348;
+  --green:#2d6a4f;--green-light:#52b788;--red:#9b2226;
+  --border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.14);
+  --font-display:'DM Serif Display',serif;--font-ui:'Syne',sans-serif;--font-mono:'DM Mono',monospace;
+}
+html{font-size:16px}
+body{background:var(--black);color:var(--white);font-family:var(--font-ui);min-height:100vh;line-height:1.6}
+
+/* LAYOUT */
+.shell{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+.sidebar{background:var(--gray-1);border-right:1px solid var(--border);display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.sidebar-top{padding:32px 28px 24px;border-bottom:1px solid var(--border)}
+.logo{font-family:var(--font-display);font-size:20px;color:var(--white)}
+.logo span{display:block;font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:3px;color:var(--accent);margin-top:6px;text-transform:uppercase}
+.pipeline{padding:24px 28px;flex:1}
+.pipeline-label{font-size:8.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gray-4);margin-bottom:16px}
+.pipe-step{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px;position:relative}
+.pipe-step:not(:last-child)::after{content:'';position:absolute;left:11px;top:26px;width:1px;height:calc(100% - 6px);background:var(--border)}
+.pipe-dot{width:22px;height:22px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--gray-5);flex-shrink:0;background:var(--gray-1);position:relative;z-index:1;transition:all .3s}
+.pipe-dot.active{border-color:var(--accent);color:var(--accent);background:rgba(200,169,110,.1)}
+.pipe-dot.done{border-color:var(--green-light);color:var(--green-light);background:rgba(82,183,136,.1)}
+.pipe-dot.running{border-color:var(--accent);animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(200,169,110,.4)}50%{box-shadow:0 0 0 6px rgba(200,169,110,0)}}
+.pipe-info{padding-top:2px}
+.pipe-name{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-6);margin-bottom:2px}
+.pipe-desc{font-size:10px;color:var(--gray-4);line-height:1.4}
+.pipe-status{font-size:9px;font-weight:700;letter-spacing:1px;margin-top:3px}
+.pipe-status.ok{color:var(--green-light)}
+.pipe-status.err{color:#e06c75}
+.pipe-status.running{color:var(--accent)}
+.sidebar-bottom{padding:20px 28px;border-top:1px solid var(--border);margin-top:auto}
+.sidebar-note{font-size:10px;color:var(--gray-4);line-height:1.6}
+
+/* MAIN */
+.main{display:flex;flex-direction:column}
+.topbar{padding:20px 48px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.9);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+.topbar-title{font-family:var(--font-display);font-size:17px}
+.topbar-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-4)}
+
+.content{flex:1;padding:48px;max-width:800px}
+
+/* SECTION HEADERS */
+.section-num{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.section-title{font-family:var(--font-display);font-size:28px;margin-bottom:8px}
+.section-desc{font-size:13px;color:var(--gray-5);margin-bottom:28px;line-height:1.7}
+
+/* FIELDS */
+.field-group{margin-bottom:22px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field-label{display:block;font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray-5);margin-bottom:7px}
+.field-hint{font-size:11px;color:var(--gray-4);margin-top:4px;line-height:1.5}
+.field-input{width:100%;background:var(--gray-1);border:1px solid var(--border);color:var(--white);font-family:var(--font-ui);font-size:13px;padding:11px 13px;border-radius:2px;outline:none;transition:border-color .15s;appearance:none}
+.field-input:focus{border-color:var(--accent)}
+.field-input::placeholder{color:var(--gray-4)}
+select.field-input{cursor:pointer}
+
+/* FILE DROP ZONE */
+.drop-zone{border:1px dashed var(--border-strong);border-radius:2px;padding:40px 32px;text-align:center;cursor:pointer;transition:all .2s;background:var(--gray-1);position:relative}
+.drop-zone:hover,.drop-zone.dragover{border-color:var(--accent);background:rgba(200,169,110,.04)}
+.drop-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.drop-icon{font-size:28px;margin-bottom:12px;opacity:.5}
+.drop-title{font-size:13px;font-weight:700;color:var(--gray-6);margin-bottom:6px;letter-spacing:.5px}
+.drop-sub{font-size:11px;color:var(--gray-4);line-height:1.6}
+
+/* FILE LIST */
+.file-list{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.file-item{display:flex;align-items:center;gap:10px;background:var(--gray-2);border:1px solid var(--border);border-radius:2px;padding:10px 14px}
+.file-icon{font-size:14px;opacity:.7;flex-shrink:0}
+.file-name{font-size:12px;color:var(--gray-6);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.file-size{font-size:10px;color:var(--gray-4);flex-shrink:0}
+.file-remove{background:none;border:none;color:var(--gray-4);cursor:pointer;font-size:16px;padding:0;line-height:1;flex-shrink:0;transition:color .15s}
+.file-remove:hover{color:#e06c75}
+
+/* DIVIDER */
+hr{border:none;border-top:1px solid var(--border);margin:36px 0}
+
+/* MODE TOGGLE */
+.mode-tabs{display:flex;border:1px solid var(--border);border-radius:2px;overflow:hidden;width:fit-content;margin-bottom:8px}
+.mode-tab{padding:9px 18px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-5);cursor:pointer;background:transparent;border:none;font-family:var(--font-ui);transition:all .15s}
+.mode-tab.active{background:var(--accent);color:var(--black)}
+.mode-tab:hover:not(.active){color:var(--white);background:var(--gray-2)}
+
+/* BUILD BUTTON */
+.build-btn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:18px;background:var(--accent);border:none;color:var(--black);font-family:var(--font-ui);font-size:12px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .2s;margin-top:32px}
+.build-btn:hover{background:#d4b87a}
+.build-btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* LOG */
+.log-wrap{margin-top:24px;display:none}
+.log-wrap.visible{display:block}
+.log-header{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray-4);margin-bottom:8px}
+.log-box{background:var(--black);border:1px solid var(--border);border-radius:2px;padding:16px 20px;font-family:var(--font-mono);font-size:11px;line-height:1.9;color:var(--gray-5);max-height:240px;overflow-y:auto}
+.log-line.ok{color:var(--green-light)}
+.log-line.err{color:#e06c75}
+.log-line.dim{color:var(--gray-4)}
+.log-line.accent{color:var(--accent)}
+
+/* SUCCESS PANEL */
+.success-panel{display:none;margin-top:32px;background:rgba(45,106,79,.12);border:1px solid rgba(82,183,136,.3);border-radius:2px;padding:32px}
+.success-panel.visible{display:block}
+.success-url{font-family:var(--font-display);font-size:22px;color:var(--green-light);margin-bottom:16px}
+.success-url a{color:inherit;text-decoration:none}
+.success-url a:hover{text-decoration:underline}
+.success-meta{font-size:11px;color:var(--gray-5);line-height:1.8}
+.success-actions{display:flex;gap:10px;margin-top:20px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;font-family:var(--font-ui);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--border-strong);background:transparent;color:var(--white);cursor:pointer;border-radius:2px;transition:all .15s}
+.btn:hover{background:var(--gray-2);border-color:var(--accent)}
+.btn-green{border-color:var(--green-light);color:var(--green-light)}
+.btn-green:hover{background:rgba(82,183,136,.1);border-color:var(--green-light)}
+
+/* TOAST */
+.toast{position:fixed;bottom:28px;right:28px;background:var(--gray-2);border:1px solid var(--border-strong);color:var(--white);font-size:11px;font-weight:600;letter-spacing:1px;padding:12px 18px;border-radius:2px;z-index:100;transform:translateY(12px);opacity:0;transition:all .2s;pointer-events:none}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.success{border-color:var(--green-light);color:var(--green-light)}
+.toast.error{border-color:#e06c75;color:#e06c75}
+
+@media(max-width:900px){.shell{grid-template-columns:1fr}.sidebar{display:none}.content{padding:24px}}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+<!-- SIDEBAR: pipeline status -->
+<aside class="sidebar">
+  <div class="sidebar-top">
+    <div class="logo">Bid Builder<span>LUX Brand Co.</span></div>
+  </div>
+  <div class="pipeline">
+    <div class="pipeline-label">Pipeline</div>
+
+    <div class="pipe-step">
+      <div class="pipe-dot" id="dot-1">1</div>
+      <div class="pipe-info">
+        <div class="pipe-name">Extract</div>
+        <div class="pipe-desc">Parse documents, pull project data</div>
+        <div class="pipe-status" id="status-1"></div>
+      </div>
+    </div>
+
+    <div class="pipe-step">
+      <div class="pipe-dot" id="dot-2">2</div>
+      <div class="pipe-info">
+        <div class="pipe-name">Scrape Brand</div>
+        <div class="pipe-desc">Fetch visual language from client site</div>
+        <div class="pipe-status" id="status-2"></div>
+      </div>
+    </div>
+
+    <div class="pipe-step">
+      <div class="pipe-dot" id="dot-3">3</div>
+      <div class="pipe-info">
+        <div class="pipe-name">Build Site</div>
+        <div class="pipe-desc">Claude generates index.html</div>
+        <div class="pipe-status" id="status-3"></div>
+      </div>
+    </div>
+
+    <div class="pipe-step">
+      <div class="pipe-dot" id="dot-4">4</div>
+      <div class="pipe-info">
+        <div class="pipe-name">Deploy</div>
+        <div class="pipe-desc">Push to GitHub → purge Cloudflare</div>
+        <div class="pipe-status" id="status-4"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar-bottom">
+    <div class="sidebar-note">
+      All secrets stored in AWS Secrets Manager. Files processed in-memory. Nothing persisted beyond the deploy.
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="topbar">
+    <div class="topbar-title">New Bid Microsite</div>
+    <div class="topbar-tag">Internal — LUX Brand Co.</div>
+  </div>
+
+  <div class="content">
+
+    <!-- SECTION 1: FILES -->
+    <div class="section-num">01</div>
+    <h2 class="section-title">Upload Documents</h2>
+    <p class="section-desc">Drop everything in — email threads, PDFs, meeting transcripts, site visit photos. Claude reads it all and extracts the project data automatically.</p>
+
+    <div class="drop-zone" id="drop-zone">
+      <input type="file" id="file-input" multiple accept=".pdf,.txt,.md,.png,.jpg,.jpeg,.eml,.html">
+      <div class="drop-icon">⬆</div>
+      <div class="drop-title">Drop files here or click to browse</div>
+      <div class="drop-sub">PDFs · Email exports · Transcripts · Site photos<br>Max 20MB per file</div>
+    </div>
+    <div class="file-list" id="file-list"></div>
+
+    <hr>
+
+    <!-- SECTION 2: PROJECT -->
+    <div class="section-num">02</div>
+    <h2 class="section-title">Project Details</h2>
+    <p class="section-desc">A few things Claude can't reliably extract from documents — confirm these before building.</p>
+
+    <div class="field-row">
+      <div class="field-group">
+        <label class="field-label">Client Brand *</label>
+        <input class="field-input" id="f-brand" type="text" placeholder="TAG Heuer">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Location *</label>
+        <input class="field-input" id="f-location" type="text" placeholder="Springfield, NJ">
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Client Website URL</label>
+      <input class="field-input" id="f-brand-url" type="text" placeholder="https://www.tagheuer.com">
+      <div class="field-hint">Used to scrape their visual language — fonts, colors, spacing. Leave blank to let Claude infer from training data.</div>
+    </div>
+
+    <hr>
+
+    <!-- SECTION 3: MODE -->
+    <div class="section-num">03</div>
+    <h2 class="section-title">Site Mode</h2>
+    <p class="section-desc">Static is a one-time proposal. Hub adds a live collaboration thread and analytics dashboard — requires a Supabase project.</p>
+
+    <div class="mode-tabs">
+      <button class="mode-tab active" id="mode-static" onclick="setMode('static')">Static Bid</button>
+      <button class="mode-tab" id="mode-hub" onclick="setMode('hub')">Living Hub</button>
+    </div>
+    <div class="field-hint" id="mode-hint" style="margin-bottom:0">One-time proposal. No Supabase required. Best for first-contact bids.</div>
+
+    <div id="hub-fields" style="display:none;margin-top:20px">
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Supabase Project URL</label>
+          <input class="field-input" id="f-sb-url" type="text" placeholder="https://xxxx.supabase.co">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Supabase Anon Key</label>
+          <input class="field-input" id="f-sb-key" type="text" placeholder="sb_publishable_...">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Analytics PIN (4 digits)</label>
+          <input class="field-input" id="f-pin" type="text" placeholder="2868" maxlength="4">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Review Cadence</label>
+          <input class="field-input" id="f-cadence" type="text" placeholder="Every 2–3 weeks">
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- SECTION 4: API ENDPOINT -->
+    <div class="section-num">04</div>
+    <h2 class="section-title">Backend</h2>
+    <p class="section-desc">The API Gateway URL from your CloudFormation stack outputs.</p>
+
+    <div class="field-group">
+      <label class="field-label">API Base URL *</label>
+      <input class="field-input" id="f-api-url" type="text" placeholder="https://xxxxxxxxxx.execute-api.us-west-2.amazonaws.com/prod">
+      <div class="field-hint">From the <code style="font-family:var(--font-mono);font-size:10px;color:var(--accent)">ApiBaseUrl</code> stack output. Stored in localStorage.</div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Build Function URL *</label>
+      <input class="field-input" id="f-build-url" type="text" placeholder="https://xxxxxxxxxxxxxxxxxx.lambda-url.us-west-2.on.aws/">
+      <div class="field-hint">From the <code style="font-family:var(--font-mono);font-size:10px;color:var(--accent)">BuildFunctionUrl</code> stack output. Bypasses API Gateway timeout for site generation.</div>
+    </div>
+
+    <!-- BUILD BUTTON -->
+    <button class="build-btn" id="build-btn" onclick="runPipeline()">
+      Build &amp; Deploy
+    </button>
+
+    <!-- LOG -->
+    <div class="log-wrap" id="log-wrap">
+      <div class="log-header">Pipeline Log</div>
+      <div class="log-box" id="log-box"></div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-panel" id="success-panel">
+      <div class="section-num">Live</div>
+      <div class="success-url" id="success-url"></div>
+      <div class="success-meta" id="success-meta"></div>
+      <div class="success-actions">
+        <a id="open-link" href="#" target="_blank" class="btn btn-green">Open Site ↗</a>
+        <button class="btn" onclick="copyUrl()">Copy URL</button>
+        <button class="btn" onclick="downloadHtml()">Download HTML</button>
+        <button class="btn" onclick="resetForm()">New Bid</button>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ─────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────
+let files = [];
+let currentMode = 'static';
+let generatedHTML = '';
+let liveUrl = '';
+
+// Persist API URL
+const savedApiUrl = localStorage.getItem('bid-builder-api-url');
+if (savedApiUrl) document.getElementById('f-api-url').value = savedApiUrl;
+document.getElementById('f-api-url').addEventListener('change', e => {
+  localStorage.setItem('bid-builder-api-url', e.target.value.trim());
+});
+const savedBuildUrl = localStorage.getItem('bid-builder-build-url');
+if (savedBuildUrl) document.getElementById('f-build-url').value = savedBuildUrl;
+document.getElementById('f-build-url').addEventListener('change', e => {
+  localStorage.setItem('bid-builder-build-url', e.target.value.trim());
+});
+
+// ─────────────────────────────────────────────
+// FILE HANDLING
+// ─────────────────────────────────────────────
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('dragover');
+  handleFiles(e.dataTransfer.files);
+});
+fileInput.addEventListener('change', e => handleFiles(e.target.files));
+
+function handleFiles(fileList) {
+  for (const f of fileList) {
+    if (files.find(x => x.name === f.name)) continue;
+    files.push(f);
+  }
+  renderFileList();
+}
+
+function renderFileList() {
+  const list = document.getElementById('file-list');
+  list.innerHTML = '';
+  files.forEach((f, i) => {
+    const icon = f.type.startsWith('image/') ? '🖼' : f.type === 'application/pdf' ? '📄' : '📝';
+    const size = f.size > 1024*1024 ? (f.size/1024/1024).toFixed(1)+'MB' : Math.round(f.size/1024)+'KB';
+    const el = document.createElement('div');
+    el.className = 'file-item';
+    el.innerHTML = `<span class="file-icon">${icon}</span><span class="file-name">${f.name}</span><span class="file-size">${size}</span><button class="file-remove" onclick="removeFile(${i})">×</button>`;
+    list.appendChild(el);
+  });
+}
+
+function removeFile(i) { files.splice(i, 1); renderFileList(); }
+
+// ─────────────────────────────────────────────
+// MODE
+// ─────────────────────────────────────────────
+function setMode(m) {
+  currentMode = m;
+  document.getElementById('mode-static').classList.toggle('active', m === 'static');
+  document.getElementById('mode-hub').classList.toggle('active', m === 'hub');
+  document.getElementById('hub-fields').style.display = m === 'hub' ? 'block' : 'none';
+  document.getElementById('mode-hint').textContent = m === 'static'
+    ? 'One-time proposal. No Supabase required. Best for first-contact bids.'
+    : 'Living hub with Collaboration Log + Analytics dashboard. Requires a Supabase project.';
+}
+
+// ─────────────────────────────────────────────
+// PIPELINE HELPERS
+// ─────────────────────────────────────────────
+function v(id) { return document.getElementById(id)?.value.trim() || ''; }
+
+function setDot(n, state) {
+  const dot = document.getElementById(`dot-${n}`);
+  const status = document.getElementById(`status-${n}`);
+  dot.className = `pipe-dot ${state}`;
+  const labels = { running: 'Running…', done: 'Complete', err: 'Failed', '': '' };
+  const cls = { running: 'running', done: 'ok', err: 'err', '': '' };
+  status.textContent = labels[state] || '';
+  status.className = `pipe-status ${cls[state] || ''}`;
+}
+
+const logBox = document.getElementById('log-box');
+function log(msg, cls = '') {
+  document.getElementById('log-wrap').className = 'log-wrap visible';
+  const d = document.createElement('div');
+  d.className = `log-line ${cls}`;
+  d.textContent = msg;
+  logBox.appendChild(d);
+  logBox.scrollTop = logBox.scrollHeight;
+}
+
+async function fileToBase64(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = e => res(e.target.result.split(',')[1]);
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
+}
+
+async function post(endpoint, body) {
+  // /build uses the Lambda Function URL directly to bypass API Gateway 29s timeout.
+  // All other endpoints go through API Gateway as normal.
+  let url;
+  if (endpoint === 'build') {
+    const buildUrl = v('f-build-url').replace(/\/$/, '');
+    if (!buildUrl) throw new Error('Build Function URL not set — check stack outputs for BuildFunctionUrl');
+    url = buildUrl;
+  } else {
+    const apiBase = v('f-api-url').replace(/\/$/, '');
+    url = `${apiBase}/${endpoint}`;
+  }
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  const data = await res.json();
+  if (!data.ok) throw new Error(data.error || `${endpoint} failed`);
+  return data;
+}
+
+// ─────────────────────────────────────────────
+// MAIN PIPELINE
+// ─────────────────────────────────────────────
+async function runPipeline() {
+  const brand = v('f-brand');
+  const location = v('f-location');
+  const apiBase = v('f-api-url');
+
+  if (!brand) { showToast('Brand name required', 'error'); return; }
+  if (!location) { showToast('Location required', 'error'); return; }
+  if (!apiBase) { showToast('API base URL required', 'error'); return; }
+
+  const btn = document.getElementById('build-btn');
+  btn.disabled = true;
+  btn.textContent = 'Building…';
+  logBox.innerHTML = '';
+  document.getElementById('success-panel').className = 'success-panel';
+  generatedHTML = '';
+  liveUrl = '';
+
+  try {
+    // ── STEP 1: EXTRACT ──────────────────────
+    setDot(1, 'running');
+    log(`Uploading ${files.length} file(s) for extraction…`, 'dim');
+
+    const filePayloads = await Promise.all(files.map(async f => ({
+      name: f.name,
+      type: f.type || 'text/plain',
+      data: await fileToBase64(f)
+    })));
+
+    const extractResult = await post('process', {
+      brand, location,
+      brand_url: v('f-brand-url'),
+      mode: currentMode,
+      files: filePayloads
+    });
+
+    const project = extractResult.data;
+    // Inject hub fields if hub mode
+    if (currentMode === 'hub') {
+      project.sb_url = v('f-sb-url');
+      project.sb_key = v('f-sb-key');
+      project.hub_pin = v('f-pin');
+      project.hub_cadence = v('f-cadence') || 'Every 2–3 weeks';
+    }
+
+    setDot(1, 'done');
+    log(`Extracted: ${project.team?.length || 0} team members, ${project.understanding?.length || 0} observations, ${project.pricing?.length || 0} pricing lines`, 'ok');
+
+    // ── STEP 2: SCRAPE ───────────────────────
+    setDot(2, 'running');
+    const brandUrl = v('f-brand-url') || project.brand_url;
+    let scrapeResult = { ok: false };
+
+    if (brandUrl) {
+      log(`Scraping ${brandUrl}…`, 'dim');
+      try {
+        scrapeResult = await post('scrape', { url: brandUrl });
+        const colorCount = scrapeResult.colors_found?.length || 0;
+        const fontCount = scrapeResult.fonts_found?.length || 0;
+        log(`Scraped: ${colorCount} colors, ${fontCount} font references extracted`, 'ok');
+      } catch(e) {
+        log(`Scrape failed (${e.message}) — Claude will infer from training data`, 'dim');
+        scrapeResult = { ok: false };
+      }
+    } else {
+      log('No brand URL provided — Claude will infer visual language from training data', 'dim');
+    }
+    setDot(2, 'done');
+
+    // ── STEP 3: BUILD ────────────────────────
+    setDot(3, 'running');
+    log('Sending to Claude — generating index.html…', 'dim');
+    log('This takes 60–120 seconds for a complete site…', 'dim');
+
+    const buildResult = await post('build', { project, scrape: scrapeResult });
+    generatedHTML = buildResult.html;
+
+    setDot(3, 'done');
+    log(`Site generated — ${(generatedHTML.length / 1024).toFixed(0)}KB HTML`, 'ok');
+
+    // ── STEP 4: DEPLOY ───────────────────────
+    setDot(4, 'running');
+    log('Pushing to GitHub Pages…', 'dim');
+
+    const deployResult = await post('deploy', {
+      brand,
+      location,
+      html: generatedHTML
+    });
+
+    liveUrl = deployResult.live_url;
+    setDot(4, 'done');
+    log(`Pushed — commit ${deployResult.github_commit?.slice(0, 7)}`, 'ok');
+    log(`Cloudflare cache purged — ${deployResult.cloudflare_purge}`, 'ok');
+    log(`Live: ${liveUrl}`, 'accent');
+
+    // ── SUCCESS ──────────────────────────────
+    const panel = document.getElementById('success-panel');
+    document.getElementById('success-url').innerHTML = `<a href="${liveUrl}" target="_blank">${liveUrl}</a>`;
+    document.getElementById('success-meta').innerHTML = `
+      GitHub commit: ${deployResult.github_commit?.slice(0, 7)}<br>
+      Cloudflare: ${deployResult.cloudflare_purge}<br>
+      Generated: ${(generatedHTML.length / 1024).toFixed(0)}KB · ${new Date().toLocaleTimeString()}
+    `;
+    document.getElementById('open-link').href = liveUrl;
+    panel.className = 'success-panel visible';
+    showToast('Site is live', 'success');
+
+  } catch(e) {
+    log(`Error: ${e.message}`, 'err');
+    showToast('Pipeline failed — see log', 'error');
+    // Mark current running dot as errored
+    for (let i = 1; i <= 4; i++) {
+      if (document.getElementById(`dot-${i}`).classList.contains('running')) {
+        setDot(i, 'err');
+      }
+    }
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Build & Deploy';
+}
+
+// ─────────────────────────────────────────────
+// POST-BUILD ACTIONS
+// ─────────────────────────────────────────────
+function copyUrl() {
+  if (!liveUrl) return;
+  navigator.clipboard.writeText(liveUrl).then(() => showToast('URL copied', 'success'));
+}
+
+function downloadHtml() {
+  if (!generatedHTML) return;
+  const brand = v('f-brand').toLowerCase().replace(/\s+/g, '');
+  const loc = v('f-location').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  const blob = new Blob([generatedHTML], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `${brand}-${loc}-index.html`;
+  a.click();
+}
+
+function resetForm() {
+  files = [];
+  renderFileList();
+  document.getElementById('file-input').value = '';
+  document.getElementById('f-brand').value = '';
+  document.getElementById('f-location').value = '';
+  document.getElementById('f-brand-url').value = '';
+  document.getElementById('log-box').innerHTML = '';
+  document.getElementById('log-wrap').className = 'log-wrap';
+  document.getElementById('success-panel').className = 'success-panel';
+  for (let i = 1; i <= 4; i++) setDot(i, '');
+  generatedHTML = '';
+  liveUrl = '';
+}
+
+// ─────────────────────────────────────────────
+// TOAST
+// ─────────────────────────────────────────────
+function showToast(msg, type = '') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = `toast show ${type}`;
+  setTimeout(() => t.className = `toast ${type}`, 3000);
+}
+</script>
+</body>
+</html>
