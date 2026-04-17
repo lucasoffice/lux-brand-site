@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suit Supply | Miami</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'GT America', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #000000;
+  background: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+}
+
+.conf-banner {
+  position: fixed; top: 0; left: 220px; right: 0;
+  background: #000000; color: #FFFFFF;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 8px 60px; z-index: 100; display: flex; justify-content: space-between;
+}
+
+.sidebar {
+  position: fixed; left: 0; top: 0; bottom: 0; width: 220px;
+  background: #FFFFFF; border-right: 1px solid #D9DADA;
+  padding: 32px 24px; display: flex; flex-direction: column; z-index: 90;
+}
+.logo { margin-bottom: 48px; }
+.logo .lbco {
+  font-size: 18px; font-weight: 700; letter-spacing: -0.02em;
+  text-transform: uppercase; color: #000000; display: block; line-height: 1;
+}
+.logo .sub {
+  font-size: 9px; font-weight: 500; letter-spacing: 0.18em;
+  text-transform: uppercase; color: #3d4043; margin-top: 8px; display: block;
+}
+.sidebar nav { display: flex; flex-direction: column; gap: 4px; }
+.sidebar nav a {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #3d4043; text-decoration: none;
+  padding: 8px 0; border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.sidebar nav a:hover, .sidebar nav a.active {
+  color: #000000; border-bottom-color: #000000;
+}
+.sidebar-footer {
+  margin-top: auto; padding-top: 24px; border-top: 1px solid #D9DADA;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #3d4043;
+}
+.sidebar-footer .rc { display: block; margin-top: 6px; color: #000; font-weight: 500; }
+
+main { margin-left: 220px; padding-top: 36px; }
+
+.hero { padding: 120px 80px 80px; border-bottom: 1px solid #D9DADA; }
+.hero-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #000000; margin-bottom: 48px;
+}
+.hero h1 {
+  font-size: 168px; font-weight: 500; letter-spacing: -0.04em; line-height: 0.9;
+  color: #000000; margin-bottom: 32px;
+}
+.hero .tagline {
+  font-size: 22px; font-weight: 400; letter-spacing: -0.01em; line-height: 1.35;
+  color: #000000; max-width: 720px; margin-bottom: 64px;
+}
+.hero .meta {
+  border-top: 1px solid #000000; padding-top: 20px;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #000000;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.hero .rc-tag {
+  display: inline-block; padding: 6px 12px; background: #000000; color: #FFFFFF;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
+  margin-top: 24px;
+}
+
+.photo-strip {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: #D9DADA; border-bottom: 1px solid #D9DADA;
+}
+.photo-cell {
+  aspect-ratio: 4/3; background: #F4F4F2; padding: 28px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.ph-label {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #3d4043;
+}
+.ph-title {
+  font-size: 20px; font-weight: 400; letter-spacing: -0.01em; color: #000000;
+  line-height: 1.2;
+}
+.ph-sub {
+  font-size: 12px; color: #3d4043; letter-spacing: 0.04em;
+}
+
+.sect {
+  padding: 100px 80px; border-bottom: 1px solid #D9DADA;
+}
+.sect-num {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em; color: #000000;
+  margin-bottom: 6px;
+}
+.sect-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #3d4043; margin-bottom: 32px;
+}
+.sect h2 {
+  font-size: 44px; font-weight: 400; letter-spacing: -0.02em; line-height: 1.1;
+  color: #000000; margin-bottom: 20px; max-width: 900px;
+}
+.sect p.sect-sub {
+  font-size: 17px; font-weight: 400; color: #3d4043; line-height: 1.5;
+  max-width: 760px; margin-bottom: 56px;
+}
+
+/* Overview */
+.fact-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #000000; border-bottom: 1px solid #D9DADA;
+  margin-bottom: 48px;
+}
+.fact {
+  padding: 24px 24px 24px 0; border-right: 1px solid #D9DADA;
+}
+.fact:last-child { border-right: none; padding-right: 0; }
+.fact-label {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #3d4043; margin-bottom: 12px;
+}
+.fact-val {
+  font-size: 18px; font-weight: 500; letter-spacing: -0.01em; color: #000000;
+}
+.narrative {
+  font-size: 16px; line-height: 1.6; color: #000000;
+  max-width: 820px; margin-bottom: 32px;
+}
+.visit-chip {
+  display: inline-block; padding: 8px 14px;
+  border: 1px solid #1C3D7A; color: #1C3D7A;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Scope */
+.scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.scope-col { }
+.scope-h {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; padding-bottom: 14px;
+  border-bottom: 2px solid #000000; margin-bottom: 0;
+}
+.scope-col.excl .scope-h { border-bottom-color: #3d4043; color: #3d4043; }
+.scope-row {
+  border-top: 1px solid #D9DADA; padding: 20px 0;
+}
+.scope-row:first-of-type { border-top: none; }
+.scope-row strong {
+  display: block; font-size: 15px; font-weight: 500; color: #000000;
+  margin-bottom: 6px; letter-spacing: -0.005em;
+}
+.scope-row span {
+  font-size: 14px; color: #3d4043; line-height: 1.5;
+}
+
+/* Approach */
+.approach-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
+.app-item {
+  padding: 32px 32px 32px 0; border-top: 1px solid #D9DADA;
+  border-right: 1px solid #D9DADA;
+}
+.app-item:nth-child(2n) { border-right: none; padding-right: 0; padding-left: 32px; }
+.app-item:nth-child(-n+2) { border-top: 2px solid #000000; }
+.app-n {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em; color: #000000;
+  margin-bottom: 16px;
+}
+.app-item h4 {
+  font-size: 20px; font-weight: 500; letter-spacing: -0.01em; color: #000000;
+  margin-bottom: 12px; line-height: 1.25;
+}
+.app-item p {
+  font-size: 14px; color: #3d4043; line-height: 1.55;
+}
+
+/* Understanding */
+.u-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.u-card {
+  padding: 28px 32px 28px 0; border-top: 1px solid #D9DADA;
+  border-right: 1px solid #D9DADA;
+}
+.u-card:nth-child(2n) { border-right: none; padding-right: 0; padding-left: 32px; }
+.u-card:nth-child(-n+2) { border-top: 2px solid #000000; }
+.u-num {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em; color: #000000;
+  margin-bottom: 12px; display: block;
+}
+.u-card h3 {
+  font-size: 18px; font-weight: 500; color: #000000; margin-bottom: 10px;
+  letter-spacing: -0.005em;
+}
+.u-card p { font-size: 14px; color: #3d4043; line-height: 1.55; }
+
+/* Team */
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.tm { position: relative; }
+.tm .initials {
+  aspect-ratio: 5/6; background: #F4F4F2; margin-bottom: 18px;
+  display: flex; align-items: flex-end; padding: 16px;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #3d4043;
+}
+.tm h3 {
+  font-size: 18px; font-weight: 500; letter-spacing: -0.005em; color: #000000;
+  margin-bottom: 6px;
+}
+.tm .role {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #3d4043; margin-bottom: 14px;
+}
+.tm p { font-size: 13px; color: #3d4043; line-height: 1.5; }
+.tm .assigned {
+  position: absolute; top: 12px; right: 12px;
+  background: #1C3D7A; color: #FFFFFF;
+  font-size: 9px; font-weight: 500; letter-spacing: 0.16em;
+  padding: 5px 9px; text-transform: uppercase;
+}
+
+/* Pricing */
+.price-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+.price-table th {
+  text-align: left; padding: 14px 12px 14px 0;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #000000;
+  border-bottom: 2px solid #000000;
+}
+.price-table th:last-child { text-align: right; padding-right: 0; }
+.price-table td {
+  padding: 20px 12px 20px 0; border-top: 1px solid #1C3D7A;
+  font-size: 14px; color: #000000; vertical-align: top;
+}
+.price-table td:last-child {
+  text-align: right; padding-right: 0; font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+.price-table td.line-num {
+  width: 44px; font-size: 11px; letter-spacing: 0.14em; color: #3d4043;
+}
+.price-table td.line-name {
+  width: 220px; font-weight: 500;
+}
+.price-table td.line-note { color: #3d4043; font-size: 13px; }
+.price-table tr.subtotal td {
+  font-weight: 500; border-top: 1px solid #000000;
+}
+.price-table tr.total td {
+  background: #000000; color: #FFFFFF; font-size: 18px;
+  font-weight: 500; padding: 22px 12px 22px 0;
+  letter-spacing: -0.005em;
+}
+.price-table tr.total td:first-child { padding-left: 16px; }
+.price-note {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #3d4043; margin-top: 16px;
+}
+
+/* Timeline */
+.timeline { margin-bottom: 40px; }
+.phase-bar {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: #D9DADA; border: 1px solid #D9DADA; margin-bottom: 40px;
+}
+.phase-seg {
+  background: #FFFFFF; padding: 24px; min-height: 140px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.phase-seg .p-num {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em; color: #000000;
+}
+.phase-seg .p-title {
+  font-size: 16px; font-weight: 500; letter-spacing: -0.005em;
+  color: #000000; line-height: 1.25; margin-top: 8px;
+}
+.phase-seg .p-dur {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #3d4043; margin-top: 16px;
+}
+.phase-seg .p-overlap {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #1C3D7A; margin-top: 4px;
+}
+
+.phase-row {
+  display: grid; grid-template-columns: 60px 1fr 2fr 120px;
+  padding: 20px 0; border-top: 1px solid #D9DADA; align-items: start;
+}
+.phase-row.head {
+  border-top: 2px solid #000000;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #3d4043; padding: 14px 0;
+}
+.phase-row .p-num { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; color: #000000; }
+.phase-row .p-area { font-size: 15px; font-weight: 500; color: #000000; padding-right: 20px; }
+.phase-row .p-work { font-size: 13px; color: #3d4043; line-height: 1.5; padding-right: 20px; }
+.phase-row .p-dur {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #000000; text-align: right;
+}
+
+/* Next steps */
+.ns-list { border-top: 2px solid #000000; }
+.ns-row {
+  display: grid; grid-template-columns: 60px 1fr 200px;
+  padding: 24px 0; border-top: 1px solid #D9DADA; align-items: start;
+}
+.ns-row:first-child { border-top: none; }
+.ns-n { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; color: #000000; }
+.ns-action { }
+.ns-action h4 {
+  font-size: 16px; font-weight: 500; color: #000000; margin-bottom: 6px;
+  letter-spacing: -0.005em;
+}
+.ns-action p { font-size: 13px; color: #3d4043; line-height: 1.5; }
+.ns-owner {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #000000; text-align: right;
+}
+
+/* Guardrails */
+.diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.diff-item {
+  border-left: 3px solid #000000; padding: 8px 0 8px 28px;
+}
+.diff-num {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em; color: #000000;
+  margin-bottom: 16px;
+}
+.diff-item h4 {
+  font-size: 22px; font-weight: 500; letter-spacing: -0.01em; color: #000000;
+  margin-bottom: 14px; line-height: 1.25;
+}
+.diff-item p { font-size: 14px; color: #3d4043; line-height: 1.6; }
+
+/* Footer */
+.footer-quote {
+  background: #000000; color: #FFFFFF; padding: 100px 80px;
+}
+.footer-quote blockquote {
+  font-size: 28px; font-weight: 400; letter-spacing: -0.01em;
+  line-height: 1.35; max-width: 920px; margin-bottom: 40px;
+}
+.attr {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
+  text-transform: uppercase; color: #FFFFFF;
+}
+.footer-bar {
+  background: #FFFFFF; padding: 32px 80px;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #D9DADA;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #3d4043;
+}
+.footer-bar a { color: #000000; text-decoration: none; }
+.footer-bar div:nth-child(3) { text-align: right; }
+
+/* Fade */
+.fade { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade.in { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .sidebar { position: static; width: 100%; border-right: none; border-bottom: 1px solid #D9DADA; padding: 24px; }
+  .sidebar nav { flex-direction: row; flex-wrap: wrap; gap: 16px; }
+  .sidebar-footer { margin-top: 20px; }
+  .conf-banner { left: 0; padding: 8px 24px; }
+  main { margin-left: 0; padding-top: 28px; }
+  .hero { padding: 60px 30px 50px; }
+  .hero h1 { font-size: 40px; }
+  .hero .tagline { font-size: 17px; }
+  .hero .meta { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .sect { padding: 60px 30px; }
+  .sect h2 { font-size: 28px; }
+  .photo-strip { grid-template-columns: 1fr; }
+  .fact-strip { grid-template-columns: 1fr 1fr; }
+  .fact { border-right: none; border-bottom: 1px solid #D9DADA; padding: 18px 0; }
+  .scope-grid, .approach-grid, .u-grid, .team-grid, .diff-grid { grid-template-columns: 1fr; gap: 0; }
+  .app-item, .u-card { border-right: none !important; padding: 24px 0 !important; border-top: 1px solid #D9DADA; }
+  .app-item:first-child, .u-card:first-child { border-top: 2px solid #000; }
+  .team-grid { gap: 32px; }
+  .phase-bar { grid-template-columns: 1fr; }
+  .phase-row { grid-template-columns: 40px 1fr; gap: 8px; }
+  .phase-row .p-work, .phase-row .p-dur { grid-column: 2; text-align: left; padding: 0; }
+  .ns-row { grid-template-columns: 40px 1fr; }
+  .ns-owner { grid-column: 2; text-align: left; margin-top: 8px; }
+  .footer-quote { padding: 60px 30px; }
+  .footer-quote blockquote { font-size: 20px; }
+  .footer-bar { grid-template-columns: 1fr; gap: 8px; padding: 24px 30px; }
+  .footer-bar div:nth-child(3) { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<div class="conf-banner">
+  <span>Confidential — Rough Costing Exercise</span>
+  <span>Not a Formal Bid</span>
+</div>
+
+<aside class="sidebar">
+  <div class="logo">
+    <span class="lbco">LBCO</span>
+    <span class="sub">Lux Brand Co.</span>
+  </div>
+  <nav>
+    <a href="#overview">01 — Dossier</a>
+    <a href="#scope">02 — Scope</a>
+    <a href="#approach">03 — Method</a>
+    <a href="#understanding">04 — Site Notes</a>
+    <a href="#team">05 — Assigned</a>
+    <a href="#pricing">06 — ROM</a>
+    <a href="#timeline">07 — Schedule</a>
+    <a href="#next_steps">08 — To Close</a>
+    <a href="#guardrails">09 — Why LBCO</a>
+  </nav>
+  <div class="sidebar-footer">
+    LBCO / SUITSUPPLY / MIA
+    <span class="rc">2026 — ROM</span>
+  </div>
+</aside>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-label">ROUGH COSTING EXERCISE / SUIT SUPPLY MIAMI 2026</div>
+    <h1>Miami.</h1>
+    <p class="tagline">Interior buildout of the Suit Supply Miami storefront, delivered turnkey to brand standard from demo through fixture set.</p>
+    <div class="meta">
+      <span>LBCO × SUIT SUPPLY — MIAMI, FL — 2026</span>
+      <span>LBCO.COM/SUITSUPPLY/MIAMI</span>
+    </div>
+    <div class="rc-tag">ROUGH COSTING — NOT A FORMAL BID</div>
+  </section>
+
+  <div class="photo-strip">
+    <div class="photo-cell">
+      <div class="ph-label">Plate 01 / Storefront</div>
+      <div>
+        <div class="ph-title">Site photography held pending landlord approval.</div>
+        <div class="ph-sub" style="margin-top:8px;">[UPDATE BEFORE SENDING] Exterior plate</div>
+      </div>
+    </div>
+    <div class="photo-cell">
+      <div class="ph-label">Plate 02 / Interior shell</div>
+      <div>
+        <div class="ph-title">Demo extent documented on site walk, imagery to follow.</div>
+        <div class="ph-sub" style="margin-top:8px;">[UPDATE BEFORE SENDING] Shell plate</div>
+      </div>
+    </div>
+    <div class="photo-cell">
+      <div class="ph-label">Plate 03 / Reference build</div>
+      <div>
+        <div class="ph-title">Comparable Suit Supply reference queued from brand archive.</div>
+        <div class="ph-sub" style="margin-top:8px;">[UPDATE BEFORE SENDING] Reference plate</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="overview">
+    <div class="sect-num">01</div>
+    <div class="sect-label">Project Dossier</div>
+    <h2>Suit Supply Miami, interior buildout, 2026 opening.</h2>
+    <p class="sect-sub">A turnkey retail buildout priced as a rough costing exercise, pending final drawings and landlord work letter. Issued by LBCO to the Suit Supply construction lead for internal review.</p>
+
+    <div class="fact-strip">
+      <div class="fact">
+        <div class="fact-label">Location</div>
+        <div class="fact-val">Miami, FL</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Square Footage</div>
+        <div class="fact-val">[UPDATE BEFORE SENDING] SF</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Delivery</div>
+        <div class="fact-val">Turnkey interior</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Status</div>
+        <div class="fact-val">Rough Costing</div>
+      </div>
+    </div>
+
+    <p class="narrative">LBCO priced the Suit Supply Miami storefront as a rough order-of-magnitude exercise against walk-through notes and the brand standards package on file. Scope brackets demolition, architectural finishes, millwork receiving and install, MEP modifications, and closeout. The document reflects a budget order-of-magnitude, not a contracted GMP. Final numbers supersede on release of the permit-set drawings, landlord work letter, and completed buyout. Figures carry overhead at 12% and contingency at 5%, consistent with retail shell-to-turnover work in South Florida.</p>
+
+    <div class="visit-chip">Site Visit — Miami — [UPDATE BEFORE SENDING Month Year]</div>
+  </div>
+
+  <div class="sect" id="scope">
+    <div class="sect-num">02</div>
+    <div class="sect-label">Scope Ledger</div>
+    <h2>What LBCO carries, and what LBCO does not.</h2>
+    <p class="sect-sub">Two columns. Left column confirms included work. Right column names excluded work by vendor or responsible party so there is no overlap at buyout.</p>
+
+    <div class="scope-grid">
+      <div class="scope-col incl">
+        <div class="scope-h">Included — LBCO scope</div>
+        <div class="scope-row">
+          <strong>Demolition</strong>
+          <span>Selective demo of existing partitions, finishes, and MEP confirmed against the demo drawings and landlord protect-in-place notes.</span>
+        </div>
+        <div class="scope-row">
+          <strong>Architectural finishes</strong>
+          <span>Flooring, wall finishes, ceilings, and paint confirmed per the Suit Supply brand standards package on file.</span>
+        </div>
+        <div class="scope-row">
+          <strong>Millwork install</strong>
+          <span>Receiving, staging, protection, and install of brand-supplied millwork and fixture program under LBCO supervision.</span>
+        </div>
+        <div class="scope-row">
+          <strong>MEP modifications</strong>
+          <span>HVAC, electrical, and plumbing revisions confirmed to support the new layout and fitting-room count.</span>
+        </div>
+        <div class="scope-row">
+          <strong>Permits and closeout</strong>
+          <span>Building permit processing, inspection coordination, and delivery of complete closeout documents at turnover.</span>
+        </div>
+      </div>
+
+      <div class="scope-col excl">
+        <div class="scope-h">Excluded — by others</div>
+        <div class="scope-row">
+          <strong>Furniture and loose equipment</strong>
+          <span>FF&amp;E procured directly by Suit Supply through the brand's approved vendor list unless written otherwise.</span>
+        </div>
+        <div class="scope-row">
+          <strong>Low voltage and AV</strong>
+          <span>Security, POS, network, and AV packages assumed by the Suit Supply preferred vendor under a separate contract.</span>
+        </div>
+        <div class="scope-row">
+          <strong>Landlord base building work</strong>
+          <span>Any item defined as landlord responsibility under the work letter, including shell, demising walls, and utility stubs.</span>
+        </div>
+        <div class="scope-row">
+          <strong>Signage</strong>
+          <span>Exterior signage fabrication, permitting, and install carried by the Suit Supply signage vendor of record.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="approach">
+    <div class="sect-num">03</div>
+    <div class="sect-label">Method</div>
+    <h2>Four operating commitments through turnover.</h2>
+    <p class="sect-sub">How this job is run day-to-day: accountability, buyout discipline, work-hours logic, and reporting cadence.</p>
+
+    <div class="approach-grid">
+      <div class="app-item">
+        <div class="app-n">01</div>
+        <h4>Single point of accountability.</h4>
+        <p>One project executive and one site superintendent assigned full-time for the duration. They own schedule, budget, and the daily relationship with the Suit Supply construction lead. No rotating staff, no subcontracted supervision.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">02</div>
+        <h4>Early buyout inside two weeks.</h4>
+        <p>Long-lead items — brand millwork, light fixtures, and HVAC equipment — locked within the first two weeks of award. Buyout calls follow drawing release. Procurement log issued weekly with vendor, lead time, and on-site required-by date.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">03</div>
+        <h4>Work hours coordinated to the block.</h4>
+        <p>Permitted work hours confirmed with the landlord and surrounding Miami tenants on week one. Loud demo, delivery windows, and after-hours work sequenced around neighbor operating hours so complaints stay off the superintendent's desk.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">04</div>
+        <h4>Friday reporting package.</h4>
+        <p>Weekly package issued every Friday: dated photo log, three-week look-ahead, RFI log, submittal log, and budget variance against the line items in this document. One email, one PDF, one source of truth for the Suit Supply team.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="understanding">
+    <div class="sect-num">04</div>
+    <div class="sect-label">Site Notes</div>
+    <h2>Four observations from the Miami walk.</h2>
+    <p class="sect-sub">Conditions and constraints recorded on the site visit that shape the number, the schedule, or both.</p>
+
+    <div class="u-grid">
+      <div class="u-card">
+        <span class="u-num">Observation 01 — Existing conditions</span>
+        <h3>Existing conditions.</h3>
+        <p>[UPDATE BEFORE SENDING] Specific observation from the site walk covering demo extent, ceiling heights, structural deck condition, and MEP left in place by the previous tenant.</p>
+      </div>
+      <div class="u-card">
+        <span class="u-num">Observation 02 — Landlord requirements</span>
+        <h3>Landlord requirements.</h3>
+        <p>[UPDATE BEFORE SENDING] Work letter terms, permitted hours of work, loading dock and freight elevator access, and insurance certificates required before mobilization.</p>
+      </div>
+      <div class="u-card">
+        <span class="u-num">Observation 03 — Brand standards</span>
+        <h3>Brand standards.</h3>
+        <p>[UPDATE BEFORE SENDING] Suit Supply finish package revision, named millwork vendor, fitting-room count, and fixture program version to align against at permit.</p>
+      </div>
+      <div class="u-card">
+        <span class="u-num">Observation 04 — Schedule driver</span>
+        <h3>Schedule driver.</h3>
+        <p>[UPDATE BEFORE SENDING] Target opening date, critical long-lead items (millwork, HVAC equipment, lighting), and any Suit Supply marketing window that sets the turnover date.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="team">
+    <div class="sect-num">05</div>
+    <div class="sect-label">Assigned</div>
+    <h2>Three from LBCO, one from Suit Supply.</h2>
+    <p class="sect-sub">Named accountability on both sides of the table from award through turnover.</p>
+
+    <div class="team-grid">
+      <div class="tm">
+        <div class="initials">[UPDATE BEFORE SENDING] Portrait</div>
+        <h3>[UPDATE BEFORE SENDING]</h3>
+        <div class="role">Project Executive — LBCO</div>
+        <p>Fifteen-plus years leading retail buildouts across North America. Serves as primary point of accountability for Suit Supply Miami and owner of budget, schedule, and the client relationship. Signs every change order.</p>
+      </div>
+      <div class="tm">
+        <div class="initials">[UPDATE BEFORE SENDING] Portrait</div>
+        <h3>[UPDATE BEFORE SENDING]</h3>
+        <div class="role">Senior Project Manager — LBCO</div>
+        <p>Retail construction specialist with a track record of flagship openings on compressed timelines. Day-to-day manager of trades, submittals, and field coordination for this project. Runs the Friday reporting package.</p>
+      </div>
+      <div class="tm">
+        <div class="initials">[UPDATE BEFORE SENDING] Portrait</div>
+        <h3>[UPDATE BEFORE SENDING]</h3>
+        <div class="role">Site Superintendent — LBCO</div>
+        <p>Twenty-plus years running high-end retail sites in South Florida. On site daily, owns safety, sequencing, and quality control through turnover. Holds direct lines to the Miami-Dade permit runner and the named trade crews.</p>
+      </div>
+      <div class="tm ref">
+        <div class="assigned">Client Contact</div>
+        <div class="initials">[UPDATE BEFORE SENDING] Portrait</div>
+        <h3>[UPDATE BEFORE SENDING]</h3>
+        <div class="role">[UPDATE BEFORE SENDING] — Suit Supply</div>
+        <p>Owner-side lead for the Miami location. Primary decision-maker on design intent, brand standards, and milestone approvals. Single signature authority on RFIs, submittals, and scope changes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="pricing">
+    <div class="sect-num">06</div>
+    <div class="sect-label">Rough Order of Magnitude</div>
+    <h2>Four line items, overhead 12%, contingency 5%.</h2>
+    <p class="sect-sub">Directional pricing for scoping alignment only. Final GMP issued against approved drawings and completed buyout.</p>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Line Item</th>
+          <th>&nbsp;</th>
+          <th>Scope Note</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="line-num">01</td>
+          <td class="line-name">General Conditions</td>
+          <td class="line-note">Supervision, site office, temporary protection, dumpsters, and project management through turnover.</td>
+          <td>$0</td>
+        </tr>
+        <tr>
+          <td class="line-num">02</td>
+          <td class="line-name">Demolition</td>
+          <td class="line-note">Selective demo of existing partitions, finishes, and abandoned MEP per drawings.</td>
+          <td>$0</td>
+        </tr>
+        <tr>
+          <td class="line-num">03</td>
+          <td class="line-name">Architectural and Finishes</td>
+          <td class="line-note">Framing, drywall, flooring, ceilings, paint, and millwork install per brand standards.</td>
+          <td>$0</td>
+        </tr>
+        <tr>
+          <td class="line-num">04</td>
+          <td class="line-name">MEP</td>
+          <td class="line-note">HVAC, electrical, and plumbing modifications supporting the new Suit Supply layout.</td>
+          <td>$0</td>
+        </tr>
+        <tr class="subtotal">
+          <td></td>
+          <td>Subtotal</td>
+          <td>Sum of line items 01 through 04.</td>
+          <td>$0</td>
+        </tr>
+        <tr class="subtotal">
+          <td></td>
+          <td>Overhead</td>
+          <td>Applied at 12% of subtotal.</td>
+          <td>$0</td>
+        </tr>
+        <tr class="subtotal">
+          <td></td>
+          <td>Contingency</td>
+          <td>Applied at 5% of subtotal, drawn only against approved change orders.</td>
+          <td>$0</td>
+        </tr>
+        <tr class="total">
+          <td>—</td>
+          <td>Grand Total</td>
+          <td>Rough order of magnitude, directional.</td>
+          <td>$0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="price-note">Rough Costing Exercise — Not a Formal Bid. Figures supersede on drawing release and buyout.</div>
+  </div>
+
+  <div class="sect" id="timeline">
+    <div class="sect-num">07</div>
+    <div class="sect-label">Schedule</div>
+    <h2>Four phases from mobilization to turnover.</h2>
+    <p class="sect-sub">Durations in weeks, overlaps noted. Phase start dates lock against LOI and permit issuance.</p>
+
+    <div class="timeline">
+      <div class="phase-bar">
+        <div class="phase-seg">
+          <div class="p-num">Phase 01</div>
+          <div class="p-title">Permits, mobilization, demo.</div>
+          <div>
+            <div class="p-dur">[UPDATE BEFORE SENDING] wks</div>
+            <div class="p-overlap">Start — drives schedule</div>
+          </div>
+        </div>
+        <div class="phase-seg">
+          <div class="p-num">Phase 02</div>
+          <div class="p-title">Rough MEP and framing.</div>
+          <div>
+            <div class="p-dur">[UPDATE BEFORE SENDING] wks</div>
+            <div class="p-overlap">Mid — overlaps 01</div>
+          </div>
+        </div>
+        <div class="phase-seg">
+          <div class="p-num">Phase 03</div>
+          <div class="p-title">Finishes, millwork, fixtures.</div>
+          <div>
+            <div class="p-dur">[UPDATE BEFORE SENDING] wks</div>
+            <div class="p-overlap">Mid — overlaps 02</div>
+          </div>
+        </div>
+        <div class="phase-seg">
+          <div class="p-num">Phase 04</div>
+          <div class="p-title">Punch, inspections, turnover.</div>
+          <div>
+            <div class="p-dur">[UPDATE BEFORE SENDING] wks</div>
+            <div class="p-overlap">End — hands over to brand</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-row head">
+        <div class="p-num">Phase</div>
+        <div class="p-area">Area</div>
+        <div class="p-work">Work</div>
+        <div class="p-dur">Duration</div>
+      </div>
+      <div class="phase-row">
+        <div class="p-num">01</div>
+        <div class="p-area">Permits, mobilization, demo</div>
+        <div class="p-work">Permit runner submits package, site office stood up, protection installed, selective demo executed by dedicated crew.</div>
+        <div class="p-dur">[UPDATE BEFORE SENDING] wks</div>
+      </div>
+      <div class="phase-row">
+        <div class="p-num">02</div>
+        <div class="p-area">Rough MEP and framing</div>
+        <div class="p-work">Metal stud framing, ductwork rough, panel set, plumbing rough, and fire-sprinkler head relocation inspected.</div>
+        <div class="p-dur">[UPDATE BEFORE SENDING] wks</div>
+      </div>
+      <div class="phase-row">
+        <div class="p-num">03</div>
+        <div class="p-area">Finishes, millwork, fixtures</div>
+        <div class="p-work">Flooring set, paint, ceiling close, brand-supplied millwork received and installed, lighting and fixture program complete.</div>
+        <div class="p-dur">[UPDATE BEFORE SENDING] wks</div>
+      </div>
+      <div class="phase-row">
+        <div class="p-num">04</div>
+        <div class="p-area">Punch, inspections, turnover</div>
+        <div class="p-work">Final inspections cleared, punch list worked through with brand rep, closeout documents delivered, keys handed to Suit Supply.</div>
+        <div class="p-dur">[UPDATE BEFORE SENDING] wks</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="next_steps">
+    <div class="sect-num">08</div>
+    <div class="sect-label">To Close</div>
+    <h2>Four actions to move from costing to contract.</h2>
+    <p class="sect-sub">Owners named, sequence preserved. Each step is a prerequisite to the one after it.</p>
+
+    <div class="ns-list">
+      <div class="ns-row">
+        <div class="ns-n">01</div>
+        <div class="ns-action">
+          <h4>Confirm final drawing set and scope alignment.</h4>
+          <p>Suit Supply releases the permit-ready drawing set and confirms the scope matrix against this document before LBCO issues GMP.</p>
+        </div>
+        <div class="ns-owner">Suit Supply — [UPDATE BEFORE SENDING]</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">02</div>
+        <div class="ns-action">
+          <h4>Issue LOI or contract to lock schedule.</h4>
+          <p>LOI or executed contract establishes award date, fixes long-lead release, and authorizes LBCO to start buyout calls.</p>
+        </div>
+        <div class="ns-owner">Suit Supply — [UPDATE BEFORE SENDING]</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">03</div>
+        <div class="ns-action">
+          <h4>Submit permit package.</h4>
+          <p>LBCO PM files the permit package with Miami-Dade, coordinates expediter, and tracks plan-check comments to issuance.</p>
+        </div>
+        <div class="ns-owner">LBCO PM — [UPDATE BEFORE SENDING]</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">04</div>
+        <div class="ns-action">
+          <h4>Buyout long-lead items.</h4>
+          <p>LBCO PM releases purchase orders for millwork, lighting, and HVAC equipment, and issues the procurement log to the Suit Supply team.</p>
+        </div>
+        <div class="ns-owner">LBCO PM — [UPDATE BEFORE SENDING]</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="guardrails">
+    <div class="sect-num">09</div>
+    <div class="sect-label">Why LBCO</div>
+    <h2>Two reasons this team delivers Miami on schedule.</h2>
+
+    <div class="diff-grid">
+      <div class="diff-item">
+        <div class="diff-num">01 — Retail-specific experience</div>
+        <h4>Comparable builds delivered, not adapted.</h4>
+        <p>LBCO delivered [UPDATE BEFORE SENDING reference project — Suit Supply or peer brand, city, year] on the original brand turnover date. The finish package, millwork vendor coordination, and inspection sequence are the same playbook that runs Miami — not a retrofit from hospitality or office work.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">02 — Miami market presence</div>
+        <h4>South Florida trades on speed dial.</h4>
+        <p>Supers based in [UPDATE BEFORE SENDING South Florida submarket], named drywall, MEP, and millwork install crews carried across [UPDATE BEFORE SENDING] prior projects, and a Miami-Dade permit runner with active relationships at the building department. Trade mobilization measured in days, not weeks.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-quote">
+    <blockquote>Rough costing exercise issued for scoping alignment on Suit Supply Miami, 2026. Not a formal bid. Figures supersede on drawing release and buyout.</blockquote>
+    <div class="attr">[UPDATE BEFORE SENDING] Name — Lux Brand Company</div>
+  </div>
+
+  <div class="footer-bar">
+    <div>© 2026 Lux Brand Company</div>
+    <div>Prepared for Suit Supply — Miami</div>
+    <div><a href="mailto:[UPDATE BEFORE SENDING]">[UPDATE BEFORE SENDING]</a></div>
+  </div>
+
+</main>
+
+<script>
+  // Fade-up observer
+  const targets = document.querySelectorAll('.u-card, .tm, .diff-item, .price-table tbody tr, .phase-row, .phase-seg, .ns-row, .scope-row, .app-item, .fact');
+  targets.forEach(el => el.classList.add('fade'));
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry, idx) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('in'), idx * 30);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach(el => obs.observe(el));
+
+  // Smooth scroll
+  document.querySelectorAll('.sidebar nav a').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id && id.startsWith('#')) {
+        e.preventDefault();
+        const t = document.querySelector(id);
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Active nav
+  const navLinks = document.querySelectorAll('.sidebar nav a');
+  const sects = document.querySelectorAll('.sect');
+  const navObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(l => {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sects.forEach(s => navObs.observe(s));
+</script>
+
+</body>
+</html>
