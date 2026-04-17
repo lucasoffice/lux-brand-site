@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAG Heuer | Springfield NJ</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #000000;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Confidential banner */
+.conf-banner {
+  position: fixed;
+  top: 0;
+  left: 220px;
+  right: 0;
+  background: #000000;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 8px 60px;
+  text-align: center;
+  z-index: 100;
+  border-bottom: 1px solid #000000;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #000000;
+  padding: 36px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  z-index: 200;
+}
+.logo {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: #000000;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #000000;
+}
+.logo .lbco {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  margin-top: 8px;
+  color: #888888;
+}
+.sidebar nav {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sidebar nav a {
+  display: block;
+  padding: 7px 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #000000;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  color: #000000;
+  border-bottom-color: #000000;
+}
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid #000000;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888888;
+  line-height: 1.7;
+}
+.sidebar-footer .rc {
+  color: #000000;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Main */
+.main {
+  margin-left: 220px;
+  padding-top: 33px;
+}
+
+/* Hero */
+.hero {
+  padding: 100px 80px 80px;
+  border-bottom: 1px solid #000000;
+}
+.hero-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 48px;
+}
+.hero h1 {
+  font-size: 96px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  margin-bottom: 32px;
+}
+.hero .tagline {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  max-width: 760px;
+  color: #000000;
+  margin-bottom: 64px;
+  letter-spacing: -0.01em;
+}
+.hero .meta {
+  border-top: 1px solid #000000;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.hero .rc-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Photo strip */
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #000000;
+}
+.photo-cell {
+  aspect-ratio: 4/3;
+  background: #f5f5f5;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #e5e5e5;
+}
+.photo-cell:last-child { border-right: none; }
+.ph-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #000000;
+}
+.ph-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  color: #000000;
+}
+.ph-sub {
+  font-size: 12px;
+  color: #888888;
+  line-height: 1.5;
+}
+
+/* Sections */
+.sect {
+  padding: 96px 80px;
+  border-bottom: 1px solid #000000;
+}
+.sect-num {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #000000;
+  line-height: 1;
+  margin-bottom: 24px;
+  display: block;
+}
+.sect-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 20px;
+  display: block;
+}
+.sect h2 {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  color: #000000;
+  max-width: 900px;
+  margin-bottom: 24px;
+}
+.sect p.sect-sub {
+  font-size: 16px;
+  color: #000000;
+  max-width: 820px;
+  line-height: 1.55;
+  margin-bottom: 56px;
+}
+
+/* Overview grid */
+.u-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #e5e5e5;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 48px;
+}
+.u-card {
+  background: #ffffff;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.u-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #000000;
+}
+.u-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.u-card p {
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.55;
+}
+.u-card .big-num {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.u-card .big-unit {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888888;
+  margin-top: 4px;
+}
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+.meta-grid > div {
+  padding: 24px 24px 24px 0;
+  border-right: 1px solid #e5e5e5;
+  padding-left: 24px;
+}
+.meta-grid > div:first-child { padding-left: 0; }
+.meta-grid > div:last-child { border-right: none; }
+.meta-grid .ml {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #888888;
+  margin-bottom: 8px;
+}
+.meta-grid .mv {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+.overview-prose p {
+  max-width: 820px;
+  margin-bottom: 18px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Scope */
+.scope-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+.scope-col .scope-h {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #000000;
+  margin-bottom: 0;
+}
+.scope-col.incl .scope-h { color: #000000; }
+.scope-col.excl .scope-h { color: #000000; }
+.scope-col ul { list-style: none; }
+.scope-col li {
+  padding: 20px 0;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.scope-col li strong {
+  font-weight: 700;
+  display: inline;
+}
+
+/* Approach */
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #e5e5e5;
+  border: 1px solid #e5e5e5;
+}
+.app-item {
+  background: #ffffff;
+  padding: 32px;
+}
+.app-n {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #000000;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.app-item h4 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+.app-item p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* Phasing detail */
+.phasing-prose p {
+  max-width: 820px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.phasing-note {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: #f5f5f5;
+  border-left: 3px solid #000000;
+  font-size: 14px;
+}
+
+/* Team */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #e5e5e5;
+  border: 1px solid #e5e5e5;
+}
+.team-label {
+  grid-column: span 2;
+  background: #000000;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 12px 32px;
+}
+.tm {
+  background: #ffffff;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.tm .initials {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.tm.ref .initials {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+}
+.tm h3 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.tm .role {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888888;
+}
+.tm p {
+  font-size: 13px;
+  line-height: 1.55;
+}
+.tm .assigned {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: #000000;
+  color: #ffffff;
+  padding: 4px 8px;
+  align-self: flex-start;
+}
+.tm .inline-note {
+  margin-top: 4px;
+  padding: 8px 10px;
+  background: #f5f5f5;
+  font-size: 11px;
+  color: #000000;
+  border-left: 2px solid #000000;
+}
+
+/* Pricing */
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  font-size: 14px;
+}
+.price-table th,
+.price-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e5e5;
+}
+.price-table td.amt {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+.price-table tr.section-head td {
+  background: #000000;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+}
+.price-table tr.subtotal td {
+  background: #f5f5f5;
+  font-weight: 700;
+  border-top: 1px solid #000000;
+}
+.price-summary {
+  border-top: 1px solid #000000;
+  margin-top: 16px;
+}
+.ps-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 14px;
+}
+.ps-row.total {
+  background: #000000;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding: 22px 16px;
+}
+.ps-row .lbl {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+.ps-row.total .lbl { font-size: 13px; }
+.ps-row .val {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+.price-note {
+  font-size: 12px;
+  color: #888888;
+  font-style: italic;
+  margin-top: 20px;
+}
+.dl-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* Timeline */
+.timeline {
+  border: 1px solid #000000;
+  margin-bottom: 24px;
+}
+.phase-row {
+  display: grid;
+  grid-template-columns: 70px 180px 1fr 100px 120px;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 13px;
+}
+.phase-row:last-child { border-bottom: none; }
+.phase-row > div {
+  padding: 18px 16px;
+  border-right: 1px solid #e5e5e5;
+}
+.phase-row > div:last-child { border-right: none; }
+.phase-row.head {
+  background: #000000;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.phase-row.head > div { border-right-color: #333; }
+.p-num { font-weight: 700; font-variant-numeric: tabular-nums; }
+.p-area { font-weight: 700; }
+.p-work { color: #000000; }
+.p-dur { font-variant-numeric: tabular-nums; font-weight: 700; }
+.p-overlap { color: #888888; font-size: 12px; }
+.timeline-total {
+  background: #000000;
+  color: #ffffff;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Next steps */
+.ns-list {
+  border-top: 2px solid #000000;
+}
+.ns-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 240px;
+  padding: 22px 0;
+  border-bottom: 1px solid #e5e5e5;
+  align-items: baseline;
+  gap: 20px;
+}
+.ns-n {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.ns-action {
+  font-size: 15px;
+  line-height: 1.45;
+}
+.ns-owner {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888888;
+  text-align: right;
+}
+
+/* Guardrails */
+.diff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.diff-item {
+  background: #f5f5f5;
+  border-left: 6px solid #000000;
+  padding: 32px;
+}
+.diff-num {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #000000;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.diff-item h4 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.diff-item p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* Footer */
+.footer-quote {
+  background: #000000;
+  color: #ffffff;
+  padding: 96px 80px;
+}
+.footer-quote blockquote {
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  max-width: 900px;
+  margin-bottom: 32px;
+}
+.footer-quote .attr {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.footer-bar {
+  background: #ffffff;
+  padding: 24px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid #000000;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.footer-bar > div:nth-child(2) { text-align: center; }
+.footer-bar > div:nth-child(3) { text-align: right; }
+.footer-bar a { color: #000000; text-decoration: none; }
+
+/* Fade */
+.fade { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade.in { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .sidebar { position: static; width: 100%; height: auto; border-right: none; border-bottom: 1px solid #000000; }
+  .sidebar nav { flex-direction: row; flex-wrap: wrap; gap: 12px; }
+  .sidebar-footer { margin-top: 16px; }
+  .conf-banner { left: 0; padding: 8px 20px; }
+  .main { margin-left: 0; padding-top: 33px; }
+  .hero { padding: 60px 30px 40px; }
+  .hero h1 { font-size: 40px; }
+  .hero .tagline { font-size: 16px; }
+  .hero .meta { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .sect { padding: 60px 30px; }
+  .sect-num { font-size: 44px; }
+  .sect h2 { font-size: 24px; }
+  .photo-strip { grid-template-columns: 1fr; }
+  .u-grid, .approach-grid, .team-grid, .scope-grid, .diff-grid { grid-template-columns: 1fr; }
+  .meta-grid { grid-template-columns: 1fr 1fr; }
+  .phase-row { grid-template-columns: 50px 1fr; }
+  .phase-row > div:nth-child(n+3) { grid-column: 2; border-right: none; }
+  .ns-row { grid-template-columns: 40px 1fr; }
+  .ns-owner { grid-column: 2; text-align: left; }
+  .footer-quote { padding: 60px 30px; }
+  .footer-quote blockquote { font-size: 20px; }
+  .footer-bar { grid-template-columns: 1fr; padding: 20px 30px; gap: 8px; }
+  .footer-bar > div:nth-child(2), .footer-bar > div:nth-child(3) { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<div class="conf-banner">Confidential / Rough Costing Exercise / Not a Formal Bid</div>
+
+<aside class="sidebar">
+  <div class="logo">
+    TAG Heuer<br>Springfield
+    <span class="lbco">Lux Brand Co.</span>
+  </div>
+  <nav>
+    <a href="#overview">01 / Overview</a>
+    <a href="#scope">02 / Scope</a>
+    <a href="#approach">03 / Approach</a>
+    <a href="#phasing_detail">04 / Phasing</a>
+    <a href="#team">05 / Team</a>
+    <a href="#pricing">06 / Pricing</a>
+    <a href="#timeline">07 / Timeline</a>
+    <a href="#next_steps">08 / Next Steps</a>
+    <a href="#guardrails">09 / Guardrails</a>
+  </nav>
+  <div class="sidebar-footer">
+    Project ID<span class="rc">TH-SPRNJ-V5</span>
+  </div>
+</aside>
+
+<main class="main">
+
+  <section class="hero">
+    <div class="hero-label">Rough Costing Exercise / TAG Heuer Springfield</div>
+    <h1>Springfield, NJ.</h1>
+    <p class="tagline">Three-floor, 49,200 SF office and watchmaker renovation priced from schematic sketches for Jacquelyn Albano and TAG Heuer ops.</p>
+    <div class="meta">
+      <div>LBCO / TAG Heuer / 2026 / v5</div>
+      <div class="rc-tag">Rough Costing - Not a Formal Bid</div>
+    </div>
+  </section>
+
+  <div class="photo-strip">
+    <div class="photo-cell">
+      <div class="ph-label">Site / Pending</div>
+      <div>
+        <div class="ph-title">Off-hours walkthrough not yet scheduled.</div>
+        <div class="ph-sub">Client discretion requirement in effect. Staff not to be alerted until Jacquelyn approves window.</div>
+      </div>
+    </div>
+    <div class="photo-cell">
+      <div class="ph-label">Plans / Schematic Only</div>
+      <div>
+        <div class="ph-title">Three competing second-floor sketches in circulation.</div>
+        <div class="ph-sub">Hand-marked by the master watchmaker. No formal architectural drawings exist at the time of this document.</div>
+      </div>
+    </div>
+    <div class="photo-cell">
+      <div class="ph-label">Capture / Proposed</div>
+      <div>
+        <div class="ph-title">Matterport scan offered in place of multi-party site visits.</div>
+        <div class="ph-sub">Full 3D capture allows Chris, Brian, and ops to annotate dead space remotely before architect engagement.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="overview">
+    <span class="sect-num">01</span>
+    <span class="sect-label">Project Overview</span>
+    <h2>Preliminary budget for 49,200 SF across three floors in Springfield.</h2>
+    <p class="sect-sub">A defensible middle figure between the $1.5M and $5M numbers circulating inside TAG Heuer leadership, built against schematic sketches from the master watchmaker. Scope is actively contracting toward two floors plus a first-floor demo-to-storage conversion.</p>
+
+    <div class="u-grid">
+      <div class="u-card">
+        <div class="u-num">Footprint</div>
+        <div class="big-num">49,200</div>
+        <div class="big-unit">Square Feet / Total</div>
+        <p>Three floors at approximately 16,400 SF each. Scope currently contracting to two floors plus first-floor storage conversion.</p>
+      </div>
+      <div class="u-card">
+        <div class="u-num">Floors</div>
+        <div class="big-num">3 → 2</div>
+        <div class="big-unit">Active Scope Reduction</div>
+        <p>Initial assumption was three full floors. Latest ops guidance narrows the build to two floors plus a first-floor demo-to-storage conversion at ~70% epoxy concrete.</p>
+      </div>
+      <div class="u-card">
+        <div class="u-num">Grand Total</div>
+        <div class="big-num">$4,186,770</div>
+        <div class="big-unit">Rough Costing / Not a Bid</div>
+        <p>Inclusive of 12% overhead and 5% contingency. Derived from per-floor rollup at current scope assumptions.</p>
+      </div>
+    </div>
+
+    <div class="overview-prose">
+      <p>Jacquelyn Albano holds the single point of contact for budget development and vendor alignment on the TAG Heuer side. The prior engagement of reference is the Miami store build completed with Lux Brand Co. All inputs, sketches, and second-floor options route through her for consolidation before reaching the GC side.</p>
+      <p>Inputs to date consist of hand-marked sketches from the master watchmaker, three second-floor options in parallel, and verbal scope from operations. No formal architectural drawings exist at the time of this document. The $4,186,770 figure is derived from per-SF rates, assumed linear wall footage, and phase counts tied to those inputs — not from a sealed drawing set.</p>
+    </div>
+
+    <div class="meta-grid">
+      <div>
+        <div class="ml">Client Contact</div>
+        <div class="mv">Jacquelyn Albano</div>
+      </div>
+      <div>
+        <div class="ml">Year</div>
+        <div class="mv">2026</div>
+      </div>
+      <div>
+        <div class="ml">Filing Posture</div>
+        <div class="mv">Finishes-Only</div>
+      </div>
+      <div>
+        <div class="ml">Document Status</div>
+        <div class="mv">v5 / Rough Costing</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="scope">
+    <span class="sect-num">02</span>
+    <span class="sect-label">Scope of Work</span>
+    <h2>Finishes-only renovation of office and watchmaker floors.</h2>
+    <p class="sect-sub">Ten inclusions and five exclusions. Specialty white rubberized VCT in watchmaker areas, carpet tile in office areas, epoxy-painted concrete across ~70% of the first floor.</p>
+
+    <div class="scope-grid">
+      <div class="scope-col incl">
+        <div class="scope-h">Included (10)</div>
+        <ul>
+          <li><strong>Interior Demolition —</strong> Full demo of interior finishes, performed off-hours to avoid operational disruption; estimated ~1 week per phase.</li>
+          <li><strong>Wall Reconfiguration —</strong> Selective removal and new stud-and-drywall walls to open dead space and improve watchmaker / ops workflow.</li>
+          <li><strong>Flooring / Carpet Tile —</strong> 20 in x 20 in carpet tile (~$9/SF installed) in office areas, including adhesive.</li>
+          <li><strong>Flooring / Specialty VCT —</strong> White rubberized VCT in watchmaker work areas per client spec — dropped watch components must be visible against the surface and must bounce rather than break. Spec to be provided by watchmaker team.</li>
+          <li><strong>Flooring / Epoxy Paint —</strong> ~70% of first floor to receive scraped and epoxy-painted concrete for warehouse and storage use.</li>
+          <li><strong>Paint —</strong> Coat of paint throughout renovated areas (included in $/SF finishes labor); no wallpaper.</li>
+          <li><strong>ACT Ceiling —</strong> Patch, replace, and reinstall acoustical ceiling tile and grid around new wall locations.</li>
+          <li><strong>Electrical Relocation —</strong> Manipulation of existing electrical to suit new layout, budgeted per floor — not a full re-feed.</li>
+          <li><strong>Dumpsters & Debris Removal —</strong> Approximately five dumpsters per phase to support demo and construction turnover.</li>
+          <li><strong>Phasing Logistics —</strong> Six-phase sequence at half-floor increments with ~1 week overlap between phases; potential flex to full-floor phases pending final two-floor scope.</li>
+        </ul>
+      </div>
+      <div class="scope-col excl">
+        <div class="scope-h">Excluded (5)</div>
+        <ul>
+          <li><strong>Furniture Manipulation —</strong> Moving and reinstalling existing furniture deferred to a separate vendor scope until design is finalized.</li>
+          <li><strong>Stainless Steel Workstations & Jeweler Benches —</strong> Specialty equipment procurement handled under a separate equipment budget.</li>
+          <li><strong>Architectural / Design Drawings —</strong> Drawings to be produced by client's architect. Lux will support with build specs but will not carry design cost.</li>
+          <li><strong>Permit-Triggered Scope —</strong> Base estimate assumes finishes-only work without permit. Sprinkler modifications or electrical work above threshold would trigger permit drawings at approximately $15K–$20K add.</li>
+          <li><strong>Sitework / Facade / Exterior —</strong> No exterior or base-building work included.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="approach">
+    <span class="sect-num">03</span>
+    <span class="sect-label">Execution Approach</span>
+    <h2>Off-hours demo, standard-hours build, open-shop NJ labor.</h2>
+    <p class="sect-sub">Six-phase sequence with one-week overlaps compresses total duration to ~33 weeks. Site walkthroughs scheduled off-hours per client discretion request.</p>
+
+    <div class="approach-grid">
+      <div class="app-item">
+        <div class="app-n">01</div>
+        <h4>Finishes-only filing posture.</h4>
+        <p>Classify work as finishes to avoid permit submission where possible. Sprinkler and electrical load thresholds confirmed with subs before scope locks to protect the no-permit assumption.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">02</div>
+        <h4>Off-hours demo, standard-hours build.</h4>
+        <p>Demo runs off-hours to keep jeweler, watchmaker, polishing, and packaging operations undisturbed. Framing, finishes, and electrical run standard hours to control labor cost against open-shop rates.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">03</div>
+        <h4>Half-floor phasing with overlap.</h4>
+        <p>Six phases sequenced floor-by-floor with a one-week overlap at each handoff. Total duration compresses to approximately 33 weeks from Phase 1 start to Phase 6 punch.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">04</div>
+        <h4>Open-shop New Jersey labor.</h4>
+        <p>Confirmed open-shop (non-union) market. Lux leverages existing Short Hills and North Central NJ subcontractor relationships — the same base used on comparable office renovations in the corridor.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">05</div>
+        <h4>Live micro-site for stakeholder input.</h4>
+        <p>Lux maintains a shared hub so Chris, Brian, and other TAG Heuer stakeholders can post scope input asynchronously. Avoids game-of-telephone revisions and keeps a single source of truth for the evolving program.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">06</div>
+        <h4>Matterport or off-hours walkthrough.</h4>
+        <p>Full 3D scan of the space captured once so stakeholders can mark up dead space and flow issues remotely. Reduces the number of in-person visits required before architect engagement.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="phasing_detail">
+    <span class="sect-num">04</span>
+    <span class="sect-label">Phasing Logistics</span>
+    <h2>Six half-floor phases with one-week handoff overlap.</h2>
+    <p class="sect-sub">Phasing keeps watchmaker, polishing, and packaging workflows operational while the freight elevator (first floor only) dictates material staging.</p>
+
+    <div class="phasing-prose">
+      <p>Half-floor phasing exists because the freight elevator reaches only the first floor, and because jewelers, watchmakers, polishing, and packaging teams currently move inventory between floors throughout the working day. Operations cannot pause for the duration of a floor, and staging material on a full-floor basis would block the workflow corridors the ops team relies on. Splitting each floor in half preserves a working half while the adjacent half is demo'd, framed, and finished.</p>
+      <p>The overlap mechanic is a single week at each phase boundary after Phase 1. Demo on the incoming half runs off-hours for the week the outgoing half is in punch; framing and finishes on the incoming half then move to standard hours once punch on the outgoing half clears. Phase 1 is front-loaded at 8 weeks to absorb mobilization; Phases 2–4 run 6 weeks each; Phases 5–6 run 5 weeks each. Total duration compresses to approximately 33 weeks from Phase 1 start to Phase 6 punch.</p>
+      <div class="phasing-note">If Chris confirms the two-floor scope, the sequence collapses from six half-floor phases to four and trims approximately 10–12 weeks from the total.</div>
+    </div>
+  </div>
+
+  <div class="sect" id="team">
+    <span class="sect-num">05</span>
+    <span class="sect-label">Team</span>
+    <h2>Four principals on the Springfield engagement.</h2>
+    <p class="sect-sub">Two from TAG Heuer, two from Lux Brand Co. Jacquelyn Albano holds the single point of contact for budget and vendor alignment.</p>
+
+    <div class="team-grid">
+      <div class="team-label">TAG Heuer</div>
+      <div class="tm ref">
+        <div class="initials">JA</div>
+        <span class="assigned">Client Contact</span>
+        <h3>Jacquelyn Albano</h3>
+        <div class="role">Project Lead / TAG Heuer</div>
+        <p>Jacquelyn is driving the Springfield renovation effort on behalf of TAG Heuer leadership, coordinating inputs from operations, the master watchmaker, and executive stakeholders. She is the single point of contact for budget development and vendor alignment, and previously partnered with Lux Brand Co on the Miami store build.</p>
+        <div class="inline-note">Prior engagement — Miami store build with Lux Brand Co.</div>
+      </div>
+      <div class="tm ref">
+        <div class="initials">C</div>
+        <span class="assigned">Client Contact</span>
+        <h3>Chris [UPDATE BEFORE SENDING]</h3>
+        <div class="role">RVP of Operations / TAG Heuer</div>
+        <p>Chris is the operations stakeholder defining functional requirements for the watchmaker, polishing, and packaging workflow. He is actively refining the scope — currently toward two floors — and will sign off on phasing and workflow impacts.</p>
+      </div>
+      <div class="team-label">Lux Brand Co</div>
+      <div class="tm">
+        <div class="initials">LS</div>
+        <h3>Luke Shank</h3>
+        <div class="role">Principal / Lux Brand Co</div>
+        <p>Luke leads preliminary scoping, budgeting, and GC coordination for Lux Brand Co. He has deep experience renovating multi-floor corporate offices — including prior work with Supervalu and Swatch Group brands — and is assembling the New Jersey open-shop subcontractor team for this project.</p>
+      </div>
+      <div class="tm">
+        <div class="initials">S</div>
+        <h3>Sean [UPDATE BEFORE SENDING]</h3>
+        <div class="role">Construction Lead / Lux Brand Co</div>
+        <p>Sean partners with Luke on execution and has prior experience managing large corporate office renovations. He is familiar with the Short Hills / North Central NJ market and will coordinate field operations and subcontractor management for the Springfield project.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="pricing">
+    <span class="sect-num">06</span>
+    <span class="sect-label">Pricing</span>
+    <h2>Grand total $4,186,770 at 12% overhead and 5% contingency.</h2>
+    <p class="sect-sub">Per-floor construction and materials roll up to a three-floor total; overhead and contingency applied on top. Wall linear footage and final floor count remain the two largest open variables.</p>
+
+    <table class="price-table">
+      <tbody>
+        <tr class="section-head"><td colspan="2">Construction — Per Floor (~16,400 SF)</td></tr>
+        <tr><td>Labor — Flooring Install, Paint & ACT</td><td class="amt">$918,400</td></tr>
+        <tr><td>Electrical Relocation / Manipulation</td><td class="amt">$130,000</td></tr>
+        <tr><td>Demolition (interior, off-hours)</td><td class="amt">$131,200</td></tr>
+        <tr><td>Wall Construction / Reconfiguration (250 LF est.)</td><td class="amt">$46,250</td></tr>
+        <tr class="subtotal"><td>Construction Subtotal / Per Floor</td><td class="amt">$1,225,850</td></tr>
+      </tbody>
+    </table>
+
+    <table class="price-table">
+      <tbody>
+        <tr class="section-head"><td colspan="2">Materials — Per Floor</td></tr>
+        <tr><td>Carpet Tile Material (20 in x 20 in @ ~$9/SF)</td><td class="amt">$147,600</td></tr>
+        <tr><td>Adhesive / Glue (+15% of carpet material)</td><td class="amt">$22,140</td></tr>
+        <tr class="subtotal"><td>Materials Subtotal / Per Floor</td><td class="amt">$169,740</td></tr>
+      </tbody>
+    </table>
+
+    <table class="price-table">
+      <tbody>
+        <tr class="section-head"><td colspan="2">Total Rollup — 3 Floors</td></tr>
+        <tr><td>Labor — Flooring, Paint, ACT (3 floors)</td><td class="amt">$2,755,200</td></tr>
+        <tr><td>Electrical Relocation (3 floors)</td><td class="amt">$390,000</td></tr>
+        <tr><td>Demolition (3 floors)</td><td class="amt">$393,600</td></tr>
+        <tr><td>Carpet Material + Adhesive (3 floors)</td><td class="amt">$509,220</td></tr>
+        <tr><td>Wall Construction (750 LF est. @ $185/LF)</td><td class="amt">$138,750</td></tr>
+        <tr class="subtotal"><td>Rollup Subtotal</td><td class="amt">$4,186,770</td></tr>
+      </tbody>
+    </table>
+
+    <div class="price-summary">
+      <div class="ps-row">
+        <div class="lbl">Subtotal</div>
+        <div class="val">$3,578,437</div>
+      </div>
+      <div class="ps-row">
+        <div class="lbl">Overhead / 12%</div>
+        <div class="val">$429,412</div>
+      </div>
+      <div class="ps-row">
+        <div class="lbl">Contingency / 5%</div>
+        <div class="val">$178,921</div>
+      </div>
+      <div class="ps-row total">
+        <div class="lbl">Grand Total</div>
+        <div class="val">$4,186,770</div>
+      </div>
+    </div>
+
+    <p class="price-note">Figures derived from schematic sketches and verbal scope. Wall linear footage and final floor count carry the largest variance. Permit-triggered drawings (sprinkler or electrical threshold) would add $15K–$20K if triggered.</p>
+    <a class="dl-btn" href="#">Download / Springfield_Office_Reno_Cost_Summary_TagHeuer_v5.pdf</a>
+  </div>
+
+  <div class="sect" id="timeline">
+    <span class="sect-num">07</span>
+    <span class="sect-label">Timeline</span>
+    <h2>Six phases, ~33 weeks total duration.</h2>
+    <p class="sect-sub">Phase 1 front-loaded at 8 weeks; Phases 2–4 at 6 weeks each; Phases 5–6 at 5 weeks each. One-week overlap at each boundary after Phase 1.</p>
+
+    <div class="timeline">
+      <div class="phase-row head">
+        <div>Phase</div>
+        <div>Floor / Half</div>
+        <div>Step Sequence</div>
+        <div>Duration</div>
+        <div>Overlap</div>
+      </div>
+      <div class="phase-row">
+        <div class="p-num">01</div>
+        <div class="p-area">Floor 1 / First Half</div>
+        <div class="p-work">Demo (1 wk, off-hours) → Build/Sand (2 wks) → Finishes (2 wks) → Punch (1 wk)</div>
+        <div class="p-dur">8 wks</div>
+        <div class="p-overlap">Start</div>
+      </div>
+      <div class="phase-row">
+        <div class="p-num">02</div>
+        <div class="p-area">Floor 1 / Second Half</div>
+        <div class="p-work">Demo → Build/Sand → Finishes → Punch</div>
+        <div class="p-dur">6 wks</div>
+        <div class="p-overlap">~1 wk overlap</div>
+      </div>
+      <div class="phase-row">
+        <div class="p-num">03</div>
+        <div class="p-area">Floor 2 / First Half</div>
+        <div class="p-work">Demo → Build/Sand → Finishes → Punch</div>
+        <div class="p-dur">6 wks</div>
+        <div class="p-overlap">~1 wk overlap</div>
+      </div>
+      <div class="phase-row">
+        <div class="p-num">04</div>
+        <div class="p-area">Floor 2 / Second Half</div>
+        <div class="p-work">Demo → Build/Sand → Finishes → Punch</div>
+        <div class="p-dur">6 wks</div>
+        <div class="p-overlap">~1 wk overlap</div>
+      </div>
+      <div class="phase-row">
+        <div class="p-num">05</div>
+        <div class="p-area">Floor 3 / First Half</div>
+        <div class="p-work">Demo → Build/Sand → Finishes → Punch</div>
+        <div class="p-dur">5 wks</div>
+        <div class="p-overlap">~1 wk overlap</div>
+      </div>
+      <div class="phase-row">
+        <div class="p-num">06</div>
+        <div class="p-area">Floor 3 / Second Half</div>
+        <div class="p-work">Demo → Build/Sand → Finishes → Punch</div>
+        <div class="p-dur">5 wks</div>
+        <div class="p-overlap">~1 wk overlap</div>
+      </div>
+    </div>
+
+    <div class="timeline-total">
+      <div class="tt-r">Phase 1 Start → Phase 6 Punch</div>
+      <div class="tt-r">~33 Weeks / Demo Off-Hours Throughout</div>
+    </div>
+  </div>
+
+  <div class="sect" id="next_steps">
+    <span class="sect-num">08</span>
+    <span class="sect-label">Next Steps</span>
+    <h2>Nine open items before the budget resolves to a bid.</h2>
+    <p class="sect-sub">Owners split between Jacquelyn, Luke, and Chris. Two items — floor plan forwarding and final floor count — gate the rest.</p>
+
+    <div class="ns-list">
+      <div class="ns-row">
+        <div class="ns-n">01</div>
+        <div class="ns-action">Forward all floor plan files and second-floor markup to Luke.</div>
+        <div class="ns-owner">Jacquelyn Albano</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">02</div>
+        <div class="ns-action">Schedule off-hours site walkthrough or Matterport scan of all floors.</div>
+        <div class="ns-owner">Luke Shank</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">03</div>
+        <div class="ns-action">Introduce Lux team to Springfield ops staff on-site.</div>
+        <div class="ns-owner">Luke Shank</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">04</div>
+        <div class="ns-action">Confirm linear footage of walls from plans to finalize wall construction budget.</div>
+        <div class="ns-owner">Luke Shank</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">05</div>
+        <div class="ns-action">Confirm demo crew size and phasing logistics to finalize demo budget.</div>
+        <div class="ns-owner">Luke Shank</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">06</div>
+        <div class="ns-action">Finalize second-floor schematic — align on one of three options in play.</div>
+        <div class="ns-owner">Jacquelyn / TAG Ops</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">07</div>
+        <div class="ns-action">Scope furniture and workstation vendor independently from GC scope.</div>
+        <div class="ns-owner">Jacquelyn Albano</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">08</div>
+        <div class="ns-action">Obtain specialty white VCT spec from watchmaker team for pricing.</div>
+        <div class="ns-owner">Jacquelyn Albano</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">09</div>
+        <div class="ns-action">Confirm final floor count (two vs. three) and first-floor storage conversion scope.</div>
+        <div class="ns-owner">Chris / TAG Ops</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="guardrails">
+    <span class="sect-num">09</span>
+    <span class="sect-label">Guardrails</span>
+    <h2>Two constraints govern the $4.19M figure.</h2>
+
+    <div class="diff-grid">
+      <div class="diff-item">
+        <div class="diff-num">01</div>
+        <h4>Preliminary budget, not a bid.</h4>
+        <p>Base total of ~$4.19M is derived from schematic sketches and verbal scope. Linear footage of walls and final floor count are the two largest open variables and will move the number in either direction as Chris and Jacquelyn close them out.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">02</div>
+        <h4>Permit posture is finishes-only.</h4>
+        <p>Estimate assumes no permit filing. If sprinkler modifications or electrical load thresholds trigger a permit, add approximately $15K–$20K in drawings plus schedule impact.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-quote">
+    <blockquote>"The team at Miami, like I said to Claudia, you guys need to work on every project for us going forward. Non-negotiable."</blockquote>
+    <div class="attr">Jacquelyn Albano — TAG Heuer</div>
+  </div>
+
+  <div class="footer-bar">
+    <div>© 2026 Lux Brand Co.</div>
+    <div>Prepared for TAG Heuer / Springfield NJ</div>
+    <div><a href="mailto:luke@lbco.com">luke@lbco.com</a></div>
+  </div>
+
+</main>
+
+<script>
+  // Fade up on scroll
+  const fadeEls = document.querySelectorAll('.u-card, .tm, .diff-item, .price-table tr, .phase-row, .ns-row, .scope-col, .app-item, .photo-cell, .meta-grid > div');
+  fadeEls.forEach(el => el.classList.add('fade'));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 30);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  fadeEls.forEach(el => io.observe(el));
+
+  // Smooth scroll
+  document.querySelectorAll('.sidebar nav a').forEach(a => {
+    a.addEventListener('click', (ev) => {
+      const href = a.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        ev.preventDefault();
+        const t = document.querySelector(href);
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Active section
+  const sects = document.querySelectorAll('.sect');
+  const navLinks = document.querySelectorAll('.sidebar nav a');
+  const activate = () => {
+    let current = '';
+    sects.forEach(s => {
+      const top = s.getBoundingClientRect().top;
+      if (top < 200) current = s.id;
+    });
+    navLinks.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+    });
+  };
+  window.addEventListener('scroll', activate, { passive: true });
+  activate();
+</script>
+
+</body>
+</html>
