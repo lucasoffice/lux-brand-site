@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maison Margiela | Miami</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #000000;
+  background: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Confidentiality banner */
+.conf-banner {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 28px;
+  background: #000; color: #FFF;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
+  border-bottom: 1px solid #DDD4C3;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 28px; left: 0; bottom: 0;
+  width: 220px;
+  background: #FFFFFF;
+  border-right: 1px solid #DDD4C3;
+  padding: 36px 28px 28px 28px;
+  display: flex; flex-direction: column;
+  z-index: 100;
+}
+.logo { margin-bottom: 48px; }
+.logo .brand {
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.logo .lbco {
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4F4C45;
+}
+.sidebar nav { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.sidebar nav a {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4F4C45;
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.sidebar nav a:hover { color: #000; }
+.sidebar nav a.active {
+  color: #000;
+  border-bottom-color: #000;
+}
+.sidebar-footer {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4F4C45;
+  line-height: 1.7;
+  padding-top: 20px;
+  border-top: 1px solid #DDD4C3;
+}
+.sidebar-footer .rc { display: block; margin-top: 6px; color: #000; }
+
+/* Main */
+main {
+  margin-left: 220px;
+  margin-top: 28px;
+  max-width: calc(100% - 220px);
+}
+
+/* Hero */
+.hero {
+  padding: 120px 80px 80px 80px;
+  border-bottom: 1px solid #DDD4C3;
+}
+.hero-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 60px;
+}
+.hero h1 {
+  font-size: 132px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  margin-bottom: 48px;
+}
+.hero .tagline {
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: #000;
+  max-width: 720px;
+  margin-bottom: 64px;
+}
+.hero .meta {
+  border-top: 1px solid #000;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.hero .meta span {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.hero .rc-tag {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #000;
+  color: #FFF;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Break strip */
+.break-strip {
+  height: 48px;
+  background: #DDD4C3;
+  width: 100%;
+}
+
+/* Photo strip */
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #DDD4C3;
+  border-top: 1px solid #DDD4C3;
+  border-bottom: 1px solid #DDD4C3;
+}
+.photo-cell {
+  background: #F6F2EB;
+  padding: 48px 32px;
+  min-height: 260px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.ph-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4F4C45;
+}
+.ph-title {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 24px 0 16px 0;
+}
+.ph-sub {
+  font-size: 13px;
+  color: #4F4C45;
+  line-height: 1.5;
+}
+
+/* Sections */
+.sect {
+  padding: 100px 80px;
+  border-bottom: 1px solid #DDD4C3;
+  position: relative;
+}
+.sect-num {
+  display: inline-block;
+  position: relative;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: #000;
+  padding: 8px 10px;
+  margin-bottom: 14px;
+}
+.sect-num::before, .sect-num::after,
+.sect-num > span::before, .sect-num > span::after {
+  content: '';
+  position: absolute;
+  width: 6px; height: 1px;
+  background: #000;
+}
+.sect-num::before { top: 0; left: 0; }
+.sect-num::after { top: 0; right: 0; }
+.sect-num > span::before { bottom: 0; left: 0; }
+.sect-num > span::after { bottom: 0; right: 0; }
+.sect-num > span { display: inline-block; position: relative; padding: 0; }
+.sect-num > span > i {
+  position: absolute;
+  width: 1px; height: 6px;
+  background: #000;
+  font-style: normal;
+}
+.sect-num > span > i.tl { top: 0; left: 0; }
+.sect-num > span > i.tr { top: 0; right: 0; }
+.sect-num > span > i.bl { bottom: 0; left: 0; }
+.sect-num > span > i.br { bottom: 0; right: 0; }
+
+.sect-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4F4C45;
+  margin-bottom: 40px;
+}
+.sect h2 {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  max-width: 900px;
+  margin-bottom: 24px;
+}
+.sect p.sect-sub {
+  font-size: 17px;
+  color: #4F4C45;
+  max-width: 760px;
+  line-height: 1.5;
+  margin-bottom: 56px;
+}
+
+/* Overview grid */
+.u-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #DDD4C3;
+  border: 1px solid #DDD4C3;
+}
+.u-card {
+  background: #FFFFFF;
+  padding: 36px 32px;
+}
+.u-num {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 16px;
+}
+.u-card h3 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+.u-card p {
+  font-size: 14px;
+  color: #4F4C45;
+  line-height: 1.6;
+}
+.u-card dl {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 8px 16px;
+  font-size: 13px;
+}
+.u-card dt {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4F4C45;
+  padding-top: 2px;
+}
+.u-card dd {
+  color: #000;
+}
+
+/* Scope */
+.scope-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: #DDD4C3;
+  border: 1px solid #DDD4C3;
+}
+.scope-col {
+  background: #FFFFFF;
+  padding: 36px 32px;
+}
+.scope-h {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding-bottom: 14px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #000;
+  color: #000;
+}
+.scope-col ol { list-style: none; }
+.scope-col li {
+  padding: 18px 0;
+  border-bottom: 1px solid #DDD4C3;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 12px;
+}
+.scope-col li:last-child { border-bottom: none; }
+.scope-col li .sn {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: #4F4C45;
+  padding-top: 3px;
+}
+.scope-col li strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.scope-col li span {
+  font-size: 14px;
+  color: #4F4C45;
+  line-height: 1.55;
+}
+
+/* Approach */
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #DDD4C3;
+  border: 1px solid #DDD4C3;
+}
+.app-item {
+  background: #FFFFFF;
+  padding: 40px 32px;
+}
+.app-n {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: #000;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #000;
+  display: inline-block;
+  min-width: 60px;
+}
+.app-item h4 {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.app-item p {
+  font-size: 14px;
+  color: #4F4C45;
+  line-height: 1.6;
+}
+
+/* Team */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #DDD4C3;
+  border: 1px solid #DDD4C3;
+}
+.tm {
+  background: #FFFFFF;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+}
+.tm.ref { background: #F6F2EB; }
+.tm .assigned {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4F4C45;
+  margin-bottom: 24px;
+}
+.tm.ref .assigned { color: #000; }
+.tm .initials {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: #000;
+  color: #FFF;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 22px;
+}
+.tm.ref .initials { background: #DDD4C3; color: #000; }
+.tm h3 {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.tm .role {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4F4C45;
+  margin-bottom: 18px;
+}
+.tm p {
+  font-size: 13.5px;
+  color: #4F4C45;
+  line-height: 1.6;
+}
+
+/* Pricing */
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.price-table tr { border-bottom: 1px solid #DDD4C3; }
+.price-table td {
+  padding: 18px 16px;
+  vertical-align: top;
+}
+.price-table td:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.price-table tr.section-head td {
+  background: #000;
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 14px 16px;
+}
+.price-table tr.section-head td:last-child {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+.price-table td .line-lead {
+  display: block;
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 4px;
+}
+.price-table td .line-sub {
+  display: block;
+  font-size: 12px;
+  color: #4F4C45;
+}
+.price-table tr.subtotal td {
+  background: #F6F2EB;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.price-table tr.total td {
+  background: #000;
+  color: #FFF;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 28px 16px;
+}
+.price-table tr.total td:first-child {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 14px;
+}
+.price-note {
+  font-size: 12px;
+  color: #4F4C45;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+/* Timeline */
+.timeline {
+  border: 1px solid #DDD4C3;
+  background: #FFFFFF;
+}
+.phase-row {
+  display: grid;
+  grid-template-columns: 60px 1.4fr 2fr 100px 3fr;
+  align-items: stretch;
+  border-bottom: 1px solid #DDD4C3;
+  min-height: 68px;
+}
+.phase-row:last-child { border-bottom: none; }
+.phase-row.head {
+  background: #F6F2EB;
+  min-height: auto;
+}
+.phase-row > div {
+  padding: 18px 16px;
+  border-right: 1px solid #DDD4C3;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+.phase-row > div:last-child { border-right: none; }
+.phase-row.head > div {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4F4C45;
+  padding: 14px 16px;
+}
+.p-num {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: #000;
+}
+.p-area {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.p-work {
+  color: #4F4C45;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.p-dur {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.p-overlap {
+  position: relative;
+  padding: 0 !important;
+  background: #FFFFFF;
+}
+.p-bar {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 14px;
+  background: #DDD4C3;
+}
+.p-grid {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: #DDD4C3;
+  opacity: 0.6;
+}
+.timeline-total {
+  background: #000;
+  color: #FFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  margin-top: 1px;
+}
+.tt-r {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.timeline-axis {
+  display: grid;
+  grid-template-columns: 60px 1.4fr 2fr 100px 3fr;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: #4F4C45;
+  margin-top: 8px;
+}
+.timeline-axis .axis-ticks {
+  grid-column: 5;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  padding: 0 16px;
+}
+.timeline-axis .axis-ticks span {
+  border-left: 1px solid #DDD4C3;
+  padding: 4px 0 0 4px;
+}
+
+/* Next steps */
+.ns-list {
+  border-top: 2px solid #000;
+}
+.ns-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 220px;
+  gap: 24px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid #DDD4C3;
+}
+.ns-n {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: #000;
+}
+.ns-action {
+  font-size: 15px;
+  line-height: 1.45;
+  color: #000;
+}
+.ns-owner {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: right;
+  color: #4F4C45;
+}
+
+/* Guardrails */
+.diff-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+.diff-item {
+  border-left: 4px solid #000;
+  background: #F6F2EB;
+  padding: 24px 28px;
+}
+.diff-num {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 10px;
+}
+.diff-item h4 {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.diff-item p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #000;
+}
+
+/* Footer */
+.footer-quote {
+  background: #000;
+  color: #FFF;
+  padding: 100px 80px 80px 80px;
+}
+.footer-quote blockquote {
+  font-size: 44px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  max-width: 900px;
+  margin-bottom: 40px;
+}
+.attr {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #DDD4C3;
+}
+.footer-bar {
+  background: #000;
+  color: #DDD4C3;
+  padding: 24px 80px;
+  border-top: 1px solid #333;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.footer-bar a { color: #DDD4C3; text-decoration: underline; }
+
+/* Fade */
+.fade { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade.in { opacity: 1; transform: translateY(0); }
+
+/* Mobile */
+@media (max-width: 900px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #DDD4C3;
+    padding: 24px 30px;
+  }
+  .sidebar nav { flex-direction: row; flex-wrap: wrap; gap: 8px 16px; }
+  .sidebar nav a { padding: 4px 0; }
+  .sidebar-footer { display: none; }
+  main { margin-left: 0; max-width: 100%; }
+  .hero { padding: 60px 30px 50px 30px; }
+  .hero h1 { font-size: 40px; }
+  .hero .tagline { font-size: 16px; }
+  .sect { padding: 60px 30px; }
+  .sect h2 { font-size: 26px; }
+  .u-grid, .scope-grid, .approach-grid, .team-grid { grid-template-columns: 1fr; }
+  .photo-strip { grid-template-columns: 1fr; }
+  .phase-row { grid-template-columns: 40px 1fr 1fr; }
+  .phase-row > div:nth-child(4), .phase-row > div:nth-child(5) { display: none; }
+  .phase-row.head > div:nth-child(4), .phase-row.head > div:nth-child(5) { display: none; }
+  .ns-row { grid-template-columns: 40px 1fr; }
+  .ns-owner { grid-column: 2; text-align: left; }
+  .footer-quote { padding: 60px 30px; }
+  .footer-quote blockquote { font-size: 26px; }
+  .footer-bar { grid-template-columns: 1fr; padding: 24px 30px; }
+}
+</style>
+</head>
+<body>
+
+<div class="conf-banner">ROUGH COSTING EXERCISE &mdash; NOT A FORMAL BID &mdash; CONFIDENTIAL</div>
+
+<aside class="sidebar">
+  <div class="logo">
+    <div class="brand">Maison<br>Margiela</div>
+    <div class="lbco">Lux Brand Co.</div>
+  </div>
+  <nav>
+    <a href="#overview">Project</a>
+    <a href="#scope">Scope</a>
+    <a href="#approach">Approach</a>
+    <a href="#context">Read of the Work</a>
+    <a href="#team">Team</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#timeline">Schedule</a>
+    <a href="#next_steps">Next</a>
+    <a href="#guardrails">Guardrails</a>
+  </nav>
+  <div class="sidebar-footer">
+    LBCO / MM / MIA
+    <span class="rc">REV 00 &mdash; 2026</span>
+  </div>
+</aside>
+
+<main>
+
+  <div class="hero">
+    <div class="hero-label">ROUGH COSTING EXERCISE &mdash; MAISON MARGIELA MIAMI 2026</div>
+    <h1>Miami.</h1>
+    <p class="tagline">Pre-design order-of-magnitude pricing for a Maison Margiela retail build-out in Miami, tenant-side scope only.</p>
+    <div class="meta">
+      <span>LBCO / MAISON MARGIELA / MIAMI / 2026 / REV 00</span>
+      <span class="rc-tag">Rough Costing &mdash; Not a Formal Bid</span>
+    </div>
+  </div>
+
+  <div class="photo-strip">
+    <div class="photo-cell">
+      <div class="ph-label">Site &mdash; 01</div>
+      <div>
+        <div class="ph-title">Miami submarket pending.</div>
+        <div class="ph-sub">Design District, Bal Harbour, and Aventura all under consideration. Address held back until landlord and brand confirm.</div>
+      </div>
+    </div>
+    <div class="photo-cell">
+      <div class="ph-label">Visit &mdash; 02</div>
+      <div>
+        <div class="ph-title">Joint survey to be scheduled.</div>
+        <div class="ph-sub">[UPDATE BEFORE SENDING] Site Visit &mdash; Miami &mdash; TBD 2026. Existing-conditions walk to run with client and LUX PM on the same day.</div>
+      </div>
+    </div>
+    <div class="photo-cell">
+      <div class="ph-label">Reference &mdash; 03</div>
+      <div>
+        <div class="ph-title">Imagery withheld.</div>
+        <div class="ph-sub">Brand-controlled photography not released for bid distribution. Finish references held until mock-up phase on site.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="overview">
+    <div class="sect-num"><span><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>00</span></div>
+    <div class="sect-label">Project &mdash; 00</div>
+    <h2>Maison Margiela, Miami &mdash; rough costing exercise for a 2026 tenant build-out.</h2>
+    <p class="sect-sub">Pre-design order-of-magnitude pricing. Location within Miami (Design District, Bal Harbour, or Aventura) pending landlord and brand confirmation.</p>
+
+    <div class="u-grid">
+      <div class="u-card fade">
+        <div class="u-num">Observation 01</div>
+        <h3>Issued ahead of bid documents.</h3>
+        <p>This page is a rough costing exercise, not a bid. Numbers carry pre-design assumptions drawn from comparable Margiela and luxury retail build-outs and will be replaced once drawings arrive.</p>
+        <dl>
+          <dt>Brand</dt><dd>Maison Margiela</dd>
+          <dt>Location</dt><dd>Miami &mdash; submarket TBD</dd>
+          <dt>Year</dt><dd>2026</dd>
+          <dt>Square Footage</dt><dd>[UPDATE BEFORE SENDING] TBD SF</dd>
+        </dl>
+      </div>
+      <div class="u-card fade">
+        <div class="u-num">Observation 02</div>
+        <h3>Scope, SF, and schedule confirmed on drawings.</h3>
+        <p>Scope boundaries, demised square footage, and the opening date will be confirmed on receipt of bid documents and the joint site survey. Any change to the three will be re-priced, not absorbed.</p>
+        <dl>
+          <dt>Delivery</dt><dd>Tenant-side only</dd>
+          <dt>Rev</dt><dd>00 &mdash; rough costing</dd>
+          <dt>Next Rev</dt><dd>Hard GMP on bid set</dd>
+          <dt>Contact</dt><dd>[UPDATE BEFORE SENDING]</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="break-strip"></div>
+
+  <div class="sect" id="scope">
+    <div class="sect-num"><span><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>01</span></div>
+    <div class="sect-label">Scope &mdash; 01</div>
+    <h2>Six inclusions, five exclusions, tenant-side only.</h2>
+    <p class="sect-sub">Scope reflects tenant-side work within the demised premises. Base building, FF&amp;E, AV, and design services sit with the brand and landlord.</p>
+
+    <div class="scope-grid">
+      <div class="scope-col incl fade">
+        <div class="scope-h">Included &mdash; 06</div>
+        <ol>
+          <li><span class="sn">0&mdash;01</span><div><strong>General Conditions &amp; Supervision</strong><span>Full-time superintendent, PM oversight, site logistics, dumpsters, temp protection, and weekly client reporting through punch.</span></div></li>
+          <li><span class="sn">0&mdash;02</span><div><strong>Demolition &amp; Protection</strong><span>Selective demo per drawings, neighbor and landlord protection, dust containment, and debris removal.</span></div></li>
+          <li><span class="sn">0&mdash;03</span><div><strong>Architectural Finishes</strong><span>Specialty plaster, paint, flooring, stone, and signature Margiela white-wash finishes per design intent drawings.</span></div></li>
+          <li><span class="sn">0&mdash;04</span><div><strong>Millwork &amp; Fixtures</strong><span>Custom display, cash wrap, fitting rooms, and back-of-house casework coordinated with brand standard fabricator.</span></div></li>
+          <li><span class="sn">0&mdash;05</span><div><strong>MEP Modifications</strong><span>Tenant-side electrical, lighting, HVAC distribution, and plumbing modifications within the demised premises.</span></div></li>
+          <li><span class="sn">0&mdash;06</span><div><strong>Permits &amp; Closeout</strong><span>Building permit expediting, inspections, TCO/CO coordination, O&amp;M manuals, and punch completion.</span></div></li>
+        </ol>
+      </div>
+      <div class="scope-col excl fade">
+        <div class="scope-h">Excluded &mdash; 05</div>
+        <ol>
+          <li><span class="sn">0&mdash;01</span><div><strong>FF&amp;E &amp; Soft Goods</strong><span>Loose furniture, mannequins, and visual merchandising supplied directly by brand.</span></div></li>
+          <li><span class="sn">0&mdash;02</span><div><strong>Audio/Visual &amp; Security</strong><span>AV, POS, and security systems assumed by brand vendor unless added by change order.</span></div></li>
+          <li><span class="sn">0&mdash;03</span><div><strong>Landlord Base Building Work</strong><span>Any base building upgrades, roof, structural, or utility service upsizes outside the tenant demise.</span></div></li>
+          <li><span class="sn">0&mdash;04</span><div><strong>Impact &amp; Permit Fees</strong><span>Municipal impact fees, permit fees, and utility connection fees passed through at cost.</span></div></li>
+          <li><span class="sn">0&mdash;05</span><div><strong>Design &amp; Engineering</strong><span>Architectural, MEP, and structural design services provided by the brand's design team.</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="approach">
+    <div class="sect-num"><span><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>02</span></div>
+    <div class="sect-label">Approach &mdash; 02</div>
+    <h2>Four moves to protect the plaster, the schedule, and the mock-up.</h2>
+    <p class="sect-sub">Margiela's raw plaster, white-wash, and hand-finished vocabulary live or die on tolerance and sequencing. These four moves front-load the risk.</p>
+
+    <div class="approach-grid">
+      <div class="app-item fade">
+        <div class="app-n">0&mdash;01</div>
+        <h4>Early Buyout of Long-Lead</h4>
+        <p>Plaster applicator, stone, and millwork locked within the first two weeks of award. Long-lead tails released before design hand-off so float lives in the schedule, not in the trades.</p>
+      </div>
+      <div class="app-item fade">
+        <div class="app-n">0&mdash;02</div>
+        <h4>Finish Mock-Ups</h4>
+        <p>On-site plaster and paint mock-ups approved by brand before full application. Rework eliminated at the panel stage, not discovered at walk-through.</p>
+      </div>
+      <div class="app-item fade">
+        <div class="app-n">0&mdash;03</div>
+        <h4>Landlord-Coordinated Hours</h4>
+        <p>Noisy work scheduled to landlord rules. After-hours premium carried only where required, never as a blanket line.</p>
+      </div>
+      <div class="app-item fade">
+        <div class="app-n">0&mdash;04</div>
+        <h4>Single Point of Accountability</h4>
+        <p>One PM and one Super from award through punch. No hand-offs mid-project, no introduction emails between phases.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="break-strip"></div>
+
+  <div class="sect" id="context">
+    <div class="sect-num"><span><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>03</span></div>
+    <div class="sect-label">Read of the Work &mdash; 03</div>
+    <h2>What a Margiela store in Miami actually demands.</h2>
+    <p class="sect-sub">Four observations shaping the price and the sequence &mdash; brand language, climate, landlord rules, and long-lead finishes.</p>
+
+    <div class="u-grid">
+      <div class="u-card fade">
+        <div class="u-num">0&mdash;01 &nbsp; Brand Language</div>
+        <h3>Raw plaster, exposed structure, deliberate imperfection.</h3>
+        <p>Margiela's retail vocabulary relies on raw plaster, exposed structure, hand-painted white finishes, and deliberate imperfection. Execution tolerances and finish mock-ups &mdash; not spec sheets &mdash; drive quality.</p>
+      </div>
+      <div class="u-card fade">
+        <div class="u-num">0&mdash;02 &nbsp; Miami Context</div>
+        <h3>Humidity, hurricane code, submarket TBD.</h3>
+        <p>Humidity, hurricane code, and landlord work letters in Miami (Design District, Bal Harbour, or Aventura TBD) affect MEP, envelope, and permitting sequencing. Plaster cure windows and HVAC balancing move on the climate, not on the calendar.</p>
+      </div>
+      <div class="u-card fade">
+        <div class="u-num">0&mdash;03 &nbsp; Landlord &amp; Permitting</div>
+        <h3>City of Miami and Miami-Dade timelines pending.</h3>
+        <p>Landlord criteria, after-hours rules, and City of Miami / Miami-Dade permit timelines need confirmation before a hard schedule can be committed. The work letter and the permit clock are the two gates on any committed GMP.</p>
+      </div>
+      <div class="u-card fade">
+        <div class="u-num">0&mdash;04 &nbsp; Specialty Finishes</div>
+        <h3>Plaster, millwork, and stone drive long-lead.</h3>
+        <p>Signature plaster, custom millwork, and imported stone and metal packages drive long-lead risk and require early buyout. Every day saved on the schedule is bought in the first two weeks after award.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="team">
+    <div class="sect-num"><span><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>04</span></div>
+    <div class="sect-label">Team &mdash; 04</div>
+    <h2>One principal, one PM, one super &mdash; award through punch.</h2>
+    <p class="sect-sub">Four names on the wall: three from LUX, one from Maison Margiela.</p>
+
+    <div class="team-grid">
+      <div class="tm fade">
+        <div class="assigned">0&mdash;01 &nbsp; LUX</div>
+        <div class="initials">PN</div>
+        <h3>[UPDATE BEFORE SENDING] Principal Name</h3>
+        <div class="role">Principal in Charge</div>
+        <p>[UPDATE BEFORE SENDING] Leads LUX luxury retail delivery with 15+ years executing flagship and boutique build-outs for global fashion houses. Serves as the single point of accountability for Margiela Miami from pre-construction through turnover.</p>
+      </div>
+      <div class="tm fade">
+        <div class="assigned">0&mdash;02 &nbsp; LUX</div>
+        <div class="initials">PM</div>
+        <h3>[UPDATE BEFORE SENDING] PM Name</h3>
+        <div class="role">Senior Project Manager</div>
+        <p>[UPDATE BEFORE SENDING] Manages day-to-day execution, subcontractor coordination, and schedule across LUX retail projects. Responsible here for budget control, RFI and submittal flow, and weekly client reporting.</p>
+      </div>
+      <div class="tm fade">
+        <div class="assigned">0&mdash;03 &nbsp; LUX</div>
+        <div class="initials">SN</div>
+        <h3>[UPDATE BEFORE SENDING] Super Name</h3>
+        <div class="role">Site Superintendent</div>
+        <p>[UPDATE BEFORE SENDING] On-site daily lead with deep experience in high-finish millwork, stone, and specialty plaster installations. Runs trades, QC, and safety through construction and punch in Miami.</p>
+      </div>
+      <div class="tm ref fade">
+        <div class="assigned">0&mdash;04 &nbsp; Client Contact</div>
+        <div class="initials">CN</div>
+        <h3>[UPDATE BEFORE SENDING] Client Name</h3>
+        <div class="role">Maison Margiela Construction Lead</div>
+        <p>[UPDATE BEFORE SENDING] Client-side lead for Maison Margiela, carrying brand, design, and operational standards for the Miami location. Single point of approval on finish mock-ups and scope deviations.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="break-strip"></div>
+
+  <div class="sect" id="pricing">
+    <div class="sect-num"><span><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>05</span></div>
+    <div class="sect-label">Pricing &mdash; 05</div>
+    <h2>Four lines, two sections, order of magnitude only.</h2>
+    <p class="sect-sub">Numbers below are a pre-design rough costing exercise, not a GMP. Hard pricing follows receipt of full bid drawings.</p>
+
+    <table class="price-table">
+      <tbody>
+        <tr class="section-head"><td>Base Scope</td><td>USD</td></tr>
+        <tr class="fade"><td><span class="line-lead">General Conditions &amp; Supervision</span><span class="line-sub">Full-time super, PM oversight, logistics, weekly reporting through punch.</span></td><td>$0</td></tr>
+        <tr class="fade"><td><span class="line-lead">Construction &mdash; Finishes, Millwork, MEP</span><span class="line-sub">Plaster, paint, flooring, stone, custom casework, tenant-side MEP within demise.</span></td><td>$0</td></tr>
+
+        <tr class="section-head"><td>Allowances</td><td>USD</td></tr>
+        <tr class="fade"><td><span class="line-lead">Permits &amp; Expediting (at cost)</span><span class="line-sub">Municipal and landlord filings passed through without markup.</span></td><td>$0</td></tr>
+        <tr class="fade"><td><span class="line-lead">Design Allowance / Owner Contingency</span><span class="line-sub">Held for brand-directed revisions and pre-design unknowns.</span></td><td>$0</td></tr>
+
+        <tr class="subtotal fade"><td>Subtotal</td><td>$0</td></tr>
+        <tr class="subtotal fade"><td>Overhead &mdash; 12%</td><td>$0</td></tr>
+        <tr class="subtotal fade"><td>Contingency &mdash; 5%</td><td>$0</td></tr>
+        <tr class="total fade"><td>Grand Total &mdash; Rough Costing</td><td>[UPDATE BEFORE SENDING]</td></tr>
+      </tbody>
+    </table>
+    <p class="price-note">Figures above carry $0 placeholders pending bid documents. Overhead at 12% and contingency at 5% will be re-set against the priced drawings. Permit, impact, and utility fees pass through at cost.</p>
+  </div>
+
+  <div class="sect" id="timeline">
+    <div class="sect-num"><span><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>06</span></div>
+    <div class="sect-label">Schedule &mdash; 06</div>
+    <h2>Sixteen weeks, four phases, overlapping tails.</h2>
+    <p class="sect-sub">Pre-con runs in parallel with award. Phase 2 overlaps the tail of Phase 1. Punch and TCO close the sequence.</p>
+
+    <div class="timeline">
+      <div class="phase-row head">
+        <div>No.</div><div>Phase</div><div>Scope</div><div>Duration</div><div>Position on 16-Week Grid</div>
+      </div>
+      <div class="phase-row fade">
+        <div class="p-num">0&mdash;01</div>
+        <div class="p-area">Pre-Construction</div>
+        <div class="p-work">Buyout, permits, plaster and paint mock-ups on site.</div>
+        <div class="p-dur">4 wks</div>
+        <div class="p-overlap">
+          <div class="p-grid" style="left:12.5%"></div><div class="p-grid" style="left:25%"></div>
+          <div class="p-grid" style="left:37.5%"></div><div class="p-grid" style="left:50%"></div>
+          <div class="p-grid" style="left:62.5%"></div><div class="p-grid" style="left:75%"></div>
+          <div class="p-grid" style="left:87.5%"></div>
+          <div class="p-bar" style="left:0%; width:25%;"></div>
+        </div>
+      </div>
+      <div class="phase-row fade">
+        <div class="p-num">0&mdash;02</div>
+        <div class="p-area">Phase 1 &mdash; Sales Floor</div>
+        <div class="p-work">Demolition through rough-in; protection up, dust contained.</div>
+        <div class="p-dur">4 wks</div>
+        <div class="p-overlap">
+          <div class="p-grid" style="left:12.5%"></div><div class="p-grid" style="left:25%"></div>
+          <div class="p-grid" style="left:37.5%"></div><div class="p-grid" style="left:50%"></div>
+          <div class="p-grid" style="left:62.5%"></div><div class="p-grid" style="left:75%"></div>
+          <div class="p-grid" style="left:87.5%"></div>
+          <div class="p-bar" style="left:25%; width:25%;"></div>
+        </div>
+      </div>
+      <div class="phase-row fade">
+        <div class="p-num">0&mdash;03</div>
+        <div class="p-area">Phase 2 &mdash; Floor &amp; BOH</div>
+        <div class="p-work">Finishes, millwork, MEP trim; overlaps the tail of Phase 1.</div>
+        <div class="p-dur">6 wks</div>
+        <div class="p-overlap">
+          <div class="p-grid" style="left:12.5%"></div><div class="p-grid" style="left:25%"></div>
+          <div class="p-grid" style="left:37.5%"></div><div class="p-grid" style="left:50%"></div>
+          <div class="p-grid" style="left:62.5%"></div><div class="p-grid" style="left:75%"></div>
+          <div class="p-grid" style="left:87.5%"></div>
+          <div class="p-bar" style="left:43.75%; width:37.5%;"></div>
+        </div>
+      </div>
+      <div class="phase-row fade">
+        <div class="p-num">0&mdash;04</div>
+        <div class="p-area">Phase 3 &mdash; Whole Store</div>
+        <div class="p-work">Punch, TCO, turnover; O&amp;M manuals in hand.</div>
+        <div class="p-dur">2 wks</div>
+        <div class="p-overlap">
+          <div class="p-grid" style="left:12.5%"></div><div class="p-grid" style="left:25%"></div>
+          <div class="p-grid" style="left:37.5%"></div><div class="p-grid" style="left:50%"></div>
+          <div class="p-grid" style="left:62.5%"></div><div class="p-grid" style="left:75%"></div>
+          <div class="p-grid" style="left:87.5%"></div>
+          <div class="p-bar" style="left:87.5%; width:12.5%;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-total">
+      <div class="tt-r">Total Duration</div>
+      <div class="tt-r">16 Weeks &mdash; Award Through TCO</div>
+    </div>
+    <div class="timeline-axis">
+      <div></div><div></div><div></div><div></div>
+      <div class="axis-ticks">
+        <span>W2</span><span>W4</span><span>W6</span><span>W8</span><span>W10</span><span>W12</span><span>W14</span><span>W16</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="break-strip"></div>
+
+  <div class="sect" id="next_steps">
+    <div class="sect-num"><span><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>07</span></div>
+    <div class="sect-label">Next &mdash; 07</div>
+    <h2>Four actions to convert rough numbers into a GMP.</h2>
+    <p class="sect-sub">Two owned by the client, two by LUX. Sequenced.</p>
+
+    <div class="ns-list">
+      <div class="ns-row fade">
+        <div class="ns-n">0&mdash;01</div>
+        <div class="ns-action">Issue full bid set and landlord work letter to LUX.</div>
+        <div class="ns-owner">[UPDATE BEFORE SENDING] Client</div>
+      </div>
+      <div class="ns-row fade">
+        <div class="ns-n">0&mdash;02</div>
+        <div class="ns-action">Schedule joint site visit and existing-conditions survey in Miami.</div>
+        <div class="ns-owner">[UPDATE BEFORE SENDING] LUX PM</div>
+      </div>
+      <div class="ns-row fade">
+        <div class="ns-n">0&mdash;03</div>
+        <div class="ns-action">Confirm target TCO date and store opening.</div>
+        <div class="ns-owner">[UPDATE BEFORE SENDING] Client</div>
+      </div>
+      <div class="ns-row fade">
+        <div class="ns-n">0&mdash;04</div>
+        <div class="ns-action">Return hard GMP with qualified assumptions.</div>
+        <div class="ns-owner">[UPDATE BEFORE SENDING] LUX Principal</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect" id="guardrails">
+    <div class="sect-num"><span><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>08</span></div>
+    <div class="sect-label">Guardrails &mdash; 08</div>
+    <h2>Two conditions governing every number on this page.</h2>
+
+    <div class="diff-grid">
+      <div class="diff-item fade">
+        <div class="diff-num">0&mdash;01</div>
+        <h4>Rough Costing, Not GMP</h4>
+        <p>[UPDATE BEFORE SENDING] Numbers are a pre-design order-of-magnitude exercise based on comparable Margiela and luxury retail projects &mdash; not a committed GMP until full drawings are priced.</p>
+      </div>
+      <div class="diff-item fade">
+        <div class="diff-num">0&mdash;02</div>
+        <h4>Assumptions Pending Documents</h4>
+        <p>[UPDATE BEFORE SENDING] Pricing assumes tenant-side work only, standard landlord work letter, and daytime hours &mdash; any deviation will be re-priced on receipt of bid documents.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-quote">
+    <blockquote>Ink on paper. Numbers pending drawings.</blockquote>
+    <div class="attr">[UPDATE BEFORE SENDING] Name &mdash; LUX Brand Company</div>
+  </div>
+
+  <div class="footer-bar">
+    <div>&copy; 2026 Lux Brand Co.</div>
+    <div>Prepared for Maison Margiela &mdash; Miami</div>
+    <div><a href="mailto:name@luxbrandcompany.com">[UPDATE BEFORE SENDING] name@luxbrandcompany.com</a></div>
+  </div>
+
+</main>
+
+<script>
+(function(){
+  // Fade-in observer
+  var els = document.querySelectorAll('.fade');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry, i){
+      if (entry.isIntersecting) {
+        var idx = Array.prototype.indexOf.call(els, entry.target);
+        setTimeout(function(){ entry.target.classList.add('in'); }, (idx % 8) * 30);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function(el){ io.observe(el); });
+
+  // Smooth scroll
+  document.querySelectorAll('.sidebar nav a').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if (id && id.charAt(0) === '#') {
+        var t = document.querySelector(id);
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      }
+    });
+  });
+
+  // Active nav
+  var sects = document.querySelectorAll('.sect');
+  var navA = document.querySelectorAll('.sidebar nav a');
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY + 120;
+    var cur = null;
+    sects.forEach(function(s){ if (s.offsetTop <= y) cur = s.id; });
+    navA.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
