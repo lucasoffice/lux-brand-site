@@ -311,10 +311,13 @@ let liveUrl = '';
 let lastPlan = null;
 
 // Backend endpoints — hardcoded from CloudFormation stack outputs (bid-builder-stack, us-west-2)
+// Process, Build, Deploy use Function URLs (bypass API Gateway 29s timeout).
+// Scrape stays behind API Gateway (fits under 29s, needs CORS headers).
 const CONFIG = {
   apiBase:    'https://i6q6qw3dyi.execute-api.us-west-2.amazonaws.com/prod',
   processUrl: 'https://a37umtzpammxyk26pxfevkqewm0hhvrv.lambda-url.us-west-2.on.aws/',
-  buildUrl:   'https://xfrq6zzxmleoh6e3mhsjjalfou0wzmhu.lambda-url.us-west-2.on.aws/'
+  buildUrl:   'https://xfrq6zzxmleoh6e3mhsjjalfou0wzmhu.lambda-url.us-west-2.on.aws/',
+  deployUrl:  'https://yk5zd6wwviolublqc5qdxsa6ny0rscsi.lambda-url.us-west-2.on.aws/'
 };
 
 // ─────────────────────────────────────────────
@@ -410,6 +413,8 @@ async function post(endpoint, body) {
     url = CONFIG.buildUrl.replace(/\/$/, '');
   } else if (endpoint === 'process') {
     url = CONFIG.processUrl.replace(/\/$/, '');
+  } else if (endpoint === 'deploy') {
+    url = CONFIG.deployUrl.replace(/\/$/, '');
   } else {
     url = CONFIG.apiBase.replace(/\/$/, '') + '/' + endpoint;
   }
@@ -534,10 +539,8 @@ async function runPipeline() {
       log(`Existing site found at base path — deployed as ${deployResult.brand_slug}/${deployResult.location_slug}/ to avoid overwrite`, 'accent');
     }
     log(`Cloudflare cache purged — ${deployResult.cloudflare_purge}`, 'ok');
-    if (deployResult.propagation_pending) {
-      log(`Site may take up to 30 seconds to appear — refresh if you see a 404 (checked ${deployResult.propagation_attempts} times over ${deployResult.propagation_elapsed_s}s)`, 'accent');
-    } else {
-      log(`Live and responding (propagated in ${deployResult.propagation_elapsed_s}s)`, 'ok');
+    if (deployResult.propagation_notice) {
+      log(deployResult.propagation_notice, 'accent');
     }
     log(`Live: ${liveUrl}`, 'accent');
 
@@ -547,8 +550,8 @@ async function runPipeline() {
     const collisionNote = deployResult.collision_detected
       ? `<span style="color:var(--accent)">Collision detected — suffix applied to preserve existing site.</span><br>`
       : '';
-    const propagationNote = deployResult.propagation_pending
-      ? `<span style="color:var(--accent)">May take up to 30 seconds to appear — refresh if you see a 404.</span><br>`
+    const propagationNote = deployResult.propagation_notice
+      ? `<span style="color:var(--accent)">${deployResult.propagation_notice}</span><br>`
       : '';
     const planSummary = lastPlan
       ? `Plan: ${lastPlan.sections?.length || '?'} sections · target ${lastPlan.total_semantic_elements_target || '?'} elements · <a href="#" id="view-plan-link" style="color:var(--accent)">view plan JSON</a><br>`
