@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chanel | Miami</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#000;background:#FFFFFF;-webkit-font-smoothing:antialiased;font-weight:400;font-size:15px;line-height:1.6}
+a{color:#000;text-decoration:none}
+
+/* SIDEBAR */
+.sidebar{position:fixed;left:0;top:0;width:220px;height:100vh;padding:48px 28px;z-index:100;background:#FFFFFF;border-right:1px solid #E5E5E5;display:flex;flex-direction:column}
+.logo{font-size:22px;font-weight:700;letter-spacing:0.22em;line-height:1;text-transform:uppercase;margin-bottom:56px}
+.logo .lbco{display:block;font-size:9px;font-weight:400;letter-spacing:0.24em;margin-top:14px;color:#8A8A8A}
+.sidebar nav{display:flex;flex-direction:column;gap:10px}
+.sidebar nav a{font-size:10px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;padding:2px 0;color:#000;transition:color .2s,opacity .2s;opacity:.55}
+.sidebar nav a:hover{opacity:1}
+.sidebar nav a.nav-highlight{opacity:1;border-left:2px solid #000;padding-left:10px;margin-left:-12px}
+.sidebar-footer{margin-top:auto;font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:#8A8A8A;line-height:1.9}
+.sidebar-footer .rc{color:#000;font-weight:700;display:block;margin-top:8px}
+
+/* MAIN */
+.main{margin-left:220px;min-height:100vh}
+
+/* HERO */
+.hero{padding:140px 80px 0}
+.hero-label{font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#000;margin-bottom:72px}
+.hero h1{font-size:140px;font-weight:300;letter-spacing:-0.04em;line-height:0.92;margin-bottom:56px}
+.hero .tagline{font-size:17px;font-weight:300;line-height:1.55;color:#000;max-width:640px;margin-bottom:80px;letter-spacing:-0.005em}
+.hero .rc-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;padding:10px 16px;border:1px solid #000;margin-bottom:96px}
+.hero .meta{background:#000;color:#FFFFFF;margin:0 -80px;padding:48px 80px;font-size:11px;font-weight:400;letter-spacing:0.24em;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.hero .meta span{display:inline-block}
+
+/* PHOTOS */
+.photo-strip{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #E5E5E5;border-top:1px solid #E5E5E5}
+.photo-cell{height:340px;border-right:1px solid #E5E5E5;padding:36px;display:flex;flex-direction:column;justify-content:space-between;background:#FAFAFA}
+.photo-cell:last-child{border-right:none}
+.ph-label{font-size:10px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#8A8A8A}
+.ph-title{font-size:28px;font-weight:300;letter-spacing:-0.02em;line-height:1.05}
+.ph-sub{font-size:11px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:#8A8A8A}
+
+/* SECTIONS */
+.sect{padding:160px 80px;border-top:1px solid #000;position:relative}
+.sect-num{font-size:11px;font-weight:400;letter-spacing:0.24em;text-transform:uppercase;color:#000;margin-bottom:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif}
+.sect-label{font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#8A8A8A;margin-bottom:56px}
+.sect h2{font-size:40px;font-weight:300;letter-spacing:-0.02em;line-height:1.15;margin-bottom:28px;max-width:760px}
+.sect p.sect-sub{font-size:17px;font-weight:300;color:#000;line-height:1.55;max-width:640px;margin-bottom:72px;letter-spacing:-0.005em}
+.sect p{font-size:15px;line-height:1.6;color:#000;max-width:640px;margin-bottom:18px}
+.sect h3{font-size:13px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:14px}
+
+/* OVERVIEW */
+.u-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:56px;border-top:1px solid #E5E5E5}
+.u-card{padding:44px 44px 44px 0;border-bottom:1px solid #E5E5E5;background:transparent}
+.u-card:nth-child(odd){padding-right:44px;border-right:1px solid #E5E5E5}
+.u-card:nth-child(even){padding-left:44px}
+.u-num{font-size:11px;font-weight:400;letter-spacing:0.24em;text-transform:uppercase;color:#8A8A8A;margin-bottom:18px}
+.u-card h3{font-size:18px;font-weight:700;letter-spacing:-0.01em;text-transform:none;margin-bottom:14px}
+.u-card p{font-size:14px;line-height:1.65;color:#000;max-width:none;margin-bottom:0}
+.fact-table{margin-top:48px;border-top:1px solid #000;max-width:760px}
+.fact-table dl{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid #E5E5E5}
+.fact-table dt{padding:20px 0;font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#000}
+.fact-table dd{padding:20px 0;font-size:14px;font-weight:400;color:#000}
+.disclosure{margin-top:56px;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#8A8A8A;font-weight:700}
+
+/* SCOPE */
+.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #000}
+.scope-col{padding:48px 48px 48px 0}
+.scope-col.incl{border-right:1px solid #E5E5E5}
+.scope-col.excl{padding-left:48px;padding-right:0}
+.scope-h{font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;margin-bottom:36px;padding-bottom:14px;border-bottom:1px solid #000}
+.scope-col ul{list-style:none}
+.scope-col li{padding:22px 0;border-bottom:1px solid #E5E5E5;font-size:14px;line-height:1.6}
+.scope-col li:last-child{border-bottom:none}
+.scope-col li strong{display:block;font-size:14px;font-weight:700;margin-bottom:6px;letter-spacing:-0.005em}
+
+/* APPROACH */
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #000}
+.app-item{padding:48px;border-right:1px solid #E5E5E5;border-bottom:1px solid #E5E5E5}
+.app-item:nth-child(even){border-right:none}
+.app-item:nth-child(3),.app-item:nth-child(4){border-bottom:none}
+.app-item:nth-child(1),.app-item:nth-child(3){padding-left:0}
+.app-item:nth-child(2),.app-item:nth-child(4){padding-right:0}
+.app-n{font-size:11px;font-weight:400;letter-spacing:0.24em;color:#000;margin-bottom:56px}
+.app-item h3{font-size:22px;font-weight:300;letter-spacing:-0.02em;text-transform:none;margin-bottom:18px;line-height:1.2}
+.app-item p{font-size:14px;line-height:1.65;color:#000;max-width:none;margin-bottom:0}
+
+/* MIAMI CONDITIONS */
+.cond-list{border-top:1px solid #000;max-width:840px}
+.cond-item{padding:44px 0;border-bottom:1px solid #E5E5E5;display:grid;grid-template-columns:180px 1fr;gap:40px}
+.cond-kick{font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#000}
+.cond-body p{font-size:15px;line-height:1.65;max-width:none;margin-bottom:12px}
+.cond-body p:last-child{margin-bottom:0}
+
+/* TEAM */
+.team-grid{border-top:1px solid #000}
+.tm{display:grid;grid-template-columns:220px 1fr;gap:40px;padding:44px 0;border-bottom:1px solid #E5E5E5;align-items:start}
+.tm.ref{border-left:3px solid #000;padding-left:36px}
+.tm .initials{font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase}
+.tm .initials span{display:block;font-size:18px;font-weight:300;letter-spacing:-0.01em;margin-top:10px;text-transform:none;color:#000}
+.tm .role{font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#8A8A8A;margin-bottom:14px}
+.tm .assigned{font-size:14px;line-height:1.65;color:#000}
+
+/* PRICING */
+.price-table{width:100%;max-width:640px;border-collapse:collapse;margin-top:0;border-top:1px solid #000}
+.price-table th{font-size:10px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;text-align:left;padding:16px 0;color:#8A8A8A;border-bottom:1px solid #E5E5E5}
+.price-table th:last-child{text-align:right}
+.price-table td{padding:18px 0;font-size:14px;border-bottom:1px solid #E5E5E5;vertical-align:top}
+.price-table td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.price-table td.sec{font-size:10px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#8A8A8A}
+.price-table tr.subtotal td{font-weight:700;font-size:13px;border-top:1px solid #E5E5E5}
+.price-table tr.total td{background:#000;color:#FFFFFF;padding:26px 24px;font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;border-bottom:none}
+.price-table tr.total td:last-child{font-size:18px;letter-spacing:0.08em}
+.price-note{margin-top:40px;font-size:13px;line-height:1.7;color:#000;max-width:640px}
+.price-note p{font-size:13px;line-height:1.7;max-width:none;margin-bottom:14px}
+
+/* TIMELINE */
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:0}
+.phase-row{padding:36px 36px 44px 0;border-right:1px solid #E5E5E5}
+.phase-row:last-child{border-right:none;padding-right:0}
+.phase-row:nth-child(2){padding-left:36px;padding-right:36px}
+.phase-row:nth-child(3){padding-left:36px}
+.phase-row .phase-row.head,.phase-row .head{border-top:1px solid #000;padding-top:24px;margin-bottom:32px}
+.p-num{font-size:11px;font-weight:400;letter-spacing:0.24em;color:#000;border-top:1px solid #000;padding-top:24px;display:block;margin-bottom:32px}
+.p-area{font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#8A8A8A;margin-bottom:10px}
+.phase-row h3{font-size:24px;font-weight:300;letter-spacing:-0.02em;text-transform:none;margin-bottom:24px;line-height:1.15}
+.p-work{font-size:14px;line-height:1.65;margin-bottom:32px}
+.p-dur{font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#000}
+.p-overlap{margin-top:48px;font-size:13px;line-height:1.7;max-width:640px;color:#000}
+
+/* NEXT STEPS */
+.ns-list{border-top:2px solid #000;margin-top:0}
+.ns-row{display:grid;grid-template-columns:60px 1fr 240px;gap:40px;padding:28px 0;border-bottom:1px solid #E5E5E5;align-items:start}
+.ns-n{font-size:11px;font-weight:400;letter-spacing:0.24em;color:#000}
+.ns-action{font-size:16px;font-weight:300;letter-spacing:-0.01em;line-height:1.45}
+.ns-owner{font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;text-align:right;color:#000}
+
+/* GUARDRAILS */
+.diff-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:840px}
+.diff-item{padding:36px 40px;border:1px solid #E5E5E5;border-left:3px solid #000}
+.diff-item .diff-num{font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#8A8A8A;margin-bottom:14px}
+.diff-item h4{font-size:18px;font-weight:700;letter-spacing:-0.005em;margin-bottom:14px}
+.diff-item p{font-size:14px;line-height:1.7;color:#000;max-width:none;margin-bottom:0}
+
+/* FOOTER */
+.footer-quote{padding:100px 80px;background:#000;color:#FFFFFF}
+.footer-quote .attr{font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#FFFFFF}
+.footer-bar{padding:32px 80px;background:#000;border-top:1px solid #222;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:center}
+.footer-bar span,.footer-bar a{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#8A8A8A}
+.footer-bar a{justify-self:end}
+.footer-bar span:nth-child(2){text-align:center;color:#FFFFFF}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .sidebar{position:static;width:100%;height:auto;padding:24px 24px;border-right:none;border-bottom:1px solid #E5E5E5}
+  .logo{margin-bottom:20px;font-size:18px}
+  .sidebar nav{flex-direction:row;flex-wrap:wrap;gap:10px 16px}
+  .sidebar-footer{margin-top:20px}
+  .main{margin-left:0}
+  .hero{padding:56px 24px 0}
+  .hero h1{font-size:48px}
+  .hero .tagline{font-size:15px}
+  .hero .meta{margin:0 -24px;padding:28px 24px;flex-direction:column;gap:10px}
+  .sect{padding:72px 24px}
+  .sect h2{font-size:26px}
+  .sect p.sect-sub{font-size:15px}
+  .photo-strip,.u-grid,.scope-grid,.approach-grid,.timeline{grid-template-columns:1fr}
+  .photo-cell{border-right:none;border-bottom:1px solid #E5E5E5;height:auto;min-height:220px}
+  .u-card{padding:28px 0!important;border-right:none!important}
+  .scope-col{padding:28px 0!important;border-right:none!important}
+  .app-item{padding:28px 0!important;border-right:none!important}
+  .app-item:nth-child(3){border-bottom:1px solid #E5E5E5}
+  .phase-row{padding:28px 0!important;border-right:none;border-bottom:1px solid #E5E5E5}
+  .cond-item,.tm,.ns-row{grid-template-columns:1fr;gap:12px}
+  .ns-owner{text-align:left}
+  .fact-table dl{grid-template-columns:1fr}
+  .fact-table dt{padding-bottom:4px}
+  .fact-table dd{padding-top:0}
+  .footer-quote,.footer-bar{padding:40px 24px}
+  .footer-bar{grid-template-columns:1fr;gap:8px}
+  .footer-bar a{justify-self:start}
+}
+</style></head><body>
+
+<div class="sidebar">
+  <div class="logo">CHANEL<span class="lbco">LUX BRAND CO.</span></div>
+  <nav>
+    <a href="#overview">Overview</a>
+    <a href="#scope">Scope</a>
+    <a href="#approach">Approach</a>
+    <a href="#conditions">Miami Conditions</a>
+    <a href="#team">Team</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#next">Next Steps</a>
+    <a href="#guardrails">Guardrails</a>
+  </nav>
+  <div class="sidebar-footer">
+    Miami Boutique<br>Static Build-Out<br>2026
+    <span class="rc">Rough Costing</span>
+  </div>
+</div>
+
+<div class="main">
+
+<div class="hero">
+  <div class="hero-label">Rough Costing Exercise &mdash; Chanel &mdash; Miami Boutique &mdash; 2026</div>
+  <h1>Miami.</h1>
+  <p class="tagline">Static retail build-out for Chanel Miami, delivered to House-standard finishes with on-site mockup approval before fabrication.</p>
+  <div class="rc-tag">Rough Costing &mdash; Not a Formal Bid</div>
+  <div class="meta">
+    <span>LBCO</span>
+    <span>Chanel</span>
+    <span>Miami</span>
+    <span>2026</span>
+    <span>Static</span>
+  </div>
+</div>
+
+<div class="photo-strip">
+  <div class="photo-cell">
+    <div class="ph-label">Site &mdash; Exterior</div>
+    <div class="ph-title">Storefront.</div>
+    <div class="ph-sub">Photography pending site visit</div>
+  </div>
+  <div class="photo-cell">
+    <div class="ph-label">Site &mdash; Sales Floor</div>
+    <div class="ph-title">Interior.</div>
+    <div class="ph-sub">Photography pending site visit</div>
+  </div>
+  <div class="photo-cell">
+    <div class="ph-label">Site &mdash; Back of House</div>
+    <div class="ph-title">BOH.</div>
+    <div class="ph-sub">Photography pending site visit</div>
+  </div>
+</div>
+
+<div class="sect fade" id="overview">
+  <div class="sect-num">01</div>
+  <div class="sect-label">Overview</div>
+  <h2>A static build-out for Chanel Miami.</h2>
+  <p class="sect-sub">Permanent boutique construction carried to House-standard finishes, mockup-approved before fabrication. Rough costing issued ahead of drawings and site visit.</p>
+  <p>This document responds to a request for a rough costing exercise on a permanent Chanel boutique in Miami, targeted for delivery in 2026. The scope is a static retail build-out. There is no pop-up logic, no temporary overlay, no phased reopening &mdash; the store will go dark on a defined date, construction will run as a single continuous sequence, and the space will hand over as a finished Chanel boutique ready for merchandise load-in and House vitrine installation by Chanel's appointed vendors.</p>
+  <p>The numbers on the following pages are preliminary. They are issued in advance of permit drawings, in advance of a site walk, and in advance of subcontractor buyout. They carry a working assumption of House-standard finishes &mdash; stone, metal, specialty millwork, and lighting calibrated to the specification Chanel applies to its boutiques globally. Where a figure cannot yet be resolved against drawings, it is flagged [UPDATE BEFORE SENDING] and held back rather than guessed into place.</p>
+  <p>LUX Brand Company is positioning for the General Contractor role. Scope splits below reflect a standard Chanel turnover condition, with FF&amp;E and branded vitrines furnished and installed by House-designated vendors and the architectural shell, finishes, MEP distribution, and lighting infrastructure carried by LBCO. The intent of this document is alignment &mdash; on scope, on mode, on the boundary between builder and House vendor &mdash; before drawings are released and a formal bid is requested.</p>
+
+  <div class="fact-table">
+    <dl><dt>Brand</dt><dd>Chanel</dd></dl>
+    <dl><dt>Location</dt><dd>Miami &mdash; [UPDATE BEFORE SENDING] street address and floor</dd></dl>
+    <dl><dt>Mode</dt><dd>Static build-out &mdash; single-phase, store dark, continuous sequence</dd></dl>
+    <dl><dt>Confidentiality</dt><dd>Rough Costing Exercise &mdash; Not a Formal Bid</dd></dl>
+  </div>
+
+  <p class="disclosure">Rough Costing Exercise &mdash; not a formal bid</p>
+</div>
+
+<div class="sect fade" id="scope">
+  <div class="sect-num">02</div>
+  <div class="sect-label">Scope</div>
+  <h2>Five trades confirmed in, four carried out.</h2>
+  <p class="sect-sub">Scope splits reflect a standard Chanel turnover condition with FF&amp;E and vitrines supplied by House vendors.</p>
+
+  <div class="scope-grid">
+    <div class="scope-col incl">
+      <div class="scope-h">Included &mdash; LBCO</div>
+      <ul>
+        <li><strong>General Conditions &amp; Supervision</strong>&mdash; Full-time project manager and on-site superintendent carried for the duration of the build, covering safety, QA/QC, subcontractor coordination, and daily reporting. [UPDATE BEFORE SENDING]</li>
+        <li><strong>Demolition &amp; Site Prep</strong>&mdash; Selective demolition per drawings, dust and noise protection at shared demising lines, and protection of adjacent tenant spaces and common corridors. [UPDATE BEFORE SENDING]</li>
+        <li><strong>Architectural Millwork &amp; Finishes</strong>&mdash; Custom casework, wall cladding, stone surfaces, and specialty finishes executed to Chanel's global boutique specification with on-site mockup approval. [UPDATE BEFORE SENDING]</li>
+        <li><strong>MEP Systems</strong>&mdash; Mechanical, electrical, and plumbing tie-ins and in-suite distribution per engineered drawings, coordinated with landlord base building and Miami code. [UPDATE BEFORE SENDING]</li>
+        <li><strong>Lighting &amp; Controls</strong>&mdash; Decorative, accent, and display lighting per Chanel specification, including dimming and scene control infrastructure and commissioning. [UPDATE BEFORE SENDING]</li>
+      </ul>
+    </div>
+    <div class="scope-col excl">
+      <div class="scope-h">Excluded &mdash; By Others</div>
+      <ul>
+        <li><strong>FF&amp;E &amp; Vitrines</strong>&mdash; Furniture, fixtures, display vitrines, and branded cases supplied and installed by Chanel-designated House vendors under direct purchase orders. [UPDATE BEFORE SENDING]</li>
+        <li><strong>Art &amp; Accessories</strong>&mdash; Decorative art, sculptural pieces, styling props, and merchandise fixtures excluded from the LBCO scope and carried directly by the House. [UPDATE BEFORE SENDING]</li>
+        <li><strong>Landlord Base Building Work</strong>&mdash; Base building is assumed delivered in the turnover condition defined by the landlord work letter, with shell, slab, demising walls, and primary utility stubs in place. [UPDATE BEFORE SENDING]</li>
+        <li><strong>Permits &amp; Expediting Fees</strong>&mdash; Hard permit fees and municipal expediting fees carried as an allowance and reconciled at cost on final billing. [UPDATE BEFORE SENDING]</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="sect fade" id="approach">
+  <div class="sect-num">03</div>
+  <div class="sect-label">Approach</div>
+  <h2>Store dark, single phase, mockups before fabrication.</h2>
+  <p class="sect-sub">Continuous construction sequence with long-lead stone and metal released at GMP. Standard-shift hours carried where landlord rules permit.</p>
+
+  <div class="approach-grid">
+    <div class="app-item">
+      <div class="app-n">01</div>
+      <h3>Single-Phase Static Build</h3>
+      <p>Continuous construction sequence without phased reopenings. The store goes dark on the agreed mobilization date and remains closed through to handover, with no interim merchandise moves and no temporary reopen obligations carried in the schedule. [UPDATE BEFORE SENDING]</p>
+    </div>
+    <div class="app-item">
+      <div class="app-n">02</div>
+      <h3>Standard Shift Hours</h3>
+      <p>Daytime work carried as the baseline wherever landlord rules and municipal ordinances allow. Premium-time shifts, night work, and weekend hours priced only where the building work letter, corridor access rules, or mall operating covenants explicitly require them. [UPDATE BEFORE SENDING]</p>
+    </div>
+    <div class="app-item">
+      <div class="app-n">03</div>
+      <h3>Early Long-Lead Procurement</h3>
+      <p>Stone, specialty millwork, and custom metalwork released for fabrication at GMP execution rather than at drawing issue. South Florida stone lead times and domestic metal shop capacity both favor early release to protect the critical path and the handover date. [UPDATE BEFORE SENDING]</p>
+    </div>
+    <div class="app-item">
+      <div class="app-n">04</div>
+      <h3>Mockup &amp; Sample Program</h3>
+      <p>On-site mockups for every governing finish &mdash; stone joinery, metal patina, wall plaster, lighting trim &mdash; reviewed and signed off with the Chanel design team before full fabrication is released. No finish runs without a mockup on the wall. [UPDATE BEFORE SENDING]</p>
+    </div>
+  </div>
+</div>
+
+<div class="sect fade" id="conditions">
+  <div class="sect-num">04</div>
+  <div class="sect-label">Miami Conditions</div>
+  <h2>Hurricane code, South Florida lead times, landlord work letter.</h2>
+  <p class="sect-sub">Three variables specific to the Miami market that shape cost, schedule, and sequencing on this static build.</p>
+
+  <div class="cond-list">
+    <div class="cond-item">
+      <div class="cond-kick">Code</div>
+      <div class="cond-body">
+        <p>Miami-Dade hurricane code governs storefront glazing, exterior anchorage, and any roof-mounted mechanical equipment. Impact-rated glass assemblies, tested fastening details, and High Velocity Hurricane Zone documentation add both hard cost and submittal time to any storefront or exterior metal package.</p>
+        <p>Interior partitions and finish scope are less affected, but the building envelope points &mdash; entry doors, display windows, service doors, rooftop curbs &mdash; must be coordinated between the architect, the storefront vendor, and the mechanical engineer early enough that product data and NOA numbers are in hand before permit submission. [UPDATE BEFORE SENDING]</p>
+      </div>
+    </div>
+    <div class="cond-item">
+      <div class="cond-kick">Labor</div>
+      <div class="cond-body">
+        <p>South Florida subcontractor capacity is tight across stone, specialty metal, and finish plaster. Miami trades are absorbing sustained hospitality and luxury retail demand across Brickell, the Design District, Bal Harbour, and Aventura, and lead times for qualified shops run measurably longer than Northeast or West Coast benchmarks.</p>
+        <p>Pricing assumes a tier of subcontractors already familiar with the Chanel finish standard or demonstrably capable of achieving it against mockup. Unqualified low bids are not carried. [UPDATE BEFORE SENDING] week lead time is assumed on imported stone and [UPDATE BEFORE SENDING] weeks on custom metalwork.</p>
+      </div>
+    </div>
+    <div class="cond-item">
+      <div class="cond-kick">Permitting</div>
+      <div class="cond-body">
+        <p>Miami municipal permit timelines for tenant build-outs of this class and finish level run [UPDATE BEFORE SENDING] weeks from drop to pickup, with a separate plan review track required for HVHZ components. Expediter engagement is standard on boutique work and is carried in the General Conditions allowance.</p>
+        <p>The schedule assumes permit is secured before mobilization and before any long-lead fabrication is released for installation. Preconstruction is sized to absorb expected review comment cycles without disturbing the construction start date. [UPDATE BEFORE SENDING]</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sect fade" id="team">
+  <div class="sect-num">05</div>
+  <div class="sect-label">Team</div>
+  <h2>Four people on the Chanel Miami engagement.</h2>
+  <p class="sect-sub">Project Executive, Project Manager, Superintendent, and the Chanel Client Representative.</p>
+
+  <div class="team-grid">
+    <div class="tm">
+      <div class="initials">[UPDATE]<span>[UPDATE BEFORE SENDING]</span></div>
+      <div>
+        <div class="role">Project Executive</div>
+        <p class="assigned">Senior leader overseeing project delivery and the client relationship for Chanel Miami. Carries sign-off authority on GMP, schedule, and change order disposition, and is the escalation contact for the Chanel project lead at any stage of preconstruction or construction.</p>
+      </div>
+    </div>
+    <div class="tm">
+      <div class="initials">[UPDATE]<span>[UPDATE BEFORE SENDING]</span></div>
+      <div>
+        <div class="role">Project Manager</div>
+        <p class="assigned">Day-to-day project lead responsible for schedule, budget, submittals, and subcontractor coordination. Single point of contact for Chanel design and construction counterparts throughout the build, owning RFI response, change order pricing, and weekly reporting cadence.</p>
+      </div>
+    </div>
+    <div class="tm">
+      <div class="initials">[UPDATE]<span>[UPDATE BEFORE SENDING]</span></div>
+      <div>
+        <div class="role">Superintendent</div>
+        <p class="assigned">On-site leader managing field operations, trade sequencing, quality, and safety. Owns the mockup and sample program in the field and runs the punch walk and commissioning sequence against Chanel's finish specification through turnover.</p>
+      </div>
+    </div>
+    <div class="tm ref">
+      <div class="initials">[UPDATE]<span>[UPDATE BEFORE SENDING]</span></div>
+      <div>
+        <div class="role">Chanel Client Representative</div>
+        <p class="assigned">Chanel project lead and primary decision-maker on design, schedule, and budget. Primary counterpart for LBCO Project Executive and Project Manager on all matters requiring House approval, including mockup sign-off and scope adjustments.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sect fade" id="pricing">
+  <div class="sect-num">06</div>
+  <div class="sect-label">Pricing</div>
+  <h2>Rough order-of-magnitude carried against four line items.</h2>
+  <p class="sect-sub">General Conditions, Architectural &amp; Millwork, MEP &amp; Lighting, Finishes &amp; Stone. Overhead at 12 percent, contingency at 5 percent.</p>
+
+  <table class="price-table">
+    <thead>
+      <tr><th>Line Item</th><th>Section</th><th>Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>General Conditions</td><td class="sec">General Requirements</td><td>$0 [UPDATE]</td></tr>
+      <tr><td>Architectural &amp; Millwork</td><td class="sec">Construction</td><td>$0 [UPDATE]</td></tr>
+      <tr><td>MEP &amp; Lighting</td><td class="sec">Construction</td><td>$0 [UPDATE]</td></tr>
+      <tr><td>Finishes &amp; Stone</td><td class="sec">Construction</td><td>$0 [UPDATE]</td></tr>
+      <tr class="subtotal"><td>Subtotal</td><td class="sec">Direct Cost</td><td>$0 [UPDATE]</td></tr>
+      <tr class="subtotal"><td>Overhead &amp; Fee</td><td class="sec">12%</td><td>$0 [UPDATE]</td></tr>
+      <tr class="subtotal"><td>Contingency</td><td class="sec">5%</td><td>$0 [UPDATE]</td></tr>
+      <tr class="total"><td colspan="2">Grand Total</td><td>[UPDATE BEFORE SENDING]</td></tr>
+    </tbody>
+  </table>
+
+  <div class="price-note">
+    <p>The four-line structure above is intentional. It mirrors how cost actually sorts on a static Chanel boutique &mdash; one bucket for field supervision and facilities, one for the architectural package that carries the visible finish quality, one for the engineered systems behind the walls, and one for the stone, metal, and specialty surfaces that hold the House standard.</p>
+    <p>Numbers are held at $0 and flagged [UPDATE BEFORE SENDING] until drawings, a site walk, and qualified sub pricing are in hand. Overhead and contingency are carried at the rates noted and are not variable at this stage. All figures will be rebuilt line-by-line against permit drawings for the formal bid submission.</p>
+  </div>
+</div>
+
+<div class="sect fade" id="timeline">
+  <div class="sect-num">07</div>
+  <div class="sect-label">Timeline</div>
+  <h2>Three phases &mdash; preconstruction, construction, closeout.</h2>
+  <p class="sect-sub">Durations pending drawings and landlord work letter. Preconstruction overlaps start of construction; closeout concludes on handover.</p>
+
+  <div class="timeline">
+    <div class="phase-row">
+      <span class="p-num">01</span>
+      <div class="p-area">Office</div>
+      <h3>Preconstruction.</h3>
+      <p class="p-work">Permit submission, subcontractor buyout, long-lead releases, and early submittal review run in parallel against the approved drawings.</p>
+      <div class="p-dur">[UPDATE] wks</div>
+    </div>
+    <div class="phase-row">
+      <span class="p-num">02</span>
+      <div class="p-area">Boutique</div>
+      <h3>Construction.</h3>
+      <p class="p-work">Selective demolition through finishes, with mockups reviewed and approved ahead of every finish release and ahead of millwork fabrication sign-off.</p>
+      <div class="p-dur">[UPDATE] wks</div>
+    </div>
+    <div class="phase-row">
+      <span class="p-num">03</span>
+      <div class="p-area">Boutique</div>
+      <h3>Closeout.</h3>
+      <p class="p-work">Punch list, MEP commissioning, finish touch-up, and turnover to Chanel for House vendor vitrine installation and merchandise load-in.</p>
+      <div class="p-dur">[UPDATE] wks</div>
+    </div>
+  </div>
+
+  <p class="p-overlap">Preconstruction tasks overlap the first two weeks of construction to keep buyout active against early field conditions. Closeout concludes on handover to Chanel; vitrine installation and merchandising run under House direction following turnover. Total duration will resolve against the April drawings issue and the landlord work letter. [UPDATE BEFORE SENDING]</p>
+</div>
+
+<div class="sect fade" id="next">
+  <div class="sect-num">08</div>
+  <div class="sect-label">Next Steps</div>
+  <h2>Four actions to move from rough costing to bid.</h2>
+  <p class="sect-sub">Scope confirmation, drawing handoff, pricing return, milestone alignment.</p>
+
+  <div class="ns-list">
+    <div class="ns-row">
+      <div class="ns-n">01</div>
+      <div class="ns-action">Confirm scope, square footage, and site visit date for Miami.</div>
+      <div class="ns-owner">[UPDATE] &middot; Chanel Lead</div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">02</div>
+      <div class="ns-action">Share architectural drawings, finish schedule, and MEP performance criteria.</div>
+      <div class="ns-owner">[UPDATE] &middot; Chanel Design</div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">03</div>
+      <div class="ns-action">Return rough order-of-magnitude pricing against permit-track drawings.</div>
+      <div class="ns-owner">[UPDATE] &middot; LUX PM</div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">04</div>
+      <div class="ns-action">Align on preconstruction, construction, and handover milestones.</div>
+      <div class="ns-owner">LUX + Chanel</div>
+    </div>
+  </div>
+</div>
+
+<div class="sect fade" id="guardrails">
+  <div class="sect-num">09</div>
+  <div class="sect-label">Guardrails</div>
+  <h2>Two limits on how this document should be read.</h2>
+  <p class="sect-sub">Pricing and assumptions are preliminary pending drawings, site visit, and subcontractor buyout.</p>
+
+  <div class="diff-grid">
+    <div class="diff-item">
+      <div class="diff-num">Guardrail 01</div>
+      <h4>Rough Order-of-Magnitude Only.</h4>
+      <p>Pricing reflects preliminary assumptions pending drawings, site visit, and subcontractor buyout. This document is not a formal bid and should not be relied upon as a commitment to price. All figures will be rebuilt against permit drawings and qualified subcontractor pricing for the formal submission.</p>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">Guardrail 02</div>
+      <h4>Assumptions Pending Validation.</h4>
+      <p>Schedule, scope splits, and allowances are to be confirmed against the landlord work letter and Chanel's global boutique standards once design and base-building documents are received. Material lead times, permit durations, and premium-time assumptions are held as working figures and will resolve at GMP.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer-quote">
+  <div class="attr">[UPDATE BEFORE SENDING] Name &mdash; LUX Brand Company</div>
+</div>
+<div class="footer-bar">
+  <span>&copy; 2026 LUX Brand Company</span>
+  <span>Prepared for Chanel &mdash; Miami</span>
+  <a href="mailto:[UPDATE BEFORE SENDING]@lbco.com">[UPDATE]@lbco.com</a>
+</div>
+
+</div>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('in')}})},{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+const navLinks=document.querySelectorAll('.sidebar nav a');
+const sections=document.querySelectorAll('.sect');
+function syncNav(){
+  let cur='';
+  const y=window.scrollY+140;
+  sections.forEach(s=>{if(s.offsetTop<=y)cur=s.id});
+  navLinks.forEach(a=>{a.classList.toggle('nav-highlight',a.getAttribute('href')==='#'+cur)});
+}
+window.addEventListener('scroll',syncNav);syncNav();
+</script>
+</body></html>
