@@ -60,6 +60,24 @@ a{color:#000;text-decoration:none}
 .rev-item{padding:30px 40px;border:1px solid #eee;border-left:3px solid #000}
 .rev-item h4{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
 .rev-item p{font-size:12px;line-height:1.65;color:#555;max-width:none}
+.rev-row{display:flex;gap:14px;align-items:flex-start;margin-top:14px;font-size:12px;line-height:1.65;color:#222}
+.rev-row .rev-tag{flex:0 0 82px;font-size:8.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#000;padding-top:3px}
+.rev-row .rev-tag.lbco{color:#888}
+.rev-row .rev-text{flex:1;color:#333}
+.rev-row.resolved{padding-top:14px;margin-top:14px;border-top:1px solid #eee}
+.rev-item.status-item{border-left:3px dashed #bbb;grid-column:1/-1;background:#fff}
+.rev-item.status-item .status-tag{display:inline-block;font-size:8.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#888;margin-bottom:8px}
+.rev-item.status-item p{color:#444}
+.logistics-block{margin-top:52px;padding-top:40px;border-top:1px solid #eee}
+.logistics-label{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#888;margin-bottom:14px}
+.logistics-intro{font-size:13px;color:#444;margin-bottom:24px;max-width:680px;line-height:1.7}
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pkg{background:#fafafa;border:1px solid #ececec;padding:18px 20px;border-left:3px solid #000}
+.pkg .pkg-n{font-size:11px;font-weight:800;letter-spacing:1.2px;color:#000;text-transform:uppercase;margin-bottom:4px}
+.pkg .pkg-mode{font-size:8.5px;font-weight:800;letter-spacing:1.6px;color:#888;text-transform:uppercase;margin-bottom:10px}
+.pkg .pkg-desc{font-size:12px;color:#333;line-height:1.5}
+.pkg.tile-pkg{border-left-color:#bbb;border-left-style:dashed}
+@media (max-width:900px){.pkg-grid{grid-template-columns:1fr}}
 
 /* PRICING */
 .price-table{width:100%;border-collapse:collapse;margin-bottom:40px}
@@ -224,59 +242,79 @@ a{color:#000;text-decoration:none}
   <div class="sect-num">03</div>
   <div class="sect-label">Bid Revisions Addressed</div>
   <h2>Aligned to the April 20 review.</h2>
-  <p class="sect-sub">Prior notes have been consolidated into the items below. Each reflects where we landed during the line-by-line review with Celine on April 20, with follow-ups noted where they remain open.</p>
+  <p class="sect-sub">Each item below mirrors a note from Ben's 4/20 walk-through, paired with how LBCO has carried it in the revised bid. Numbers and details come from Jon Buck's line-by-line reply on 4/21.</p>
   <span class="rev-note">Reflects the April 20, 2026 pricing review</span>
   <div class="rev-grid">
+
     <div class="rev-item">
-      <h4>LED Drivers &mdash; 131 + 6 Spares</h4>
-      <p>Revised up from 114 + 5 spares. Verified with the electrical sub. Carried at $6,821 in the electrical division.</p>
+      <h4>01 &nbsp; General Requirements</h4>
+      <div class="rev-row"><div class="rev-tag">Ben raised</div><div class="rev-text">Have the subcontractor absorb the flagged line. If not, roll it into the VCT scope.</div></div>
+      <div class="rev-row resolved"><div class="rev-tag lbco">LBCO</div><div class="rev-text">Absorbed by the subcontractor. $1,020 removed from the bid form entirely.</div></div>
     </div>
+
     <div class="rev-item">
-      <h4>Roofing Penetrations</h4>
-      <p>Confirmed at 2, not 3. Materials revised down accordingly; labor unchanged.</p>
+      <h4>04 &nbsp; Masonry &mdash; Landlord Corridor Tile</h4>
+      <div class="rev-row"><div class="rev-tag">Ben raised</div><div class="rev-text">Reduce the masonry number to reflect the shorter storefront. Four rows of landlord corridor tile are approved, but only in front of the immediate storefront.</div></div>
+      <div class="rev-row resolved"><div class="rev-tag lbco">LBCO</div><div class="rev-text">13% reduction applied to both material supply from the mall and install labor to match the shortened run.</div></div>
     </div>
+
     <div class="rev-item">
-      <h4>Dishwasher &amp; Plumbing Return Trip</h4>
-      <p>Dishwasher added to equipment scope. Plumbing now includes a second trip and materials for install after C of O, per Ben's note.</p>
+      <h4>06 &nbsp; Wood &amp; Plastic &mdash; Framing + Plywood</h4>
+      <div class="rev-row"><div class="rev-tag">Ben raised</div><div class="rev-text">Storefront scope was reduced; plywood sheathing cost should come down accordingly.</div></div>
+      <div class="rev-row resolved"><div class="rev-tag lbco">LBCO</div><div class="rev-text">Plywood deduct for the 20' storefront reduction was captured by the subcontractor. The redesign added walls and framing elsewhere, producing a $12,300 increase in framing and drywall overall. Net: the division moves up, not down.</div></div>
     </div>
+
     <div class="rev-item">
-      <h4>Storefront Oversized Glass</h4>
-      <p>Oversize cost absorbed into storefront scope and carried in Doors &amp; Windows.</p>
+      <h4>07 &nbsp; Thermal &amp; Moisture &mdash; RTU Eliminated</h4>
+      <div class="rev-row"><div class="rev-tag">Ben raised</div><div class="rev-text">One RTU was eliminated; this number should reduce. Will need a second look later.</div></div>
+      <div class="rev-row resolved"><div class="rev-tag lbco">LBCO</div><div class="rev-text">Revised to reflect fewer roof penetrations in the current design. Will revise again when the final roof plan locks.</div></div>
     </div>
+
     <div class="rev-item">
-      <h4>VCT Strip &amp; Wax</h4>
-      <p>Included in scope. Subcontractor absorption being pursued; will confirm in the next cycle.</p>
+      <h4>11 &nbsp; Equipment &mdash; Day-2 Dishwasher</h4>
+      <div class="rev-row"><div class="rev-tag">Ben raised</div><div class="rev-text">Dishwasher removed from drawings to avoid the DERM permit per landlord. Include Day-2 install after inspections, plus a temporary blank millwork panel and an allowance for retrofit. Touches Equipment, Plumbing, Electrical, and Millwork.</div></div>
+      <div class="rev-row resolved"><div class="rev-tag lbco">LBCO</div><div class="rev-text">Dishwasher carried in the equipment scope. Plumbing now includes a return trip and materials for post-C of O install. Temporary blank millwork panel included.</div></div>
     </div>
+
     <div class="rev-item">
-      <h4>Finishes &amp; Plywood</h4>
-      <p>Plywood cost consolidated into finishes. BOH millwork adjustment carried in the Wood &amp; Plastic division.</p>
+      <h4>17 &nbsp; HVAC &mdash; Credit</h4>
+      <div class="rev-row"><div class="rev-tag">Ben raised</div><div class="rev-text">The credit looks low. The removed unit combo sat in a space the client wasn't using and had no ductwork attached &mdash; the credit should be higher.</div></div>
+      <div class="rev-row resolved"><div class="rev-tag lbco">LBCO</div><div class="rev-text">These are small, off-the-shelf units &mdash; not custom-fabricated air handlers. The credit reflects their unit value, not a markup on scope. Holding at the current number.</div></div>
     </div>
+
     <div class="rev-item">
-      <h4>Sprinkler &amp; Fire Alarm</h4>
-      <p>Both updated to reflect the current design allocations from the permit revision.</p>
+      <h4>18 &nbsp; Electrical &mdash; 131 + 6 Drivers</h4>
+      <div class="rev-row"><div class="rev-tag">Ben raised</div><div class="rev-text">Confirm 131 drivers + 6 spares are included. LBCO and Jasmine to coordinate.</div></div>
+      <div class="rev-row resolved"><div class="rev-tag lbco">LBCO</div><div class="rev-text">Revised up from 114 + 5 spares. Additional driver supply added to the electrical line.</div></div>
     </div>
+
     <div class="rev-item">
-      <h4>HVAC</h4>
-      <p>Pricing challenged with the vendor per Anastasija's direction. An $8K reduction is already reflected; we will confirm the final position at the next weekly.</p>
+      <h4>Mechanical &mdash; Diffusers</h4>
+      <div class="rev-row"><div class="rev-tag">Ben raised</div><div class="rev-text">Linear diffusers appeared reduced by ~30 LF; confirm that reduction is captured.</div></div>
+      <div class="rev-row resolved"><div class="rev-tag lbco">LBCO</div><div class="rev-text">Respectfully &mdash; diffusers did not come down. Plenum boxes moved from 20 to 22; ACT diffusers from 5 to 8. Ductwork was extended to cover the redesigned footprint, so the mechanical total reflects a modest increase, not a reduction.</div></div>
     </div>
+
     <div class="rev-item">
-      <h4>Landlord Attic Stock &amp; Stone Install</h4>
-      <p>Labeled clearly as install for landlord-supplied material. Final tile quantity to be adjusted once the landlord confirms the stock count.</p>
+      <h4>Landlord Tactile Signage &mdash; Rear Door</h4>
+      <div class="rev-row"><div class="rev-tag">Ben raised</div><div class="rev-text">Landlord requires a tenant ID tactile sign at the rear door. Confirm it's included.</div></div>
+      <div class="rev-row resolved"><div class="rev-tag lbco">LBCO</div><div class="rev-text">Included in specialties from the original bid. No change required.</div></div>
     </div>
+
     <div class="rev-item">
-      <h4>Stone-to-VCT Transition</h4>
-      <p>Flush-to-floor detail noted. Means and methods carried by GC; will be confirmed once the permit-revised finish plan locks.</p>
+      <h4>Floor Leveling &mdash; VCT-to-Tile Transition</h4>
+      <div class="rev-row"><div class="rev-tag">Ben raised</div><div class="rev-text">Flush transition required between VCT and front-of-house tile. No level change permitted.</div></div>
+      <div class="rev-row resolved"><div class="rev-tag lbco">LBCO</div><div class="rev-text">Means and methods carried by LBCO. Subs have pricing locked for the flush detail; the number is covered as-is.</div></div>
     </div>
-    <div class="rev-item">
-      <h4>Diffuser Reduction</h4>
-      <p>Approximately 30 linear feet of diffuser removed from the mechanical scope per the latest design; reflected in the HVAC total.</p>
-    </div>
-    <div class="rev-item">
+
+    <div class="rev-item status-item">
+      <span class="status-tag">Status</span>
       <h4>Schedule</h4>
-      <p>Under revision. Targeting a May 4 construction start. An updated issue will be circulated ahead of the next weekly meeting.</p>
+      <p>Under revision. Targeting a May 4 construction start. An updated issue will circulate ahead of the next weekly meeting.</p>
     </div>
+
   </div>
 </div>
+
 <!-- PRICING -->
 <div class="sect" id="pricing">
   <div class="sect-num">05</div>
@@ -335,6 +373,19 @@ a{color:#000;text-decoration:none}
   <p>On April 20 we walked the bid line-by-line with Ben and the Celine team. The pricing above reflects every adjustment we aligned on in that meeting &mdash; from the 131-driver revision to the HVAC challenge and the dishwasher post-C of O install. Open follow-ups are captured in the revisions section above and will be closed out in the next cycle.</p>
   <p>We are targeting a May 4 construction start, subject to the quotation being signed and a contract executed. The permit revision is in with the county; we expect the first inspection window in June. Paris review is underway via Branka and Brice, with Amy coordinating the quotation-to-contract handoff on the Celine side.</p>
   <p>A weekly cadence kicks off next week. Our team is ready on day one, and the schedule will re-issue ahead of that meeting once the revised sequence is locked.</p>
+
+  <div class="logistics-block">
+    <div class="logistics-label">Logistics Outlook &mdash; Next Week's Discussion</div>
+    <p class="logistics-intro">Five shipment packages and tile install sequencing are open items flagged on 4/20. Forward-looking conversations to close out at the first weekly meeting.</p>
+    <div class="pkg-grid">
+      <div class="pkg"><div class="pkg-n">Package 1</div><div class="pkg-mode">Air</div><div class="pkg-desc">Ceiling embeds (troughs)</div></div>
+      <div class="pkg"><div class="pkg-n">Package 2</div><div class="pkg-mode">Sea</div><div class="pkg-desc">Back structure</div></div>
+      <div class="pkg"><div class="pkg-n">Package 3</div><div class="pkg-mode">Sea</div><div class="pkg-desc">Wall panel</div></div>
+      <div class="pkg"><div class="pkg-n">Package 4</div><div class="pkg-mode">Sea</div><div class="pkg-desc">Wall panel, mirrors, hang bars</div></div>
+      <div class="pkg"><div class="pkg-n">Package 5</div><div class="pkg-mode">Sea</div><div class="pkg-desc">Freestanding millwork</div></div>
+      <div class="pkg tile-pkg"><div class="pkg-n">Tile Installation</div><div class="pkg-mode">Schedule</div><div class="pkg-desc">Dates TBD at next weekly</div></div>
+    </div>
+  </div>
 </div>
 
 <!-- DIFFERENCE -->
