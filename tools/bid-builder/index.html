@@ -167,7 +167,11 @@ hr{border:none;border-top:1px solid var(--border);margin:36px 0}
 .qa-pill.fail{background:rgba(155,34,38,.2);color:var(--red-light);border:1px solid rgba(224,108,117,.4)}
 .qa-score{font-family:var(--font-mono);font-size:12px;color:var(--gray-6);font-weight:500}
 .qa-score b{color:var(--white);font-weight:700}
-.qa-toggle{background:transparent;border:1px solid var(--border-strong);color:var(--gray-6);font-family:var(--font-ui);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 12px;border-radius:2px;cursor:pointer}
+.qa-retry-badge{display:inline-block;margin-left:10px;padding:2px 8px;font-family:var(--font-ui);font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;border-radius:2px;vertical-align:middle}
+.qa-retry-badge.ok{background:rgba(82,183,136,.14);color:var(--green-light);border:1px solid rgba(82,183,136,.4)}
+.qa-retry-badge.dim{background:var(--gray-2);color:var(--gray-5);border:1px solid var(--border)}
+.qa-toggle{background:transparent;border:1px solid var(--border-strong);color:var(--gray-6);font-family:var(--font-ui);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 12px;border-radius:2px;cursor:pointer;margin-left:8px}
+.qa-toggle:first-of-type{margin-left:0}
 .qa-toggle:hover{border-color:var(--accent);color:var(--white)}
 .qa-body{padding:6px 0;display:none}
 .qa-body.visible{display:block}
@@ -379,6 +383,7 @@ hr{border:none;border-top:1px solid var(--border);margin:36px 0}
             <div class="qa-score" id="qa-score"></div>
           </div>
           <button class="qa-toggle" id="qa-toggle" onclick="toggleQa()">Expand checks</button>
+          <button class="qa-toggle" id="qa-all-details" onclick="toggleAllQaDetails()">Open all details</button>
         </div>
         <div class="qa-body" id="qa-body"></div>
       </div>
@@ -412,10 +417,11 @@ let lastReferenceChoice = null;
 let lastTelemetry = null;
 
 // Backend endpoints — hardcoded from CloudFormation stack outputs (bid-builder-stack, us-west-2).
-// Process, Build, Deploy use Function URLs (bypass API Gateway 29s timeout).
-// Scrape stays behind API Gateway (fits under 29s, needs explicit CORS headers).
+// As of v4.7, ALL four endpoints use Function URLs. Scrape moved off API Gateway because
+// Playwright fallback can exceed the 29s API Gateway timeout ceiling.
+// If any URL changes after a stack update, paste the new value from the stack Outputs.
 const CONFIG = {
-  apiBase:    'https://i6q6qw3dyi.execute-api.us-west-2.amazonaws.com/prod',
+  scrapeUrl:  'PASTE_SCRAPE_FUNCTION_URL_AFTER_V47_STACK_UPDATE',
   processUrl: 'https://a37umtzpammxyk26pxfevkqewm0hhvrv.lambda-url.us-west-2.on.aws/',
   buildUrl:   'https://xfrq6zzxmleoh6e3mhsjjalfou0wzmhu.lambda-url.us-west-2.on.aws/',
   deployUrl:  'https://yk5zd6wwviolublqc5qdxsa6ny0rscsi.lambda-url.us-west-2.on.aws/'
@@ -511,8 +517,8 @@ async function fileToBase64(file) {
 }
 
 async function post(endpoint, body) {
-  // /build, /process, /deploy use Lambda Function URLs directly to bypass API Gateway 29s timeout.
-  // /scrape goes through API Gateway.
+  // All four endpoints use Lambda Function URLs as of v4.7. Scrape was on API Gateway
+  // through v4.6; it moved to a Function URL because Playwright can exceed the 29s ceiling.
   let url;
   if (endpoint === 'build') {
     url = CONFIG.buildUrl.replace(/\/$/, '');
@@ -520,8 +526,10 @@ async function post(endpoint, body) {
     url = CONFIG.processUrl.replace(/\/$/, '');
   } else if (endpoint === 'deploy') {
     url = CONFIG.deployUrl.replace(/\/$/, '');
+  } else if (endpoint === 'scrape') {
+    url = CONFIG.scrapeUrl.replace(/\/$/, '');
   } else {
-    url = CONFIG.apiBase.replace(/\/$/, '') + '/' + endpoint;
+    throw new Error('Unknown endpoint: ' + endpoint);
   }
   const res = await fetch(url, {
     method: 'POST',
@@ -647,6 +655,17 @@ async function runPipeline() {
       const cls = o === 'pass' ? 'ok' : o === 'fail' ? 'err' : 'accent';
       log(`QA: ${o.toUpperCase()} · score ${s}/100 · ${crit} critical · ${warn} warning`, cls);
     }
+    // v5.1 — surface retry info in log
+    if (buildResult.qa_retry_attempted) {
+      const delta = buildResult.qa_retry_score_delta || 0;
+      const selected = buildResult.qa_retry_selected_version || 'original';
+      const sign = delta > 0 ? '+' : '';
+      if (buildResult.qa_retry_succeeded) {
+        log(`QA retry: ${selected.toUpperCase()} selected · score ${sign}${delta} points`, 'ok');
+      } else {
+        log(`QA retry: attempted, kept ORIGINAL (retry did not improve score)`, 'dim');
+      }
+    }
     // v4.8 — surface provenance in log
     if (lastProvenance) {
       const flags = [];
@@ -719,8 +738,13 @@ async function runPipeline() {
 
     // v4.8 — render badges (reference + provenance)
     renderBadges(lastReferenceChoice, lastProvenance);
-    // v5.0 — render QA report
-    renderQaReport(lastQaReport);
+    // v5.0 — render QA report (+ v5.1 retry metadata)
+    renderQaReport(lastQaReport, {
+      attempted: !!buildResult.qa_retry_attempted,
+      succeeded: !!buildResult.qa_retry_succeeded,
+      scoreDelta: buildResult.qa_retry_score_delta || 0,
+      selectedVersion: buildResult.qa_retry_selected_version || 'original',
+    });
 
     document.getElementById('open-link').href = liveUrl;
     panel.className = 'success-panel visible';
@@ -774,6 +798,18 @@ function renderDiagnostics(tel, ds, pages) {
   chips.push(chipHtml('HTTP', String(httpStatus) + (fetchAttempts > 1 ? ` <span style="color:var(--gray-4)">(${fetchAttempts} tries)</span>` : ''), httpChipCls));
   if (wwwRetry) {
     chips.push(`<span class="chip warn"><span class="chip-label">Retry</span><span class="chip-value">www added</span></span>`);
+  }
+  // v4.7 — Playwright fallback chip
+  if (tel.playwright_fallback_used) {
+    const reason = tel.playwright_trigger_reason || 'fallback';
+    const totalMs = tel.playwright_total_ms != null ? (tel.playwright_total_ms / 1000).toFixed(1) + 's' : '—';
+    const pwCls = tel.playwright_fatal_error ? 'err' : 'ok';
+    chips.push(
+      `<span class="chip ${pwCls}"><span class="chip-label">Playwright</span>` +
+      `<span class="chip-value">${escapeHtml(reason)} · ${totalMs}</span>` +
+      `<span class="chip-badge" style="background:${pwCls === 'ok' ? 'var(--green-light)' : 'var(--red-light)'};color:var(--black)">PW</span>` +
+      `</span>`
+    );
   }
   if (primaryHex) {
     const safeHex = /^#[0-9a-fA-F]{3,8}$/.test(primaryHex) ? primaryHex : '#000';
@@ -852,7 +888,7 @@ function provenanceBadge(prov) {
 // ─────────────────────────────────────────────
 // v5.0 — QA REPORT PANEL
 // ─────────────────────────────────────────────
-function renderQaReport(qa) {
+function renderQaReport(qa, retry) {
   const panel = document.getElementById('qa-panel');
   if (!qa) { panel.className = 'qa-panel'; return; }
   const pill = document.getElementById('qa-pill');
@@ -862,7 +898,19 @@ function renderQaReport(qa) {
   pill.className = 'qa-pill ' + (overall === 'pass' ? 'pass' : overall === 'fail' ? 'fail' : 'warn');
   pill.textContent = overall;
   const scoreVal = (qa.score != null) ? qa.score : '—';
-  score.innerHTML = `<b>${escapeHtml(String(scoreVal))}</b> / 100`;
+  // v5.1 — append retry badge next to the score when retry fired
+  let retryBadge = '';
+  if (retry && retry.attempted) {
+    const delta = retry.scoreDelta || 0;
+    if (retry.succeeded && delta > 0) {
+      retryBadge = `<span class="qa-retry-badge ok" title="Writer retry improved the score by ${delta} points and its output was selected.">RETRY +${delta}</span>`;
+    } else if (retry.succeeded) {
+      retryBadge = `<span class="qa-retry-badge ok" title="Writer retry succeeded (overall severity improved) and its output was selected.">RETRY ✓</span>`;
+    } else {
+      retryBadge = `<span class="qa-retry-badge dim" title="Writer retry did not improve the score. Original output kept.">RETRY · kept original</span>`;
+    }
+  }
+  score.innerHTML = `<b>${escapeHtml(String(scoreVal))}</b> / 100${retryBadge}`;
 
   const checks = Array.isArray(qa.checks) ? qa.checks : [];
   // Sort: critical > warning > info > pass
@@ -889,10 +937,29 @@ function renderQaReport(qa) {
   }).join('');
 
   panel.className = 'qa-panel visible';
-  // Default: auto-open if fail, collapsed if pass/warn
-  const shouldOpen = overall === 'fail';
-  body.classList.toggle('visible', shouldOpen);
-  document.getElementById('qa-toggle').textContent = shouldOpen ? 'Collapse checks' : 'Expand checks';
+  // Default: auto-open panel + expand critical/warning detail blocks based on overall.
+  // Fail -> open panel, auto-expand every critical metric. Warn -> open panel, auto-expand warnings.
+  // Pass -> panel collapsed, details closed.
+  const shouldOpenPanel = overall === 'fail' || overall === 'warn';
+  body.classList.toggle('visible', shouldOpenPanel);
+  document.getElementById('qa-toggle').textContent = shouldOpenPanel ? 'Collapse checks' : 'Expand checks';
+  if (shouldOpenPanel) {
+    const targetSev = overall === 'fail' ? 'critical' : 'warning';
+    sorted.forEach((c, idx) => {
+      if ((c.severity || '').toLowerCase() === targetSev) {
+        const m = document.getElementById(`qa-metric-${idx}`);
+        const caret = document.getElementById(`qa-caret-${idx}`);
+        m?.classList.add('visible');
+        caret?.classList.add('open');
+      }
+    });
+  }
+  // Reset the all-details toggle button label to reflect current state
+  const allBtn = document.getElementById('qa-all-details');
+  if (allBtn) {
+    const allOpen = Array.from(document.querySelectorAll('.qa-metric')).every(m => m.classList.contains('visible'));
+    allBtn.textContent = allOpen ? 'Close all details' : 'Open all details';
+  }
 }
 
 function toggleQa() {
@@ -910,6 +977,27 @@ function toggleQaCheck(i) {
   const open = !m.classList.contains('visible');
   m.classList.toggle('visible', open);
   c?.classList.toggle('open', open);
+}
+
+function toggleAllQaDetails() {
+  const btn = document.getElementById('qa-all-details');
+  const metrics = document.querySelectorAll('.qa-metric');
+  if (!metrics.length) return;
+  // Determine target state: if ANY metric is closed, open all; otherwise close all.
+  const anyClosed = Array.from(metrics).some(m => !m.classList.contains('visible'));
+  metrics.forEach((m, idx) => {
+    m.classList.toggle('visible', anyClosed);
+    const caret = document.getElementById(`qa-caret-${idx}`);
+    caret?.classList.toggle('open', anyClosed);
+  });
+  // Also force the panel body open if opening details
+  if (anyClosed) {
+    const qaBody = document.getElementById('qa-body');
+    qaBody.classList.add('visible');
+    const qaToggle = document.getElementById('qa-toggle');
+    if (qaToggle) qaToggle.textContent = 'Collapse checks';
+  }
+  btn.textContent = anyClosed ? 'Close all details' : 'Open all details';
 }
 
 // ─────────────────────────────────────────────
