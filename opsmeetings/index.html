@@ -1073,6 +1073,10 @@ function mountContent() {
     // DOMContentLoaded handler above already showed the error + disabled the button.
     return;
   }
+  // Attach sign-in and sign-out click handlers EAGERLY — before sign-in succeeds,
+  // the gate is visible and the rest of the document click handler isn't mounted yet.
+  document.getElementById("signin-btn")?.addEventListener("click", signIn);
+  document.getElementById("signout-btn")?.addEventListener("click", signOut);
   await initAuth();
 })();
 </script>
