@@ -235,6 +235,27 @@ button.nf.active { color: var(--brand-red); border-bottom-color: var(--brand-red
 .pipeline .pp:hover .del { opacity: 1; }
 .pipeline .pp .del:hover { color: var(--brand-red); }
 
+/* Ingest zone — transcript upload section */
+.ingest-zone { padding: 28px 26px; background: var(--cream-2); border: 1.5px dashed var(--mid); border-left: 3px solid var(--brand-red); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; transition: background 0.15s, border-color 0.15s; cursor: default; }
+.ingest-zone.drag-over { background: #f9e0de; border-color: var(--brand-red); border-style: solid; }
+.ingest-zone.busy { opacity: 0.65; pointer-events: none; }
+.ingest-zone .lt { flex: 1; min-width: 280px; }
+.ingest-zone .lt b { font-family: var(--tab-font); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 400; display: block; margin-bottom: 8px; }
+.ingest-zone .lt p { margin: 0; font-size: 13px; color: var(--ink2); line-height: 1.6; }
+.ingest-zone .pick-btn { background: var(--brand-red); color: #fff; border: none; padding: 12px 26px; font-family: var(--tab-font); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; cursor: pointer; transition: background 0.15s; }
+.ingest-zone .pick-btn:hover { background: var(--brand-red-hover); }
+.ingest-zone .pick-btn:disabled { background: var(--ink3); cursor: not-allowed; }
+.ingest-status { margin-top: 14px; padding: 14px 20px; background: var(--bg); border-left: 3px solid var(--mid); font-size: 13px; line-height: 1.6; display: none; }
+.ingest-status.show { display: block; }
+.ingest-status.err { border-left-color: var(--brand-red); color: var(--brand-red); background: #f9e0de; }
+.ingest-status.ok { border-left-color: var(--green); }
+.ingest-status .stats { font-family: var(--tab-font); font-size: 10px; letter-spacing: 0.14em; color: var(--ink2); margin-top: 8px; text-transform: uppercase; }
+.ingest-status b { font-weight: 500; }
+.spinner { display: inline-block; width: 12px; height: 12px; border: 1.5px solid var(--mid); border-top-color: var(--ink); border-radius: 50%; animation: spin 0.8s linear infinite; vertical-align: middle; margin-right: 6px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+body.has-expanded #ingest-section { display: none; }
+
 body.mm .head .stats, body.mm .controls, body.mm .board, body.mm .section, body.mm .expanded-panel,
 body.cal .board, body.cal .section, body.cal .expanded-panel { display: none !important; }
 .mm-view, .cal-view { display: none; }
@@ -401,6 +422,18 @@ body.cal .cal-view { display: block; }
   <div class="section" id="pipeline-section">
     <h2>Pipeline watch <span class="c">Brand conversations, next-year projects, not yet bidding</span></h2>
     <div class="pipeline" id="pipeline"></div>
+  </div>
+  <div class="section" id="ingest-section">
+    <h2>Ingest a meeting transcript <span class="c">Drop a .txt, .md, or .pdf — the dashboard updates live</span></h2>
+    <div class="ingest-zone" id="ingest-zone">
+      <div class="lt">
+        <b>After an OPS meeting</b>
+        <p>Drop the transcript here. Claude reads it, moves cards between phases, appends running notes, closes completed action items, and logs new calendar events. Takes 20–40 seconds. Everyone with the dashboard open sees the updates live.</p>
+      </div>
+      <button class="pick-btn" id="ingest-pick">Select file</button>
+      <input type="file" id="ingest-file" accept=".txt,.md,.pdf" style="display:none"/>
+    </div>
+    <div class="ingest-status" id="ingest-status"></div>
   </div>
 </template>
 
@@ -1063,6 +1096,88 @@ function mountContent() {
   document.addEventListener("click", onDocClick);
   document.addEventListener("input", onDocInput);
   document.addEventListener("keydown", onDocKeydown);
+
+  setupIngest();
+}
+
+// ============================================================================
+// Transcript ingestion — calls the ingest-transcript Edge Function
+// ============================================================================
+function setupIngest() {
+  const zone = el("ingest-zone");
+  const input = el("ingest-file");
+  const status = el("ingest-status");
+  const pickBtn = el("ingest-pick");
+  if (!zone || !input || !status || !pickBtn) return;
+
+  const showStatus = (html, kind) => {
+    status.className = "ingest-status show" + (kind ? " " + kind : "");
+    status.innerHTML = html;
+  };
+
+  const upload = async (file) => {
+    if (!file) return;
+    const nameLower = (file.name || "").toLowerCase();
+    if (!nameLower.endsWith(".txt") && !nameLower.endsWith(".md") && !nameLower.endsWith(".pdf")) {
+      showStatus(`<b>Unsupported file type.</b> Use .txt, .md, or .pdf.`, "err");
+      return;
+    }
+    zone.classList.add("busy");
+    showStatus(`<span class="spinner"></span> Reading <b>${esc(file.name)}</b> and updating the dashboard... This takes 20–40 seconds.`, "");
+
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const jwt = session?.access_token;
+      if (!jwt) {
+        showStatus(`<b>Not signed in.</b> Refresh the page and sign in again.`, "err");
+        return;
+      }
+      const fd = new FormData();
+      fd.append("file", file);
+      const resp = await fetch(`${SUPABASE_URL}/functions/v1/ingest-transcript`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${jwt}` },
+        body: fd,
+      });
+      const result = await resp.json().catch(() => ({ error: "Invalid response from server" }));
+
+      if (!resp.ok || !result.success) {
+        const msg = result.error || `HTTP ${resp.status}`;
+        const det = result.details ? `<br><small style="opacity:0.8">${esc(result.details)}</small>` : "";
+        showStatus(`<b>Failed:</b> ${esc(msg)}${det}`, "err");
+        return;
+      }
+      const stats = result.applied || {};
+      const statLine = Object.entries(stats).filter(([, v]) => v > 0).map(([k, v]) => `${v} ${k.replace(/_/g, " ")}`).join(" · ");
+      showStatus(
+        `<b>✓ Dashboard updated.</b><br>${esc(result.summary || "")}${statLine ? `<div class="stats">${statLine}</div>` : ""}`,
+        "ok"
+      );
+      // Force a refresh on top of realtime, to be sure the UI reconciles fast.
+      await hydrateData();
+      render();
+    } catch (e) {
+      showStatus(`<b>Error:</b> ${esc(e.message || String(e))}`, "err");
+    } finally {
+      zone.classList.remove("busy");
+      input.value = "";
+    }
+  };
+
+  pickBtn.addEventListener("click", () => input.click());
+  input.addEventListener("change", (e) => {
+    const f = e.target.files && e.target.files[0];
+    if (f) upload(f);
+  });
+
+  ["dragenter", "dragover"].forEach(ev => zone.addEventListener(ev, (e) => { e.preventDefault(); e.stopPropagation(); zone.classList.add("drag-over"); }));
+  ["dragleave", "dragend"].forEach(ev => zone.addEventListener(ev, (e) => { e.preventDefault(); e.stopPropagation(); zone.classList.remove("drag-over"); }));
+  zone.addEventListener("drop", (e) => {
+    e.preventDefault(); e.stopPropagation();
+    zone.classList.remove("drag-over");
+    const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (f) upload(f);
+  });
 }
 
 // ============================================================================
