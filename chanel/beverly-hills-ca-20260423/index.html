@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>chanel | beverly hills, ca</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#FFFFFF;color:#000000;font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-weight:300;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+p{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-weight:300;font-size:15px;line-height:1.65}
+a{color:#000000;text-decoration:none;font-family:'Futura PT','Futura','Century Gothic',sans-serif}
+
+/* SIDEBAR */
+.sidebar{position:fixed;left:0;top:0;width:220px;height:100vh;padding:48px 28px 32px;z-index:100;background:#FFFFFF;border-right:1px solid #E5E5E5;display:flex;flex-direction:column}
+.logo{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:22px;font-weight:500;letter-spacing:0.32em;line-height:1;text-transform:uppercase;color:#000000;margin-bottom:6px}
+.logo .lbco{display:block;font-size:9px;font-weight:400;letter-spacing:0.24em;margin-top:18px;color:#000000}
+.sidebar nav{display:flex;flex-direction:column;gap:4px;margin-top:56px}
+.sidebar nav a{font-size:10px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:#6B6B6B;padding:5px 0;transition:color .2s}
+.sidebar nav a:hover{color:#000000}
+.sidebar nav a.nav-highlight{color:#000000;font-weight:500}
+.sidebar-footer{margin-top:auto;font-size:9px;letter-spacing:0.20em;text-transform:uppercase;color:#6B6B6B;line-height:1.8;font-weight:400;font-family:'Futura PT','Futura','Century Gothic',sans-serif}
+.sidebar-footer .rc{display:block;margin-top:14px;color:#000000;font-weight:500;letter-spacing:0.18em}
+
+/* MAIN */
+.main{margin-left:220px;min-height:100vh}
+
+/* HERO */
+.hero{padding:96px 80px 80px;border-bottom:1px solid #E5E5E5}
+.hero-label{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:#000000;margin-bottom:56px}
+.hero h1{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:96px;font-weight:400;letter-spacing:0.02em;line-height:1.02;text-transform:uppercase;color:#000000;margin-bottom:40px}
+.hero .tagline{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:16px;line-height:1.7;font-weight:300;color:#000000;max-width:620px;margin-bottom:56px}
+.hero .meta{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#000000;padding-top:28px;border-top:1px solid #000000;font-weight:500}
+.hero .rc-tag{display:inline-block;margin-top:36px;padding:10px 18px;border:1px solid #000000;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#000000;font-weight:500;font-family:'Futura PT','Futura','Century Gothic',sans-serif}
+
+/* PHOTO STRIP */
+.photo-strip{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #E5E5E5}
+.photo-cell{padding:70px 40px;border-right:1px solid #E5E5E5;background:#FFFFFF;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end}
+.photo-cell:last-child{border-right:none}
+.ph-label{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#6B6B6B;margin-bottom:14px}
+.ph-title{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:18px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;color:#000000;margin-bottom:10px}
+.ph-sub{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#6B6B6B;font-weight:300;line-height:1.7}
+
+/* SECTIONS */
+.sect{padding:104px 80px;border-bottom:1px solid #E5E5E5}
+.sect-num{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;color:#000000;margin-bottom:32px;text-transform:uppercase}
+.sect-label{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#6B6B6B;margin-bottom:36px}
+.sect h2{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:32px;font-weight:500;letter-spacing:0.04em;line-height:1.18;color:#000000;margin-bottom:24px;text-transform:none;max-width:820px}
+.sect p.sect-sub{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:14px;line-height:1.75;color:#6B6B6B;max-width:660px;margin-bottom:56px;font-weight:300}
+.sect p{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:15px;line-height:1.72;color:#000000;max-width:720px;font-weight:300;margin-bottom:20px}
+
+/* OVERVIEW */
+.ov-prose{max-width:760px;margin-bottom:56px}
+.ov-prose p{margin-bottom:22px}
+.u-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid #E5E5E5}
+.u-card{padding:36px 32px;border-right:1px solid #E5E5E5;border-bottom:1px solid #E5E5E5}
+.u-card:nth-child(3n){border-right:none}
+.u-card:nth-last-child(-n+3){border-bottom:none}
+.u-num{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.22em;color:#000000;margin-bottom:16px}
+.u-card h3{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#000000;margin-bottom:12px;line-height:1.4}
+.u-card p{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:13px;line-height:1.7;color:#000000;max-width:none;font-weight:300;margin-bottom:0}
+
+/* SCOPE */
+.scope-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:0;border-top:1px solid #E5E5E5}
+.scope-col{padding:44px 40px 44px 0}
+.scope-col.excl{padding:44px 0 44px 48px;border-left:1px solid #E5E5E5}
+.scope-h{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#000000;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid #000000}
+.scope-col ol{list-style:none;counter-reset:s}
+.scope-col ol li{counter-increment:s;padding:20px 0 20px 44px;border-bottom:1px solid #E5E5E5;position:relative;font-size:13.5px;line-height:1.7;color:#000000;font-weight:300;font-family:'Futura PT','Futura','Century Gothic',sans-serif}
+.scope-col ol li:last-child{border-bottom:none}
+.scope-col ol li:before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:20px;font-size:10px;font-weight:500;letter-spacing:0.18em;color:#000000}
+.scope-col ol li strong{font-weight:500;letter-spacing:0.02em;display:block;margin-bottom:6px;color:#000000}
+.scope-col.excl ul{list-style:none}
+.scope-col.excl ul li{padding:20px 0;border-bottom:1px solid #E5E5E5;font-size:13px;line-height:1.7;color:#000000;font-weight:300;font-family:'Futura PT','Futura','Century Gothic',sans-serif}
+.scope-col.excl ul li:last-child{border-bottom:none}
+.scope-col.excl ul li strong{display:block;font-weight:500;font-size:11px;margin-bottom:8px;letter-spacing:0.14em;text-transform:uppercase}
+
+/* APPROACH */
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #E5E5E5}
+.app-item{padding:44px 40px 44px 0;border-bottom:1px solid #E5E5E5;display:flex;gap:32px}
+.app-item:nth-child(odd){padding-right:48px}
+.app-item:nth-child(even){padding-left:48px;border-left:1px solid #E5E5E5}
+.app-item:nth-last-child(-n+2){border-bottom:none}
+.app-n{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;color:#000000;flex-shrink:0;padding-top:4px}
+.app-item h3{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:14px;font-weight:500;letter-spacing:0.04em;color:#000000;margin-bottom:14px;line-height:1.4}
+.app-item p{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:13px;line-height:1.72;color:#000000;max-width:none;font-weight:300;margin-bottom:12px}
+.app-item p:last-child{margin-bottom:0}
+
+/* ASSUMPTIONS */
+.asm-list{list-style:none;border-top:1px solid #E5E5E5;counter-reset:a}
+.asm-list li{counter-increment:a;padding:30px 0 30px 72px;border-bottom:1px solid #E5E5E5;position:relative}
+.asm-list li:last-child{border-bottom:none}
+.asm-list li:before{content:counter(a,decimal-leading-zero);position:absolute;left:0;top:30px;font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;color:#000000}
+.asm-list h3{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:14px;font-weight:500;letter-spacing:0.04em;color:#000000;margin-bottom:10px}
+.asm-list p{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:13.5px;line-height:1.72;color:#000000;font-weight:300;max-width:760px;margin-bottom:0}
+
+/* TEAM */
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #E5E5E5}
+.tm{padding:48px 40px 48px 0}
+.tm:nth-child(even){padding-left:48px;border-left:1px solid #E5E5E5}
+.tm .initials{width:52px;height:52px;border:1px solid #000000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.14em;margin-bottom:24px;color:#000000}
+.tm h3{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:16px;font-weight:500;letter-spacing:0.06em;color:#000000;margin-bottom:8px;text-transform:uppercase}
+.tm .role{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:10px;font-weight:300;letter-spacing:0.15em;text-transform:uppercase;color:#6B6B6B;margin-bottom:24px}
+.tm p{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:13px;line-height:1.75;color:#000000;font-weight:300;margin-bottom:14px;max-width:none}
+.tm .assigned{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#000000;font-weight:500;padding-top:20px;border-top:1px solid #E5E5E5;margin-top:12px;display:block}
+
+/* PRICING */
+.price-table{width:100%;border-collapse:collapse;margin-bottom:32px}
+.price-table tr{border-bottom:1px solid #E5E5E5}
+.price-table td{padding:14px 0;font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:13.5px;font-weight:300;color:#000000;vertical-align:top}
+.price-table td:first-child{letter-spacing:0.02em}
+.price-table td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:400}
+.price-table tr.section-head td{font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#000000;padding-top:36px;padding-bottom:14px;border-bottom:1px solid #000000}
+.price-table tr.section-head:first-child td{padding-top:0}
+.price-table tr.subtotal td{font-weight:500;border-top:1px solid #000000;letter-spacing:0.06em;padding-top:20px}
+.price-table tr.total td{background:#000000;color:#FFFFFF;font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:15px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:24px 18px;border:none}
+.price-note{margin-top:48px;padding-top:36px;border-top:1px solid #E5E5E5;max-width:760px}
+.price-note p{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:13px;line-height:1.75;color:#000000;font-weight:300;margin-bottom:16px;max-width:none}
+
+/* TIMELINE */
+.timeline{border-top:1px solid #000000;margin-top:8px}
+.phase-row{display:grid;grid-template-columns:100px 1.6fr 2fr 100px 140px;padding:24px 0;border-bottom:1px solid #E5E5E5;align-items:start;gap:24px}
+.phase-row.head{border-bottom:1px solid #000000;padding:14px 0}
+.phase-row.head div{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#6B6B6B}
+.p-num{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;color:#000000}
+.p-area{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:13.5px;font-weight:500;letter-spacing:0.04em;color:#000000}
+.p-work{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:12.5px;font-weight:300;color:#000000;line-height:1.6}
+.p-dur{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:13px;font-weight:400;color:#000000;letter-spacing:0.04em}
+.p-overlap{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;color:#6B6B6B}
+.timeline-total{background:#000000;color:#FFFFFF;padding:32px;margin-top:32px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:32px}
+.tt-r{display:flex;flex-direction:column;gap:8px}
+.tt-r span:first-child{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.20em;text-transform:uppercase;color:#FFFFFF;opacity:0.6}
+.tt-r span:last-child{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:16px;font-weight:500;letter-spacing:0.08em;color:#FFFFFF}
+.timeline-prose{margin-top:48px;padding-top:36px;border-top:1px solid #E5E5E5;max-width:760px}
+.timeline-prose p{margin-bottom:18px}
+
+/* NEXT STEPS */
+.ns-list{list-style:none;border-top:2px solid #000000;counter-reset:ns}
+.ns-row{counter-increment:ns;display:grid;grid-template-columns:56px 1fr 220px;gap:24px;padding:28px 0;border-bottom:1px solid #E5E5E5;align-items:start}
+.ns-n{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;color:#000000;padding-top:2px}
+.ns-action{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:14px;line-height:1.6;color:#000000;font-weight:300}
+.ns-owner{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#000000;font-weight:500;text-align:right;padding-top:4px}
+
+/* GUARDRAILS */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.diff-item{padding:36px;border:1px solid #E5E5E5;border-left:2px solid #000000;background:#FFFFFF}
+.diff-num{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;color:#000000;margin-bottom:20px}
+.diff-item h4{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:15px;font-weight:500;letter-spacing:0.04em;color:#000000;margin-bottom:16px;line-height:1.4}
+.diff-item p{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:13px;line-height:1.72;color:#000000;font-weight:300;max-width:none;margin-bottom:14px}
+.diff-item p:last-child{margin-bottom:0}
+.guardrail-close{margin-top:40px;padding:28px 32px;border:1px solid #000000;font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:12px;letter-spacing:0.08em;line-height:1.7;color:#000000;font-weight:400;text-transform:uppercase}
+
+/* FOOTER */
+.footer-quote{padding:120px 80px;background:#000000;color:#FFFFFF}
+.footer-quote blockquote{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:28px;font-weight:300;line-height:1.4;letter-spacing:0.02em;max-width:780px;margin-bottom:40px;color:#FFFFFF}
+.attr{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#FFFFFF;opacity:0.7}
+.footer-bar{padding:32px 80px;background:#000000;border-top:1px solid #2a2a2a;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-bar span,.footer-bar a{font-family:'Futura PT','Futura','Century Gothic',sans-serif;font-size:9px;letter-spacing:0.20em;text-transform:uppercase;color:#FFFFFF;opacity:0.6;font-weight:400}
+.footer-bar a:hover{opacity:1}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .sidebar{position:static;width:100%;height:auto;border-right:none;border-bottom:1px solid #E5E5E5;padding:32px 24px}
+  .sidebar nav{flex-direction:row;flex-wrap:wrap;gap:16px;margin-top:32px}
+  .sidebar-footer{margin-top:32px}
+  .main{margin-left:0}
+  .hero{padding:48px 24px}
+  .hero h1{font-size:40px}
+  .sect{padding:56px 24px}
+  .photo-strip,.u-grid,.scope-grid,.approach-grid,.team-grid,.diff-grid{grid-template-columns:1fr}
+  .scope-col.excl,.tm:nth-child(even),.app-item:nth-child(even){border-left:none;padding-left:0}
+  .phase-row{grid-template-columns:1fr 1fr;gap:12px}
+  .phase-row.head{display:none}
+  .ns-row{grid-template-columns:40px 1fr;gap:12px}
+  .ns-owner{grid-column:1/-1;text-align:left;padding-left:40px}
+  .timeline-total{grid-template-columns:1fr 1fr}
+  .footer-quote{padding:60px 24px}
+  .footer-quote blockquote{font-size:20px}
+  .footer-bar{padding:24px}
+}
+</style></head><body>
+
+<div class="sidebar">
+  <div class="logo">CHANEL<span class="lbco">LUX BRAND CO.</span></div>
+  <nav>
+    <a href="#overview">01 &nbsp; Overview</a>
+    <a href="#scope">02 &nbsp; Scope</a>
+    <a href="#approach">03 &nbsp; Approach</a>
+    <a href="#assumptions">04 &nbsp; Assumptions</a>
+    <a href="#team">05 &nbsp; Team</a>
+    <a href="#pricing">06 &nbsp; Pricing</a>
+    <a href="#timeline">07 &nbsp; Timeline</a>
+    <a href="#next_steps">08 &nbsp; Next Steps</a>
+    <a href="#guardrails">09 &nbsp; Guardrails</a>
+  </nav>
+  <div class="sidebar-footer">
+    Beverly Hills, CA<br>
+    49,200 SF / 3 Floors<br>
+    Preliminary 2026
+    <span class="rc">Rough Costing</span>
+  </div>
+</div>
+
+<div class="main">
+
+<div class="hero">
+  <div class="hero-label">Rough Costing Exercise &mdash; Chanel &mdash; Not a Formal Bid</div>
+  <h1>Beverly Hills,<br>California.</h1>
+  <p class="tagline">Preliminary 49,200 SF office and workshop renovation for Chanel across three floors, phased in six half-floor increments. Figures issued before walkthrough, before formal drawings, and before wall linear footage is confirmed from plans.</p>
+  <div class="meta">LBCO &nbsp;/&nbsp; CHANEL &nbsp;/&nbsp; BEVERLY HILLS &nbsp;/&nbsp; 2026 &nbsp;/&nbsp; 49,200 SF</div>
+  <div class="rc-tag">Rough Costing &mdash; Not a Formal Bid</div>
+</div>
+
+<div class="photo-strip">
+  <div class="photo-cell">
+    <div class="ph-label">Planning Call</div>
+    <div class="ph-title">Springfield, NJ</div>
+    <div class="ph-sub">April 2026 &mdash; remote review</div>
+  </div>
+  <div class="photo-cell">
+    <div class="ph-label">Site Walkthrough</div>
+    <div class="ph-title">Beverly Hills</div>
+    <div class="ph-sub">Pending &mdash; off-hours access required</div>
+  </div>
+  <div class="photo-cell">
+    <div class="ph-label">Documentation</div>
+    <div class="ph-title">Matterport Scan</div>
+    <div class="ph-sub">To be scheduled across all three floors</div>
+  </div>
+</div>
+
+<!-- 01 OVERVIEW -->
+<div class="sect fade" id="overview">
+  <div class="sect-num">01</div>
+  <div class="sect-label">Overview</div>
+  <h2>Three floors, 49,200 square feet, six half-floor phases.</h2>
+  <p class="sect-sub">Preliminary budgetary estimate for the Chanel Beverly Hills office and workshop renovation. Figures issued pre-walkthrough and pre-formal-drawings.</p>
+  <div class="ov-prose">
+    <p>This document prices a 49,200 square foot interior renovation across three floors of the Chanel Beverly Hills property, averaging 16,400 square feet per floor. Scope covers interior demolition, wall reconfiguration, electrical relocation, carpet tile flooring, paint, and acoustical ceiling tile. Work is sequenced in six half-floor phases with one-week overlaps and a two-week holiday buffer, compressing the full run to approximately 33 weeks. The grand total against current assumptions lands at $4,186,770, inclusive of 12% overhead and 5% contingency carried at the trade level.</p>
+    <p>Three operating constraints govern the number. The Chanel watchmaking workshop remains active through the entire build, which pushes demolition to off-hours per floor at an $8 per square foot labor premium. All other trades run standard daytime hours to hold labor cost at baseline. Wall linear footage is pending plan confirmation and remains the largest single variable in the total; the estimate carries 250 LF per floor at $185 per LF as a directional figure to be reconciled against stamped drawings.</p>
+    <p>Pricing was drafted from schematic sketches supplied by the Chanel master watchmaker rather than formal architectural drawings. Every line below is directional. A site walkthrough, a Matterport scan across all three floors, and a confirmed wall LF count are the three inputs that convert this preliminary figure into a firm bid. None of the three have been completed yet. All three are owned by LBCO and scheduled in Section 08.</p>
+    <p>The document is organized as a per-floor rollup, a three-floor rollup, a phased schedule, and a next-steps log. Read in that order. Numbers were drafted on the April planning call from Springfield, New Jersey and reflect the scope as understood on that date.</p>
+  </div>
+  <div class="u-grid">
+    <div class="u-card"><div class="u-num">Fact / 01</div><h3>49,200 SF</h3><p>Total renovation footprint across three floors, averaging 16,400 SF per floor, derived from plan dimensions reviewed on the April planning call.</p></div>
+    <div class="u-card"><div class="u-num">Fact / 02</div><h3>3 Floors</h3><p>Chanel Beverly Hills office and workshop levels. Each floor priced identically on a per-floor rollup, then multiplied by three for the three-floor total.</p></div>
+    <div class="u-card"><div class="u-num">Fact / 03</div><h3>6 Phases</h3><p>Half a floor at a time, sequenced demo through punch. One-week overlap between consecutive phases compresses the schedule without accelerating individual trades.</p></div>
+    <div class="u-card"><div class="u-num">Fact / 04</div><h3>~33 Weeks</h3><p>Total duration from Phase 1 start through Phase 6 punch, inclusive of one-week overlaps and a two-week year-end buffer absorbed into the run.</p></div>
+    <div class="u-card"><div class="u-num">Fact / 05</div><h3>Open Shop</h3><p>Labor basis assumed open shop, non-union. Union labor would move the number upward substantially and requires explicit written client direction.</p></div>
+    <div class="u-card"><div class="u-num">Fact / 06</div><h3>Confidential</h3><p>Rough costing exercise prepared for Chanel internal review. Not a formal bid. Not for external distribution. Supersedes no prior quote.</p></div>
+  </div>
+</div>
+
+<!-- 02 SCOPE -->
+<div class="sect fade" id="scope">
+  <div class="sect-num">02</div>
+  <div class="sect-label">Scope</div>
+  <h2>Demolition, walls, electrical, flooring, paint, ACT.</h2>
+  <p class="sect-sub">Six trade packages confirmed across all three floors. Three categories excluded and handled by separate Chanel vendors.</p>
+  <div class="scope-grid">
+    <div class="scope-col">
+      <div class="scope-h">Included in LBCO Scope</div>
+      <ol>
+        <li><strong>Interior Demolition</strong>Confirmed. Removal of existing office finishes across all three floors, priced at $8 per square foot and performed off-hours to protect the active Chanel watchmaking workshop on each floor. Approximately one week per half-floor phase.</li>
+        <li><strong>Flooring, Paint &amp; ACT Labor</strong>Confirmed. Carpet tile installation, paint, and acoustical ceiling tile labor at $56 per square foot across 16,400 SF per floor, scheduled immediately after demo clears each half-floor phase.</li>
+        <li><strong>Carpet Tile Material</strong>Confirmed. 20&times;20 inch carpet tiles at approximately $9.00 per square foot installed, corrected mid-draft from an earlier $25 per tile figure, plus adhesive at 15% of carpet material cost carried as a separate line.</li>
+        <li><strong>Electrical Relocation</strong>Confirmed. Lump-sum electrical manipulation and relocation at $130,000 per floor, covering outlet and circuit repositioning tied to the new partition layout, excluding service upgrades.</li>
+        <li><strong>Wall Construction &amp; Reconfiguration</strong>Assumed. New and reconfigured partitions at approximately $185 per linear foot. Estimate carries 250 LF per floor pending plan confirmation; this remains the single largest variable in the total.</li>
+        <li><strong>Phased Execution</strong>Confirmed. Six phases, half a floor at a time, with one-week overlap between consecutive phases and a two-week holiday buffer built into the overall schedule.</li>
+      </ol>
+    </div>
+    <div class="scope-col excl">
+      <div class="scope-h">Not in LBCO Scope</div>
+      <ul>
+        <li><strong>Furniture &amp; Specialty Workstations</strong>Excluded. Handled under a separate vendor budget. Scoped independently by the Chanel team and not carried in this estimate.</li>
+        <li><strong>Stainless Workbenches &amp; Jeweler Stations</strong>Excluded. Specialty watchmaking and jeweler equipment sourced against the Chanel equipment budget, procured and installed outside the LBCO contract.</li>
+        <li><strong>Architectural &amp; Design Drawings</strong>Excluded. Client to produce formal stamped drawings before the preliminary figure converts to a firm bid. LBCO does not carry design fees.</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:56px;max-width:760px">Exclusions were named explicitly during the April planning call. Each exclusion has a named owner on the Chanel side and does not pass through the LBCO contract as a markup line. This structure keeps the LBCO number pure to construction trades and prevents double-counting against Chanel internal budgets.</p>
+</div>
+
+<!-- 03 APPROACH -->
+<div class="sect fade" id="approach">
+  <div class="sect-num">03</div>
+  <div class="sect-label">Approach</div>
+  <h2>Off-hours demo, standard-hours build, zero workshop disruption.</h2>
+  <p class="sect-sub">Four operating principles govern how the 33-week schedule lands without interrupting active watchmaking operations at Chanel Beverly Hills.</p>
+  <div class="approach-grid">
+    <div class="app-item">
+      <div class="app-n">01</div>
+      <div>
+        <h3>Half-floor phasing across six increments.</h3>
+        <p>Six phases of half a floor each, sequenced floor by floor with one-week overlaps between consecutive phases. The overlap compresses total duration to approximately 33 weeks without accelerating any individual trade or compounding overtime premiums.</p>
+        <p>Each phase runs the same sequence &mdash; demolition, then build and sand, then finishes, then punch. The crew cadence stays constant floor to floor, which reduces mobilization cost and keeps the schedule legible to the Chanel operations team running the workshop above and below active work.</p>
+      </div>
+    </div>
+    <div class="app-item">
+      <div class="app-n">02</div>
+      <div>
+        <h3>Off-hours demolition, standard-hours build.</h3>
+        <p>Demolition runs after operating hours on each floor to protect the active Chanel watchmaking workshop from dust, noise, and egress interference. The off-hours premium is reflected in the $8 per square foot demo rate and is carried only where it is strictly required.</p>
+        <p>All other trades &mdash; framing, electrical, flooring, paint, ACT &mdash; operate on standard daytime hours. This holds labor costs at baseline across the 33-week run and prevents the full scope from absorbing off-hours premiums unnecessarily.</p>
+      </div>
+    </div>
+    <div class="app-item">
+      <div class="app-n">03</div>
+      <div>
+        <h3>Two-week holiday buffer absorbed into schedule.</h3>
+        <p>The 33-week duration includes an approximate two-week buffer spanning the year-end holiday period. This absorbs the typical slowdown in subcontractor availability, material delivery windows, and Chanel operational capacity without pushing substantial completion into the following quarter.</p>
+        <p>The buffer is built in, not added on. Schedule risk is distributed across the run rather than concentrated at the end. If the holiday slowdown compresses naturally, the buffer converts to schedule margin against downstream phases.</p>
+      </div>
+    </div>
+    <div class="app-item">
+      <div class="app-n">04</div>
+      <div>
+        <h3>Budget now, verify on site, convert to firm bid.</h3>
+        <p>This document is a preliminary number drafted against schematic sketches supplied by the Chanel master watchmaker. Conversion to a firm bid requires three inputs: a site walkthrough or Matterport scan across all three floors, a confirmed wall LF count from stamped plans, and confirmation of open-shop versus union labor basis.</p>
+        <p>All three inputs are scheduled in Section 08. LBCO owns the walkthrough, the scan, and the LF confirmation. Chanel owns the labor basis direction and the formal drawing release. No figure in this document is final until those five items close.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 ASSUMPTIONS -->
+<div class="sect fade" id="assumptions">
+  <div class="sect-num">04</div>
+  <div class="sect-label">Assumptions</div>
+  <h2>Six conditions that shaped this number.</h2>
+  <p class="sect-sub">Every figure below rests on these pre-walkthrough assumptions. Any change moves the total. Each item closes at walkthrough or with stamped drawings.</p>
+  <ol class="asm-list">
+    <li><h3>Schematic-level plans only.</h3><p>Floor plans provided on the April planning call are sketches produced by the Chanel master watchmaker. No formal architectural drawings exist yet, so every figure in this document is directional and subject to refinement once stamped drawings arrive from the Chanel design team or an outside architect of record.</p></li>
+    <li><h3>Approximately 49,200 SF across three floors.</h3><p>Approximately 16,400 square feet per floor, derived from plan dimensions reviewed on the April call. Floor areas assumed equal for pricing purposes; actual per-floor variance will be reconciled at site walkthrough against a Matterport scan or a tape measurement of each level.</p></li>
+    <li><h3>Operational workshop must keep running.</h3><p>The Chanel watchmaking workshop remains active throughout construction with no relocation of personnel or equipment. Demolition is priced off-hours per floor at the $8 per SF rate to protect operations. All other trades run standard hours to hold labor cost at baseline without compounding overtime.</p></li>
+    <li><h3>Wall LF is the largest single unknown.</h3><p>Linear footage of new and reconfigured walls is pending plan review. Estimate carries 250 LF per floor at $185 per LF, or $46,250 per floor and $138,750 across the three floors. Actual count from stamped drawings will move the total more than any other single line item in the document.</p></li>
+    <li><h3>Last renovation circa 2007.</h3><p>Existing finishes believed to date from approximately 2007, to be confirmed at site walkthrough. Demolition pricing assumes standard office construction with no hazardous material abatement. Abatement scope added only if asbestos, lead paint, or similar conditions surface during the walkthrough or a subsequent environmental screen.</p></li>
+    <li><h3>Open-shop labor assumed.</h3><p>Non-union labor baseline across all trades. Union labor would increase costs significantly across demo, framing, electrical, and finishes, and requires explicit written client direction before a firm bid is issued. The differential against the current number has not been priced and would be developed on request.</p></li>
+  </ol>
+</div>
+
+<!-- 05 TEAM -->
+<div class="sect fade" id="team">
+  <div class="sect-num">05</div>
+  <div class="sect-label">Team</div>
+  <h2>Two points of contact from preliminary to firm bid.</h2>
+  <p class="sect-sub">One principal from LBCO, one client lead coordinating internal Chanel stakeholders and floor plan files.</p>
+  <div class="team-grid">
+    <div class="tm">
+      <div class="initials">LS</div>
+      <h3>Luke Shank</h3>
+      <div class="role">Principal &mdash; Lux Brand Co.</div>
+      <p>Leads estimating, site logistics, and client coordination at Lux Brand Co. Primary point of contact for the Chanel Beverly Hills engagement from preliminary issue through firm bid.</p>
+      <p>Owns the off-hours site walkthrough or Matterport scan of all three floors, verification of wall linear footage against plan review, introduction of the Lux team to Chanel staff on site, and demo crew sizing and phasing logistics. These four actions together convert the preliminary number into a firm bid.</p>
+      <p>Reachable directly for scope, schedule, or pricing questions during the active review period. Drafted this document from the April planning call in Springfield, New Jersey.</p>
+      <span class="assigned">luke@lbco.com</span>
+    </div>
+    <div class="tm">
+      <div class="initials">JA</div>
+      <h3>Jacquelyn Albano</h3>
+      <div class="role">Client Lead &mdash; Chanel</div>
+      <p>Client-side project lead. Coordinates internal Chanel stakeholders and forwards floor plan files, second-floor markup, and the master watchmaker schematic sketches to LBCO for pricing refinement.</p>
+      <p>Responsible for aligning the Chanel team on the second-floor schematic &mdash; three options currently in play requiring internal resolution &mdash; and for scoping the separate furniture and specialty workstation vendor independently of LBCO base scope.</p>
+      <p>Primary owner on the Chanel side for formal drawing release, labor basis direction, and access coordination for the off-hours site walkthrough across all three Beverly Hills floors.</p>
+      <span class="assigned">Contact &mdash; pending internal confirmation</span>
+    </div>
+  </div>
+</div>
+
+<!-- 06 PRICING -->
+<div class="sect fade" id="pricing">
+  <div class="sect-num">06</div>
+  <div class="sect-label">Pricing</div>
+  <h2>Per-floor rollup, three-floor rollup, grand total $4,186,770.</h2>
+  <p class="sect-sub">Eleven line items split across per-floor and three-floor rollups. 12% overhead and 5% contingency applied to the total and carried at trade level.</p>
+
+  <table class="price-table">
+    <tr class="section-head"><td>Per Floor &mdash; approximately 16,400 SF</td><td>USD</td></tr>
+    <tr><td>Labor &mdash; Flooring Install, Paint &amp; ACT</td><td>$918,400</td></tr>
+    <tr><td>Electrical Relocation &amp; Manipulation</td><td>$130,000</td></tr>
+    <tr><td>Demolition &mdash; interior, off-hours</td><td>$131,200</td></tr>
+    <tr><td>Wall Construction &mdash; 250 LF @ $185/LF</td><td>$46,250</td></tr>
+    <tr><td>Carpet Tiles &mdash; 20&times;20 @ ~$9.00/SF</td><td>$147,600</td></tr>
+    <tr><td>Adhesive &mdash; +15% of carpet material</td><td>$22,140</td></tr>
+
+    <tr class="section-head"><td>Three-Floor Rollup</td><td>USD</td></tr>
+    <tr><td>Labor &mdash; Flooring, Paint, ACT &times; 3 floors</td><td>$2,755,200</td></tr>
+    <tr><td>Electrical Relocation &times; 3 floors</td><td>$390,000</td></tr>
+    <tr><td>Demolition &times; 3 floors</td><td>$393,600</td></tr>
+    <tr><td>Carpet Material + Adhesive &times; 3 floors</td><td>$509,220</td></tr>
+    <tr><td>Wall Construction &mdash; 750 LF total estimated</td><td>$138,750</td></tr>
+
+    <tr class="subtotal"><td>Subtotal</td><td>$4,186,770</td></tr>
+    <tr><td>Overhead &mdash; 12% carried at trade level</td><td>incl.</td></tr>
+    <tr><td>Contingency &mdash; 5% carried at trade level</td><td>incl.</td></tr>
+    <tr class="total"><td>Grand Total</td><td>$4,186,770</td></tr>
+  </table>
+
+  <div class="price-note">
+    <p>Per-floor totals sum to $1,395,590 against the six line items listed above. Multiplied by three floors, the subtotal lands at $4,186,770 inclusive of the 12% overhead and 5% contingency already factored into the trade unit rates. No separate overhead or contingency row is added on top of the subtotal; both are carried in the unit rates and marked incl. in the table for transparency.</p>
+    <p>Carpet pricing was corrected mid-draft from $25 per tile to approximately $9.00 per square foot installed, which reduced the carpet material line substantially across the three-floor rollup. Wall construction at 250 LF per floor is a placeholder pending plan review and remains the single largest variable in the total. Every figure above is directional and will be reconciled at walkthrough.</p>
+    <p>The grand total is issued as a preliminary budgetary number. It is not a bid, not a contract, and not a commitment to perform at this figure. Conversion to a firm bid follows the sequence documented in Section 08.</p>
+  </div>
+</div>
+
+<!-- 07 TIMELINE -->
+<div class="sect fade" id="timeline">
+  <div class="sect-num">07</div>
+  <div class="sect-label">Timeline</div>
+  <h2>Six phases, 33 weeks, one-week overlaps, two-week holiday buffer.</h2>
+  <p class="sect-sub">Each phase runs demo off-hours, then build and sand, then finishes, then punch. Phases overlap by one week to compress total duration.</p>
+
+  <div class="timeline">
+    <div class="phase-row head">
+      <div>Phase</div><div>Area</div><div>Sequence</div><div>Duration</div><div>Overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 01</div>
+      <div class="p-area">Floor 1 &mdash; First Half</div>
+      <div class="p-work">Demo (off-hours) &rarr; Build/Sand &rarr; Finishes &rarr; Punch</div>
+      <div class="p-dur">8 weeks</div>
+      <div class="p-overlap">Start</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 02</div>
+      <div class="p-area">Floor 1 &mdash; Second Half</div>
+      <div class="p-work">Demo (off-hours) &rarr; Build/Sand &rarr; Finishes &rarr; Punch</div>
+      <div class="p-dur">6 weeks</div>
+      <div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 03</div>
+      <div class="p-area">Floor 2 &mdash; First Half</div>
+      <div class="p-work">Demo (off-hours) &rarr; Build/Sand &rarr; Finishes &rarr; Punch</div>
+      <div class="p-dur">6 weeks</div>
+      <div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 04</div>
+      <div class="p-area">Floor 2 &mdash; Second Half</div>
+      <div class="p-work">Demo (off-hours) &rarr; Build/Sand &rarr; Finishes &rarr; Punch</div>
+      <div class="p-dur">6 weeks</div>
+      <div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 05</div>
+      <div class="p-area">Floor 3 &mdash; First Half</div>
+      <div class="p-work">Demo (off-hours) &rarr; Build/Sand &rarr; Finishes &rarr; Punch</div>
+      <div class="p-dur">5 weeks</div>
+      <div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 06</div>
+      <div class="p-area">Floor 3 &mdash; Second Half</div>
+      <div class="p-work">Demo (off-hours) &rarr; Build/Sand &rarr; Finishes &rarr; Punch</div>
+      <div class="p-dur">5 weeks</div>
+      <div class="p-overlap">~1 wk overlap</div>
+    </div>
+  </div>
+
+  <div class="timeline-total">
+    <div class="tt-r"><span>Total Phases</span><span>06</span></div>
+    <div class="tt-r"><span>Gross Duration</span><span>36 wks</span></div>
+    <div class="tt-r"><span>Net w/ Overlap</span><span>~33 wks</span></div>
+    <div class="tt-r"><span>Holiday Buffer</span><span>~2 wks</span></div>
+  </div>
+
+  <div class="timeline-prose">
+    <p>Phase 01 runs eight weeks rather than six to absorb initial mobilization, subcontractor onboarding to the Chanel security and access protocols, and the first off-hours demo cycle against an active floor. Phases 02 through 04 run six weeks each at steady-state cadence. Phases 05 and 06 compress to five weeks each as Floor 3 carries a slightly smaller active-workshop footprint and demo cycles run with an established crew.</p>
+    <p>One-week overlaps between consecutive phases mean the trailing phase begins punch while the leading phase begins demo on the next half-floor. This requires coordination between the site superintendent and the Chanel operations lead on each floor but does not compound trade costs. The two-week holiday buffer sits between Phases 04 and 05 by default; it moves based on actual start date and is confirmed against the calendar at mobilization.</p>
+    <p>Gross duration sums to 36 weeks across the six phases. Net duration with overlaps lands at approximately 33 weeks. Substantial completion is measured at Phase 06 punch close. Final turnover follows LBCO standard close-out procedures within two weeks of punch close.</p>
+  </div>
+</div>
+
+<!-- 08 NEXT STEPS -->
+<div class="sect fade" id="next_steps">
+  <div class="sect-num">08</div>
+  <div class="sect-label">Next Steps</div>
+  <h2>Seven actions to convert preliminary to firm bid.</h2>
+  <p class="sect-sub">Four owned by Luke Shank at LBCO, three owned by Jacquelyn Albano or the broader Chanel team.</p>
+  <ol class="ns-list">
+    <li class="ns-row"><span class="ns-n">01</span><span class="ns-action">Forward all floor plan files and second-floor markup to Luke Shank for pricing refinement and LF count verification against stamped output.</span><span class="ns-owner">Jacquelyn Albano</span></li>
+    <li class="ns-row"><span class="ns-n">02</span><span class="ns-action">Schedule off-hours site walkthrough or Matterport scan across all three Beverly Hills floors, coordinated with Chanel operations to avoid workshop disruption.</span><span class="ns-owner">Luke Shank</span></li>
+    <li class="ns-row"><span class="ns-n">03</span><span class="ns-action">Introduce the Lux Brand Co. team to Chanel Springfield staff on site during the walkthrough or in a dedicated kickoff session.</span><span class="ns-owner">Luke Shank</span></li>
+    <li class="ns-row"><span class="ns-n">04</span><span class="ns-action">Confirm linear footage of walls from released plans to finalize the wall construction budget and retire the 250 LF per floor placeholder.</span><span class="ns-owner">Luke Shank</span></li>
+    <li class="ns-row"><span class="ns-n">05</span><span class="ns-action">Confirm demo crew size and off-hours phasing logistics to finalize the demolition budget against the actual floor condition and access window.</span><span class="ns-owner">Luke Shank</span></li>
+    <li class="ns-row"><span class="ns-n">06</span><span class="ns-action">Finalize the second-floor schematic internally &mdash; three options currently in play requiring Chanel team alignment before pricing lands.</span><span class="ns-owner">Jacquelyn / Team</span></li>
+    <li class="ns-row"><span class="ns-n">07</span><span class="ns-action">Scope the separate furniture and specialty workstation vendor independently of LBCO base scope, tracked outside this document.</span><span class="ns-owner">Jacquelyn Albano</span></li>
+  </ol>
+</div>
+
+<!-- 09 GUARDRAILS -->
+<div class="sect fade" id="guardrails">
+  <div class="sect-num">09</div>
+  <div class="sect-label">Guardrails</div>
+  <h2>Two variables that will move the number before firm bid.</h2>
+  <p class="sect-sub">Both resolve at site walkthrough. Neither is a scope change &mdash; both are confirmations that convert directional figures to firm.</p>
+  <div class="diff-grid">
+    <div class="diff-item">
+      <div class="diff-num">Guardrail 01</div>
+      <h4>Wall LF drives the number.</h4>
+      <p>Estimate assumes 250 LF per floor at $185 per LF, or $46,250 per floor and $138,750 across three floors in the rollup. This is a placeholder figure pending stamped plans from the Chanel design team.</p>
+      <p>Actual LF from released drawings will move the total more than any other single line item in this document. A 50 LF swing per floor moves the three-floor rollup by approximately $27,750 against current assumptions; a 100 LF swing per floor moves it by approximately $55,500.</p>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">Guardrail 02</div>
+      <h4>Preliminary only, pre-walkthrough.</h4>
+      <p>Figures were issued before the site walkthrough and before formal drawings. Carpet pricing was already corrected mid-draft from $25 per tile to approximately $9.00 per square foot installed; expect similar refinements once stamped plans land and the walkthrough closes.</p>
+      <p>The document is a rough costing exercise, not a formal bid. It does not bind LBCO to perform at the stated total and does not bind Chanel to award. It establishes a directional budget for internal Chanel review.</p>
+    </div>
+  </div>
+  <div class="guardrail-close">No scope adjustments, material substitutions, or subcontractor changes executed without written client approval.</div>
+</div>
+
+<div class="footer-quote">
+  <blockquote>&ldquo;Wall construction will be the largest remaining variable.&rdquo;</blockquote>
+  <div class="attr">Luke Shank &mdash; Lux Brand Co</div>
+</div>
+<div class="footer-bar">
+  <span>&copy; 2026 Lux Brand Co.</span>
+  <span>Prepared for Chanel &mdash; Beverly Hills, California</span>
+  <a href="mailto:luke@lbco.com">luke@lbco.com</a>
+</div>
+
+</div>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('in')}})},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+const navs=document.querySelectorAll('.sidebar nav a');
+const sects=document.querySelectorAll('.sect');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sects.forEach(s=>{const t=s.offsetTop-180;if(window.scrollY>=t)current=s.id});
+  navs.forEach(a=>{a.classList.remove('nav-highlight');if(a.getAttribute('href')==='#'+current)a.classList.add('nav-highlight')});
+});
+</script>
+</body></html>
