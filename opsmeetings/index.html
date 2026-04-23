@@ -410,15 +410,33 @@ body.cal .cal-view { display: block; }
 // ============================================================================
 // Supabase config — CLAUDE WILL FILL THESE IN once Luke sends the project URL + anon key
 // ============================================================================
-const SUPABASE_URL = "__SUPABASE_URL__";        // e.g. "https://xyzabcdefghij.supabase.co"
-const SUPABASE_ANON_KEY = "__SUPABASE_ANON_KEY__"; // the anon/publishable key
+const SUPABASE_URL = "https://qnpaogshtkjsixjouhwy.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_ACi9IQGfSaa_JEbMMX-l1g_kp7VKtdY";
+const IS_CONFIGURED = !SUPABASE_URL.startsWith("__") && !SUPABASE_ANON_KEY.startsWith("__");
 // ============================================================================
+
+// If placeholders haven't been replaced yet, surface a clear error immediately.
+// This runs BEFORE the Supabase import so a bad URL can't crash the module.
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("signin-btn");
+  const err = document.getElementById("gate-error");
+  if (!IS_CONFIGURED && btn && err) {
+    btn.disabled = true;
+    btn.style.opacity = "0.5";
+    btn.style.cursor = "not-allowed";
+    err.innerHTML = "<b>Setup incomplete.</b> Supabase credentials haven't been baked in yet. Admin needs to replace <code>__SUPABASE_URL__</code> and <code>__SUPABASE_ANON_KEY__</code> in the script and redeploy.";
+    err.style.display = "block";
+    console.warn("[LBCo OPS] Placeholders detected — aborting Supabase init.");
+  }
+});
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.4";
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+// Only create a real client if values are filled in. Otherwise `supabase` is null
+// and all auth / data code is skipped by the configured-check gates below.
+const supabase = IS_CONFIGURED ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: { autoRefreshToken: true, persistSession: true, detectSessionInUrl: true }
-});
+}) : null;
 
 const NAME_MAP = {
   "Luke": "Luke Shank", "Shawn": "Shawn Rasmusen", "Rass": "Shawn Rasmusen",
@@ -494,10 +512,12 @@ async function initAuth() {
   if (session) return onSignedIn(session.user);
   showGate();
 }
-supabase.auth.onAuthStateChange((event, session) => {
-  if (event === "SIGNED_OUT") { currentUser = null; showGate(); }
-  if (session?.user && !currentUser) onSignedIn(session.user);
-});
+if (supabase) {
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === "SIGNED_OUT") { currentUser = null; showGate(); }
+    if (session?.user && !currentUser) onSignedIn(session.user);
+  });
+}
 
 async function onSignedIn(user) {
   const email = (user.email || "").toLowerCase();
@@ -1049,11 +1069,8 @@ function mountContent() {
 // Bootstrap
 // ============================================================================
 (async () => {
-  if (SUPABASE_URL.startsWith("__") || SUPABASE_ANON_KEY.startsWith("__")) {
-    const errEl = el("gate-error");
-    errEl.innerHTML = "<b>Setup incomplete:</b> Supabase credentials haven't been baked into this file yet. The dashboard admin needs to replace <code>__SUPABASE_URL__</code> and <code>__SUPABASE_ANON_KEY__</code> at the top of the script.";
-    errEl.style.display = "block";
-    el("signin-btn").disabled = true;
+  if (!IS_CONFIGURED) {
+    // DOMContentLoaded handler above already showed the error + disabled the button.
     return;
   }
   await initAuth();
