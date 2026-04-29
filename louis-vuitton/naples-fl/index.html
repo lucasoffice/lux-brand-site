@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>louis vuitton | Naples, FL</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#FFFFFF;color:#000000;font-family:'Louis Vuitton Web','Louis Vuitton','Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-feature-settings:"kern" 1;line-height:1.65;font-weight:400}
+body,p,dd,dt,li,td,th,h1,h2,h3,h4,blockquote,a,input,textarea,select,button{font-family:'Louis Vuitton Web','Louis Vuitton','Helvetica Neue',Helvetica,Arial,sans-serif}
+
+/* SIDEBAR */
+.sidebar{position:fixed;top:0;left:0;width:220px;height:100vh;background:#FFFFFF;border-right:1px solid #E1E1E1;padding:48px 32px;display:flex;flex-direction:column;z-index:10;font-family:'Louis Vuitton Web','Louis Vuitton','Helvetica Neue',Helvetica,Arial,sans-serif}
+.logo{font-size:13px;font-weight:400;letter-spacing:2.4px;color:#000000;text-transform:uppercase;margin-bottom:56px;line-height:1.4}
+.logo .lbco{font-size:10px;font-weight:400;letter-spacing:2.4px;margin-top:10px;color:#000000;text-transform:uppercase;display:block}
+.sidebar nav{display:flex;flex-direction:column;gap:18px;margin-bottom:auto}
+.sidebar nav a{font-size:11px;font-weight:400;letter-spacing:2.4px;color:#000000;text-decoration:none;text-transform:uppercase;transition:opacity .2s}
+.sidebar nav a:hover{opacity:.55}
+.sidebar nav a.nav-highlight{color:#000000;border-bottom:1px solid #000000;padding-bottom:4px;align-self:flex-start}
+.sidebar-footer{font-size:10px;font-weight:400;letter-spacing:2.4px;color:#000000;line-height:1.9;padding-top:32px;border-top:1px solid #E1E1E1;text-transform:uppercase}
+.sidebar-footer .rc{color:#000000;margin-top:10px;display:block;font-weight:400}
+
+/* MAIN */
+main{margin-left:220px;min-height:100vh}
+
+/* CONFIDENTIAL BANNER */
+.conf-banner{background:#FFFFFF;color:#000000;padding:14px clamp(32px,6vw,96px);font-size:10px;font-weight:400;letter-spacing:2.4px;text-align:center;text-transform:uppercase;border-bottom:1px solid #E1E1E1}
+
+/* HERO */
+.hero{padding:96px clamp(32px,6vw,96px) 64px;text-align:center;border-bottom:1px solid #E1E1E1}
+.hero-label{font-size:11px;font-weight:400;letter-spacing:2.4px;color:#000000;margin-bottom:40px;text-transform:uppercase}
+.hero h1{font-size:96px;font-weight:400;letter-spacing:0.4px;color:#000000;margin-bottom:32px;line-height:1.02}
+.hero .tagline{font-size:17px;font-weight:400;color:#000000;max-width:720px;line-height:1.6;margin:0 auto 48px}
+.hero .meta{font-size:11px;font-weight:400;letter-spacing:2.4px;color:#000000;text-transform:uppercase;padding-top:28px;border-top:1px solid #000000;max-width:720px;margin:0 auto;line-height:1.8}
+.hero .rc-tag{display:inline-block;color:#000000;font-size:10px;font-weight:400;letter-spacing:2.4px;padding:8px 16px;margin-top:28px;text-transform:uppercase;border:1px solid #000000}
+
+/* PHOTO STRIP */
+.photo-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-bottom:1px solid #E1E1E1}
+.photo-cell{aspect-ratio:4/3;background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;border-right:1px solid #E1E1E1;position:relative}
+.photo-cell:last-child{border-right:none}
+.photo-cell .ph-label{font-size:11px;font-weight:400;letter-spacing:2.4px;color:#000000;margin-bottom:18px;text-transform:uppercase}
+.photo-cell .ph-title{font-size:22px;font-weight:400;color:#000000;letter-spacing:0.4px;margin-bottom:14px;line-height:1.2}
+.photo-cell .ph-sub{font-size:13px;color:#000000;line-height:1.65;max-width:240px}
+
+/* SECTIONS */
+.sect{padding:120px clamp(32px,6vw,96px);border-bottom:1px solid #E1E1E1;position:relative}
+.sect-num{font-size:11px;font-weight:400;color:#000000;letter-spacing:2.4px;line-height:1;margin-bottom:18px;text-transform:uppercase}
+.sect-label{font-size:11px;font-weight:400;letter-spacing:2.4px;color:#000000;text-transform:uppercase;margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid #E1E1E1}
+.sect h2{font-size:32px;font-weight:400;letter-spacing:0.4px;color:#000000;margin-bottom:24px;line-height:1.25;max-width:880px}
+.sect p.sect-sub{font-size:15px;color:#000000;max-width:760px;line-height:1.65;margin-bottom:64px}
+
+/* OVERVIEW */
+.overview-meta{display:grid;grid-template-columns:200px 1fr;gap:0;margin-bottom:56px;border-top:1px solid #E1E1E1}
+.overview-meta dt{font-size:10px;font-weight:400;letter-spacing:2.4px;color:#000000;text-transform:uppercase;padding:18px 0;border-bottom:1px solid #E1E1E1}
+.overview-meta dd{font-size:14px;color:#000000;padding:18px 0;border-bottom:1px solid #E1E1E1;line-height:1.55}
+.overview-prose{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-bottom:48px}
+.overview-prose p{font-size:15px;color:#000000;line-height:1.75;margin-bottom:18px}
+.u-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:48px;border-top:1px solid #E1E1E1}
+.u-card{padding:36px 32px 36px 0;border-bottom:1px solid #E1E1E1}
+.u-card:nth-child(odd){padding-right:48px;border-right:1px solid #E1E1E1}
+.u-card:nth-child(even){padding-left:48px}
+.u-num{font-size:10px;font-weight:400;letter-spacing:2.4px;color:#000000;margin-bottom:14px;text-transform:uppercase}
+.u-card h3{font-size:17px;font-weight:400;color:#000000;margin-bottom:14px;letter-spacing:0.3px;line-height:1.35}
+.u-card p{font-size:14px;color:#000000;line-height:1.7}
+.callout{margin-top:48px;padding:32px;border:1px solid #E1E1E1;text-align:center;font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:#000000}
+
+/* SCOPE */
+.scope-note{font-size:13px;color:#000000;letter-spacing:0.3px;padding:18px 0;border-top:1px solid #E1E1E1;border-bottom:1px solid #E1E1E1;margin-bottom:0;line-height:1.7}
+.scope-table{width:100%;border-collapse:collapse;margin-bottom:64px}
+.scope-h{font-size:11px;font-weight:400;letter-spacing:2.4px;color:#000000;text-transform:uppercase;padding:32px 0 18px}
+.scope-table tr{border-bottom:1px solid #E1E1E1}
+.scope-table tr:first-child{border-top:1px solid #E1E1E1}
+.scope-table td{padding:22px 18px 22px 0;vertical-align:top;font-size:14px;color:#000000;line-height:1.7}
+.scope-table td:first-child{width:32%;font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:#000000;font-weight:400}
+.scope-table td:last-child{padding-right:0}
+.scope-grid{display:block}
+.scope-col{display:block}
+
+/* APPROACH */
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #E1E1E1}
+.app-item{padding:48px 48px 48px 0;border-bottom:1px solid #E1E1E1}
+.app-item:nth-child(odd){padding-right:48px;border-right:1px solid #E1E1E1}
+.app-item:nth-child(even){padding-left:48px}
+.app-n{font-size:32px;font-weight:400;color:#000000;line-height:1;margin-bottom:24px;letter-spacing:0.4px;padding-bottom:18px;border-bottom:1px solid #E1E1E1;display:block}
+.app-item h4{font-size:11px;font-weight:400;letter-spacing:2.4px;color:#000000;margin-bottom:18px;text-transform:uppercase}
+.app-item p{font-size:14px;color:#000000;line-height:1.75;margin-bottom:14px}
+.approach-foot{margin-top:48px;padding-top:24px;border-top:1px solid #E1E1E1;font-size:13px;color:#000000;line-height:1.7}
+
+/* CONSTRAINTS */
+.constraints-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid #E1E1E1;border-bottom:1px solid #E1E1E1}
+.constraint-card{padding:40px 32px;border-right:1px solid #E1E1E1}
+.constraint-card:last-child{border-right:none}
+.constraint-card .c-label{font-size:11px;font-weight:400;letter-spacing:2.4px;color:#000000;text-transform:uppercase;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid #E1E1E1}
+.constraint-card .c-stmt{font-size:15px;color:#000000;line-height:1.65;margin-bottom:24px}
+.constraint-card .c-swing{font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:#000000;line-height:1.7}
+.constraint-card .c-detail{font-size:13px;color:#000000;line-height:1.7;margin-top:18px;padding-top:18px;border-top:1px solid #E1E1E1}
+
+/* TEAM */
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #E1E1E1}
+.tm{padding:40px 40px 40px 0;border-bottom:1px solid #E1E1E1;position:relative}
+.tm:nth-child(odd){padding-right:40px;border-right:1px solid #E1E1E1}
+.tm:nth-child(even){padding-left:40px}
+.tm .role{font-size:10px;font-weight:400;letter-spacing:2.4px;color:#000000;text-transform:uppercase;margin-bottom:14px}
+.tm h3{font-size:18px;font-weight:400;letter-spacing:0.4px;color:#000000;margin-bottom:18px}
+.tm p{font-size:14px;color:#000000;line-height:1.75}
+.tm .assigned{display:inline-block;font-size:9px;font-weight:400;letter-spacing:2.4px;color:#000000;text-transform:uppercase;padding:5px 10px;border:1px solid #000000;margin-bottom:18px}
+.tm .initials{display:none}
+
+/* PRICING */
+.price-table{width:100%;border-collapse:collapse;margin-bottom:32px;font-size:14px}
+.price-table tr{border-bottom:1px solid #E1E1E1}
+.price-table tr:first-child{border-top:1px solid #E1E1E1}
+.price-table td{padding:18px 12px;color:#000000;vertical-align:top}
+.price-table td:first-child{font-weight:400;width:42%}
+.price-table td:nth-child(2){font-size:13px;color:#000000;width:33%}
+.price-table td:last-child{text-align:right;font-weight:400;font-variant-numeric:tabular-nums;white-space:nowrap}
+.price-table tr.section-head td{font-size:11px;font-weight:400;letter-spacing:2.4px;color:#000000;text-transform:uppercase;padding-top:36px;padding-bottom:14px;border-bottom:1px solid #000000}
+.price-table tr.subtotal td{font-weight:400;color:#000000;border-top:1px solid #000000;padding-top:22px}
+.price-table tr.total td{font-size:22px;font-weight:400;color:#000000;padding:28px 12px;letter-spacing:0.4px;border-top:1px solid #000000;border-bottom:1px solid #000000}
+.price-note{font-size:13px;color:#000000;margin-top:24px;line-height:1.75;max-width:760px}
+
+/* TIMELINE */
+.timeline{margin-bottom:24px;border-top:1px solid #E1E1E1}
+.phase-row{display:grid;grid-template-columns:90px 220px 1fr 100px 140px;padding:22px 0;border-bottom:1px solid #E1E1E1;align-items:start;font-size:13px;color:#000000;gap:18px}
+.phase-row.head{font-size:10px;font-weight:400;letter-spacing:2.4px;color:#000000;text-transform:uppercase;padding:18px 0}
+.phase-row .p-num{font-weight:400;color:#000000;font-size:13px;letter-spacing:0.3px}
+.phase-row .p-area{font-weight:400;color:#000000}
+.phase-row .p-work{color:#000000;font-size:13px;line-height:1.6}
+.phase-row .p-dur{font-weight:400;color:#000000;text-align:right}
+.phase-row .p-overlap{color:#000000;font-size:12px;text-align:right;letter-spacing:0.3px}
+.timeline-note{padding:24px 0;border-bottom:1px solid #E1E1E1;font-size:13px;color:#000000;margin-bottom:24px;line-height:1.75}
+.timeline-total{padding:18px 0;font-size:11px;font-weight:400;letter-spacing:2.4px;color:#000000;text-transform:uppercase;border-top:1px solid #000000}
+
+/* NEXT STEPS */
+.ns-list{margin-top:24px;border-top:2px solid #000000}
+.ns-row{display:grid;grid-template-columns:48px 1fr 240px;padding:22px 0;border-bottom:1px solid #E1E1E1;align-items:start;gap:24px}
+.ns-row .ns-n{font-size:13px;font-weight:400;color:#000000;line-height:1.6;letter-spacing:0.4px}
+.ns-row .ns-action{font-size:14px;color:#000000;line-height:1.7}
+.ns-row .ns-owner{font-size:11px;font-weight:400;letter-spacing:2.4px;color:#000000;text-transform:uppercase;text-align:right;padding-top:2px;line-height:1.6}
+
+/* GUARDRAILS */
+.diff-grid{display:grid;grid-template-columns:1fr;gap:0;margin-top:24px}
+.diff-item{padding:32px 0 32px 32px;border-left:3px solid #000000;margin-bottom:32px}
+.diff-num{font-size:10px;font-weight:400;color:#000000;line-height:1;margin-bottom:14px;letter-spacing:2.4px;text-transform:uppercase}
+.diff-item h4{font-size:20px;font-weight:400;color:#000000;margin-bottom:18px;letter-spacing:0.4px;line-height:1.35}
+.diff-item p{font-size:14px;color:#000000;line-height:1.8;margin-bottom:14px}
+
+/* FOOTER */
+.footer-quote{background:#000000;color:#FFFFFF;padding:120px clamp(32px,6vw,96px);text-align:center}
+.footer-quote blockquote{font-size:32px;font-weight:400;line-height:1.4;max-width:880px;color:#FFFFFF;margin:0 auto 32px;letter-spacing:0.4px}
+.footer-quote .attr{font-size:11px;font-weight:400;letter-spacing:2.4px;color:#FFFFFF;text-transform:uppercase;display:block}
+.footer-bar{display:flex;justify-content:space-between;align-items:center;padding:32px clamp(32px,6vw,96px);background:#FFFFFF;color:#000000;font-size:10px;font-weight:400;letter-spacing:2.4px;text-transform:uppercase;flex-wrap:wrap;gap:14px;border-top:1px solid #E1E1E1}
+.footer-bar a{color:#000000;text-decoration:none;border-bottom:1px solid #E1E1E1;padding-bottom:2px}
+.footer-bar a:hover{border-color:#000000}
+
+/* ANIMATIONS */
+.fade{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+
+/* MOBILE */
+@media (max-width:900px){
+  .sidebar{position:relative;width:100%;height:auto;border-right:none;border-bottom:1px solid #E1E1E1;padding:24px 28px}
+  .sidebar nav{flex-direction:row;flex-wrap:wrap;gap:14px;margin:18px 0}
+  .sidebar-footer{padding-top:18px}
+  main{margin-left:0}
+  .hero{padding:56px 28px 40px}
+  .sect,.footer-quote{padding:64px 28px}
+  .hero h1{font-size:40px}
+  .footer-quote blockquote{font-size:20px}
+  .u-grid,.approach-grid,.team-grid,.constraints-grid{grid-template-columns:1fr}
+  .u-card,.tm,.app-item{padding:32px 0;border-right:none!important;border-left:none!important;padding-left:0!important;padding-right:0!important}
+  .constraint-card{border-right:none;border-bottom:1px solid #E1E1E1}
+  .overview-prose{grid-template-columns:1fr;gap:18px}
+  .overview-meta{grid-template-columns:140px 1fr}
+  .photo-strip{grid-template-columns:1fr}
+  .photo-cell{border-right:none;border-bottom:1px solid #E1E1E1}
+  .phase-row{grid-template-columns:1fr 1fr;gap:8px;font-size:12px}
+  .phase-row .p-work{grid-column:1/-1}
+  .ns-row{grid-template-columns:32px 1fr;gap:12px}
+  .ns-row .ns-owner{grid-column:1/-1;text-align:left;padding-left:44px}
+  .price-table td{padding:14px 8px}
+  .price-table td:nth-child(2){display:none}
+}
+</style></head>
+<body>
+
+<div class="sidebar">
+  <div class="logo">LOUIS VUITTON<span class="lbco">Lux Brand Co.</span></div>
+  <nav>
+    <a href="#overview">Overview</a>
+    <a href="#scope">Scope</a>
+    <a href="#approach">Approach</a>
+    <a href="#constraints">Constraints</a>
+    <a href="#team">Team</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#next_steps">Next Steps</a>
+    <a href="#guardrails" class="nav-highlight">Guardrails</a>
+  </nav>
+  <div class="sidebar-footer">
+    Naples, FL<br>
+    Office &amp; Workshop<br>
+    Renovation 2026
+    <span class="rc">Rough Costing</span>
+  </div>
+</div>
+
+<main>
+
+<div class="conf-banner">Confidential — Preliminary Budgetary Exercise — Stakeholders Only</div>
+
+<div class="hero">
+  <div class="hero-label">louis vuitton — Rough Costing Exercise — Not a Formal Bid</div>
+  <h1>Naples, Florida.</h1>
+  <p class="tagline">Preliminary budgetary exercise for a 49,200 SF, three-floor louis vuitton office and watchmaker workshop renovation.</p>
+  <div class="meta">LBCO / Naples FL / 2026 / Planning Calls — Springfield NJ — April 2026</div>
+  <span class="rc-tag">Confidential — Stakeholders Only</span>
+</div>
+
+<div class="photo-strip">
+  <div class="photo-cell">
+    <div class="ph-label">Site Visit</div>
+    <div class="ph-title">Off-Hours Walkthrough</div>
+    <div class="ph-sub">Scheduled outside business hours so internal staff are not alerted to the project.</div>
+  </div>
+  <div class="photo-cell">
+    <div class="ph-label">Matterport Scan</div>
+    <div class="ph-title">Pending Capture</div>
+    <div class="ph-sub">Three-floor scan to be captured during the same off-hours window as the walkthrough.</div>
+  </div>
+  <div class="photo-cell">
+    <div class="ph-label">Documentation</div>
+    <div class="ph-title">Restricted Access</div>
+    <div class="ph-sub">No photography of watchmaker or polishing workstations. Imagery held to named stakeholders only.</div>
+  </div>
+</div>
+
+<!-- 01 OVERVIEW -->
+<div class="sect" id="overview">
+  <div class="sect-num">01</div>
+  <div class="sect-label">Overview</div>
+  <h2>A 49,200 SF preliminary budget for the louis vuitton Naples renovation.</h2>
+  <p class="sect-sub">Three floors, ~16,400 SF each, recast as office, storage, and watchmaker workshop. This document lands a defensible middle-ground number between the $1M–$1.5M Operations estimate and the ~$5M President's estimate before drawings are commissioned.</p>
+
+  <dl class="overview-meta">
+    <dt>Brand</dt><dd>louis vuitton</dd>
+    <dt>Location</dt><dd>Naples, Florida</dd>
+    <dt>Total Area</dt><dd>~49,200 SF across three floors of approximately 16,400 SF each</dd>
+    <dt>Mode</dt><dd>Rough Costing Exercise — preliminary budgetary, pre-drawings</dd>
+    <dt>Client Lead</dt><dd>Jacquelyn Albano</dd>
+    <dt>Year</dt><dd>2026</dd>
+    <dt>Visit Context</dt><dd>Planning Calls — Springfield, NJ — April 2026</dd>
+    <dt>Confidentiality</dt><dd>Rough Costing Exercise — Not a Formal Bid</dd>
+  </dl>
+
+  <div class="overview-prose">
+    <div>
+      <p>This exercise exists because leadership at louis vuitton is holding two competing internal numbers and no drawings. Operations has carried the work at $1M to $1.5M. The President has carried the same building at roughly $5M. Neither figure was built from a measured plan, and the gap is wide enough to stall the decision to commission architectural fees.</p>
+      <p>The document below assembles a defensible middle-ground figure for louis vuitton from per-floor unit rates, a 250 LF per floor partition placeholder, and lump-sum allowances for electrical relocation. Quantities are conversation-based, drawn from circa-2007 base sheets and hand-drawn blue-line markups from the master watchmaker. The intent is a number leadership can use to authorize drawings, not a number to sign a contract against.</p>
+      <p>The base building is three floors at approximately 16,400 SF each. Floor 1 becomes primary storage, relocated from Floor 2, with roughly 70% scraped and epoxy-painted concrete and 30% finished office area. Floor 2 is rebuilt around the watchmaker workflow with white rubberized VCT in the bench zones, new offices, and reconfigured electrical to follow the new layout.</p>
+    </div>
+    <div>
+      <p>What this document is not: a formal bid, a contract, or a fixed price. The grand total of $4,186,770 reflects a per-floor build-up rolled to three floors, plus 12% overhead and 5% contingency, against scope as currently understood. Wall linear footage, the Floor 2 schematic selection, and the permit path are still open and each carries quantified swing into the next pricing pass.</p>
+      <p>The scope assumes interior demolition, partition reconfiguration, electrical relocation, flooring across all three finish profiles, paint, and ACT patching. Furniture, stainless steel watchmaker benches, polishing equipment, and architectural drawings are routed elsewhere so the GC scope reads cleanly. Springfield, NJ is open shop; trade relationships are held by Sean.</p>
+      <p>The number will move. It will move down if the second-floor schematic chosen reduces partition count or if the finishes-only permit path holds. It will move up if sprinkler or electrical work crosses the threshold that triggers a permit filing, or if wall linear footage exceeds the carried 250 LF per floor. Both directions are quantified in the constraints and guardrails sections that follow.</p>
+    </div>
+  </div>
+
+  <div class="u-grid">
+    <div class="u-card">
+      <div class="u-num">Observation 01</div>
+      <h3>Two competing internal estimates.</h3>
+      <p>Leadership has heard $1M–$1.5M from Operations and ~$5M from the President. The goal of this exercise is to land a defensible middle-ground number before drawings are commissioned and architectural fees are committed. Neither prior figure was built from a measured plan.</p>
+    </div>
+    <div class="u-card">
+      <div class="u-num">Observation 02</div>
+      <h3>No formal drawings yet.</h3>
+      <p>Floor plans are circa-2007 base sheets with hand-drawn blue-line wall markups from the master watchmaker. Three different second-floor schematic options are still in play and drive demo, partition, and electrical relocation totals across the watchmaker zones.</p>
+    </div>
+    <div class="u-card">
+      <div class="u-num">Observation 03</div>
+      <h3>Workflow is the underlying problem.</h3>
+      <p>Watchmakers, polishers, and packaging operate in disconnected pockets with significant dead space. The freight elevator only serves the first floor, forcing manual repacking and stair transport between floors and creating a daily friction the renovation must resolve.</p>
+    </div>
+    <div class="u-card">
+      <div class="u-num">Observation 04</div>
+      <h3>Scope refined to two working floors.</h3>
+      <p>Per Chris, RVP of Operations, the live program centers on Floors 1 and 2. Floor 1 becomes primary storage relocated from Floor 2; Floor 2 is rebuilt around the watchmaker workflow with new offices and white rubberized VCT in the bench zones.</p>
+    </div>
+    <div class="u-card">
+      <div class="u-num">Observation 05</div>
+      <h3>Specialty flooring requirement.</h3>
+      <p>Watchmaker zones receive a specific white rubberized VCT so dropped components are visible and bounce rather than break. Standard carpet tile elsewhere; ~70% of Floor 1 receives scraped concrete with epoxy-style floor paint. The VCT specification is to be provided by the client.</p>
+    </div>
+    <div class="u-card">
+      <div class="u-num">Observation 06</div>
+      <h3>Confidentiality governs the walkthrough.</h3>
+      <p>The client has asked that the walkthrough and planning happen off-hours and that the project not be telegraphed internally beyond the named stakeholders. A Matterport scan is the secondary path if the off-hours window cannot be cleared.</p>
+    </div>
+    <div class="u-card">
+      <div class="u-num">Observation 07</div>
+      <h3>Open shop labor market.</h3>
+      <p>Springfield, NJ is non-union. Lux Brand Co holds strong trade relationships in the area through Sean, including framers, electricians, flooring crews, and demolition subs familiar with corporate office flips at scale. The carried labor rates reflect open-shop pricing.</p>
+    </div>
+  </div>
+
+  <div class="callout">Confidentiality Tag — Rough Costing Exercise — Not a Formal Bid</div>
+</div>
+
+<!-- 02 SCOPE -->
+<div class="sect" id="scope">
+  <div class="sect-num">02</div>
+  <div class="sect-label">Scope</div>
+  <h2>Interior demo, walls, electrical, flooring, paint, and ACT across two working floors.</h2>
+  <p class="sect-sub">Floor 1 becomes primary storage with ~70% epoxy-painted concrete. Floor 2 is rebuilt around the watchmaker workflow with white rubberized VCT in the bench zones. Furniture, stainless workstations, and architectural drawings are excluded.</p>
+
+  <div class="scope-grid">
+    <div class="scope-col incl">
+      <div class="scope-h">Confirmed Included</div>
+      <p class="scope-note">Demo cleared for standard hours per updated client direction. No overnight work required across any of the six phases.</p>
+      <table class="scope-table">
+        <tr><td>Interior Demolition</td><td>Selective demo of existing walls, finishes, and ACT to support the reconfigured layout. Demo runs during normal hours per updated client direction, with dust containment and HVAC isolation between active and demolition zones.</td></tr>
+        <tr><td>Wall Construction</td><td>New partition walls per finalized schematic. The budget carries 250 LF per floor as a placeholder pending plan confirmation, framed and finished at $185 per linear foot inclusive of metal studs, gypsum board, taping, and paint.</td></tr>
+        <tr><td>Electrical Relocation</td><td>Manipulation of existing electrical to support the new wall layout and workstation locations. Carried as a lump sum per floor, with sprinkler relocation and major service work flagged as risk items that could trigger a permit filing.</td></tr>
+        <tr><td>Carpet Tile Flooring</td><td>20"x20" carpet tile in office areas at approximately $9 per SF installed plus a 15% adhesive uplift carried in pricing. Selection and color from a manufacturer to be approved by the client during finishes review.</td></tr>
+        <tr><td>Specialty VCT Flooring</td><td>White rubberized VCT in watchmaker zones on Floor 2. Specification to be provided by the client before final pricing so that material cost, install method, and seam treatment can be confirmed against the carried allowance.</td></tr>
+        <tr><td>Epoxy Floor Paint</td><td>Approximately 70% of Floor 1 to receive scraped and ground concrete with epoxy-style floor paint for warehouse and storage use. Coating selected for chemical resistance and the foot traffic profile of an in-and-out storage floor.</td></tr>
+        <tr><td>Paint</td><td>Full repaint of all in-scope walls and ceilings included in the labor rate. No wallpaper or specialty wallcoverings carried; scope is single-color paint with accent walls only where called out on the finalized schematic.</td></tr>
+        <tr><td>ACT Patch / Replace</td><td>Salvage and reset existing acoustical ceiling tile where possible; patch and replace as needed around new walls and reconfigured electrical. Tile match assumes current grid module remains; full replacement only at damaged or non-matching areas.</td></tr>
+        <tr><td>Phasing &amp; Site Logistics</td><td>Six phases at half-floor each with approximately one week of overlap between phases. Dumpster allowance of approximately five per phase carried in the labor rate, along with daily protection of the active half of each floor.</td></tr>
+      </table>
+
+      <div class="scope-h">Confirmed Excluded</div>
+      <p class="scope-note">Furniture and stainless benches routed to a separate vendor to keep GC scope clean and to avoid change-order risk on equipment whose final layout is not yet defined.</p>
+      <table class="scope-table">
+        <tr><td>Furniture &amp; Workstations</td><td>Stainless steel jeweler benches and watchmaker stations to be handled by a separate vendor; final placement and rough-in coordinates routed through that vendor in collaboration with Lux Brand Co.</td></tr>
+        <tr><td>Specialty Equipment</td><td>Polishing, repair, and operations equipment excluded from GC scope and procured directly by the client. Power and data rough-ins to be coordinated once the equipment list is finalized by Operations.</td></tr>
+        <tr><td>Architectural Drawings</td><td>Drawings to be procured separately by the client. The budget assumes a $15K–$20K add if permit-level drawings are required by the local jurisdiction or by the chosen permit path.</td></tr>
+        <tr><td>Permit Risk Items</td><td>Project is intended to be filed as finishes-only. Sprinkler modifications or electrical work above threshold could trigger a full permit filing and roughly double the drawing scope, both flagged as guardrails.</td></tr>
+        <tr><td>Wallpaper</td><td>Confirmed not in scope. Paint only across all three finish profiles, with material and labor for paint carried inside the per-SF labor rate already published in the pricing rollup.</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 03 APPROACH -->
+<div class="sect" id="approach">
+  <div class="sect-num">03</div>
+  <div class="sect-label">Approach</div>
+  <h2>Phased half-floor execution, budget-first, drawings-second.</h2>
+  <p class="sect-sub">Six phases at half-floor each with ~1 week overlap to maintain operational continuity. Walkthrough handled off-hours or by Matterport scan so internal staff are not alerted to the project.</p>
+
+  <div class="approach-grid">
+    <div class="app-item">
+      <span class="app-n">A1</span>
+      <h4>Phased Half-Floor Execution</h4>
+      <p>Six phases at half-floor each with approximately one week of overlap to maintain operational continuity. Demo runs during the day; no overnight work is required per updated client direction.</p>
+      <p>Each half moves through demo, build/sand, finishes, and punch in sequence. The active half of each floor stays operational while the renovation half is sealed, dust-contained, and HVAC-isolated.</p>
+    </div>
+    <div class="app-item">
+      <span class="app-n">A2</span>
+      <h4>Budget-First, Drawings-Second</h4>
+      <p>Deliver a defensible ballpark to leadership now so a go or no-go decision can be made before architectural fees are committed. The budget refines as schematics firm up and wall linear footage is confirmed against the selected second-floor option.</p>
+      <p>The pricing rollup is built from per-floor unit rates and is structured to absorb plan refinements without rebuilding the model. Each refinement updates a single line.</p>
+    </div>
+    <div class="app-item">
+      <span class="app-n">A3</span>
+      <h4>Confidential Walkthrough</h4>
+      <p>Off-hours site walk or Matterport scan so internal staff are not alerted to the louis vuitton project. Imagery is held to named stakeholders, and no photography is permitted of watchmaker or polishing workstations during the visit.</p>
+      <p>If the off-hours window cannot be cleared, the Matterport scan substitutes for the physical walk and produces a measurable record for the next pricing pass.</p>
+    </div>
+    <div class="app-item">
+      <span class="app-n">A4</span>
+      <h4>Shared Planning Hub</h4>
+      <p>A Lux-hosted micro-site for stakeholders Jacquelyn, Chris, and Brian to drop input asynchronously. Lux compiles and republishes revisions to reduce telephone-game churn between brand, design, and GC.</p>
+      <p>The hub holds the pricing model, the timeline, the constraints register, and the running list of open items so that every stakeholder reads from the same document at any moment.</p>
+    </div>
+    <div class="app-item">
+      <span class="app-n">A5</span>
+      <h4>Furniture Decoupled</h4>
+      <p>GC scope stays clean by routing furniture and stainless workstations through a separate vendor. The decoupling avoids change-order risk on equipment whose final layout, power requirements, and physical dimensions are not yet defined.</p>
+      <p>Coordination between the GC and the furniture vendor is held by Claudia, who carried the same role on the Miami project and is praised by the client for that work.</p>
+    </div>
+    <div class="app-item">
+      <span class="app-n">A6</span>
+      <h4>Permit Minimization</h4>
+      <p>File as finishes work where defensible. Pre-vet sprinkler and electrical thresholds with trades before committing the permit path so the scope of architectural drawings is sized correctly the first time.</p>
+      <p>A drawing add of $15K–$20K is carried as a contingency if a permit filing is triggered by sprinkler relocation or by electrical work that crosses the local threshold.</p>
+    </div>
+  </div>
+
+  <p class="approach-foot">Springfield, NJ is open shop; trade relationships are held by Sean.</p>
+</div>
+
+<!-- 04 CONSTRAINTS -->
+<div class="sect" id="constraints">
+  <div class="sect-num">04</div>
+  <div class="sect-label">Constraints</div>
+  <h2>Three open variables shape the final number.</h2>
+  <p class="sect-sub">Wall linear footage, the Floor 2 schematic selection, and the permit path each carry meaningful budget swing. This section names them so the rollup that follows is read with the right tolerances.</p>
+
+  <div class="constraints-grid">
+    <div class="constraint-card">
+      <div class="c-label">Wall LF</div>
+      <p class="c-stmt">250 LF per floor carried as placeholder; each additional 100 LF adds approximately $18,500 at $185 per LF.</p>
+      <div class="c-swing">Swing — ±$18,500 per 100 LF</div>
+      <p class="c-detail">Resolved against the chosen second-floor schematic and a verified take-off from updated plans. Until that point, the carried figure represents an industry-typical density for office and workshop reconfiguration.</p>
+    </div>
+    <div class="constraint-card">
+      <div class="c-label">Floor 2 Schematic</div>
+      <p class="c-stmt">Three second-floor options are still in play; selection drives demo, partition, and electrical relocation totals across the watchmaker zones.</p>
+      <div class="c-swing">Swing — Demo, Partition, Electrical</div>
+      <p class="c-detail">The three options differ in bench count, office footprint, and the location of the polishing area. Each option carries a different partition density and a different electrical relocation profile against the existing service.</p>
+    </div>
+    <div class="constraint-card">
+      <div class="c-label">Permit Path</div>
+      <p class="c-stmt">Filed as finishes-only where defensible; sprinkler or electrical above threshold doubles drawing scope and adds approximately $15K–$20K.</p>
+      <div class="c-swing">Swing — +$15K to $20K</div>
+      <p class="c-detail">Pre-vetted with the electrical and sprinkler trades before drawings are commissioned so the architectural scope is sized correctly. The threshold turns on the extent of sprinkler relocation and the size of the electrical service work.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 05 TEAM -->
+<div class="sect" id="team">
+  <div class="sect-num">05</div>
+  <div class="sect-label">Team</div>
+  <h2>Six named stakeholders across Lux Brand Co, louis vuitton, and the owner's rep.</h2>
+  <p class="sect-sub">Luke Shank leads from the Lux side; Jacquelyn Albano leads from the client side; Claudia coordinates between brand, design, and GC. Chris and Brian are the operational and stakeholder voices being looped into the planning hub.</p>
+
+  <div class="team-grid">
+    <div class="tm">
+      <div class="role">Principal — Lux Brand Co</div>
+      <h3>Luke Shank</h3>
+      <p>Leads preliminary budgeting, scope development, and GC coordination for Lux Brand Co. Brings deep retail and corporate office renovation experience including past work for Omega, Swatch Group, and Super Value. Will personally manage the Springfield walkthrough, sub coordination, and ongoing budget refinement on the louis vuitton Naples program.</p>
+    </div>
+    <div class="tm">
+      <div class="role">Project Executive — Lux Brand Co</div>
+      <h3>Sean</h3>
+      <p>Long-tenured GC partner with strong relationships across northern New Jersey trades. Familiar with the Springfield and Short Hills market and with corporate office flips at scale. Will support trade buyout, phasing logistics, and field execution across the six half-floor phases on the Naples program.</p>
+    </div>
+    <div class="tm">
+      <div class="role">Owner's Rep — Coordination</div>
+      <h3>Claudia</h3>
+      <p>Trusted owner-side coordinator who collaborated with Lux Brand Co on the Miami project. Praised by the client as a strong middle-position partner who keeps information flowing cleanly between brand, design, and GC. Will hold the line between the Naples stakeholders and the Lux Brand Co side of the table.</p>
+    </div>
+    <div class="tm">
+      <span class="assigned">Client</span>
+      <div class="role">Project Lead — louis vuitton</div>
+      <h3>Jacquelyn Albano</h3>
+      <p>Driving the Naples renovation effort on behalf of leadership. Coordinating between the VP of Operations, the master watchmaker, and the operations team to align on a realistic budget before formal drawings are commissioned. Owner of the second-floor schematic decision and the VCT specification.</p>
+    </div>
+    <div class="tm">
+      <span class="assigned">Client</span>
+      <div class="role">RVP of Operations — louis vuitton</div>
+      <h3>Chris</h3>
+      <p>Operations stakeholder defining functional requirements for the watchmaker, polishing, and packaging workflow. Confirmed scope is two floors, with the ground floor primarily storage and in-and-out and the second floor reconfigured for watchmakers. Sets the operational continuity bar that the phasing plan must meet.</p>
+    </div>
+    <div class="tm">
+      <span class="assigned">Client</span>
+      <div class="role">Stakeholder — louis vuitton</div>
+      <h3>Brian</h3>
+      <p>Internal stakeholder to be looped into the shared planning hub for input on scope, finishes, and phasing decisions. Contributes the operational lens against which finish selections, partition layouts, and electrical relocations are evaluated for the working floors.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 06 PRICING -->
+<div class="sect" id="pricing">
+  <div class="sect-num">06</div>
+  <div class="sect-label">Pricing</div>
+  <h2>Per-floor build-up rolled to three floors, plus 12% overhead and 5% contingency.</h2>
+  <p class="sect-sub">Per-floor total derives from labor at $56/SF, lump-sum electrical, $8/SF demo, partition LF, carpet material, and 15% adhesive uplift. Three-floor rollup, overhead, and contingency land at $4,186,770.</p>
+
+  <table class="price-table">
+    <tr class="section-head"><td>Per Floor (~16,400 SF)</td><td>Basis</td><td>Amount</td></tr>
+    <tr><td>Labor — Flooring, Paint &amp; ACT</td><td>16,400 SF @ $56/SF</td><td>$918,400</td></tr>
+    <tr><td>Electrical Relocation</td><td>Lump sum per floor</td><td>$130,000</td></tr>
+    <tr><td>Demolition</td><td>~$8/SF interior</td><td>$131,200</td></tr>
+    <tr><td>Wall Construction</td><td>250 LF @ $185/LF</td><td>$46,250</td></tr>
+    <tr><td>Carpet Tile Material</td><td>16,400 SF @ ~$9/SF</td><td>$147,600</td></tr>
+    <tr><td>Adhesive</td><td>+15% of carpet material</td><td>$22,140</td></tr>
+  </table>
+
+  <table class="price-table">
+    <tr class="section-head"><td>3-Floor Rollup</td><td>Basis</td><td>Amount</td></tr>
+    <tr><td>Labor — Flooring, Paint &amp; ACT</td><td>Per-floor labor × 3</td><td>$2,755,200</td></tr>
+    <tr><td>Electrical Relocation</td><td>Per-floor electrical × 3</td><td>$390,000</td></tr>
+    <tr><td>Demolition</td><td>Per-floor demo × 3</td><td>$393,600</td></tr>
+    <tr><td>Carpet Tile + Adhesive</td><td>Per-floor material × 3</td><td>$509,220</td></tr>
+    <tr><td>Wall Construction</td><td>250 LF est. across floors</td><td>$138,750</td></tr>
+    <tr class="subtotal"><td>Subtotal</td><td>Sum of 3-floor rollup</td><td>$4,186,770</td></tr>
+    <tr><td>Overhead</td><td>12% of subtotal</td><td>included</td></tr>
+    <tr><td>Contingency</td><td>5% of subtotal</td><td>included</td></tr>
+    <tr class="total"><td>Grand Total</td><td>3 floors, OH &amp; contingency</td><td>$4,186,770</td></tr>
+  </table>
+
+  <p class="price-note">Figures exclude furniture, specialty workstations, jeweler stations, stainless steel workbenches, and architectural drawings. A permit allowance of $15K–$20K is noted separately if sprinkler or electrical thresholds trigger a filing. The VCT flooring specification from the client may adjust Floor 2 material costs once received. Wall construction remains the largest single variable pending the final second-floor schematic and a verified linear-footage take-off. All figures are preliminary and subject to revision after the off-hours site walkthrough or Matterport scan and the receipt of finalized plans.</p>
+</div>
+
+<!-- 07 TIMELINE -->
+<div class="sect" id="timeline">
+  <div class="sect-num">07</div>
+  <div class="sect-label">Timeline</div>
+  <h2>Six phases, half-floor each, ~1 week overlap.</h2>
+  <p class="sect-sub">Floor 1 runs first (8 + 6 weeks), Floor 2 second (6 + 6 weeks), Floor 3 third (5 + 5 weeks). Each phase moves through Demo, Build/Sand, Finishes, and Punch.</p>
+
+  <div class="timeline">
+    <div class="phase-row head">
+      <div>Phase</div><div>Floor / Half</div><div>Sequence</div><div>Duration</div><div>Overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 1</div><div class="p-area">Floor 1 — First Half</div>
+      <div class="p-work">Demo (1 wk, off-hours) → Build/Sand (2 wks) → Finishes (2 wks) → Punch (1 wk)</div>
+      <div class="p-dur">8 weeks</div><div class="p-overlap">Start</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 2</div><div class="p-area">Floor 1 — Second Half</div>
+      <div class="p-work">Demo → Build/Sand → Finishes → Punch</div>
+      <div class="p-dur">6 weeks</div><div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 3</div><div class="p-area">Floor 2 — First Half</div>
+      <div class="p-work">Demo → Build/Sand → Finishes → Punch</div>
+      <div class="p-dur">6 weeks</div><div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 4</div><div class="p-area">Floor 2 — Second Half</div>
+      <div class="p-work">Demo → Build/Sand → Finishes → Punch</div>
+      <div class="p-dur">6 weeks</div><div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 5</div><div class="p-area">Floor 3 — First Half</div>
+      <div class="p-work">Demo → Build/Sand → Finishes → Punch</div>
+      <div class="p-dur">5 weeks</div><div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 6</div><div class="p-area">Floor 3 — Second Half</div>
+      <div class="p-work">Demo → Build/Sand → Finishes → Punch</div>
+      <div class="p-dur">5 weeks</div><div class="p-overlap">~1 wk overlap</div>
+    </div>
+  </div>
+
+  <p class="timeline-note">Demo runs standard hours per updated client direction; no overnight work required. Each phase carries its own dust containment, HVAC isolation, and dumpster allowance. The active half of each floor stays operational while the renovation half is sealed. Trade sequencing across the six phases is held by Sean against the open-shop labor base in Springfield.</p>
+
+  <div class="timeline-total">Cumulative Duration — 36 Weeks Gross / ~31 Weeks Net of Overlap</div>
+</div>
+
+<!-- 08 NEXT STEPS -->
+<div class="sect" id="next_steps">
+  <div class="sect-num">08</div>
+  <div class="sect-label">Next Steps</div>
+  <h2>Nine open items before the budget firms.</h2>
+  <p class="sect-sub">Floor plans, off-hours walkthrough or Matterport scan, wall LF confirmation, demo crew sizing, second-floor schematic selection, furniture vendor scoping, VCT spec, and stakeholder loop-in. Owners assigned per item.</p>
+
+  <div class="ns-list">
+    <div class="ns-row">
+      <div class="ns-n">01</div>
+      <div class="ns-action">Forward all floor plan files and second-floor markup to Luke for take-off and schematic review against the carried 250 LF per floor partition placeholder.</div>
+      <div class="ns-owner">Jacquelyn Albano</div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">02</div>
+      <div class="ns-action">Schedule off-hours site walkthrough or Matterport scan of all floors so the existing conditions, freight elevator constraint, and active workstations can be measured without alerting internal staff.</div>
+      <div class="ns-owner">Luke Shank</div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">03</div>
+      <div class="ns-action">Introduce Lux team to Springfield staff on-site once the off-hours window is cleared and the confidentiality posture allows the introduction.</div>
+      <div class="ns-owner">Luke Shank</div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">04</div>
+      <div class="ns-action">Confirm linear footage of walls from plans to finalize wall construction budget against the carried 250 LF per floor placeholder and the $185 per LF rate.</div>
+      <div class="ns-owner">Luke Shank</div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">05</div>
+      <div class="ns-action">Confirm demo crew size and phasing logistics to finalize demo budget across the six half-floor phases under standard-hours direction.</div>
+      <div class="ns-owner">Luke Shank</div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">06</div>
+      <div class="ns-action">Finalize second-floor schematic — three options currently in play, each carrying a different partition density and electrical relocation profile across the watchmaker zones.</div>
+      <div class="ns-owner">Jacquelyn / TAG Team</div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">07</div>
+      <div class="ns-action">Scope furniture and workstation vendor independently from GC so stainless steel jeweler benches and watchmaker stations stay outside the GC change-order surface.</div>
+      <div class="ns-owner">Jacquelyn Albano</div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">08</div>
+      <div class="ns-action">Provide spec for the white rubberized VCT used in the watchmaker areas so material cost, install method, and seam treatment can be confirmed against the carried allowance.</div>
+      <div class="ns-owner">Jacquelyn / Ops Team</div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">09</div>
+      <div class="ns-action">Loop Chris and Brian into the shared planning hub so operational and stakeholder input lands directly in the same document the pricing model reads from.</div>
+      <div class="ns-owner">Jacquelyn Albano</div>
+    </div>
+  </div>
+</div>
+
+<!-- 09 GUARDRAILS -->
+<div class="sect" id="guardrails">
+  <div class="sect-num">09</div>
+  <div class="sect-label">Guardrails</div>
+  <h2>Wall LF and permit path are the two budget swings.</h2>
+  <p class="sect-sub">Both are quantified. Both can be resolved before the next pricing pass.</p>
+
+  <div class="diff-grid">
+    <div class="diff-item">
+      <div class="diff-num">Wall Linear Footage</div>
+      <h4>Each additional 100 LF adds ~$18,500.</h4>
+      <p>The budget carries 250 LF per floor as a placeholder. Each additional 100 LF of partition adds approximately $18,500 at the carried $185 per LF rate. The figure is to be confirmed against the chosen second-floor schematic before commitment, since the three options in play differ meaningfully in partition density.</p>
+      <p>A verified take-off from the updated plans replaces the placeholder in the next pricing pass and resolves the largest single variable in the per-floor build-up.</p>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">Permit Path</div>
+      <h4>Sprinkler or electrical above threshold doubles drawing scope.</h4>
+      <p>If sprinkler relocation or electrical exceeds threshold, the project must be filed for permit and architectural drawings roughly double in scope. A $15K–$20K drawing add is carried as a contingency if that path is triggered.</p>
+      <p>The path is pre-vetted with the sprinkler and electrical trades before drawings are commissioned so the architectural scope is sized correctly the first time and the permit posture holds through construction.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-quote">
+  <blockquote>&ldquo;Just a base. Okay, cool.&rdquo;</blockquote>
+  <span class="attr">Jacquelyn Albano — louis vuitton</span>
+</div>
+<div class="footer-bar">
+  <span>&copy; 2026 Lux Brand Co · Confidential</span>
+  <span>Prepared for louis vuitton — Naples, FL</span>
+  <a href="mailto:luke@lbco.com">luke@lbco.com</a>
+</div>
+
+</main>
+
+<script>
+document.querySelectorAll('.u-card,.tm,.app-item,.diff-item,.price-table tr,.phase-row,.ns-row,.scope-col,.constraint-card').forEach(el=>el.classList.add('fade'));
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('in'),i*30);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.1});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+
+document.querySelectorAll('.sidebar nav a').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(id&&id.startsWith('#')){
+      const el=document.querySelector(id);
+      if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
+    }
+  });
+});
+
+const navLinks=document.querySelectorAll('.sidebar nav a');
+const sections=document.querySelectorAll('.sect[id]');
+const navObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id=e.target.id;
+      navLinks.forEach(l=>{
+        if(l.getAttribute('href')==='#'+id){l.classList.add('nav-highlight');}
+        else if(l.getAttribute('href')!=='#guardrails'){l.classList.remove('nav-highlight');}
+      });
+    }
+  });
+},{rootMargin:'-40% 0px -55% 0px'});
+sections.forEach(s=>navObs.observe(s));
+</script>
+
+</body></html>
