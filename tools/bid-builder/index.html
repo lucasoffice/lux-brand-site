@@ -358,7 +358,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0}
 <main class="main">
   <div class="topbar">
     <div class="topbar-title">New Bid Microsite</div>
-    <div class="topbar-tag">Internal — LUX Brand Co. · <span class="ver">v5.8</span></div>
+    <div class="topbar-tag">Internal — LUX Brand Co. · <span class="ver">v5.10</span></div>
   </div>
 
   <div class="content">
@@ -665,6 +665,10 @@ CTA_ROWS.forEach(row => {
 });
 
 async function collectCtaButtons() {
+  // v5.10 — toggling a button on with no input no longer drops the button.
+  // We send a placeholder href '#' so Writer still renders the button visibly;
+  // it just doesn't navigate. This matches the design intent: buttons are
+  // visual scaffolding even when their data isn't ready yet.
   const out = [];
   for (const row of CTA_ROWS) {
     const toggle = document.getElementById(row.toggle);
@@ -673,7 +677,15 @@ async function collectCtaButtons() {
       const fileInput = document.getElementById(row.file);
       const file = fileInput?.files?.[0];
       if (!file) {
-        log(`${row.label}: toggled on but no file selected — skipping`, 'dim');
+        log(`${row.label}: toggled on, no file — rendering as placeholder (#)`, 'dim');
+        out.push({
+          type: 'url', // route through url path since there's no file payload
+          label: row.label,
+          style: row.style,
+          suffix: row.suffix,
+          href: '#',
+          placeholder: true
+        });
         continue;
       }
       const b64 = await fileToBase64(file);
@@ -689,7 +701,15 @@ async function collectCtaButtons() {
     } else if (row.type === 'url') {
       const href = v(row.url);
       if (!href) {
-        log(`${row.label}: toggled on but no URL provided — skipping`, 'dim');
+        log(`${row.label}: toggled on, no URL — rendering as placeholder (#)`, 'dim');
+        out.push({
+          type: 'url',
+          label: row.label,
+          style: row.style,
+          suffix: row.suffix,
+          href: '#',
+          placeholder: true
+        });
         continue;
       }
       out.push({
