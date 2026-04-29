@@ -358,7 +358,7 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0}
 <main class="main">
   <div class="topbar">
     <div class="topbar-title">New Bid Microsite</div>
-    <div class="topbar-tag">Internal — LUX Brand Co. · <span class="ver">v5.10</span></div>
+    <div class="topbar-tag">Internal — LUX Brand Co. · <span class="ver">v5.11</span></div>
   </div>
 
   <div class="content">
@@ -476,28 +476,13 @@ hr{border:none;border-top:1px solid var(--border);margin:40px 0}
       <button class="mode-tab active" id="mode-static" onclick="setMode('static')">Static Bid</button>
       <button class="mode-tab" id="mode-hub" onclick="setMode('hub')">Living Hub</button>
     </div>
-    <div class="field-hint" id="mode-hint" style="margin-bottom:0">One-time proposal. No Supabase required. Best for first-contact bids.</div>
+    <div class="field-hint" id="mode-hint" style="margin-bottom:0">One-time proposal. Best for first-contact bids.</div>
 
     <div id="hub-fields" style="display:none;margin-top:24px">
-      <div class="field-row">
-        <div class="field-group">
-          <label class="field-label">Supabase Project URL</label>
-          <input class="field-input" id="f-sb-url" type="text" placeholder="https://xxxx.supabase.co">
-        </div>
-        <div class="field-group">
-          <label class="field-label">Supabase Anon Key</label>
-          <input class="field-input" id="f-sb-key" type="text" placeholder="sb_publishable_...">
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field-group">
-          <label class="field-label">Analytics PIN (4 digits)</label>
-          <input class="field-input" id="f-pin" type="text" placeholder="2868" maxlength="4">
-        </div>
-        <div class="field-group">
-          <label class="field-label">Review Cadence</label>
-          <input class="field-input" id="f-cadence" type="text" placeholder="Every 2–3 weeks">
-        </div>
+      <div class="field-group">
+        <label class="field-label">Review Cadence</label>
+        <input class="field-input" id="f-cadence" type="text" placeholder="Every 2–3 weeks">
+        <div class="field-hint">Living Hub backend (DynamoDB + Lambda + API Gateway) is provisioned by the stack. No Supabase project, no keys, no PIN — just toggle on and build.</div>
       </div>
     </div>
 
@@ -632,8 +617,8 @@ function setMode(m) {
   document.getElementById('mode-hub').classList.toggle('active', m === 'hub');
   document.getElementById('hub-fields').style.display = m === 'hub' ? 'block' : 'none';
   document.getElementById('mode-hint').textContent = m === 'static'
-    ? 'One-time proposal. No Supabase required. Best for first-contact bids.'
-    : 'Living hub with Collaboration Log + Analytics dashboard. Requires a Supabase project.';
+    ? 'One-time proposal. Best for first-contact bids.'
+    : 'Living hub with Collaboration Log + Analytics dashboard. Backend provisioned by the stack — no setup required.';
 }
 
 // ─────────────────────────────────────────────
@@ -833,9 +818,9 @@ async function runPipeline() {
 
     const project = extractResult.data;
     if (currentMode === 'hub') {
-      project.sb_url = v('f-sb-url');
-      project.sb_key = v('f-sb-key');
-      project.hub_pin = v('f-pin');
+      // v5.11 — Living Hub backend is provisioned by the stack (HubTable +
+      // HubLambda + HubApi). No Supabase URL/key/PIN. Build Lambda fills in
+      // HUB_API_URL + BID_ID from its env vars.
       project.hub_cadence = v('f-cadence') || 'Every 2–3 weeks';
     }
 
