@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>louis vuitton | Naples, FL</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#FFFFFF;color:#000000}
+body{font-family:'Louis Vuitton Web','Louis Vuitton','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#000000;text-decoration:none}
+
+/* SIDEBAR */
+.sidebar{position:fixed;left:0;top:0;width:220px;height:100vh;padding:48px 28px;z-index:100;background:#FFFFFF;border-right:1px solid #E1E1E1;display:flex;flex-direction:column}
+.logo{font-size:15px;font-weight:400;letter-spacing:2.4px;text-transform:uppercase;line-height:1.4;margin-bottom:64px;color:#000000}
+.logo .lbco{display:block;font-size:10px;letter-spacing:1.6px;margin-top:14px;padding-top:14px;border-top:1px solid #E1E1E1;color:#000000}
+.sidebar nav{display:flex;flex-direction:column;gap:10px}
+.sidebar nav a{font-size:10px;font-weight:400;letter-spacing:1.6px;text-transform:uppercase;color:#000000;padding:2px 0;transition:opacity .2s}
+.sidebar nav a:hover{opacity:.5}
+.sidebar nav a.nav-highlight{opacity:1;border-bottom:1px solid #000000;align-self:flex-start;padding-bottom:4px}
+.sidebar-footer{margin-top:auto;font-size:9px;letter-spacing:1.6px;text-transform:uppercase;line-height:1.7;color:#000000}
+.sidebar-footer .rc{display:block;margin-top:10px;padding-top:10px;border-top:1px solid #E1E1E1}
+
+/* MAIN */
+.main{margin-left:220px;min-height:100vh}
+
+/* HEADER STRIP — centered LV-style wordmark above content */
+.conf-banner{padding:22px 8.33vw;border-bottom:1px solid #E1E1E1;text-align:center;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#000000}
+
+/* HERO */
+.hero{padding:120px 8.33vw 90px;border-bottom:1px solid #E1E1E1;text-align:center}
+.hero-label{font-size:11px;font-weight:400;letter-spacing:1.6px;text-transform:uppercase;color:#000000;margin-bottom:48px}
+.hero h1{font-family:'Louis Vuitton Web','Louis Vuitton','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:88px;font-weight:400;letter-spacing:0.4px;line-height:1.05;color:#000000;margin-bottom:32px}
+.hero .tagline{font-size:15px;line-height:1.6;color:#000000;max-width:640px;margin:0 auto 48px}
+.hero .meta{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:#000000;padding-top:28px;border-top:1px solid #E1E1E1;display:inline-block;padding-left:40px;padding-right:40px}
+.hero .rc-tag{display:inline-block;margin-top:32px;padding:10px 22px;border:1px solid #000000;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#000000}
+
+/* PHOTO STRIP — hairline-only placeholders */
+.photo-strip{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #E1E1E1}
+.photo-cell{padding:80px 40px;border-right:1px solid #E1E1E1;text-align:center;min-height:280px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.photo-cell:last-child{border-right:none}
+.ph-label{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#000000;margin-bottom:18px}
+.ph-title{font-size:22px;font-weight:400;letter-spacing:0.4px;color:#000000;margin-bottom:10px}
+.ph-sub{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#000000;opacity:.55}
+
+/* SECTIONS */
+.sect{padding:110px 8.33vw;border-bottom:1px solid #E1E1E1}
+.sect-num{font-size:11px;font-weight:400;letter-spacing:1.6px;text-transform:uppercase;color:#000000;margin-bottom:8px}
+.sect-label{font-size:11px;font-weight:400;letter-spacing:1.6px;text-transform:uppercase;color:#000000;margin-bottom:56px;padding-bottom:24px;border-bottom:1px solid #E1E1E1}
+.sect h2{font-family:'Louis Vuitton Web','Louis Vuitton','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:32px;font-weight:400;letter-spacing:0.4px;line-height:1.2;color:#000000;margin-bottom:20px;max-width:820px}
+.sect p.sect-sub{font-size:15px;line-height:1.6;color:#000000;max-width:680px;margin-bottom:56px}
+.sect p{font-size:15px;line-height:1.6;color:#000000;max-width:680px;margin-bottom:18px}
+
+/* OVERVIEW */
+.u-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #E1E1E1}
+.u-card{padding:36px 0;border-bottom:1px solid #E1E1E1;padding-right:48px}
+.u-card:nth-child(odd){border-right:1px solid #E1E1E1;padding-right:48px}
+.u-card:nth-child(even){padding-left:48px}
+.u-num{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:#000000;margin-bottom:14px}
+.u-card h3{font-size:14px;font-weight:400;letter-spacing:1.2px;text-transform:uppercase;color:#000000;margin-bottom:10px}
+.u-card p{font-size:14px;line-height:1.65;color:#000000;max-width:none}
+.overview-total{margin-top:64px;padding:48px 0;border-top:1px solid #E1E1E1;border-bottom:1px solid #E1E1E1;text-align:center}
+.overview-total .ot-l{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:18px}
+.overview-total .ot-n{font-family:'Louis Vuitton Web','Louis Vuitton','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:56px;font-weight:400;letter-spacing:0.4px;color:#000000;font-variant-numeric:tabular-nums}
+.meta-table{width:100%;border-collapse:collapse;margin-bottom:48px;border-top:1px solid #E1E1E1}
+.meta-table tr{border-bottom:1px solid #E1E1E1}
+.meta-table td{padding:18px 0;font-size:13px;color:#000000;vertical-align:top}
+.meta-table td:first-child{width:32%;font-size:11px;letter-spacing:1.6px;text-transform:uppercase}
+
+/* SCOPE */
+.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #E1E1E1}
+.scope-col{padding:36px 0}
+.scope-col.incl{border-right:1px solid #E1E1E1;padding-right:48px}
+.scope-col.excl{padding-left:48px}
+.scope-h{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:#000000;padding-bottom:18px;border-bottom:1px solid #E1E1E1;margin-bottom:6px}
+.scope-col dl{margin:0}
+.scope-col dt{font-size:13px;font-weight:400;letter-spacing:0.6px;text-transform:uppercase;color:#000000;padding-top:18px;padding-bottom:6px}
+.scope-col dd{font-size:14px;line-height:1.65;color:#000000;padding-bottom:18px;border-bottom:1px solid #E1E1E1}
+.scope-note{margin-top:48px;padding-top:32px;border-top:1px solid #E1E1E1;font-size:13px;letter-spacing:0.4px;color:#000000;text-align:center}
+
+/* APPROACH */
+.approach-grid{border-top:1px solid #E1E1E1}
+.app-item{display:grid;grid-template-columns:80px 1fr;gap:32px;padding:28px 0;border-bottom:1px solid #E1E1E1;align-items:start}
+.app-n{font-family:'Louis Vuitton Web','Louis Vuitton','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:24px;font-weight:400;letter-spacing:0.4px;color:#000000;font-variant-numeric:tabular-nums}
+.app-item h3{font-size:13px;font-weight:400;letter-spacing:1.2px;text-transform:uppercase;color:#000000;margin-bottom:8px}
+.app-item p{font-size:14px;line-height:1.65;max-width:none}
+
+/* CONSTRAINTS */
+.constraint-list{border-top:1px solid #E1E1E1}
+.constraint-list .c-row{padding:32px 0;border-bottom:1px solid #E1E1E1;display:grid;grid-template-columns:200px 1fr;gap:48px}
+.constraint-list h3{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:#000000}
+.constraint-list p{font-size:14px;line-height:1.7;max-width:none;margin-bottom:0}
+
+/* TEAM */
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #E1E1E1}
+.tm{padding:40px 0;border-bottom:1px solid #E1E1E1}
+.tm:nth-child(odd){border-right:1px solid #E1E1E1;padding-right:48px}
+.tm:nth-child(even){padding-left:48px}
+.tm h3{font-family:'Louis Vuitton Web','Louis Vuitton','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:24px;font-weight:400;letter-spacing:0.4px;color:#000000;margin-bottom:10px}
+.tm .role{font-size:11px;font-weight:400;letter-spacing:1.6px;text-transform:uppercase;color:#000000;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid #E1E1E1}
+.tm .assigned{display:inline-block;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;border:1px solid #000000;padding:5px 10px;margin-bottom:18px}
+.tm p{font-size:14px;line-height:1.7;max-width:none}
+
+/* PRICING */
+.price-table{width:100%;border-collapse:collapse;margin-bottom:0}
+.price-table tr{border-bottom:1px solid #E1E1E1}
+.price-table tr.section-head td{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;padding:32px 0 14px;border-bottom:1px solid #000000}
+.price-table tr.section-head:first-child td{padding-top:0}
+.price-table td{padding:14px 0;font-size:14px;color:#000000;vertical-align:top}
+.price-table td:last-child{text-align:right;font-variant-numeric:tabular-nums;letter-spacing:0.4px}
+.price-table tr.subtotal td{font-size:13px;letter-spacing:1.2px;text-transform:uppercase;padding:18px 0;border-top:1px solid #000000;border-bottom:1px solid #E1E1E1}
+.price-summary{margin-top:48px;border-top:1px solid #E1E1E1}
+.price-summary .ps-row{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid #E1E1E1;font-size:14px}
+.price-summary .ps-row .ps-l{font-size:11px;letter-spacing:1.6px;text-transform:uppercase}
+.price-summary .ps-row .ps-v{font-variant-numeric:tabular-nums}
+.price-table tr.total{border:none}
+.price-table tr.total td{padding:48px 0;border-top:1px solid #000000;border-bottom:1px solid #000000}
+.price-grand{margin-top:48px;padding:56px 0;border-top:1px solid #000000;border-bottom:1px solid #000000;display:flex;justify-content:space-between;align-items:baseline}
+.price-grand .pg-l{font-size:11px;letter-spacing:1.6px;text-transform:uppercase}
+.price-grand .pg-n{font-family:'Louis Vuitton Web','Louis Vuitton','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:48px;font-weight:400;letter-spacing:0.4px;color:#000000;font-variant-numeric:tabular-nums}
+.price-note{margin-top:32px;font-size:12px;line-height:1.65;color:#000000;letter-spacing:0.2px;max-width:680px}
+
+/* TIMELINE */
+.timeline{border-top:1px solid #E1E1E1}
+.phase-row{display:grid;grid-template-columns:60px 1.4fr 100px 1fr 140px;gap:24px;padding:28px 0;border-bottom:1px solid #E1E1E1;align-items:center}
+.phase-row.head{padding:14px 0;border-bottom:1px solid #000000}
+.phase-row.head div{font-size:10px;letter-spacing:1.6px;text-transform:uppercase}
+.p-num{font-family:'Louis Vuitton Web','Louis Vuitton','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:20px;font-weight:400;letter-spacing:0.4px;font-variant-numeric:tabular-nums}
+.p-area{font-size:13px;letter-spacing:0.4px}
+.p-dur{font-size:11px;letter-spacing:1.6px;text-transform:uppercase}
+.p-work{font-size:13px;color:#000000;letter-spacing:0.2px}
+.p-overlap{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;text-align:right;color:#000000}
+
+/* NEXT STEPS */
+.ns-list{border-top:1px solid #000000}
+.ns-row{display:grid;grid-template-columns:60px 1fr 220px;gap:32px;padding:24px 0;border-bottom:1px solid #E1E1E1;align-items:center}
+.ns-n{font-family:'Louis Vuitton Web','Louis Vuitton','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;font-weight:400;letter-spacing:0.4px;font-variant-numeric:tabular-nums}
+.ns-action{font-size:14px;line-height:1.55;color:#000000}
+.ns-owner{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;text-align:right;color:#000000}
+
+/* GUARDRAILS */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #000000;border-bottom:1px solid #000000}
+.diff-item{padding:48px 0}
+.diff-item:first-child{border-right:1px solid #E1E1E1;padding-right:48px}
+.diff-item:last-child{padding-left:48px}
+.diff-num{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:14px}
+.diff-item h4{font-size:13px;font-weight:400;letter-spacing:1.2px;text-transform:uppercase;color:#000000;margin-bottom:14px}
+.diff-item p{font-size:14px;line-height:1.7;max-width:none;margin-bottom:14px}
+
+/* FOOTER */
+.footer-quote{padding:120px 8.33vw;background:#000000;color:#FFFFFF;text-align:center}
+.footer-quote blockquote{font-family:'Louis Vuitton Web','Louis Vuitton','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:32px;font-weight:400;letter-spacing:0.4px;line-height:1.3;max-width:760px;margin:0 auto 32px}
+.footer-quote .attr{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:#FFFFFF;opacity:.7}
+.footer-bar{padding:32px 8.33vw;background:#000000;border-top:1px solid #222;display:flex;justify-content:space-between;align-items:center;color:#FFFFFF}
+.footer-bar span,.footer-bar a{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#FFFFFF;opacity:.7}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(12px);transition:opacity .55s ease, transform .55s ease}
+.fade.in{opacity:1;transform:none}
+
+/* MOBILE */
+@media(max-width:900px){
+  .sidebar{position:static;width:100%;height:auto;padding:24px;border-right:none;border-bottom:1px solid #E1E1E1;flex-direction:column}
+  .logo{margin-bottom:24px}
+  .sidebar nav{flex-direction:row;flex-wrap:wrap;gap:14px}
+  .sidebar-footer{margin-top:24px}
+  .main{margin-left:0}
+  .hero{padding:60px 24px}
+  .hero h1{font-size:40px}
+  .photo-strip,.u-grid,.scope-grid,.team-grid,.diff-grid{grid-template-columns:1fr}
+  .u-card,.scope-col.incl,.tm,.diff-item:first-child{border-right:none;padding-right:0}
+  .u-card:nth-child(even),.scope-col.excl,.tm:nth-child(even),.diff-item:last-child{padding-left:0}
+  .photo-cell{border-right:none;border-bottom:1px solid #E1E1E1}
+  .sect{padding:60px 24px}
+  .phase-row{grid-template-columns:1fr;gap:6px;padding:20px 0}
+  .phase-row.head{display:none}
+  .ns-row{grid-template-columns:40px 1fr;gap:14px}
+  .ns-owner{grid-column:1 / -1;text-align:left;padding-left:54px}
+  .constraint-list .c-row{grid-template-columns:1fr;gap:10px}
+  .price-grand{flex-direction:column;align-items:flex-start;gap:16px}
+  .price-grand .pg-n{font-size:36px}
+  .footer-quote{padding:60px 24px}
+  .footer-quote blockquote{font-size:22px}
+  .footer-bar{padding:20px 24px;flex-direction:column;gap:8px}
+}
+</style></head><body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="logo">louis vuitton<span class="lbco">Lux Brand Co.</span></div>
+  <nav>
+    <a href="#overview">01 — Overview</a>
+    <a href="#scope">02 — Scope</a>
+    <a href="#approach">03 — Approach</a>
+    <a href="#constraints">04 — Constraints</a>
+    <a href="#team">05 — Team</a>
+    <a href="#pricing">06 — Pricing</a>
+    <a href="#timeline">07 — Timeline</a>
+    <a href="#next_steps">08 — Next Steps</a>
+    <a href="#guardrails">09 — Guardrails</a>
+  </nav>
+  <div class="sidebar-footer">Naples, FL<br>Rough Costing<br>2026<span class="rc">Confidential</span></div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<div class="conf-banner">Confidential — Rough Costing Exercise — Not a Formal Bid</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">louis vuitton — Rough Costing Exercise / Exercice de Chiffrage</div>
+  <h1>Naples, FL.</h1>
+  <p class="tagline">Schematic-stage budget anchor for the louis vuitton three-floor office and watchmaker workshop renovation, approximately 49,200 SF.</p>
+  <div class="meta">lbco.com/louisvuitton/naples-fl/ — 2026 — Prepared for Jacquelyn Albano</div>
+  <div><span class="rc-tag">Confidential — Rough Costing Exercise</span></div>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo-cell">
+    <div class="ph-label">Floor 01 / Étage 01</div>
+    <div class="ph-title">Warehouse &amp; Storage</div>
+    <div class="ph-sub">Walkthrough pending — off-hours</div>
+  </div>
+  <div class="photo-cell">
+    <div class="ph-label">Floor 02 / Étage 02</div>
+    <div class="ph-title">Watchmaker Workshop</div>
+    <div class="ph-sub">Walkthrough pending — off-hours</div>
+  </div>
+  <div class="photo-cell">
+    <div class="ph-label">Floor 03 / Étage 03</div>
+    <div class="ph-title">Office</div>
+    <div class="ph-sub">Walkthrough pending — off-hours</div>
+  </div>
+</div>
+
+<!-- 01 OVERVIEW -->
+<div class="sect" id="overview">
+  <div class="sect-num">01</div>
+  <div class="sect-label">Overview / Aperçu</div>
+  <h2>A schematic-stage anchor against the $1M–$5M internal spread.</h2>
+  <p class="sect-sub">Leadership has heard figures from one to five million for the Naples three-floor renovation. This document fixes a defensible number at $4,186,770 before plans are drawn.</p>
+
+  <table class="meta-table">
+    <tr><td>Brand / Maison</td><td>louis vuitton</td></tr>
+    <tr><td>Location / Lieu</td><td>Naples, Florida — three floors, single building</td></tr>
+    <tr><td>Square Footage / Surface</td><td>~49,200 SF across three floors (~16,400 SF per floor)</td></tr>
+    <tr><td>Document Status</td><td>Rough Costing Exercise — Not a Formal Bid</td></tr>
+  </table>
+
+  <p>The work covers demolition, partition reconfiguration, electrical relocation, and finishes across the existing building. Jacquelyn Albano is project lead and the central point of contact between watchmaking, operations, and executive teams. Luke Shank is primary point of contact for Lux Brand Co.</p>
+
+  <p>The figure below was built from sketch-level markups produced by the master watchmaker. It is an anchor, not a bid. It will move when plans are produced, when wall LF is confirmed, and when the electrical scope is sized against the final layout.</p>
+
+  <div class="overview-total">
+    <div class="ot-l">Anchor Figure / Montant de Référence</div>
+    <div class="ot-n">$4,186,770</div>
+  </div>
+</div>
+
+<!-- 02 SCOPE -->
+<div class="sect" id="scope">
+  <div class="sect-num">02</div>
+  <div class="sect-label">Scope / Portée</div>
+  <h2>Demolition, partitions, electrical relocation, and finishes across ~49,200 SF.</h2>
+  <p class="sect-sub">Nine work items confirmed in. Five items carved out to keep the GC base clean for leadership review.</p>
+
+  <div class="scope-grid">
+    <div class="scope-col incl">
+      <div class="scope-h">Included / Inclus</div>
+      <dl>
+        <dt>Demolition</dt>
+        <dd>Interior office finishes demo, approximately one week per floor. Daytime hours confirmed by client.</dd>
+        <dt>Wall Reconfiguration</dt>
+        <dd>New partition walls per schematic markup. Budgeted at ~250 LF per floor pending plan confirmation.</dd>
+        <dt>Electrical Relocation</dt>
+        <dd>Lump sum per floor for outlet, lighting, and circuit relocation tied to the new wall layout.</dd>
+        <dt>Carpet Tile</dt>
+        <dd>20" × 20" carpet tile in office areas, plus adhesive at 15% of material cost.</dd>
+        <dt>Specialty VCT</dt>
+        <dd>White rubberized VCT in watchmaker work areas on Floor 2, so dropped components bounce and remain visible.</dd>
+        <dt>Epoxy Floor</dt>
+        <dd>Approximately 70% of Floor 1 ground, scraped, and finished in epoxy-style paint for warehouse use.</dd>
+        <dt>Paint</dt>
+        <dd>Coat of paint throughout renovated areas; included in the finishes labor rate.</dd>
+        <dt>ACT Patching</dt>
+        <dd>Salvage and patch existing acoustic ceiling tile around new wall locations.</dd>
+        <dt>Waste &amp; Dumpsters</dt>
+        <dd>Approximately five dumpsters per phase across demo and finishes.</dd>
+      </dl>
+    </div>
+    <div class="scope-col excl">
+      <div class="scope-h">Excluded / Exclu</div>
+      <dl>
+        <dt>Furniture Manipulation</dt>
+        <dd>Carved to a separate furniture vendor scope.</dd>
+        <dt>Stainless Workbenches &amp; Jeweler Stations</dt>
+        <dd>Specialty equipment procured under client equipment budget.</dd>
+        <dt>Architectural &amp; Design Drawings</dt>
+        <dd>Client scope. Not included in GC pricing.</dd>
+        <dt>Permit-Driven Expansions</dt>
+        <dd>Base estimate assumes finishes-only classification. Sprinkler or electrical thresholds would add est. $15–20K.</dd>
+        <dt>Wallpaper &amp; Specialty Wall Finishes</dt>
+        <dd>Confirmed out by client. Paint only.</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="scope-note">Wallpaper and specialty wall finishes confirmed out — paint only.</div>
+</div>
+
+<!-- 03 APPROACH -->
+<div class="sect" id="approach">
+  <div class="sect-num">03</div>
+  <div class="sect-label">Approach / Méthode</div>
+  <h2>Six phases, half-floor at a time, daytime demo confirmed.</h2>
+  <p class="sect-sub">Phasing protects operations across watchmaking, jewelers, polishing, and ops. Off-hours site investigation preserves staff confidentiality.</p>
+
+  <div class="approach-grid">
+    <div class="app-item"><div class="app-n">01</div><div><h3>Half-Floor Phasing</h3><p>Six phases, half a floor each. One week demo, two weeks build and sand, two weeks finishes, one week punch. Roughly one week of overlap between phases.</p></div></div>
+    <div class="app-item"><div class="app-n">02</div><div><h3>Daytime Demo Confirmed</h3><p>Standard hours confirmed by client. No overnight premium carried in this figure. Demo runs during the working day across all three floors.</p></div></div>
+    <div class="app-item"><div class="app-n">03</div><div><h3>Off-Hours Site Investigation</h3><p>Walkthrough and Matterport scan run after hours. Broader Naples staff are not informed of the planning effort.</p></div></div>
+    <div class="app-item"><div class="app-n">04</div><div><h3>Open-Shop Subcontractor Base</h3><p>Lux Brand Co's existing relationships in the Naples and Southwest Florida corridor. Non-union, competitive labor rates.</p></div></div>
+    <div class="app-item"><div class="app-n">05</div><div><h3>Light-Touch Construction Set</h3><p>RCP, demo, and one construction page per floor. Classified as finishes work to keep clear of full permit submission where possible.</p></div></div>
+    <div class="app-item"><div class="app-n">06</div><div><h3>Living Budget Microsite</h3><p>This page is the working document. Chris and Brian post questions and changes between meetings rather than via telephone updates.</p></div></div>
+  </div>
+</div>
+
+<!-- 04 CONSTRAINTS -->
+<div class="sect" id="constraints">
+  <div class="sect-num">04</div>
+  <div class="sect-label">Constraints / Contraintes</div>
+  <h2>Schematic-only plans, freight elevator stops at Floor 1, confidentiality required.</h2>
+  <p class="sect-sub">Three operational realities shape every number on this page. Each is named so the budget can be read against them.</p>
+
+  <div class="constraint-list">
+    <div class="c-row">
+      <h3>Plans / Plans</h3>
+      <p>Floor plans exist only as schematic sketches by the master watchmaker. Three second-floor options remain in play. Alignment with Chris and Brian is pending before any number can tighten.</p>
+    </div>
+    <div class="c-row">
+      <h3>Logistics / Logistique</h3>
+      <p>The freight elevator reaches only Floor 1. Second-floor storage requires manual repacking, which informs both phasing and crew sizing. Material staging is built around this constraint.</p>
+    </div>
+    <div class="c-row">
+      <h3>Confidentiality / Confidentialité</h3>
+      <p>Broader Naples staff are not to be informed. Walkthroughs and Matterport scans occur off-hours. Any on-site presence is coordinated through Jacquelyn.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 05 TEAM -->
+<div class="sect" id="team">
+  <div class="sect-num">05</div>
+  <div class="sect-label">Team / Équipe</div>
+  <h2>Four named principals across client and Lux Brand Co.</h2>
+  <p class="sect-sub">One client lead, one LBCO principal, one construction lead, one owner's representative carried over from the Miami project.</p>
+
+  <div class="team-grid">
+    <div class="tm">
+      <h3>Jacquelyn Albano</h3>
+      <div class="role">Project Lead — louis vuitton</div>
+      <span class="assigned">Client Contact / Contact Client</span>
+      <p>Internal project lead coordinating the Naples renovation across operations and leadership. Acts as the central point of contact between watchmaking, operations, and the executive team to align on scope and budget.</p>
+    </div>
+    <div class="tm">
+      <h3>Luke Shank</h3>
+      <div class="role">Principal — Lux Brand Co.</div>
+      <p>Leading the costing exercise and primary point of contact for the project. Prior multi-phase corporate renovations include large-scale work for Supervalu and luxury retail buildouts. Coordinates the open-shop subcontractor base.</p>
+    </div>
+    <div class="tm">
+      <h3>Sean</h3>
+      <div class="role">Construction Lead — Lux Brand Co.</div>
+      <p>Drawn from the Supervalu headquarters program. Supports field execution and subcontractor coordination, with active relationships in the Naples and Southwest Florida corridor. Sizes phasing logistics and demo crews.</p>
+    </div>
+    <div class="tm">
+      <h3>Claudia</h3>
+      <div class="role">Owner's Representative</div>
+      <p>Owner's representative previously engaged on the louis vuitton Miami project, where her coordination earned strong client feedback. Provides continuity between Lux Brand Co and the client team. Referenced as a model collaborator by both parties.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 06 PRICING -->
+<div class="sect" id="pricing">
+  <div class="sect-num">06</div>
+  <div class="sect-label">Pricing / Tarification</div>
+  <h2>Eighteen line items across three floors total $4,186,770.</h2>
+  <p class="sect-sub">Each floor carries identical structure — labor, electrical, demolition, walls, carpet tile, adhesive — at $1,395,590 subtotal per floor before overhead and contingency.</p>
+
+  <table class="price-table">
+    <tr class="section-head"><td>Floor 01 / Étage 01</td><td>Subtotal $1,395,590</td></tr>
+    <tr><td>Labor — Flooring Install, Paint &amp; ACT (16,400 SF @ $56/SF)</td><td>$918,400</td></tr>
+    <tr><td>Electrical Relocation / Manipulation</td><td>$130,000</td></tr>
+    <tr><td>Demolition (interior finishes, ~$8/SF)</td><td>$131,200</td></tr>
+    <tr><td>Wall Construction / Reconfiguration (250 LF @ $185/LF)</td><td>$46,250</td></tr>
+    <tr><td>Carpet Tile Material (16,400 SF @ ~$9.00/SF)</td><td>$147,600</td></tr>
+    <tr><td>Adhesive / Glue (+15% of carpet material)</td><td>$22,140</td></tr>
+    <tr class="subtotal"><td>Floor 01 Subtotal</td><td>$1,395,590</td></tr>
+
+    <tr class="section-head"><td>Floor 02 / Étage 02</td><td>Subtotal $1,395,590</td></tr>
+    <tr><td>Labor — Flooring Install, Paint &amp; ACT (16,400 SF @ $56/SF)</td><td>$918,400</td></tr>
+    <tr><td>Electrical Relocation / Manipulation</td><td>$130,000</td></tr>
+    <tr><td>Demolition (interior finishes, ~$8/SF)</td><td>$131,200</td></tr>
+    <tr><td>Wall Construction / Reconfiguration (250 LF @ $185/LF)</td><td>$46,250</td></tr>
+    <tr><td>Carpet Tile Material (16,400 SF @ ~$9.00/SF)</td><td>$147,600</td></tr>
+    <tr><td>Adhesive / Glue (+15% of carpet material)</td><td>$22,140</td></tr>
+    <tr class="subtotal"><td>Floor 02 Subtotal</td><td>$1,395,590</td></tr>
+
+    <tr class="section-head"><td>Floor 03 / Étage 03</td><td>Subtotal $1,395,590</td></tr>
+    <tr><td>Labor — Flooring Install, Paint &amp; ACT (16,400 SF @ $56/SF)</td><td>$918,400</td></tr>
+    <tr><td>Electrical Relocation / Manipulation</td><td>$130,000</td></tr>
+    <tr><td>Demolition (interior finishes, ~$8/SF)</td><td>$131,200</td></tr>
+    <tr><td>Wall Construction / Reconfiguration (250 LF @ $185/LF)</td><td>$46,250</td></tr>
+    <tr><td>Carpet Tile Material (16,400 SF @ ~$9.00/SF)</td><td>$147,600</td></tr>
+    <tr><td>Adhesive / Glue (+15% of carpet material)</td><td>$22,140</td></tr>
+    <tr class="subtotal"><td>Floor 03 Subtotal</td><td>$1,395,590</td></tr>
+  </table>
+
+  <div class="price-summary">
+    <div class="ps-row"><span class="ps-l">Subtotal / Sous-total</span><span class="ps-v">$3,578,820</span></div>
+    <div class="ps-row"><span class="ps-l">Overhead 12%</span><span class="ps-v">$429,458</span></div>
+    <div class="ps-row"><span class="ps-l">Contingency 5%</span><span class="ps-v">$178,491</span></div>
+  </div>
+
+  <div class="price-grand">
+    <div class="pg-l">Grand Total / Total Général</div>
+    <div class="pg-n">$4,186,770</div>
+  </div>
+
+  <p class="price-note">Figures derived from sketch-level markups; wall LF, exact SF per floor, and electrical scope remain the largest variables.</p>
+</div>
+
+<!-- 07 TIMELINE -->
+<div class="sect" id="timeline">
+  <div class="sect-num">07</div>
+  <div class="sect-label">Timeline / Calendrier</div>
+  <h2>Six phases, approximately 36 weeks gross with one-week overlaps.</h2>
+  <p class="sect-sub">Phase 1 begins on Floor 1 first half — one week demo, two weeks build and sand, two weeks finishes, one week punch.</p>
+
+  <div class="timeline">
+    <div class="phase-row head">
+      <div>Phase</div><div>Area</div><div>Duration</div><div>Sequence</div><div>Overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">01</div>
+      <div class="p-area">Floor 1 — First Half</div>
+      <div class="p-dur">8 weeks</div>
+      <div class="p-work">Demo — Build/Sand — Finishes — Punch</div>
+      <div class="p-overlap">Start</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">02</div>
+      <div class="p-area">Floor 1 — Second Half</div>
+      <div class="p-dur">6 weeks</div>
+      <div class="p-work">Demo — Build/Sand — Finishes — Punch</div>
+      <div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">03</div>
+      <div class="p-area">Floor 2 — First Half</div>
+      <div class="p-dur">6 weeks</div>
+      <div class="p-work">Demo — Build/Sand — Finishes — Punch</div>
+      <div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">04</div>
+      <div class="p-area">Floor 2 — Second Half</div>
+      <div class="p-dur">6 weeks</div>
+      <div class="p-work">Demo — Build/Sand — Finishes — Punch</div>
+      <div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">05</div>
+      <div class="p-area">Floor 3 — First Half</div>
+      <div class="p-dur">5 weeks</div>
+      <div class="p-work">Demo — Build/Sand — Finishes — Punch</div>
+      <div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">06</div>
+      <div class="p-area">Floor 3 — Second Half</div>
+      <div class="p-dur">5 weeks</div>
+      <div class="p-work">Demo — Build/Sand — Finishes — Punch</div>
+      <div class="p-overlap">~1 wk overlap</div>
+    </div>
+  </div>
+</div>
+
+<!-- 08 NEXT STEPS -->
+<div class="sect" id="next_steps">
+  <div class="sect-num">08</div>
+  <div class="sect-label">Next Steps / Prochaines Étapes</div>
+  <h2>Nine open items; five owned by Lux Brand Co, four by client.</h2>
+  <p class="sect-sub">Floor plan transmittal, second-floor option alignment, and the white rubberized VCT spec are the three items on the critical path before figures move.</p>
+
+  <div class="ns-list">
+    <div class="ns-row"><div class="ns-n">01</div><div class="ns-action">Forward all floor plan files and second-floor markup to Luke.</div><div class="ns-owner">Jacquelyn Albano</div></div>
+    <div class="ns-row"><div class="ns-n">02</div><div class="ns-action">Schedule off-hours site walkthrough or Matterport scan of all three floors.</div><div class="ns-owner">Luke Shank</div></div>
+    <div class="ns-row"><div class="ns-n">03</div><div class="ns-action">Introduce Lux Brand Co team to Naples staff on-site, off-hours.</div><div class="ns-owner">Luke Shank</div></div>
+    <div class="ns-row"><div class="ns-n">04</div><div class="ns-action">Confirm linear footage of walls from plans to finalize wall construction budget.</div><div class="ns-owner">Luke Shank</div></div>
+    <div class="ns-row"><div class="ns-n">05</div><div class="ns-action">Confirm demo crew size and phasing logistics to finalize demo budget.</div><div class="ns-owner">Luke Shank</div></div>
+    <div class="ns-row"><div class="ns-n">06</div><div class="ns-action">Finalize second-floor schematic — three options currently in play, needs team alignment.</div><div class="ns-owner">Jacquelyn Albano / Chris / Brian</div></div>
+    <div class="ns-row"><div class="ns-n">07</div><div class="ns-action">Scope separate furniture and workstation vendor independently of GC base.</div><div class="ns-owner">Jacquelyn Albano</div></div>
+    <div class="ns-row"><div class="ns-n">08</div><div class="ns-action">Provide spec for the specialty white rubberized VCT used in watchmaker areas.</div><div class="ns-owner">Jacquelyn Albano / Ops Team</div></div>
+    <div class="ns-row"><div class="ns-n">09</div><div class="ns-action">Confirm sprinkler and electrical thresholds with electrician to determine permit path.</div><div class="ns-owner">Luke Shank</div></div>
+  </div>
+</div>
+
+<!-- 09 GUARDRAILS -->
+<div class="sect" id="guardrails">
+  <div class="sect-num">09</div>
+  <div class="sect-label">Guardrails / Garde-Fous</div>
+  <h2>Two conditions under which this number is true.</h2>
+  <p class="sect-sub">Both guardrails are stated so the figure can be read honestly against the schematic stage and the carve-outs.</p>
+
+  <div class="diff-grid">
+    <div class="diff-item">
+      <div class="diff-num">01 — Schematic Stage</div>
+      <h4>Schematic-Stage Estimate</h4>
+      <p>Figures derived from sketch-level markups and verbal scope. Wall LF, exact SF per floor, and electrical scope are the largest variables.</p>
+      <p>The final number will move when plans are produced. This page exists to hold a defensible anchor in the meantime.</p>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">02 — Furniture Carved Out</div>
+      <h4>Furniture and Equipment Excluded</h4>
+      <p>Stainless workbenches, jeweler stations, and furniture manipulation are carved to a separate vendor so the GC base price stays clean and decision-ready for leadership.</p>
+      <p>If sprinkler modifications or electrical thresholds trigger permitseeking, drawings and fees would add est. $15–20K.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-quote">
+  <blockquote>Just a base. This is roughly where to start.</blockquote>
+  <div class="attr">Luke Shank — Lux Brand Co — luke@lbco.com</div>
+</div>
+<div class="footer-bar">
+  <span>© 2026 Lux Brand Co.</span>
+  <span>Prepared for louis vuitton — Jacquelyn Albano</span>
+  <a href="mailto:luke@lbco.com">luke@lbco.com</a>
+</div>
+
+</div><!-- end .main -->
+
+<script>
+// Fade-in
+const fadeEls = document.querySelectorAll('.sect, .u-card, .tm, .diff-item, .phase-row, .ns-row, .app-item, .c-row');
+fadeEls.forEach(el => el.classList.add('fade'));
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target);} });
+}, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+fadeEls.forEach(el => obs.observe(el));
+
+// Active nav highlight
+const navLinks = document.querySelectorAll('.sidebar nav a');
+const sections = document.querySelectorAll('.sect');
+const navObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      navLinks.forEach(l => l.classList.remove('nav-highlight'));
+      const id = e.target.id;
+      const match = document.querySelector('.sidebar nav a[href="#'+id+'"]');
+      if(match) match.classList.add('nav-highlight');
+    }
+  });
+}, {rootMargin:'-40% 0px -55% 0px'});
+sections.forEach(s => navObs.observe(s));
+</script>
+
+</body></html>
