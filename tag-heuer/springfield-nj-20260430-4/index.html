@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAG Heuer | springfield, nj</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#FFFFFF;
+  --text:#000000;
+  --muted:#545454;
+  --red:#E3001D;
+  --green:#008150;
+  --border:#D9D9D9;
+  --card:#F5F5F5;
+}
+html,body{background:#FFFFFF;color:#000000;font-family:'Helvetica Neue','Helvetica','Arial',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55;font-size:15px;font-weight:400}
+p,li,td,th,dd,dt,blockquote,input,select,textarea,button{font-family:'Helvetica Neue','Helvetica','Arial',sans-serif}
+a{color:inherit}
+
+.sidebar{position:fixed;top:0;left:0;width:220px;height:100vh;background:#fff;border-right:1px solid #E3001D;padding:36px 26px;display:flex;flex-direction:column;z-index:10}
+.logo{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:17px;font-weight:900;letter-spacing:1.5px;color:#000;line-height:1.1;margin-bottom:6px}
+.logo .underscore{display:block;width:34px;height:2px;background:#E3001D;margin-top:8px;margin-bottom:14px}
+.logo .lbco{font-size:9.5px;font-weight:700;letter-spacing:2px;color:#545454;margin-bottom:36px;display:block}
+.sidebar nav{display:flex;flex-direction:column;gap:13px;margin-bottom:auto}
+.sidebar nav a{font-size:10.5px;font-weight:700;letter-spacing:1.8px;color:#000;text-decoration:none;text-transform:uppercase;transition:color .15s,border-color .15s;border-left:2px solid transparent;padding-left:8px;margin-left:-10px}
+.sidebar nav a:hover{color:#E3001D}
+.sidebar nav a.active{color:#E3001D;border-left:2px solid #E3001D}
+.sidebar-footer{font-size:9px;font-weight:700;letter-spacing:1.8px;color:#545454;line-height:1.7;padding-top:24px;border-top:1px solid #D9D9D9;text-transform:uppercase}
+.sidebar-footer .rc{color:#E3001D;margin-top:6px;display:block}
+
+main{margin-left:220px;min-height:100vh}
+
+.conf-banner{background:#000;color:#fff;padding:10px 80px;font-size:9.5px;font-weight:700;letter-spacing:2.5px;text-align:center;text-transform:uppercase;display:flex;justify-content:center;gap:14px;align-items:center}
+.conf-banner .dot{width:5px;height:5px;background:#E3001D;border-radius:50%;display:inline-block}
+
+.hero{padding:80px 80px 60px;border-bottom:1px solid #D9D9D9}
+.hero-label{font-size:11px;font-weight:700;letter-spacing:1.32px;color:#E3001D;margin-bottom:30px;text-transform:uppercase}
+.hero h1{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:132px;font-weight:900;letter-spacing:-2.64px;color:#000;line-height:0.92;display:inline-block;position:relative}
+.hero h1::after{content:"";display:block;width:120px;height:3px;background:#E3001D;margin-top:14px}
+.hero .tagline{font-size:18px;font-weight:400;color:#222;max-width:720px;line-height:1.5;margin-top:32px;margin-bottom:36px}
+.hero .meta{font-size:11px;font-weight:700;letter-spacing:1.32px;color:#000;text-transform:uppercase;padding-top:20px;border-top:2px solid #E3001D;max-width:720px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.hero .meta span{color:#545454}
+.hero .rc-tag{display:inline-block;background:#E3001D;color:#fff;font-size:10px;font-weight:700;letter-spacing:1.8px;padding:6px 12px;margin-top:22px;text-transform:uppercase}
+
+.photo-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-bottom:1px solid #D9D9D9}
+.photo-cell{aspect-ratio:4/3;background:#F5F5F5;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;border-right:1px solid #D9D9D9}
+.photo-cell:last-child{border-right:none}
+.ph-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#E3001D;margin-bottom:10px;text-transform:uppercase}
+.ph-title{font-size:15px;font-weight:700;color:#000;margin-bottom:6px}
+.ph-sub{font-size:11.5px;color:#545454;line-height:1.5;max-width:240px}
+
+.sect{padding:72px 80px;border-top:1px solid #D9D9D9}
+.sect-num{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:64px;font-weight:900;color:#E3001D;letter-spacing:-1.5px;line-height:1;margin-bottom:6px;display:inline-block}
+.sect-num::after{content:"";display:block;width:48px;height:2px;background:#E3001D;margin-top:8px;margin-bottom:10px}
+.sect-label{font-size:11px;font-weight:700;letter-spacing:1.32px;color:#000;text-transform:uppercase;margin-bottom:18px}
+.sect h2{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:38px;font-weight:700;letter-spacing:-0.38px;color:#000;margin-bottom:14px;line-height:1.18;max-width:880px}
+.sect p.sect-sub{font-size:15px;color:#222;max-width:780px;line-height:1.6;margin-bottom:36px}
+
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #000;border-bottom:1px solid #000;margin-bottom:36px}
+.stat-cell{padding:26px 22px;border-right:1px solid #D9D9D9}
+.stat-cell:last-child{border-right:none}
+.stat-num{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:48px;font-weight:900;letter-spacing:-1.5px;line-height:1;color:#000;margin-bottom:10px;font-variant-numeric:tabular-nums}
+.stat-lbl{font-size:10px;font-weight:700;letter-spacing:1.8px;color:#545454;text-transform:uppercase}
+
+.lede{font-size:16px;line-height:1.6;max-width:780px;color:#000;margin-bottom:32px}
+.u-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid #D9D9D9}
+.u-card{padding:26px 24px;border-right:1px solid #D9D9D9;border-bottom:1px solid #D9D9D9}
+.u-card:nth-child(3n){border-right:none}
+.u-card:nth-last-child(-n+3){border-bottom:none}
+.u-num{font-size:10px;font-weight:700;letter-spacing:1.8px;color:#E3001D;margin-bottom:10px;text-transform:uppercase}
+.u-card h3{font-size:14px;font-weight:700;color:#000;margin-bottom:8px}
+.u-card p{font-size:13px;color:#222;line-height:1.55}
+
+.ledger{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #D9D9D9}
+.ledger-col{padding:30px 28px}
+.ledger-col.incl{border-right:1px solid #D9D9D9}
+.ledger-h{font-size:11px;font-weight:700;letter-spacing:2px;margin-bottom:18px;text-transform:uppercase}
+.ledger-col.incl .ledger-h{color:#E3001D}
+.ledger-col.excl .ledger-h{color:#545454}
+.ledger-list{list-style:none;counter-reset:l}
+.ledger-list li{font-size:13px;color:#222;line-height:1.55;padding:12px 0;border-bottom:1px solid #D9D9D9;counter-increment:l;display:grid;grid-template-columns:28px 1fr;gap:8px}
+.ledger-list li:last-child{border-bottom:none}
+.ledger-list li::before{content:counter(l,decimal-leading-zero);font-size:10px;font-weight:700;letter-spacing:1.5px;color:#E3001D;padding-top:2px}
+.ledger-col.excl .ledger-list li::before{color:#545454}
+.ledger-list li strong{font-weight:700;color:#000;display:block;margin-bottom:2px}
+
+.approach-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid #D9D9D9;margin-bottom:24px}
+.app-item{padding:26px 24px;border-right:1px solid #D9D9D9;border-bottom:1px solid #D9D9D9}
+.app-item:nth-child(3n){border-right:none}
+.app-item:nth-last-child(-n+3){border-bottom:none}
+.app-n{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:32px;font-weight:900;color:#E3001D;line-height:1;margin-bottom:14px;letter-spacing:-1px}
+.app-item h4{font-size:14px;font-weight:700;color:#000;margin-bottom:8px}
+.app-item p{font-size:12.5px;color:#222;line-height:1.55;margin-bottom:8px}
+.app-item .note{font-size:11px;color:#545454;font-style:italic;line-height:1.5}
+.milestone-row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #D9D9D9;background:#fff}
+.ms-cell{padding:14px 18px;border-right:1px solid #D9D9D9;display:flex;align-items:center;gap:10px}
+.ms-cell:last-child{border-right:none}
+.ms-tick{width:9px;height:9px;background:#008150;border-radius:50%;flex-shrink:0}
+.ms-lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#000}
+
+.flow-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:0;border:1px solid #D9D9D9}
+.flow-col{padding:28px 26px}
+.flow-col.a{border-right:1px solid #D9D9D9}
+.flow-h{font-size:11px;font-weight:700;letter-spacing:2px;color:#E3001D;margin-bottom:14px;text-transform:uppercase}
+.flow-list{list-style:none}
+.flow-list li{font-size:13px;color:#222;line-height:1.55;padding:9px 0;border-bottom:1px solid #D9D9D9;display:flex;gap:10px}
+.flow-list li:last-child{border-bottom:none}
+.flow-list li::before{content:"—";color:#E3001D;font-weight:700;flex-shrink:0}
+.opt-stack{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.opt-row{padding:14px 16px;background:#F5F5F5;border-left:3px solid #E3001D}
+.opt-tag{font-size:10px;font-weight:700;letter-spacing:1.5px;color:#E3001D;text-transform:uppercase;margin-bottom:4px}
+.opt-row .opt-body{font-size:12.5px;color:#222;line-height:1.5}
+.flow-aside{margin-top:18px;padding:14px;border:1px dashed #D9D9D9;font-size:11.5px;color:#545454;line-height:1.5}
+
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #D9D9D9}
+.tm{padding:26px 24px;border-right:1px solid #D9D9D9;border-bottom:1px solid #D9D9D9}
+.tm:nth-child(3n){border-right:none}
+.tm:nth-last-child(-n+3){border-bottom:none}
+.tm-initials{width:46px;height:46px;border-radius:50%;background:#000;color:#fff;font-size:13px;font-weight:700;letter-spacing:1px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.tm.client .tm-initials{background:#E3001D}
+.tm-name{font-size:15px;font-weight:700;color:#000;margin-bottom:5px}
+.tm-role{font-size:10px;font-weight:700;letter-spacing:1.8px;color:#545454;text-transform:uppercase;margin-bottom:12px}
+.tm-bio{font-size:12.5px;color:#222;line-height:1.55}
+.tm .client-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1.5px;color:#fff;background:#E3001D;padding:3px 7px;text-transform:uppercase;margin-bottom:14px}
+
+.price-tables{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.price-tables h3{font-size:11px;font-weight:700;letter-spacing:2px;color:#E3001D;text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #000}
+.price-table{width:100%;border-collapse:collapse;margin-bottom:18px;font-size:13.5px}
+.price-table tr{border-bottom:1px solid #D9D9D9}
+.price-table td{padding:12px 8px;color:#222;vertical-align:top}
+.price-table td:last-child{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.price-table tr.section-head td{font-size:10px;font-weight:700;letter-spacing:1.8px;color:#545454;text-transform:uppercase;padding-top:14px}
+.price-table tr.subtotal td{font-weight:700;color:#000;background:#F5F5F5;border-top:2px solid #000}
+.grand-total{margin-top:36px;padding:34px 30px;border-top:2px solid #000;border-bottom:2px solid #000;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:18px}
+.grand-total-lbl{font-size:11px;font-weight:700;letter-spacing:2.4px;color:#000;text-transform:uppercase}
+.grand-total-num{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:72px;font-weight:900;letter-spacing:-2px;line-height:1;color:#000;font-variant-numeric:tabular-nums}
+.grand-total-meta{font-size:11px;color:#545454;letter-spacing:1.5px;text-transform:uppercase}
+.gt-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid #D9D9D9;margin-top:18px}
+.gt-cell{padding:16px 18px;border-right:1px solid #D9D9D9}
+.gt-cell:last-child{border-right:none}
+.gt-cell .lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;color:#545454;text-transform:uppercase;margin-bottom:6px}
+.gt-cell .val{font-size:18px;font-weight:700;color:#000;font-variant-numeric:tabular-nums}
+.price-note{font-size:11.5px;color:#545454;margin-top:18px;line-height:1.55;max-width:740px;font-style:italic}
+
+.cta-strip{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:48px 80px}
+.cta-btn{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;font-size:14px;font-weight:400;letter-spacing:2.4px;text-transform:uppercase;text-decoration:none;font-family:'Helvetica Neue','Helvetica','Arial',sans-serif}
+.cta-btn.solid{background:#E3001D;color:#fff;border:1px solid #E3001D}
+.cta-btn.solid:hover{background:#b8001a}
+.cta-btn.outline{background:transparent;color:#E3001D;border:1px solid #E3001D}
+.cta-btn.outline:hover{background:#E3001D;color:#fff}
+.cta-btn .suffix{font-size:11px;letter-spacing:1.5px;margin-left:14px}
+.cta-btn.outline .suffix{color:#545454}
+.cta-btn.solid .suffix{color:rgba(255,255,255,.75)}
+
+.timeline{border:1px solid #D9D9D9;margin-bottom:18px}
+.phase-row{display:grid;grid-template-columns:90px 200px 1fr 90px 120px;padding:16px 22px;border-bottom:1px solid #D9D9D9;align-items:center;font-size:12.5px;gap:14px}
+.phase-row:last-child{border-bottom:none}
+.phase-row.head{background:#F5F5F5;font-size:10px;font-weight:700;letter-spacing:1.8px;color:#545454;text-transform:uppercase}
+.phase-row .p-num{font-weight:700;color:#000;font-size:13px}
+.phase-row .p-area{font-weight:700;color:#000}
+.phase-bars{display:grid;grid-template-columns:1fr 2fr 2fr 1fr;gap:3px;height:14px}
+.phase-bar{background:#000;height:100%}
+.phase-row.descoped .phase-bar{background:#545454;background-image:repeating-linear-gradient(135deg,transparent,transparent 4px,#fff 4px,#fff 6px)}
+.phase-row.descoped .p-num,.phase-row.descoped .p-area{color:#545454;text-decoration:line-through}
+.phase-row .p-dur{font-weight:700;color:#000;text-align:right;font-variant-numeric:tabular-nums}
+.phase-row.descoped .p-dur{color:#545454}
+.phase-row .p-overlap{color:#545454;font-size:11px;text-align:right}
+.descoped-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1.5px;color:#fff;background:#E3001D;padding:2px 6px;margin-left:8px;text-transform:uppercase}
+.timeline-aside{font-size:11.5px;color:#545454;line-height:1.55;padding:14px 0}
+
+.tagged-list{list-style:none;border-top:2px solid #000}
+.tagged-row{display:grid;grid-template-columns:36px 1fr 130px;padding:16px 0;border-bottom:1px solid #D9D9D9;align-items:start;gap:16px}
+.tag-n{font-size:14px;font-weight:700;color:#E3001D;font-variant-numeric:tabular-nums}
+.tag-action{font-size:13.5px;color:#222;line-height:1.5}
+.tag-pill{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-align:center;padding:6px 8px;border:1px solid #000;color:#000;align-self:start;justify-self:end;min-width:120px}
+.tag-pill-client{border-color:#E3001D;color:#E3001D}
+
+.collab-banner{display:flex;justify-content:space-between;align-items:center;background:#000;color:#fff;padding:18px 24px;margin-bottom:28px;flex-wrap:wrap;gap:12px;border-left:4px solid #E3001D}
+.cb-l{font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.cb-d{font-size:13px;color:#ccc}
+.collab-form{border:1px solid #D9D9D9;padding:26px;background:#F5F5F5;margin-bottom:30px}
+.cf-h{font-size:11px;font-weight:700;letter-spacing:2px;color:#E3001D;text-transform:uppercase;margin-bottom:16px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+.collab-form input,.collab-form select,.collab-form textarea{width:100%;padding:11px 12px;border:1px solid #D9D9D9;background:#fff;font-size:13px;color:#222;outline:none;border-radius:0}
+.collab-form input:focus,.collab-form select:focus,.collab-form textarea:focus{border-color:#E3001D}
+.collab-form textarea{resize:vertical;min-height:90px;line-height:1.5}
+.cf-help{font-size:10.5px;color:#545454;margin-top:4px}
+.cf-submit{margin-top:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.collab-form button{background:#000;color:#fff;border:none;padding:13px 28px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+.collab-form button:hover:not(:disabled){background:#E3001D}
+.collab-form button:disabled{opacity:.5;cursor:wait}
+.cf-status{font-size:11.5px;font-weight:700}
+.cf-status.err{color:#E3001D}
+.cf-status.ok{color:#008150}
+.collab-thread{display:flex;flex-direction:column;gap:12px}
+.cmt{border:1px solid #D9D9D9;padding:22px 24px;background:#fff;position:relative;padding-right:96px}
+.cmt.pinned{border-left:3px solid #E3001D}
+.cmt-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap;padding-right:96px}
+.cmt-who{font-size:13.5px;font-weight:700;color:#000}
+.cmt-dept{font-size:9.5px;font-weight:700;letter-spacing:1.5px;color:#545454;text-transform:uppercase;margin-left:10px}
+.cmt-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cmt-type{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 8px;border:1px solid currentColor}
+.cmt-type.question{color:#0066b3}
+.cmt-type.clarification{color:#008150}
+.cmt-type.idea{color:#a96b00}
+.cmt-type.concern{color:#E3001D}
+.cmt-date{font-size:10px;font-weight:700;letter-spacing:1.5px;color:#545454;text-transform:uppercase}
+.cmt-body{font-size:13.5px;color:#222;line-height:1.6;white-space:pre-wrap}
+.cmt-del{position:absolute;top:12px;right:12px;background:none;border:1px solid #D9D9D9;color:#545454;font-size:10px;font-weight:700;letter-spacing:1px;padding:5px 9px;cursor:pointer}
+.cmt-del:hover{border-color:#E3001D;color:#E3001D}
+.cmt-del.confirming{background:#E3001D;border-color:#E3001D;color:#fff}
+.collab-empty{text-align:center;padding:32px 18px;color:#545454;font-size:13px;font-style:italic;border:1px dashed #D9D9D9}
+.collab-meetings{margin-top:46px;padding-top:36px;border-top:1px solid #D9D9D9}
+.cm-h{font-size:11px;font-weight:700;letter-spacing:2px;color:#E3001D;text-transform:uppercase;margin-bottom:14px}
+.cm-sub{font-size:13px;color:#545454;margin-bottom:22px;max-width:640px;line-height:1.55}
+.mlog{border:1px solid #D9D9D9;padding:20px 22px;margin-bottom:10px;background:#fff}
+.mlog-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;flex-wrap:wrap;gap:8px}
+.mlog-title{font-size:14px;font-weight:700;color:#000}
+.mlog-date{font-size:10px;font-weight:700;letter-spacing:1.8px;color:#E3001D;text-transform:uppercase}
+.mlog-summ{font-size:13px;color:#222;line-height:1.55}
+
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.diff-item{padding:28px 26px;border-left:3px solid #E3001D;background:#F5F5F5}
+.diff-num{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:32px;font-weight:900;color:#E3001D;line-height:1;margin-bottom:14px}
+.diff-item h4{font-size:15px;font-weight:700;color:#000;margin-bottom:10px}
+.diff-item p{font-size:13px;color:#222;line-height:1.6}
+
+.footer-quote{background:#000;color:#fff;padding:64px 80px;border-left:4px solid #E3001D}
+.footer-quote blockquote{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:26px;font-weight:400;line-height:1.4;max-width:840px;color:#fff;margin-bottom:22px;letter-spacing:-.4px}
+.attr{font-size:11px;font-weight:700;letter-spacing:2px;color:#E3001D;text-transform:uppercase}
+.footer-bar{display:flex;justify-content:space-between;align-items:center;padding:22px 80px;background:#111;color:#545454;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;flex-wrap:wrap;gap:10px}
+.footer-bar a{color:#fff;text-decoration:none}
+.footer-bar a:hover{color:#E3001D}
+
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+
+@media (max-width:900px){
+  .sidebar{position:relative;width:100%;height:auto;border-right:none;border-bottom:1px solid #D9D9D9;padding:20px 24px}
+  .sidebar nav{flex-direction:row;flex-wrap:wrap;gap:12px;margin:16px 0}
+  .sidebar nav a{padding-left:0;margin-left:0;border-left:none}
+  main{margin-left:0}
+  .conf-banner,.hero,.sect,.footer-quote,.footer-bar{padding-left:24px;padding-right:24px}
+  .hero{padding-top:48px;padding-bottom:40px}
+  .hero h1{font-size:54px;letter-spacing:-1.5px}
+  .sect{padding-top:48px;padding-bottom:48px}
+  .stat-strip{grid-template-columns:1fr 1fr}
+  .u-grid,.ledger,.approach-grid,.team-grid,.diff-grid,.flow-grid,.price-tables{grid-template-columns:1fr}
+  .ledger-col.incl,.flow-col.a{border-right:none;border-bottom:1px solid #D9D9D9}
+  .photo-strip{grid-template-columns:1fr}
+  .photo-cell{border-right:none;border-bottom:1px solid #D9D9D9}
+  .phase-row{grid-template-columns:1fr;gap:8px}
+  .tagged-row{grid-template-columns:30px 1fr;gap:12px}
+  .tag-pill{grid-column:1/-1;justify-self:start}
+  .cta-strip{grid-template-columns:1fr;margin:32px 24px}
+  .grand-total-num{font-size:54px}
+  .gt-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="logo">TAG HEUER<span class="underscore"></span><span class="lbco">× LUX BRAND CO.</span></div>
+  <nav>
+    <a href="#overview">01 — Overview</a>
+    <a href="#scope">02 — Scope</a>
+    <a href="#approach">03 — Approach</a>
+    <a href="#workflow">04 — Workflow</a>
+    <a href="#team">05 — Team</a>
+    <a href="#pricing">06 — Pricing</a>
+    <a href="#timeline">07 — Timeline</a>
+    <a href="#next_steps">08 — Next Steps</a>
+    <a href="#collab">09 — Collaboration Log</a>
+    <a href="#guardrails">10 — Guardrails</a>
+  </nav>
+  <div class="sidebar-footer">
+    Springfield, NJ<br>
+    Two-Floor Renovation<br>
+    2026
+    <span class="rc">Rough Costing</span>
+  </div>
+</aside>
+
+<main>
+
+<div class="conf-banner"><span class="dot"></span>Confidential — Working Document — Rough Costing Exercise — Not a Formal Bid<span class="dot"></span></div>
+
+<section class="hero">
+  <div class="hero-label">Rough Costing Exercise — Not a Formal Bid · TAG Heuer Springfield</div>
+  <h1>Springfield, NJ.</h1>
+  <p class="tagline">Two-floor renovation at the TAG Heuer Springfield facility — Floor 1 storage and receiving, Floor 2 watchmaker and jeweler workshop.</p>
+  <div class="meta">
+    <span>lbco.com / tagheuer / springfield-nj / 2026</span>
+    <span>Prepared for Jacquelyn Albano, TAG Heuer</span>
+  </div>
+  <span class="rc-tag">Confidential — Working Document</span>
+</section>
+
+<div class="photo-strip">
+  <div class="photo-cell">
+    <div class="ph-label">Site Walkthrough</div>
+    <div class="ph-title">Off-hours or Matterport</div>
+    <div class="ph-sub">Confidentiality enforced. Staff not informed until leadership greenlight.</div>
+  </div>
+  <div class="photo-cell">
+    <div class="ph-label">Existing Conditions</div>
+    <div class="ph-title">Last reno ~2007</div>
+    <div class="ph-sub">Per plan title block. ACT and finishes dated; salvage where possible.</div>
+  </div>
+  <div class="photo-cell">
+    <div class="ph-label">Documentation</div>
+    <div class="ph-title">No on-site photography</div>
+    <div class="ph-sub">All assets routed through Jacquelyn. Republished after each touchpoint.</div>
+  </div>
+</div>
+
+<!-- 01 OVERVIEW -->
+<div class="sect" id="overview">
+  <div class="sect-num">01</div>
+  <div class="sect-label">Overview</div>
+  <h2>Two floors, ~32,800 SF, four phases at the TAG Heuer Springfield facility.</h2>
+  <p class="sect-sub">Scope reduced from three floors to two per Chris, RVP of Operations. Floor 1 absorbs storage off Floor 2; Floor 2 is rebuilt for the watchmaker and jeweler workstations.</p>
+
+  <div class="stat-strip">
+    <div class="stat-cell"><div class="stat-num">2</div><div class="stat-lbl">Active Floors</div></div>
+    <div class="stat-cell"><div class="stat-num">~32,800</div><div class="stat-lbl">SF Active Scope</div></div>
+    <div class="stat-cell"><div class="stat-num">4</div><div class="stat-lbl">Phases</div></div>
+    <div class="stat-cell"><div class="stat-num">49,200</div><div class="stat-lbl">SF Original Rollup</div></div>
+  </div>
+
+  <p class="lede">Standard hours confirmed on the 4/15 call. Open-shop market. Furniture and stainless workstations excluded — separate vendor.</p>
+
+  <div class="u-grid">
+    <div class="u-card">
+      <div class="u-num">Fact 01 — Scope</div>
+      <h3>Three floors reduced to two.</h3>
+      <p>Chris descoped Floor 3. Active scope is Floor 1 and Floor 2 only. The 49,200 SF rollup is retained in pricing for reference, not as a live number.</p>
+    </div>
+    <div class="u-card">
+      <div class="u-num">Fact 02 — Workflow</div>
+      <h3>Square footage is not the problem.</h3>
+      <p>Goods uncrate on Floor 2, walk down stairs, recrate, then load freight on Floor 1. The freight elevator only serves Floor 1.</p>
+    </div>
+    <div class="u-card">
+      <div class="u-num">Fact 03 — Budget</div>
+      <h3>Aligning leadership on the working number.</h3>
+      <p>President estimated ~$5M. Operations estimated ~$1.5–$2M. Jacquelyn's mandate is a defensible figure before drawings are commissioned.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 02 SCOPE -->
+<div class="sect" id="scope">
+  <div class="sect-num">02</div>
+  <div class="sect-label">Scope</div>
+  <h2>Selective demo, new walls, electrical relocation, finishes — furniture excluded.</h2>
+  <p class="sect-sub">Eight included line items, five excluded. Floor 1 runs ~70% epoxy-painted concrete and ~30% carpeted offices. Floor 2 runs specialty white VCT rubber at watchmaker stations with carpet tile elsewhere.</p>
+
+  <div class="ledger">
+    <div class="ledger-col incl">
+      <div class="ledger-h">Included — Eight Items</div>
+      <ol class="ledger-list">
+        <li><div><strong>Selective demolition</strong>~1 week per floor, standard hours.</div></li>
+        <li><div><strong>New wall construction</strong>250 LF per floor budgeted, pending plan finalization.</div></li>
+        <li><div><strong>Electrical relocation</strong>Lump-sum per floor. No new service, no major upgrades.</div></li>
+        <li><div><strong>Floor 1 flooring</strong>~70% epoxy over concrete, ~30% carpet tile in offices.</div></li>
+        <li><div><strong>Floor 2 flooring</strong>White VCT rubber at watchmaker stations, carpet tile elsewhere.</div></li>
+        <li><div><strong>Paint</strong>Coat throughout renovated areas. No wallpaper.</div></li>
+        <li><div><strong>ACT patching</strong>Salvage and reuse existing grid. Patch around new walls.</div></li>
+        <li><div><strong>Phasing &amp; logistics</strong>Five dumpsters per phase. Freight elevator coordination included.</div></li>
+      </ol>
+    </div>
+    <div class="ledger-col excl">
+      <div class="ledger-h">Excluded — Five Items</div>
+      <ol class="ledger-list">
+        <li><div><strong>Furniture &amp; workstations</strong>Stainless workbenches and jeweler stations under separate vendor scope.</div></li>
+        <li><div><strong>Architectural drawings</strong>$15–$20K allowance, client responsibility if permit triggered.</div></li>
+        <li><div><strong>Floor 3</strong>Descoped per Chris. Retained in rollup for reference only.</div></li>
+        <li><div><strong>Wallpaper</strong>Paint only per client direction.</div></li>
+        <li><div><strong>Permitting</strong>Assumed not required. Sprinkler and electrical thresholds pending electrician review.</div></li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- 03 APPROACH -->
+<div class="sect" id="approach">
+  <div class="sect-num">03</div>
+  <div class="sect-label">Approach</div>
+  <h2>Standard hours confirmed. Four phases. Working document, not static estimate.</h2>
+  <p class="sect-sub">Original off-hours assumption removed on the 4/15 call — daytime work reduces labor premium across all phases. Site walkthrough runs off-hours or via Matterport to preserve confidentiality.</p>
+
+  <div class="approach-grid">
+    <div class="app-item">
+      <div class="app-n">01</div>
+      <h4>Standard hours confirmed.</h4>
+      <p>Demo and construction run on normal hours per Jacquelyn, 4/15 call.</p>
+      <div class="note">Off-hours premium removed from base.</div>
+    </div>
+    <div class="app-item">
+      <div class="app-n">02</div>
+      <h4>Four phases, compressed.</h4>
+      <p>Six-phase rollout collapses to four under revised two-floor scope.</p>
+      <div class="note">1 wk demo / 2 wks build-sand / 2 wks finishes / 1 wk punch.</div>
+    </div>
+    <div class="app-item">
+      <div class="app-n">03</div>
+      <h4>Live working micro-site.</h4>
+      <p>Jacquelyn, Chris, and Brian post asynchronously. Republished after each touchpoint.</p>
+      <div class="note">Section 09 hosts the thread.</div>
+    </div>
+    <div class="app-item">
+      <div class="app-n">04</div>
+      <h4>Off-hours walkthrough.</h4>
+      <p>Site review after hours or Matterport scan for asynchronous review.</p>
+      <div class="note">Confidentiality preserved on the floor.</div>
+    </div>
+    <div class="app-item">
+      <div class="app-n">05</div>
+      <h4>Build spec, not drawings.</h4>
+      <p>Lux produces a build spec to assist the architect. Drawings not yet commissioned.</p>
+      <div class="note">$15–$20K allowance if permit triggered.</div>
+    </div>
+    <div class="app-item">
+      <div class="app-n">06</div>
+      <h4>Furniture handled separately.</h4>
+      <p>Stainless workbenches and jeweler stations procured through separate vendor.</p>
+      <div class="note">GC scope stays clean of FF&amp;E.</div>
+    </div>
+  </div>
+
+  <div class="milestone-row">
+    <div class="ms-cell"><span class="ms-tick"></span><span class="ms-lbl">P1 — Demo</span></div>
+    <div class="ms-cell"><span class="ms-tick"></span><span class="ms-lbl">P2 — Build / Sand</span></div>
+    <div class="ms-cell"><span class="ms-tick"></span><span class="ms-lbl">P3 — Finishes</span></div>
+    <div class="ms-cell"><span class="ms-tick"></span><span class="ms-lbl">P4 — Punch</span></div>
+  </div>
+</div>
+
+<!-- 04 WORKFLOW -->
+<div class="sect" id="workflow">
+  <div class="sect-num">04</div>
+  <div class="sect-label">Workflow Diagnosis</div>
+  <h2>Goods uncrate on Floor 2, walk down stairs, recrate, load freight on Floor 1.</h2>
+  <p class="sect-sub">Square footage is not the problem. The current layout breaks flow between watchmaker, jeweler, polishing, and ops/packaging — and the freight elevator only serves Floor 1. Three master-watchmaker schematics are in play for Floor 2.</p>
+
+  <div class="flow-grid">
+    <div class="flow-col a">
+      <div class="flow-h">Current State — Broken Flow</div>
+      <ul class="flow-list">
+        <li>Watchmaker, jeweler, polishing, and ops/packaging teams not co-located.</li>
+        <li>Freight elevator serves Floor 1 only — no direct lift to Floor 2 workshop.</li>
+        <li>Goods uncrate on Floor 2, walk down stairs, recrate, load freight on Floor 1.</li>
+        <li>Dead inventory zones consume floor area without supporting throughput.</li>
+        <li>Last renovation circa 2007 per plan title block — finishes dated.</li>
+      </ul>
+    </div>
+    <div class="flow-col b">
+      <div class="flow-h">Schematic Alignment — Floor 2</div>
+      <div class="opt-stack">
+        <div class="opt-row">
+          <div class="opt-tag">Option A — Markup</div>
+          <div class="opt-body">Master watchmaker layout, variant one. Pending team review.</div>
+        </div>
+        <div class="opt-row">
+          <div class="opt-tag">Option B — Markup</div>
+          <div class="opt-body">Master watchmaker layout, variant two. Pending team review.</div>
+        </div>
+        <div class="opt-row">
+          <div class="opt-tag">Option C — Markup</div>
+          <div class="opt-body">Master watchmaker layout, variant three. Pending team review.</div>
+        </div>
+      </div>
+      <div class="flow-aside">Team alignment on a single schematic precedes formal drawings. Finalization owned by Jacquelyn and TAG team.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 TEAM -->
+<div class="sect" id="team">
+  <div class="sect-num">05</div>
+  <div class="sect-label">Team</div>
+  <h2>Six contacts across TAG Heuer leadership and Lux Brand Co.</h2>
+  <p class="sect-sub">Jacquelyn Albano leads the engagement on the TAG Heuer side. Luke Shank leads preconstruction for Lux. Chris and Brian are looped in for ongoing operational input.</p>
+
+  <div class="team-grid">
+    <div class="tm client">
+      <span class="client-tag">Client Contact</span>
+      <div class="tm-initials">JA</div>
+      <div class="tm-name">Jacquelyn Albano</div>
+      <div class="tm-role">Project Lead, TAG Heuer</div>
+      <div class="tm-bio">Drives the Springfield engagement and aligns the President's $5M figure with Operations' $1.5–$2M figure.</div>
+    </div>
+    <div class="tm">
+      <div class="tm-initials">LS</div>
+      <div class="tm-name">Luke Shank</div>
+      <div class="tm-role">Principal, Lux Brand Co</div>
+      <div class="tm-bio">Leads preconstruction and budgeting; prior buildouts with Omega and Swatch Group.</div>
+    </div>
+    <div class="tm">
+      <div class="tm-initials">SE</div>
+      <div class="tm-name">Sean</div>
+      <div class="tm-role">Operations, Lux Brand Co</div>
+      <div class="tm-bio">Field operations lead; met Luke on a SuperValu corporate buildout. Active crews in Short Hills.</div>
+    </div>
+    <div class="tm">
+      <div class="tm-initials">CL</div>
+      <div class="tm-name">Claudia</div>
+      <div class="tm-role">Owner's Rep — Miami (Reference)</div>
+      <div class="tm-bio">Ran the TAG Heuer Miami project with Lux. Relationship reference, not active scope here.</div>
+    </div>
+    <div class="tm client">
+      <span class="client-tag">Client Contact</span>
+      <div class="tm-initials">CH</div>
+      <div class="tm-name">Chris</div>
+      <div class="tm-role">RVP Operations, TAG Heuer</div>
+      <div class="tm-bio">Reduced scope from three floors to two. Operational input on phasing and storage absorption.</div>
+    </div>
+    <div class="tm client">
+      <span class="client-tag">Client Contact</span>
+      <div class="tm-initials">BR</div>
+      <div class="tm-name">Brian</div>
+      <div class="tm-role">Stakeholder, TAG Heuer</div>
+      <div class="tm-bio">Added to the working document alongside Chris for operational input as scope refines.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 06 PRICING -->
+<div class="sect" id="pricing">
+  <div class="sect-num">06</div>
+  <div class="sect-label">Pricing</div>
+  <h2>Per-floor build at $1,395,590. Three-floor rollup retained at $4,186,770 grand total.</h2>
+  <p class="sect-sub">Per-floor and three-floor rollup tables shown side by side. Overhead 12%, contingency 5%. Rough costing exercise — Floor 3 retained in rollup for reference only.</p>
+
+  <div class="price-tables">
+    <div>
+      <h3>Table A — Per Floor</h3>
+      <table class="price-table">
+        <tr><td>Labor — Flooring, Paint, ACT (16,400 SF × $56/SF)</td><td>$918,400</td></tr>
+        <tr><td>Electrical Relocation</td><td>$130,000</td></tr>
+        <tr><td>Demolition (16,400 SF × ~$8/SF)</td><td>$131,200</td></tr>
+        <tr><td>Wall Construction (250 LF × $185/LF)</td><td>$46,250</td></tr>
+        <tr><td>Carpet Tiles (16,400 SF × ~$9/SF)</td><td>$147,600</td></tr>
+        <tr><td>Adhesive (15% of carpet)</td><td>$22,140</td></tr>
+        <tr class="subtotal"><td>Per-Floor Subtotal</td><td>$1,395,590</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>Table B — 3-Floor Rollup</h3>
+      <table class="price-table">
+        <tr><td>Labor × 3 floors</td><td>$2,755,200</td></tr>
+        <tr><td>Electrical × 3 floors</td><td>$390,000</td></tr>
+        <tr><td>Demolition × 3 floors</td><td>$393,600</td></tr>
+        <tr><td>Carpet + Adhesive × 3 floors</td><td>$509,220</td></tr>
+        <tr><td>Wall Construction (250 LF × $200/LF)</td><td>$138,750</td></tr>
+        <tr class="subtotal"><td>Rollup Subtotal</td><td>$4,186,770</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="gt-row">
+    <div class="gt-cell"><div class="lbl">Overhead</div><div class="val">12%</div></div>
+    <div class="gt-cell"><div class="lbl">Contingency</div><div class="val">5%</div></div>
+    <div class="gt-cell"><div class="lbl">Active Scope</div><div class="val">Floors 1–2</div></div>
+  </div>
+
+  <div class="grand-total">
+    <div>
+      <div class="grand-total-lbl">Grand Total — 3-Floor Rollup</div>
+      <div class="grand-total-meta">Floor 3 retained for reference only</div>
+    </div>
+    <div class="grand-total-num">$4,186,770</div>
+  </div>
+
+  <p class="price-note">Active scope is Floors 1 and 2. Three-floor rollup retained per Jacquelyn's request to keep both numbers visible while leadership aligns. Furniture, jeweler stations, and architectural drawings excluded.</p>
+</div>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <a class="cta-btn outline" href="https://#">DOWNLOAD SCHEDULE <span class="suffix">(PDF)</span></a>
+  <a class="cta-btn solid" href="https://#">DOWNLOAD COMPLETE BID FORM <span class="suffix">(XLSX)</span></a>
+  <a class="cta-btn outline" href="https://#">VIEW EXISTING SITE PHOTOS <span class="suffix">↗</span></a>
+  <a class="cta-btn outline" href="https://#">OFI ITEM COLLABORATIVE SCHEDULE <span class="suffix">↗</span></a>
+</div>
+
+<!-- 07 TIMELINE -->
+<div class="sect" id="timeline">
+  <div class="sect-num">07</div>
+  <div class="sect-label">Timeline</div>
+  <h2>Four active phases across Floors 1 and 2. Phases 5 and 6 retained as descoped reference.</h2>
+  <p class="sect-sub">Each phase runs 1 week demo, 2 weeks build/sand, 2 weeks finishes, 1 week punch, with ~1 week overlap between phases. Week-of dates pending plan finalization.</p>
+
+  <div class="timeline">
+    <div class="phase-row head">
+      <div>Phase</div><div>Area</div><div>Bars</div><div>Duration</div><div>Overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">P1</div>
+      <div class="p-area">Floor 1 — First Half</div>
+      <div class="phase-bars"><div class="phase-bar"></div><div class="phase-bar"></div><div class="phase-bar"></div><div class="phase-bar"></div></div>
+      <div class="p-dur">8 wks</div>
+      <div class="p-overlap">Start</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">P2</div>
+      <div class="p-area">Floor 1 — Second Half</div>
+      <div class="phase-bars"><div class="phase-bar"></div><div class="phase-bar"></div><div class="phase-bar"></div><div class="phase-bar"></div></div>
+      <div class="p-dur">6 wks</div>
+      <div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">P3</div>
+      <div class="p-area">Floor 2 — First Half</div>
+      <div class="phase-bars"><div class="phase-bar"></div><div class="phase-bar"></div><div class="phase-bar"></div><div class="phase-bar"></div></div>
+      <div class="p-dur">6 wks</div>
+      <div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">P4</div>
+      <div class="p-area">Floor 2 — Second Half</div>
+      <div class="phase-bars"><div class="phase-bar"></div><div class="phase-bar"></div><div class="phase-bar"></div><div class="phase-bar"></div></div>
+      <div class="p-dur">6 wks</div>
+      <div class="p-overlap">~1 wk overlap</div>
+    </div>
+    <div class="phase-row descoped">
+      <div class="p-num">P5</div>
+      <div class="p-area">Floor 3 — First Half<span class="descoped-tag">Descoped</span></div>
+      <div class="phase-bars"><div class="phase-bar"></div><div class="phase-bar"></div><div class="phase-bar"></div><div class="phase-bar"></div></div>
+      <div class="p-dur">5 wks</div>
+      <div class="p-overlap">Reference only</div>
+    </div>
+    <div class="phase-row descoped">
+      <div class="p-num">P6</div>
+      <div class="p-area">Floor 3 — Second Half<span class="descoped-tag">Descoped</span></div>
+      <div class="phase-bars"><div class="phase-bar"></div><div class="phase-bar"></div><div class="phase-bar"></div><div class="phase-bar"></div></div>
+      <div class="p-dur">5 wks</div>
+      <div class="p-overlap">Reference only</div>
+    </div>
+  </div>
+  <div class="timeline-aside">Planning calls scheduled April 2026, Springfield NJ. Week-of dates pending plan finalization.</div>
+</div>
+
+<!-- 08 NEXT STEPS -->
+<div class="sect" id="next_steps">
+  <div class="sect-num">08</div>
+  <div class="sect-label">Next Steps</div>
+  <h2>Ten open items across Jacquelyn, Luke, and the TAG Heuer team.</h2>
+  <p class="sect-sub">Floor plans and second-floor markup to Luke. White VCT rubber spec from Jacquelyn. Sprinkler and electrical thresholds confirmed with Lux electrician to determine permit need.</p>
+
+  <ul class="tagged-list">
+    <li class="tagged-row"><span class="tag-n">01</span><span class="tag-action">Forward floor plans and Floor 2 markup to Luke.</span><span class="tag-pill tag-pill-client">Jacquelyn</span></li>
+    <li class="tagged-row"><span class="tag-n">02</span><span class="tag-action">Schedule off-hours walkthrough or Matterport scan.</span><span class="tag-pill">Luke</span></li>
+    <li class="tagged-row"><span class="tag-n">03</span><span class="tag-action">Introduce Lux to Springfield staff on-site.</span><span class="tag-pill">Luke</span></li>
+    <li class="tagged-row"><span class="tag-n">04</span><span class="tag-action">Confirm wall LF from plans to finalize wall budget.</span><span class="tag-pill">Luke</span></li>
+    <li class="tagged-row"><span class="tag-n">05</span><span class="tag-action">Confirm demo crew size and phasing logistics.</span><span class="tag-pill">Luke</span></li>
+    <li class="tagged-row"><span class="tag-n">06</span><span class="tag-action">Finalize Floor 2 schematic from three master-watchmaker options.</span><span class="tag-pill tag-pill-client">Jacquelyn / TAG</span></li>
+    <li class="tagged-row"><span class="tag-n">07</span><span class="tag-action">Provide white VCT rubber spec for watchmaker stations.</span><span class="tag-pill tag-pill-client">Jacquelyn</span></li>
+    <li class="tagged-row"><span class="tag-n">08</span><span class="tag-action">Scope furniture and workstation vendor independently.</span><span class="tag-pill tag-pill-client">Jacquelyn</span></li>
+    <li class="tagged-row"><span class="tag-n">09</span><span class="tag-action">Confirm sprinkler and electrical permit thresholds.</span><span class="tag-pill">Luke</span></li>
+    <li class="tagged-row"><span class="tag-n">10</span><span class="tag-action">Add Chris and Brian to the working micro-site.</span><span class="tag-pill tag-pill-client">Jacquelyn</span></li>
+  </ul>
+</div>
+
+<!-- 09 COLLABORATION LOG -->
+<div class="sect" id="collab">
+  <div class="sect-num">09</div>
+  <div class="sect-label">Collaboration Log</div>
+  <h2>Live working document — Jacquelyn, Chris, and Brian post asynchronously.</h2>
+  <p class="sect-sub">This micro-site is republished after each touchpoint. Log entries below capture revisions, decisions, and open questions from the TAG Heuer side and the Lux team.</p>
+
+  <div class="collab-banner">
+    <span class="cb-l">Next Review</span>
+    <span class="cb-d">Every 2–3 weeks · off-hours site walkthrough to be scheduled</span>
+  </div>
+
+  <div class="collab-form">
+    <div class="cf-h">Post to Working Document</div>
+    <div class="cf-row">
+      <div>
+        <input id="cfName" type="text" placeholder="Name (e.g., Jacquelyn A.)" maxlength="40">
+        <div class="cf-help">Jacquelyn / Chris / Brian / Luke.</div>
+      </div>
+      <div>
+        <input id="cfDept" type="text" placeholder="Department / role" maxlength="40">
+        <div class="cf-help">Operations, Watchmaking, Lux.</div>
+      </div>
+      <div>
+        <select id="cfType">
+          <option value="question">Question</option>
+          <option value="clarification">Clarification</option>
+          <option value="idea">Idea</option>
+          <option value="concern">Concern</option>
+        </select>
+        <div class="cf-help">Pick the closest fit.</div>
+      </div>
+    </div>
+    <textarea id="cfBody" placeholder="What's the revision, decision, or open question?" maxlength="2000"></textarea>
+    <div class="cf-submit">
+      <button id="cfSend" type="button">Post Note</button>
+      <span class="cf-status" id="cfStatus"></span>
+    </div>
+  </div>
+
+  <div class="collab-thread" id="thread">
+    <div class="collab-empty" id="threadEmpty" style="display:none">No notes yet.</div>
+  </div>
+
+  <div class="collab-meetings">
+    <div class="cm-h">Meeting Log</div>
+    <p class="cm-sub">Each touchpoint produces a short entry — what was decided, what changed in the costing, and what carries to the next review.</p>
+    <div class="mlog">
+      <div class="mlog-head">
+        <div class="mlog-title">Standard hours confirmed; Floor 3 descoped.</div>
+        <div class="mlog-date">04/15/2026</div>
+      </div>
+      <div class="mlog-summ">Jacquelyn confirmed daytime work; off-hours premium removed. Chris reduced active scope to Floors 1 and 2. Three-floor rollup retained for reference.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 10 GUARDRAILS -->
+<div class="sect" id="guardrails">
+  <div class="sect-num">10</div>
+  <div class="sect-label">Guardrails</div>
+  <h2>Furniture excluded from GC scope. Confidentiality on-site enforced.</h2>
+  <p class="sect-sub">Two non-negotiables shaping every decision on Springfield.</p>
+
+  <div class="diff-grid">
+    <div class="diff-item">
+      <div class="diff-num">01</div>
+      <h4>Furniture &amp; specialty equipment excluded.</h4>
+      <p>Stainless steel workbenches and jeweler stations procured through a separate vendor. Lux GC scope stays clean and avoids markup on equipment Lux does not supply.</p>
+    </div>
+seam<div class="diff-item">
+      <div class="diff-num">02</div>
+      <h4>Confidentiality on-site.</h4>
+      <p>All walkthroughs run off-hours or via Matterport. Staff are not informed the renovation is being scoped until leadership greenlights the project.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-quote">
+  <blockquote>"You guys need to work on every project for us going forward. Non negotiable."</blockquote>
+  <div class="attr">Jacquelyn Albano — TAG Heuer</div>
+</div>
+<div class="footer-bar">
+  <span>&copy; 2026 Lux Brand Co · Confidential</span>
+  <span>Prepared for TAG Heuer · Springfield, NJ</span>
+  <a href="mailto:luke@lbco.com">luke@lbco.com</a>
+</div>
+
+</main>
+
+<script>
+const HUB_API_URL = "https://9tqjeqyp0j.execute-api.us-west-2.amazonaws.com";
+const BID_ID = "tagheuer/springfield-nj";
+
+// Fade-in
+document.querySelectorAll('.u-card,.tm,.app-item,.diff-item,.phase-row,.tagged-row,.ledger-col,.flow-col,.opt-row,.stat-cell').forEach(el=>el.classList.add('fade'));
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('in'),i*20);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.1});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('.sidebar nav a').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(id&&id.startsWith('#')){
+      const el=document.querySelector(id);
+      if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
+    }
+  });
+});
+
+// Active nav highlight
+const navLinks=document.querySelectorAll('.sidebar nav a');
+const sections=document.querySelectorAll('.sect[id]');
+const navObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id=e.target.id;
+      navLinks.forEach(a=>{
+        a.classList.toggle('active',a.getAttribute('href')==='#'+id);
+      });
+    }
+  });
+},{rootMargin:'-40% 0px -55% 0px'});
+sections.forEach(s=>navObs.observe(s));
+
+// Analytics + Collab
+(()=>{
+  const SESSION='s'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+  const esc=s=>(s==null?'':String(s)).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const fmtDate=ms=>{try{return new Date(Number(ms)).toLocaleString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit'});}catch{return '';}};
+
+  const post=(path,body)=>fetch(HUB_API_URL+path+'?bid='+encodeURIComponent(BID_ID),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(r=>r.json());
+  const get=(path)=>fetch(HUB_API_URL+path+'?bid='+encodeURIComponent(BID_ID),{headers:{'Content-Type':'application/json'}}).then(r=>r.json());
+  const del=(path)=>fetch(HUB_API_URL+path+'?bid='+encodeURIComponent(BID_ID),{method:'DELETE',headers:{'Content-Type':'application/json'}}).then(r=>r.json());
+
+  const logEvent=(kind,detail)=>{
+    fetch(HUB_API_URL+'/events?bid='+encodeURIComponent(BID_ID),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind,session:SESSION,detail:detail||null})}).catch(()=>{});
+  };
+
+  logEvent('pageview',{path:location.pathname});
+  setInterval(()=>{if(document.visibilityState==='visible')logEvent('heartbeat');},15000);
+
+  const scrollHit={25:false,50:false,75:false,100:false};
+  window.addEventListener('scroll',()=>{
+    const max=document.documentElement.scrollHeight-window.innerHeight;
+    if(max<=0)return;
+    const pct=Math.min(100,Math.round((window.scrollY/max)*100));
+    [25,50,75,100].forEach(m=>{if(pct>=m&&!scrollHit[m]){scrollHit[m]=true;logEvent('scroll_depth',{pct:m});}});
+  },{passive:true});
+
+  const seenSec=new Set();
+  const secObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting&&e.target.id&&!seenSec.has(e.target.id)){
+        seenSec.add(e.target.id);
+        logEvent('section_view',{section:e.target.id});
+      }
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('.sect[id]').forEach(s=>secObs.observe(s));
+
+  document.querySelectorAll('.cta-btn').forEach(a=>{
+    a.addEventListener('click',()=>{
+      const label=(a.textContent||'').trim();
+      logEvent('cta_click',{label});
+      if(/\.pdf|\.xlsx/i.test(a.getAttribute('href')||''))logEvent('pdf_download',{href:a.getAttribute('href')});
+    });
+  });
+
+  const thread=document.getElementById('thread');
+  const threadEmpty=document.getElementById('threadEmpty');
+  const refreshEmpty=()=>{threadEmpty.style.display=thread.querySelectorAll('.cmt').length?'none':'block';};
+
+  const renderComment=c=>{
+    const el=document.createElement('div');
+    el.className='cmt'+(c.pinned?' pinned':'');
+    el.dataset.id=c.id;
+    el.innerHTML=`
+      <button class="cmt-del" data-action="delete">× DELETE</button>
+      <div class="cmt-head">
+        <div class="cmt-who">${esc(c.who)}${c.dept?`<span class="cmt-dept">${esc(c.dept)}</span>`:''}</div>
+        <div class="cmt-meta">
+          <span class="cmt-type ${esc(c.type)}">${esc(c.type)}</span>
+          <span class="cmt-date">${fmtDate(c.created_at)}</span>
+        </div>
+      </div>
+      <div class="cmt-body">${esc(c.body)}</div>`;
+    return el;
+  };
+
+  thread.addEventListener('click',async e=>{
+    const btn=e.target.closest('.cmt-del');
+    if(!btn)return;
+    const card=btn.closest('.cmt');
+    const id=card&&card.dataset.id;
+    if(!id)return;
+    if(!btn.classList.contains('confirming')){
+      btn.classList.add('confirming');
+      btn.textContent='CONFIRM DELETE';
+      setTimeout(()=>{btn.classList.remove('confirming');btn.textContent='× DELETE';},4000);
+      return;
+    }
+    btn.disabled=true;btn.textContent='DELETING…';
+    try{
+      await del('/comments/'+encodeURIComponent(id));
+      card.style.opacity='0.3';
+      setTimeout(()=>{card.remove();refreshEmpty();},300);
+    }catch(err){
+      btn.disabled=false;btn.classList.remove('confirming');btn.textContent='× DELETE';
+    }
+  });
+
+  const loadComments=async()=>{
+    try{
+      const data=await get('/comments');
+      if(!data||!data.ok)return;
+      const list=(data.comments||[]).slice().sort((a,b)=>{
+        if(a.pinned!==b.pinned)return b.pinned?1:-1;
+        return Number(b.created_at)-Number(a.created_at);
+      });
+      thread.querySelectorAll('.cmt').forEach(e=>e.remove());
+      list.forEach(c=>thread.appendChild(renderComment(c)));
+      refreshEmpty();
+    }catch(e){}
+  };
+
+  setInterval(()=>{if(document.visibilityState==='visible')loadComments();},8000);
+  loadComments();
+
+  const btn=document.getElementById('cfSend');
+  const status=document.getElementById('cfStatus');
+  const setStatus=(msg,cls)=>{status.textContent=msg||'';status.className='cf-status'+(cls?' '+cls:'');};
+
+  btn.addEventListener('click',async()=>{
+    const who=document.getElementById('cfName').value.trim();
+    const dept=document.getElementById('cfDept').value.trim();
+    const type=document.getElementById('cfType').value;
+    const body=document.getElementById('cfBody').value.trim();
+    if(who.length<2){setStatus('Add your name.','err');return;}
+    if(body.length<4){setStatus('Add a bit more detail.','err');return;}
+    btn.disabled=true;setStatus('Posting…');
+    try{
+      const res=await post('/comments',{who,dept,type,body});
+      if(res&&res.ok&&res.comment){
+        const first=thread.querySelector('.cmt');
+        const newEl=renderComment(res.comment);
+        if(first)thread.insertBefore(newEl,first);else thread.appendChild(newEl);
+        refreshEmpty();
+        document.getElementById('cfBody').value='';
+        setStatus('Posted.','ok');
+        logEvent('comment_posted',{type});
+        setTimeout(()=>setStatus(''),4000);
+      }else{
+        setStatus('Could not post.','err');
+      }
+    }catch(e){setStatus('Network error.','err');}
+    finally{btn.disabled=false;}
+  });
+})();
+</script>
+
+</body>
+</html>
