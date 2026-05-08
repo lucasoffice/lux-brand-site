@@ -6,7 +6,6 @@
 <title>Download — Lux Brand Co.</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --cream: #faf8f3;
     --ink: #1a1a1a;
@@ -19,75 +18,43 @@
     --tab-font: -apple-system, 'Helvetica Neue', Arial, sans-serif;
     --body-font: -apple-system, 'Helvetica Neue', Arial, sans-serif;
   }
-
   html, body {
-    background: var(--cream);
-    color: var(--ink);
-    font-family: var(--body-font);
-    line-height: 1.5;
-    min-height: 100%;
+    background: var(--cream); color: var(--ink);
+    font-family: var(--body-font); line-height: 1.5; min-height: 100%;
   }
   body { padding: 56px 0 80px; overflow-x: hidden; }
-
   body::after {
-    content: '';
-    position: fixed; inset: 0;
-    pointer-events: none; z-index: 999;
-    opacity: .18;
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 999; opacity: .18;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     mix-blend-mode: multiply;
   }
-
   #top-nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     background: rgba(250, 248, 243, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--mid-soft);
-    padding: 0 40px;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--mid-soft); padding: 0 40px;
   }
   .nav-inner {
     max-width: 1200px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 56px;
+    display: flex; align-items: center; justify-content: space-between; height: 56px;
   }
   .nav-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    font-family: var(--tab-font);
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 0.25em;
-    color: var(--ink);
-    text-transform: uppercase;
-    line-height: 1;
+    display: inline-flex; align-items: center; gap: 12px; text-decoration: none;
+    font-family: var(--tab-font); font-size: 11px; font-weight: 700; letter-spacing: 0.25em;
+    color: var(--ink); text-transform: uppercase; line-height: 1;
   }
-  .nav-brand .logo {
-    width: 28px; height: 28px;
-    display: block; flex-shrink: 0;
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.10));
-  }
+  .nav-brand .logo { width: 28px; height: 28px; display: block; flex-shrink: 0; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.10)); }
   .nav-brand .dot { color: var(--red); }
   .nav-links { display: flex; gap: 36px; }
   .nav-link {
-    font-family: var(--tab-font);
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.25em;
-    color: var(--ink); opacity: 0.5;
-    text-decoration: none; cursor: pointer;
-    padding: 18px 0;
-    position: relative;
-    transition: opacity 0.25s ease;
-    text-transform: uppercase;
+    font-family: var(--tab-font); font-size: 11px; font-weight: 500; letter-spacing: 0.25em;
+    color: var(--ink); opacity: 0.5; text-decoration: none; cursor: pointer;
+    padding: 18px 0; position: relative; transition: opacity 0.25s ease; text-transform: uppercase;
   }
   .nav-link:hover { opacity: 0.85; }
   .nav-link.active { opacity: 1; }
   .nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: 16px; left: 0; right: 0;
-    height: 1px; background: var(--red);
+    content: ''; position: absolute; bottom: 16px; left: 0; right: 0; height: 1px; background: var(--red);
   }
   @media (max-width: 768px) {
     #top-nav { padding: 0 20px; }
@@ -97,242 +64,303 @@
     .nav-brand { font-size: 0; }
     .nav-brand .logo { width: 24px; height: 24px; }
   }
-
   .page { max-width: 760px; margin: 0 auto; padding: 80px 24px 0; }
-
-  .hero { margin-bottom: 48px; text-align: center; }
+  .hero { margin-bottom: 36px; text-align: center; }
   .hero-eyebrow {
-    font-family: var(--tab-font);
-    font-size: 9px; letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--ink); opacity: 0.5;
-    margin-bottom: 18px;
+    font-family: var(--tab-font); font-size: 9px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--ink); opacity: 0.5; margin-bottom: 18px;
   }
   .hero-title {
-    font-family: var(--body-font);
-    font-size: clamp(28px, 4.5vw, 42px);
-    font-weight: 400; line-height: 1.15;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 18px;
+    font-family: var(--body-font); font-size: clamp(28px, 4.5vw, 42px); font-weight: 400;
+    line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 18px;
   }
   .hero-sub {
-    font-family: var(--body-font);
-    font-size: 15px; line-height: 1.7;
-    color: #666; font-weight: 300;
-    max-width: 460px; margin: 0 auto;
+    font-family: var(--body-font); font-size: 15px; line-height: 1.7;
+    color: #666; font-weight: 300; max-width: 460px; margin: 0 auto;
   }
-  .hero-rule {
-    width: 40px; height: 2px;
-    background: var(--red);
-    margin: 24px auto 0;
-    opacity: 0.5;
+  .hero-rule { width: 40px; height: 2px; background: var(--red); margin: 24px auto 0; opacity: 0.5; }
+
+  /* Projects panel */
+  .projects-panel {
+    background: var(--paper); border: 1px solid var(--mid-soft);
+    padding: 18px 20px; margin-bottom: 28px;
   }
+  .projects-panel-head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px;
+  }
+  .projects-panel-title {
+    font-family: var(--tab-font); font-size: 9px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--ink); opacity: 0.7; font-weight: 600;
+  }
+  .projects-panel-toggle {
+    font-family: var(--tab-font); font-size: 9px; letter-spacing: 0.18em;
+    color: var(--red); background: none; border: none;
+    text-transform: uppercase; cursor: pointer; padding: 0;
+  }
+  .projects-panel-toggle:hover { color: var(--red-hover); }
+  .projects-panel-list {
+    display: flex; flex-wrap: wrap; gap: 6px; max-height: 0;
+    overflow: hidden; transition: max-height 0.25s ease;
+  }
+  .projects-panel-list.open { max-height: 400px; overflow-y: auto; }
+  .project-pill {
+    font-family: var(--tab-font); font-size: 9px; letter-spacing: 0.16em;
+    text-transform: uppercase; padding: 4px 10px;
+    border: 1px solid var(--mid-soft); cursor: pointer;
+    background: var(--cream); display: inline-flex; align-items: center; gap: 6px;
+  }
+  .project-pill:hover { border-color: var(--mid); }
+  .project-pill .dot {
+    width: 6px; height: 6px; display: inline-block;
+    background: #5cb85c; border-radius: 50%;
+  }
+  .project-pill .dot.dormant { background: #f0ad4e; }
+  .project-pill .dot.closed { background: #999; }
+  .project-pill .dot.unknown { background: #ccc; }
+  .project-form {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+    padding-top: 12px; border-top: 1px solid var(--mid-soft);
+    align-items: center;
+  }
+  .project-form input, .project-form select {
+    font-family: var(--body-font); font-size: 13px;
+    padding: 6px 8px; border: 1px solid var(--mid-soft);
+    background: var(--cream); outline: none;
+  }
+  .project-form input:focus, .project-form select:focus { border-color: var(--ink); }
+  .project-form input { flex: 1 1 140px; min-width: 0; }
+  .project-form button {
+    font-family: var(--tab-font); font-size: 9px; letter-spacing: 0.18em;
+    text-transform: uppercase; padding: 7px 14px;
+    background: var(--ink); color: var(--cream); border: 1px solid var(--ink);
+    cursor: pointer; font-weight: 500;
+  }
+  .project-form button:hover { background: var(--red); border-color: var(--red); }
 
   /* Search row */
   .search-row { margin-bottom: 24px; position: relative; }
   .search-input {
-    width: 100%;
-    padding: 14px 0 14px 32px;
-    border: none;
-    border-bottom: 1px solid #d4cfc0;
-    background: transparent;
-    outline: none;
-    font-family: var(--body-font);
-    font-size: 16px;
-    color: var(--ink);
-    transition: border-color 0.2s;
-    border-radius: 0;
+    width: 100%; padding: 14px 0 14px 32px;
+    border: none; border-bottom: 1px solid #d4cfc0; background: transparent;
+    outline: none; font-family: var(--body-font); font-size: 16px;
+    color: var(--ink); transition: border-color 0.2s; border-radius: 0;
   }
   .search-input:focus { border-bottom-color: var(--ink); }
   .search-input::placeholder {
-    font-family: var(--tab-font);
-    font-size: 12px; letter-spacing: 0.14em;
+    font-family: var(--tab-font); font-size: 12px; letter-spacing: 0.14em;
     color: #aaa; text-transform: uppercase;
   }
   .search-icon {
-    position: absolute;
-    left: 0; top: 50%;
-    transform: translateY(-50%);
-    width: 18px; height: 18px;
-    pointer-events: none;
-    color: #888;
+    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    width: 18px; height: 18px; pointer-events: none; color: #888;
   }
   .search-spinner {
-    position: absolute;
-    right: 0; top: 50%;
-    transform: translateY(-50%);
+    position: absolute; right: 0; top: 50%; transform: translateY(-50%);
     width: 14px; height: 14px;
-    border: 1.5px solid #d4cfc0;
-    border-top-color: var(--red);
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-    display: none;
+    border: 1.5px solid #d4cfc0; border-top-color: var(--red);
+    border-radius: 50%; animation: spin 0.7s linear infinite; display: none;
   }
   .search-row.searching .search-spinner { display: block; }
   @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
 
-  /* Filters */
   .filters {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    padding-bottom: 28px;
-    border-bottom: 1px solid var(--mid-soft);
-    margin-bottom: 28px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    padding-bottom: 14px; margin-bottom: 18px;
   }
-  @media (max-width: 480px) {
-    .filters { grid-template-columns: 1fr; gap: 0; }
-  }
-  .filter { }
+  @media (max-width: 480px) { .filters { grid-template-columns: 1fr; gap: 0; } }
   .filter-label {
-    display: block;
-    font-family: var(--tab-font);
-    font-size: 9px; letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--ink); opacity: 0.55;
-    margin-bottom: 6px;
+    display: block; font-family: var(--tab-font); font-size: 9px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--ink); opacity: 0.55; margin-bottom: 6px;
   }
   .filter-input {
-    width: 100%;
-    padding: 10px 0;
-    border: none;
-    border-bottom: 1px solid #d4cfc0;
-    background: transparent;
-    outline: none;
-    font-family: var(--body-font);
-    font-size: 15px;
-    color: var(--ink);
-    transition: border-color 0.2s;
-    border-radius: 0;
+    width: 100%; padding: 10px 0; border: none;
+    border-bottom: 1px solid #d4cfc0; background: transparent; outline: none;
+    font-family: var(--body-font); font-size: 15px; color: var(--ink);
+    transition: border-color 0.2s; border-radius: 0;
   }
   .filter-input:focus { border-bottom-color: var(--ink); }
   .filter-input::placeholder {
-    font-family: var(--tab-font);
-    font-size: 11px; letter-spacing: 0.14em;
+    font-family: var(--tab-font); font-size: 11px; letter-spacing: 0.14em;
     color: #aaa; text-transform: uppercase;
   }
   .filter-clear {
-    background: none;
-    border: none;
-    color: var(--red);
-    font-family: var(--tab-font);
-    font-size: 9px; letter-spacing: 0.18em;
-    text-transform: uppercase;
-    cursor: pointer;
-    padding: 0;
-    margin-top: 6px;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    display: none;
+    background: none; border: none; color: var(--red);
+    font-family: var(--tab-font); font-size: 9px; letter-spacing: 0.18em;
+    text-transform: uppercase; cursor: pointer; padding: 0; margin-top: 6px;
+    text-decoration: underline; text-underline-offset: 3px; display: none;
   }
   .filter-clear.show { display: inline-block; }
   .filter-clear:hover { color: var(--red-hover); }
+  .toggles {
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    padding-bottom: 28px; margin-bottom: 28px;
+    border-bottom: 1px solid var(--mid-soft);
+  }
+  .toggle-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--tab-font); font-size: 10px; letter-spacing: 0.18em;
+    color: #666; text-transform: uppercase; cursor: pointer; user-select: none;
+  }
+  .toggle-label input[type="checkbox"] {
+    appearance: none; -webkit-appearance: none;
+    width: 14px; height: 14px;
+    border: 1px solid var(--mid); background: transparent; cursor: pointer;
+    position: relative; border-radius: 0;
+  }
+  .toggle-label input[type="checkbox"]:checked { background: var(--red); border-color: var(--red); }
+  .toggle-label input[type="checkbox"]:checked::after {
+    content: '✓'; position: absolute; color: var(--cream);
+    font-size: 10px; font-weight: 700; top: -1px; left: 1px;
+  }
+  .toggle-label:hover { color: var(--ink); }
 
   #status {
-    text-align: center;
-    font-family: var(--tab-font);
+    text-align: center; font-family: var(--tab-font);
     font-size: 11px; letter-spacing: 0.18em;
-    color: #999; text-transform: uppercase;
-    padding: 56px 20px;
+    color: #999; text-transform: uppercase; padding: 56px 20px;
   }
   #status.err { color: var(--red-emph); text-transform: none; letter-spacing: 0.04em; font-size: 13px; font-weight: 500; }
 
   .file {
-    background: var(--paper);
-    border: 1px solid var(--mid-soft);
-    padding: 26px 28px;
-    margin-bottom: 14px;
+    background: var(--paper); border: 1px solid var(--mid-soft);
+    padding: 26px 28px; margin-bottom: 14px;
     transition: border-color 0.2s, background 0.2s;
     box-shadow: 0 1px 0 rgba(0,0,0,0.02);
   }
-  .file:hover {
-    border-color: var(--mid);
-    background: #f3eddf;
+  .file:hover { border-color: var(--mid); background: #f3eddf; }
+  .file.is-superseded {
+    opacity: 0.62; background: transparent; border-style: dashed;
   }
+  .file.is-superseded .file-name {
+    text-decoration: line-through; text-decoration-color: rgba(26, 26, 26, 0.35); text-decoration-thickness: 1px;
+  }
+  .file.is-dormant { background: #f3f0e8; opacity: 0.85; }
+  .file.is-auto-discovered { border-left: 3px solid #f0ad4e; }
   .file-name {
-    font-family: var(--body-font);
-    font-size: 22px; font-weight: 400;
-    letter-spacing: -0.015em;
-    line-height: 1.25;
-    color: var(--ink);
-    margin-bottom: 8px;
-    word-break: break-word;
+    font-family: var(--body-font); font-size: 22px; font-weight: 400;
+    letter-spacing: -0.015em; line-height: 1.25;
+    color: var(--ink); margin-bottom: 8px; word-break: break-word;
   }
-  .pin {
-    color: var(--red);
-    margin-left: 6px;
-    font-size: 14px;
-    vertical-align: middle;
+  .pin { color: var(--red); margin-left: 6px; font-size: 14px; vertical-align: middle; }
+  .stale-badge, .auto-badge, .dormant-badge {
+    display: inline-block; margin-left: 10px;
+    font-family: var(--tab-font); font-size: 9px; letter-spacing: 0.2em;
+    padding: 3px 10px; vertical-align: middle;
+    text-transform: uppercase; font-weight: 500; border: 1px solid;
   }
+  .stale-badge { color: #999; background: rgba(0, 0, 0, 0.04); border-color: rgba(0, 0, 0, 0.08); }
+  .auto-badge { color: #c87f0a; background: rgba(240, 173, 78, 0.10); border-color: rgba(240, 173, 78, 0.28); }
+  .dormant-badge { color: #c87f0a; background: rgba(240, 173, 78, 0.06); border-color: rgba(240, 173, 78, 0.20); }
+  .closed-badge { color: #777; background: rgba(0, 0, 0, 0.04); border-color: rgba(0, 0, 0, 0.10); }
   .score {
-    display: inline-block;
-    margin-left: 10px;
-    font-family: var(--tab-font);
-    font-size: 9px; letter-spacing: 0.2em;
-    color: var(--red);
-    background: rgba(192, 20, 12, 0.06);
-    padding: 3px 10px;
-    vertical-align: middle;
-    text-transform: uppercase;
-    font-weight: 500;
-    border: 1px solid rgba(192, 20, 12, 0.15);
+    display: inline-block; margin-left: 10px;
+    font-family: var(--tab-font); font-size: 9px; letter-spacing: 0.2em;
+    color: var(--red); background: rgba(192, 20, 12, 0.06);
+    padding: 3px 10px; vertical-align: middle;
+    text-transform: uppercase; font-weight: 500; border: 1px solid rgba(192, 20, 12, 0.15);
   }
   .file-meta {
-    font-family: var(--tab-font);
-    font-size: 10px; letter-spacing: 0.18em;
-    color: #888; text-transform: uppercase;
-    margin-bottom: 14px;
+    font-family: var(--tab-font); font-size: 10px; letter-spacing: 0.18em;
+    color: #888; text-transform: uppercase; margin-bottom: 14px;
   }
   .file-meta .proj {
-    background: var(--mid-soft);
-    padding: 3px 9px;
-    margin-left: 8px;
-    color: var(--ink);
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    cursor: pointer;
+    background: var(--mid-soft); padding: 3px 9px; margin-left: 8px;
+    color: var(--ink); font-weight: 500; letter-spacing: 0.14em; cursor: pointer;
   }
   .file-meta .proj:hover { background: rgba(191, 184, 163, 0.55); }
   .file-meta .arch { cursor: pointer; }
   .file-meta .arch:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
   .file-desc {
-    font-family: var(--body-font);
-    font-size: 14px; line-height: 1.7;
-    color: #555;
-    margin-bottom: 18px;
+    font-family: var(--body-font); font-size: 14px; line-height: 1.7;
+    color: #555; margin-bottom: 12px;
   }
+  .superseded-link, .supersedes-link {
+    font-family: var(--tab-font); font-size: 10px; letter-spacing: 0.16em;
+    color: #666; text-transform: uppercase; margin-bottom: 14px;
+    padding: 8px 12px; background: rgba(0, 0, 0, 0.025);
+    border-left: 2px solid var(--mid); word-break: break-word;
+  }
+  .superseded-link a, .supersedes-link a {
+    color: var(--red); text-decoration: none; cursor: pointer; font-weight: 500;
+  }
+  .superseded-link a:hover, .supersedes-link a:hover { text-decoration: underline; text-underline-offset: 2px; }
   .file-actions { display: flex; gap: 8px; flex-wrap: wrap; }
   .file-actions button, .file-actions a {
-    font-family: var(--tab-font);
-    font-size: 9px; letter-spacing: 0.2em;
+    font-family: var(--tab-font); font-size: 9px; letter-spacing: 0.2em;
     color: var(--ink); text-transform: uppercase;
-    background: var(--cream);
-    border: 1px solid var(--mid);
-    cursor: pointer;
-    padding: 9px 18px;
+    background: var(--cream); border: 1px solid var(--mid);
+    cursor: pointer; padding: 9px 18px;
     transition: background 0.25s, color 0.25s, border-color 0.25s;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-block;
+    font-weight: 500; text-decoration: none; display: inline-block;
   }
   .file-actions button:hover, .file-actions a:hover {
-    background: var(--ink);
-    color: var(--cream);
-    border-color: var(--ink);
+    background: var(--ink); color: var(--cream); border-color: var(--ink);
   }
   .file-actions button.del { border-color: rgba(192, 20, 12, 0.35); color: var(--red); }
-  .file-actions button.del:hover {
-    background: var(--red); color: var(--cream); border-color: var(--red);
-  }
+  .file-actions button.del:hover { background: var(--red); color: var(--cream); border-color: var(--red); }
   .file-actions button:disabled { opacity: 0.5; cursor: not-allowed; }
   .file-id {
     font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 10px;
-    color: #b0b0a8;
-    margin-top: 14px;
-    letter-spacing: 0.02em;
+    font-size: 10px; color: #b0b0a8; margin-top: 14px; letter-spacing: 0.02em;
   }
+
+  /* Modals */
+  .modal-backdrop {
+    position: fixed; inset: 0; background: rgba(26, 26, 26, 0.55);
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    z-index: 1000; display: none;
+    align-items: flex-start; justify-content: center;
+    padding: 80px 20px 40px; overflow-y: auto;
+  }
+  .modal-backdrop.show { display: flex; }
+  .modal {
+    background: var(--cream); border: 1px solid var(--mid);
+    width: 100%; max-width: 640px; padding: 36px;
+    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.18);
+  }
+  .modal h2 { font-family: var(--body-font); font-size: 22px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 4px; }
+  .modal-eyebrow {
+    font-family: var(--tab-font); font-size: 9px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--red); opacity: 0.85; margin-bottom: 14px;
+  }
+  .modal .old-target {
+    font-family: var(--body-font); font-size: 14px; color: #555;
+    padding: 12px 14px; background: var(--paper);
+    border-left: 2px solid var(--red); margin-bottom: 22px; word-break: break-word;
+  }
+  .modal-search {
+    width: 100%; padding: 11px 12px;
+    border: 1px solid var(--mid); background: var(--cream);
+    outline: none; font-family: var(--body-font); font-size: 14px;
+    color: var(--ink); margin-bottom: 16px;
+  }
+  .modal-search:focus { border-color: var(--ink); }
+  .modal-results {
+    max-height: 340px; overflow-y: auto; margin-bottom: 18px;
+    border: 1px solid var(--mid-soft);
+  }
+  .modal-result { padding: 12px 14px; border-bottom: 1px solid var(--mid-soft); cursor: pointer; transition: background 0.15s; }
+  .modal-result:last-child { border-bottom: 0; }
+  .modal-result:hover { background: var(--paper); }
+  .modal-result.selected { background: rgba(192, 20, 12, 0.06); }
+  .modal-result-name { font-family: var(--body-font); font-size: 14px; color: var(--ink); margin-bottom: 3px; word-break: break-word; }
+  .modal-result-meta { font-family: var(--tab-font); font-size: 9px; letter-spacing: 0.16em; color: #888; text-transform: uppercase; }
+  .modal-empty { padding: 20px; text-align: center; font-family: var(--tab-font); font-size: 10px; letter-spacing: 0.18em; color: #999; text-transform: uppercase; }
+  .modal-note-label { display: block; font-family: var(--tab-font); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); opacity: 0.55; margin-bottom: 6px; }
+  .modal-note { width: 100%; padding: 9px 0; border: none; border-bottom: 1px solid #d4cfc0; outline: none; background: transparent; font-family: var(--body-font); font-size: 14px; color: var(--ink); margin-bottom: 22px; }
+  .modal-note:focus { border-bottom-color: var(--ink); }
+  .modal-actions { display: flex; justify-content: flex-end; gap: 10px; }
+  .modal-actions button {
+    font-family: var(--tab-font); font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; padding: 11px 22px;
+    border: 1px solid var(--mid); background: var(--cream); cursor: pointer;
+    font-weight: 500; transition: all 0.2s;
+  }
+  .modal-actions button.primary { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .modal-actions button.primary:hover { background: var(--red); border-color: var(--red); }
+  .modal-actions button.primary:disabled { background: #999; border-color: #999; cursor: not-allowed; }
+  .modal-actions button.secondary:hover { background: var(--paper); }
 </style>
 </head>
 <body>
@@ -364,9 +392,19 @@
   <section class="hero">
     <div class="hero-eyebrow">Brain · File Sharing</div>
     <h1 class="hero-title">What the team has shared.</h1>
-    <p class="hero-sub">Search by what it's about. Pinned files are kept forever. Text-like files can be read inline.</p>
+    <p class="hero-sub">Search by what it's about. Active projects rank above dormant. Files outside the metadata path get flagged.</p>
     <div class="hero-rule"></div>
   </section>
+
+  <div class="projects-panel">
+    <div class="projects-panel-head">
+      <span class="projects-panel-title">Projects · status</span>
+      <button class="projects-panel-toggle" id="projects-toggle">Manage ▾</button>
+    </div>
+    <div class="projects-panel-list" id="projects-list">
+      <div class="modal-empty" style="padding:8px 0;">Loading…</div>
+    </div>
+  </div>
 
   <div class="search-row" id="search-row">
     <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -390,10 +428,43 @@
     </div>
   </div>
 
+  <div class="toggles">
+    <label class="toggle-label">
+      <input type="checkbox" id="show-superseded">
+      Show superseded
+    </label>
+    <label class="toggle-label">
+      <input type="checkbox" id="show-dormant">
+      Show dormant / closed projects
+    </label>
+  </div>
+
   <div id="status">Loading recent files…</div>
   <div id="results"></div>
 
 </main>
+
+<!-- Supersede modal -->
+<div class="modal-backdrop" id="supersede-modal">
+  <div class="modal">
+    <div class="modal-eyebrow">Mark as superseded</div>
+    <h2>Pick the new version</h2>
+    <p style="font-family: var(--body-font); font-size: 13px; color: #666; line-height: 1.6; margin-top: 6px; margin-bottom: 18px;">
+      Both files stay in the brain. The old one will be hidden from default lists and search results.
+    </p>
+    <div class="old-target" id="modal-old-target"></div>
+    <input type="text" id="modal-q" class="modal-search" placeholder="Search files by name or description" autocomplete="off">
+    <div class="modal-results" id="modal-results">
+      <div class="modal-empty">Type to search</div>
+    </div>
+    <label class="modal-note-label" for="modal-note">Note (optional)</label>
+    <input type="text" id="modal-note" class="modal-note" placeholder="e.g. v1.3 → v1.4 (architectural hardening)" autocomplete="off">
+    <div class="modal-actions">
+      <button class="secondary" onclick="closeSupersedeModal()">Cancel</button>
+      <button class="primary" id="modal-confirm" onclick="confirmSupersede()" disabled>Mark superseded</button>
+    </div>
+  </div>
+</div>
 
 <script>
 const $ = id => document.getElementById(id);
@@ -405,19 +476,16 @@ function fmtSize(b) {
   if (b < 1073741824) return (b / 1048576).toFixed(1) + ' MB';
   return (b / 1073741824).toFixed(2) + ' GB';
 }
-
 function fmtDate(iso) {
   if (!iso) return '';
   const d = new Date(iso);
   if (isNaN(d)) return iso;
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
-
 function escHtml(s) {
   return String(s == null ? '' : s).replace(/[&<>"']/g, c =>
     ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
-
 function isTextLike(f) {
   const ct = (f.content_type || '').toLowerCase();
   if (ct.startsWith('text/') || ct.includes('json') || ct.includes('yaml') ||
@@ -427,9 +495,136 @@ function isTextLike(f) {
   );
 }
 
+const fileCache = new Map();
+async function fetchFileMeta(file_id) {
+  if (fileCache.has(file_id)) return fileCache.get(file_id);
+  try {
+    const r = await fetch('/api/list', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ limit: 200, include_superseded: true, include_dormant: true }),
+    });
+    if (!r.ok) return null;
+    const data = await r.json();
+    (data.files || []).forEach(f => fileCache.set(f.file_id, f));
+    return fileCache.get(file_id) || null;
+  } catch { return null; }
+}
+
+// =============================================================
+// PROJECTS PANEL
+// =============================================================
+async function loadProjects() {
+  const listEl = $('projects-list');
+  try {
+    const r = await fetch('/api/projects', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'list' }),
+    });
+    if (!r.ok) {
+      listEl.innerHTML = '<div class="modal-empty" style="padding:8px 0;">Could not load projects</div>';
+      return;
+    }
+    const data = await r.json();
+    const projects = data.projects || [];
+    if (projects.length === 0) {
+      listEl.innerHTML = '<div class="modal-empty" style="padding:8px 0;">No projects yet — bootstrap with action=set</div>';
+      return;
+    }
+    listEl.innerHTML = projects.map(p =>
+      `<span class="project-pill" data-project="${escHtml(p.project)}" data-status="${escHtml(p.status)}">
+        <span class="dot ${escHtml(p.status)}"></span>${escHtml(p.project)} · ${escHtml(p.status)}
+      </span>`
+    ).join('') + `
+      <div class="project-form" id="project-form">
+        <input type="text" id="pf-project" placeholder="Project name" autocomplete="off">
+        <select id="pf-status">
+          <option value="active">active</option>
+          <option value="dormant">dormant</option>
+          <option value="closed">closed</option>
+        </select>
+        <input type="text" id="pf-owner" placeholder="Owner (optional)" autocomplete="off">
+        <button type="button" onclick="saveProject()">Save</button>
+      </div>
+    `;
+    listEl.querySelectorAll('.project-pill').forEach(el => {
+      el.addEventListener('click', () => {
+        const proj = el.dataset.project;
+        const status = el.dataset.status;
+        const next = prompt(`Change status of "${proj}" (current: ${status}) — type one of: active, dormant, closed. Empty cancels:`);
+        if (!next) return;
+        const trimmed = next.trim().toLowerCase();
+        if (!['active','dormant','closed'].includes(trimmed)) {
+          alert('Status must be active, dormant, or closed.');
+          return;
+        }
+        setProject(proj, trimmed);
+      });
+    });
+  } catch (err) {
+    listEl.innerHTML = '<div class="modal-empty" style="padding:8px 0;">Error loading projects: ' + escHtml(err.message) + '</div>';
+  }
+}
+
+async function saveProject() {
+  const proj = $('pf-project').value.trim();
+  const status = $('pf-status').value;
+  const owner = $('pf-owner').value.trim();
+  if (!proj) { alert('Project name required'); return; }
+  await setProject(proj, status, owner);
+  $('pf-project').value = '';
+  $('pf-owner').value = '';
+}
+
+async function setProject(project, status, owner) {
+  let arch = localStorage.getItem('lbco-architect');
+  if (!arch) {
+    arch = prompt('Your name (for audit):');
+    if (!arch) return;
+    arch = arch.trim();
+    localStorage.setItem('lbco-architect', arch);
+  }
+  try {
+    const body = { action: 'set', project, status, requesting_architect: arch };
+    if (owner) body.owner = owner;
+    const r = await fetch('/api/projects', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!r.ok) throw new Error(r.status + ': ' + await r.text());
+    loadProjects();
+    load();
+  } catch (err) {
+    alert('Save failed: ' + err.message);
+  }
+}
+
+$('projects-toggle').addEventListener('click', () => {
+  $('projects-list').classList.toggle('open');
+  $('projects-toggle').textContent = $('projects-list').classList.contains('open') ? 'Hide ▴' : 'Manage ▾';
+});
+
+// =============================================================
+// FILE LIST RENDER
+// =============================================================
 function renderFile(f, score) {
+  fileCache.set(f.file_id, f);
+
   const isPermanent = f.retention === 'permanent';
+  const isSuperseded = !!f.superseded_by;
+  const isAuto = f.provenance === 'auto-discovered';
+  const projStatus = f.project_status || 'unknown';
+  const isDormant = projStatus === 'dormant' || projStatus === 'closed';
+  const supersedes = Array.isArray(f.supersedes) ? f.supersedes : [];
+
   const pin = isPermanent ? '<span class="pin" title="Permanent">📌</span>' : '';
+  const staleBadge = isSuperseded ? '<span class="stale-badge">Superseded</span>' : '';
+  const autoBadge = isAuto ? '<span class="auto-badge" title="Uploaded outside the metadata path">Auto-discovered</span>' : '';
+  const projBadge = projStatus === 'dormant' ? '<span class="dormant-badge">Dormant</span>'
+    : projStatus === 'closed' ? '<span class="closed-badge">Closed</span>'
+    : '';
   const scoreBadge = (score != null) ? '<span class="score">' + (score * 100).toFixed(0) + '% match</span>' : '';
   const proj = f.linked_project
     ? '<span class="proj" data-proj="' + escHtml(f.linked_project) + '">' + escHtml(f.linked_project) + '</span>'
@@ -440,37 +635,87 @@ function renderFile(f, score) {
   const viewBtn = isTextLike(f)
     ? `<button onclick="viewFile('${escHtml(f.file_id)}', this)">View inline</button>`
     : '';
-  return `<div class="file" data-id="${escHtml(f.file_id)}">
-    <div class="file-name">${escHtml(f.filename)}${pin}${scoreBadge}</div>
+  const supersedeBtn = !isSuperseded
+    ? `<button onclick="openSupersedeModal('${escHtml(f.file_id)}', '${escHtml(f.filename).replace(/'/g, '&#39;')}')">Supersede</button>`
+    : '';
+
+  let supersedeBlock = '';
+  if (isSuperseded) {
+    const note = f.superseded_by_note ? ' — ' + escHtml(f.superseded_by_note) : '';
+    supersedeBlock = `<div class="superseded-link">→ Superseded by <a class="superseded-target" data-id="${escHtml(f.superseded_by)}">loading…</a>${note}</div>`;
+  }
+  if (supersedes.length > 0) {
+    const idsHtml = supersedes.map(id =>
+      `<a class="supersedes-target" data-id="${escHtml(id)}">loading…</a>`
+    ).join(', ');
+    supersedeBlock += `<div class="supersedes-link">Replaces: ${idsHtml}</div>`;
+  }
+
+  const classNames = [
+    'file',
+    isSuperseded ? 'is-superseded' : '',
+    isDormant ? 'is-dormant' : '',
+    isAuto ? 'is-auto-discovered' : '',
+  ].filter(Boolean).join(' ');
+
+  return `<div class="${classNames}" data-id="${escHtml(f.file_id)}">
+    <div class="file-name">${escHtml(f.filename)}${pin}${staleBadge}${projBadge}${autoBadge}${scoreBadge}</div>
     <div class="file-meta">
       ${escHtml(fmtDate(f.created_at))} · ${arch} · ${escHtml(fmtSize(f.size_bytes))}${proj}
     </div>
     ${f.description ? '<div class="file-desc">' + escHtml(f.description) + '</div>' : ''}
+    ${supersedeBlock}
     <div class="file-actions">
       <button onclick="dl('${escHtml(f.file_id)}', this)">Download</button>
       ${viewBtn}
+      ${supersedeBtn}
       <button class="del" onclick="del('${escHtml(f.file_id)}', '${escHtml(f.filename).replace(/'/g, '&#39;')}', ${isPermanent})">Delete</button>
     </div>
     <div class="file-id">${escHtml(f.file_id)}</div>
   </div>`;
 }
 
-let activeRequest = 0;
+async function resolveSupersedeLinks() {
+  const targets = document.querySelectorAll('.superseded-target[data-id], .supersedes-target[data-id]');
+  for (const el of targets) {
+    const id = el.dataset.id;
+    const meta = await fetchFileMeta(id);
+    if (meta) {
+      el.textContent = meta.filename || id;
+      el.title = id;
+      el.style.cursor = 'pointer';
+      el.onclick = () => {
+        const card = document.querySelector(`.file[data-id="${id}"]`);
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          card.style.transition = 'background 0.6s';
+          card.style.background = 'rgba(192, 20, 12, 0.08)';
+          setTimeout(() => { card.style.background = ''; }, 1200);
+        } else {
+          $('show-superseded').checked = true;
+          $('show-dormant').checked = true;
+          load();
+        }
+      };
+    } else {
+      el.textContent = id;
+    }
+  }
+}
 
+let activeRequest = 0;
 async function load() {
   const q = $('q').value.trim();
   const proj = $('proj').value.trim();
   const arch = $('arch').value.trim();
+  const includeSuperseded = $('show-superseded').checked;
+  const includeDormant = $('show-dormant').checked;
   const status = $('status'), results = $('results');
 
-  // Toggle clear buttons
   $('proj-clear').classList.toggle('show', !!proj);
   $('arch-clear').classList.toggle('show', !!arch);
 
-  // Show spinner
   $('search-row').classList.add('searching');
-
-  // Track this request — late results from earlier requests get discarded
   const reqId = ++activeRequest;
   status.classList.remove('err');
 
@@ -478,6 +723,8 @@ async function load() {
     const body = q ? { query: q, limit: 25 } : { limit: 50 };
     if (proj) body.linked_project = proj;
     if (arch) body.architect = arch;
+    if (includeSuperseded) body.include_superseded = true;
+    if (includeDormant) body.include_dormant = true;
     const endpoint = q ? '/api/search' : '/api/list';
 
     const r = await fetch(endpoint, {
@@ -485,8 +732,6 @@ async function load() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     });
-
-    // Stale response — newer query already in flight
     if (reqId !== activeRequest) return;
 
     const text = await r.text();
@@ -508,6 +753,7 @@ async function load() {
       const score = item.score != null ? item.score : item._score;
       return renderFile(meta, score);
     }).join('');
+    resolveSupersedeLinks();
   } catch (err) {
     if (reqId !== activeRequest) return;
     $('search-row').classList.remove('searching');
@@ -518,19 +764,16 @@ async function load() {
   }
 }
 
-// Debounced load
 let debounceTimer = null;
 function debouncedLoad(delay = 300) {
   clearTimeout(debounceTimer);
   debounceTimer = setTimeout(load, delay);
 }
-
-// Wire inputs to search-as-you-type
 $('q').addEventListener('input', () => debouncedLoad(300));
 $('proj').addEventListener('input', () => debouncedLoad(350));
 $('arch').addEventListener('input', () => debouncedLoad(350));
-
-// Clear-buttons
+$('show-superseded').addEventListener('change', () => load());
+$('show-dormant').addEventListener('change', () => load());
 $('proj-clear').addEventListener('click', () => {
   $('proj').value = '';
   $('proj-clear').classList.remove('show');
@@ -541,10 +784,8 @@ $('arch-clear').addEventListener('click', () => {
   $('arch-clear').classList.remove('show');
   load();
 });
-
-// Click on architect or project chip in a file card → set filter to that value
 document.addEventListener('click', e => {
-  const projChip = e.target.closest('.proj[data-proj]');
+  const projChip = e.target.closest('.file-meta .proj[data-proj]');
   if (projChip) {
     e.preventDefault();
     $('proj').value = projChip.dataset.proj;
@@ -597,9 +838,7 @@ async function viewFile(file_id, btn) {
     const text = await r.text();
     if (r.status === 415) {
       alert('This is a binary file — use Download instead.');
-      btn.textContent = orig;
-      btn.disabled = false;
-      return;
+      btn.textContent = orig; btn.disabled = false; return;
     }
     if (!r.ok) throw new Error(r.status + ': ' + text);
     const data = JSON.parse(text);
@@ -619,7 +858,6 @@ async function viewFile(file_id, btn) {
 }
 
 async function del(file_id, filename, isPermanent) {
-  // Get architect name (cached after first use)
   let arch = localStorage.getItem('lbco-architect');
   if (!arch) {
     arch = prompt('Your name (for delete audit):');
@@ -627,7 +865,6 @@ async function del(file_id, filename, isPermanent) {
     arch = arch.trim();
     localStorage.setItem('lbco-architect', arch);
   }
-
   let force = false;
   if (isPermanent) {
     const typed = prompt(
@@ -637,15 +874,11 @@ async function del(file_id, filename, isPermanent) {
       'Type the filename exactly to confirm:\n' + filename
     );
     if (typed === null) return;
-    if (typed.trim() !== filename) {
-      alert('Filename did not match. Delete aborted.');
-      return;
-    }
+    if (typed.trim() !== filename) { alert('Filename did not match. Delete aborted.'); return; }
     force = true;
   } else {
     if (!confirm('Delete "' + filename + '"? This cannot be undone.')) return;
   }
-
   try {
     const r = await fetch('/api/delete', {
       method: 'POST',
@@ -659,7 +892,121 @@ async function del(file_id, filename, isPermanent) {
   }
 }
 
+// =============================================================
+// SUPERSEDE MODAL (carried from v1.3)
+// =============================================================
+let supersedeOldId = null;
+let supersedeOldName = null;
+let supersedeSelected = null;
+let supersedeDebounce = null;
+
+function openSupersedeModal(file_id, filename) {
+  supersedeOldId = file_id;
+  supersedeOldName = filename;
+  supersedeSelected = null;
+  $('modal-old-target').textContent = filename + ' (' + file_id + ')';
+  $('modal-q').value = '';
+  $('modal-note').value = '';
+  $('modal-confirm').disabled = true;
+  $('modal-results').innerHTML = '<div class="modal-empty">Type to search</div>';
+  $('supersede-modal').classList.add('show');
+  setTimeout(() => $('modal-q').focus(), 50);
+}
+function closeSupersedeModal() {
+  $('supersede-modal').classList.remove('show');
+  supersedeOldId = null;
+  supersedeSelected = null;
+}
+async function searchForSupersede(q) {
+  const resBox = $('modal-results');
+  if (!q.trim()) {
+    resBox.innerHTML = '<div class="modal-empty">Type to search</div>';
+    return;
+  }
+  resBox.innerHTML = '<div class="modal-empty">Searching…</div>';
+  try {
+    const r = await fetch('/api/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: q.trim(), limit: 12, include_dormant: true }),
+    });
+    if (!r.ok) { resBox.innerHTML = '<div class="modal-empty">Search failed</div>'; return; }
+    const data = await r.json();
+    const items = (data.results || []).filter(x => x.file_id !== supersedeOldId);
+    if (items.length === 0) { resBox.innerHTML = '<div class="modal-empty">No matches</div>'; return; }
+    resBox.innerHTML = items.map(it => `
+      <div class="modal-result" data-id="${escHtml(it.file_id)}" data-name="${escHtml(it.filename || '').replace(/"/g, '&quot;')}">
+        <div class="modal-result-name">${escHtml(it.filename)}</div>
+        <div class="modal-result-meta">
+          ${escHtml(fmtDate(it.created_at))} · ${escHtml(it.architect || 'unknown')}${it.linked_project ? ' · ' + escHtml(it.linked_project) : ''}
+        </div>
+      </div>
+    `).join('');
+    resBox.querySelectorAll('.modal-result').forEach(el => {
+      el.addEventListener('click', () => {
+        resBox.querySelectorAll('.modal-result').forEach(x => x.classList.remove('selected'));
+        el.classList.add('selected');
+        supersedeSelected = { file_id: el.dataset.id, filename: el.dataset.name };
+        $('modal-confirm').disabled = false;
+      });
+    });
+  } catch (err) {
+    resBox.innerHTML = '<div class="modal-empty">Error: ' + escHtml(err.message) + '</div>';
+  }
+}
+$('modal-q').addEventListener('input', e => {
+  clearTimeout(supersedeDebounce);
+  const q = e.target.value;
+  supersedeDebounce = setTimeout(() => searchForSupersede(q), 300);
+});
+$('supersede-modal').addEventListener('click', e => {
+  if (e.target.id === 'supersede-modal') closeSupersedeModal();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && $('supersede-modal').classList.contains('show')) closeSupersedeModal();
+});
+
+async function confirmSupersede() {
+  if (!supersedeOldId || !supersedeSelected) return;
+  let arch = localStorage.getItem('lbco-architect');
+  if (!arch) {
+    arch = prompt('Your name (for audit):');
+    if (!arch) return;
+    arch = arch.trim();
+    localStorage.setItem('lbco-architect', arch);
+  }
+  const confirmed = confirm(
+    'Mark this file as superseded?\n\n' +
+    'OLD: ' + supersedeOldName + '\n' +
+    'NEW: ' + supersedeSelected.filename
+  );
+  if (!confirmed) return;
+  $('modal-confirm').disabled = true;
+  $('modal-confirm').textContent = '…';
+  try {
+    const r = await fetch('/api/supersede', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        file_id: supersedeOldId,
+        superseded_by: supersedeSelected.file_id,
+        requesting_architect: arch,
+        note: $('modal-note').value.trim() || undefined,
+      }),
+    });
+    if (!r.ok) throw new Error(r.status + ': ' + await r.text());
+    closeSupersedeModal();
+    fileCache.clear();
+    load();
+  } catch (err) {
+    alert('Supersede failed: ' + err.message);
+    $('modal-confirm').disabled = false;
+    $('modal-confirm').textContent = 'Mark superseded';
+  }
+}
+
 // Initial load
+loadProjects();
 load();
 </script>
 </body>
