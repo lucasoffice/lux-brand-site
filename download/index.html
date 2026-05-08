@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Browse — Lux Brand Co.</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download — Lux Brand Co.</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -52,12 +52,21 @@
     height: 56px;
   }
   .nav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
     font-family: var(--tab-font);
     font-size: 11px; font-weight: 700;
     letter-spacing: 0.25em;
     color: var(--ink);
-    text-decoration: none;
     text-transform: uppercase;
+    line-height: 1;
+  }
+  .nav-brand .logo {
+    width: 28px; height: 28px;
+    display: block; flex-shrink: 0;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.10));
   }
   .nav-brand .dot { color: var(--red); }
   .nav-links { display: flex; gap: 36px; }
@@ -66,8 +75,7 @@
     font-size: 11px; font-weight: 500;
     letter-spacing: 0.25em;
     color: var(--ink); opacity: 0.5;
-    text-decoration: none;
-    cursor: pointer;
+    text-decoration: none; cursor: pointer;
     padding: 18px 0;
     position: relative;
     transition: opacity 0.25s ease;
@@ -83,10 +91,11 @@
   }
   @media (max-width: 768px) {
     #top-nav { padding: 0 20px; }
-    .nav-inner { height: 48px; }
+    .nav-inner { height: 52px; }
     .nav-link { font-size: 9px; letter-spacing: 0.2em; }
     .nav-links { gap: 22px; }
-    .nav-brand { font-size: 9px; letter-spacing: 0.2em; }
+    .nav-brand { font-size: 0; }
+    .nav-brand .logo { width: 24px; height: 24px; }
   }
 
   .page { max-width: 760px; margin: 0 auto; padding: 80px 24px 0; }
@@ -120,182 +129,229 @@
     opacity: 0.5;
   }
 
-  .search-row {
-    display: flex; gap: 16px;
-    border-bottom: 1px solid var(--ink);
-    padding-bottom: 4px;
-    margin-bottom: 24px;
-  }
+  /* Search row */
+  .search-row { margin-bottom: 24px; position: relative; }
   .search-input {
-    flex: 1;
-    border: none; outline: none;
-    background: transparent;
-    font-family: var(--body-font);
-    font-size: 17px;
-    color: var(--ink);
-    padding: 12px 0;
-  }
-  .search-input::placeholder {
-    font-family: var(--tab-font);
-    font-size: 11px; letter-spacing: 0.14em;
-    color: #aaa; text-transform: uppercase;
-  }
-  .search-go {
-    background: none; border: none;
-    font-family: var(--tab-font);
-    font-size: 10px; letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--ink);
-    cursor: pointer;
-    padding: 0 4px;
-    transition: color 0.2s;
-  }
-  .search-go:hover { color: var(--red); }
-
-  .filters {
-    display: flex; gap: 18px; flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 40px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--mid-soft);
-  }
-  .filter-group { display: flex; align-items: center; gap: 10px; }
-  .filter-label {
-    font-family: var(--tab-font);
-    font-size: 9px; letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #999;
-  }
-  .filter-select {
-    padding: 6px 22px 6px 0;
+    width: 100%;
+    padding: 14px 0 14px 32px;
     border: none;
     border-bottom: 1px solid #d4cfc0;
     background: transparent;
     outline: none;
     font-family: var(--body-font);
-    font-size: 13px;
+    font-size: 16px;
     color: var(--ink);
-    cursor: pointer;
-    -webkit-appearance: none;
-    appearance: none;
+    transition: border-color 0.2s;
     border-radius: 0;
-    background-image:
-      linear-gradient(45deg, transparent 50%, var(--ink) 50%),
-      linear-gradient(135deg, var(--ink) 50%, transparent 50%);
-    background-position: calc(100% - 8px) 12px, calc(100% - 4px) 12px;
-    background-size: 4px 4px, 4px 4px;
-    background-repeat: no-repeat;
   }
-  .filter-select:focus { border-color: var(--ink); }
+  .search-input:focus { border-bottom-color: var(--ink); }
+  .search-input::placeholder {
+    font-family: var(--tab-font);
+    font-size: 12px; letter-spacing: 0.14em;
+    color: #aaa; text-transform: uppercase;
+  }
+  .search-icon {
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 18px; height: 18px;
+    pointer-events: none;
+    color: #888;
+  }
+  .search-spinner {
+    position: absolute;
+    right: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 14px; height: 14px;
+    border: 1.5px solid #d4cfc0;
+    border-top-color: var(--red);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+  .search-row.searching .search-spinner { display: block; }
+  @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
 
-  .files { display: flex; flex-direction: column; gap: 14px; }
+  /* Filters */
+  .filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--mid-soft);
+    margin-bottom: 28px;
+  }
+  @media (max-width: 480px) {
+    .filters { grid-template-columns: 1fr; gap: 0; }
+  }
+  .filter { }
+  .filter-label {
+    display: block;
+    font-family: var(--tab-font);
+    font-size: 9px; letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink); opacity: 0.55;
+    margin-bottom: 6px;
+  }
+  .filter-input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #d4cfc0;
+    background: transparent;
+    outline: none;
+    font-family: var(--body-font);
+    font-size: 15px;
+    color: var(--ink);
+    transition: border-color 0.2s;
+    border-radius: 0;
+  }
+  .filter-input:focus { border-bottom-color: var(--ink); }
+  .filter-input::placeholder {
+    font-family: var(--tab-font);
+    font-size: 11px; letter-spacing: 0.14em;
+    color: #aaa; text-transform: uppercase;
+  }
+  .filter-clear {
+    background: none;
+    border: none;
+    color: var(--red);
+    font-family: var(--tab-font);
+    font-size: 9px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 6px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    display: none;
+  }
+  .filter-clear.show { display: inline-block; }
+  .filter-clear:hover { color: var(--red-hover); }
+
+  #status {
+    text-align: center;
+    font-family: var(--tab-font);
+    font-size: 11px; letter-spacing: 0.18em;
+    color: #999; text-transform: uppercase;
+    padding: 56px 20px;
+  }
+  #status.err { color: var(--red-emph); text-transform: none; letter-spacing: 0.04em; font-size: 13px; font-weight: 500; }
+
   .file {
     background: var(--paper);
     border: 1px solid var(--mid-soft);
-    padding: 24px 28px 22px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    position: relative;
+    padding: 26px 28px;
+    margin-bottom: 14px;
+    transition: border-color 0.2s, background 0.2s;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
   }
   .file:hover {
     border-color: var(--mid);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    background: #f3eddf;
   }
   .file-name {
     font-family: var(--body-font);
-    font-size: 20px; font-weight: 500;
-    letter-spacing: -0.01em;
+    font-size: 22px; font-weight: 400;
+    letter-spacing: -0.015em;
     line-height: 1.25;
     color: var(--ink);
-    word-break: break-word;
     margin-bottom: 8px;
+    word-break: break-word;
   }
-  .file-name .pin {
+  .pin {
     color: var(--red);
     margin-left: 6px;
     font-size: 14px;
     vertical-align: middle;
   }
-  .score-badge {
+  .score {
     display: inline-block;
-    font-family: var(--tab-font);
-    font-size: 9px; letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--red);
     margin-left: 10px;
+    font-family: var(--tab-font);
+    font-size: 9px; letter-spacing: 0.2em;
+    color: var(--red);
+    background: rgba(192, 20, 12, 0.06);
+    padding: 3px 10px;
     vertical-align: middle;
-    font-weight: 600;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 1px solid rgba(192, 20, 12, 0.15);
   }
   .file-meta {
     font-family: var(--tab-font);
-    font-size: 9px; letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #999;
-    margin-bottom: 12px;
+    font-size: 10px; letter-spacing: 0.18em;
+    color: #888; text-transform: uppercase;
+    margin-bottom: 14px;
   }
-  .file-meta .sep { margin: 0 8px; opacity: 0.5; }
   .file-meta .proj {
+    background: var(--mid-soft);
+    padding: 3px 9px;
+    margin-left: 8px;
     color: var(--ink);
-    border-bottom: 1px solid var(--mid);
-    padding-bottom: 1px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    cursor: pointer;
   }
+  .file-meta .proj:hover { background: rgba(191, 184, 163, 0.55); }
+  .file-meta .arch { cursor: pointer; }
+  .file-meta .arch:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
   .file-desc {
     font-family: var(--body-font);
-    font-size: 14px; line-height: 1.6;
-    color: #444;
-    margin-bottom: 16px;
-  }
-  .file-snippet {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 11px; line-height: 1.55;
-    color: #888;
-    padding: 8px 12px;
-    background: rgba(255, 255, 255, 0.4);
-    border-left: 2px solid var(--mid);
-    margin-bottom: 16px;
-    white-space: pre-wrap;
-    word-break: break-word;
-    max-height: 80px; overflow: hidden;
+    font-size: 14px; line-height: 1.7;
+    color: #555;
+    margin-bottom: 18px;
   }
   .file-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-  .file-action {
-    background: none;
-    border: 1px solid var(--mid);
-    color: var(--ink);
+  .file-actions button, .file-actions a {
     font-family: var(--tab-font);
     font-size: 9px; letter-spacing: 0.2em;
-    text-transform: uppercase;
+    color: var(--ink); text-transform: uppercase;
+    background: var(--cream);
+    border: 1px solid var(--mid);
     cursor: pointer;
-    padding: 8px 14px;
+    padding: 9px 18px;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+    font-weight: 500;
     text-decoration: none;
-    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    display: inline-block;
   }
-  .file-action:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
-  .file-action.danger { border-color: rgba(192, 20, 12, 0.3); color: var(--red); }
-  .file-action.danger:hover { background: var(--red); color: var(--cream); border-color: var(--red); }
+  .file-actions button:hover, .file-actions a:hover {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+  }
+  .file-actions button.del { border-color: rgba(192, 20, 12, 0.35); color: var(--red); }
+  .file-actions button.del:hover {
+    background: var(--red); color: var(--cream); border-color: var(--red);
+  }
+  .file-actions button:disabled { opacity: 0.5; cursor: not-allowed; }
   .file-id {
     font-family: ui-monospace, 'SF Mono', Menlo, monospace;
     font-size: 10px;
-    color: #b8b3a3;
-    margin-top: 12px;
-    word-break: break-all;
+    color: #b0b0a8;
+    margin-top: 14px;
+    letter-spacing: 0.02em;
   }
-
-  #status {
-    font-family: var(--tab-font);
-    font-size: 11px; letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #999;
-    text-align: center;
-    padding: 60px 20px;
-  }
-  #status.err { color: var(--red-emph); letter-spacing: 0.06em; text-transform: none; font-size: 13px; }
 </style>
 </head>
 <body>
 
 <nav id="top-nav">
   <div class="nav-inner">
-    <a class="nav-brand" href="https://lbco.com">LUX BRAND CO<span class="dot">.</span></a>
+    <a class="nav-brand" href="https://lbco.com" aria-label="Lux Brand Co. home">
+      <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="100" height="100" fill="#c0140c"/>
+        <rect x="13" y="13" width="74" height="74" fill="none" stroke="#fff" stroke-width="3"/>
+        <g fill="#fff" font-family="-apple-system, 'Helvetica Neue', Arial Black, sans-serif" font-weight="900" text-anchor="middle">
+          <text x="36" y="51" font-size="32">L</text>
+          <text x="64" y="51" font-size="32">B</text>
+          <text x="36" y="83" font-size="32">C</text>
+          <text x="64" y="83" font-size="26">o</text>
+        </g>
+      </svg>
+      <span>LUX BRAND CO<span class="dot">.</span></span>
+    </a>
     <div class="nav-links">
       <a class="nav-link" href="/upload">Upload</a>
       <a class="nav-link active" href="/download">Download</a>
@@ -312,37 +368,30 @@
     <div class="hero-rule"></div>
   </section>
 
-  <div class="search-row">
-    <input class="search-input" type="text" id="q" placeholder="Search by what the file is about — or leave blank to list recent">
-    <button class="search-go" id="go">Search</button>
+  <div class="search-row" id="search-row">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"/>
+      <path d="M21 21l-4.35-4.35"/>
+    </svg>
+    <input type="text" id="q" class="search-input" placeholder="Type to search what the file is about — leave blank for recent" autocomplete="off">
+    <div class="search-spinner" aria-hidden="true"></div>
   </div>
 
   <div class="filters">
-    <div class="filter-group">
-      <span class="filter-label">Project</span>
-      <select class="filter-select" id="proj">
-        <option value="">All</option>
-        <option>Bid Builder</option>
-        <option>GRS Education</option>
-        <option>B2B Sales</option>
-        <option>LuxOI Internal</option>
-        <option>239 Rentals</option>
-        <option>Living Hub</option>
-      </select>
+    <div class="filter">
+      <label class="filter-label" for="proj">Project</label>
+      <input type="text" id="proj" class="filter-input" placeholder="Filter by project name" autocomplete="off">
+      <button type="button" class="filter-clear" id="proj-clear">Clear</button>
     </div>
-    <div class="filter-group">
-      <span class="filter-label">Architect</span>
-      <select class="filter-select" id="arch">
-        <option value="">All</option>
-        <option>brady</option>
-        <option>luke</option>
-        <option>drew</option>
-      </select>
+    <div class="filter">
+      <label class="filter-label" for="arch">Architect</label>
+      <input type="text" id="arch" class="filter-input" placeholder="Filter by name" autocomplete="off">
+      <button type="button" class="filter-clear" id="arch-clear">Clear</button>
     </div>
   </div>
 
   <div id="status">Loading recent files…</div>
-  <div id="results" class="files"></div>
+  <div id="results"></div>
 
 </main>
 
@@ -365,57 +414,65 @@ function fmtDate(iso) {
 }
 
 function escHtml(s) {
-  return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c =>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
-// matches TEXT_TYPES + TEXT_EXTS in get_file_contents Lambda
 function isTextLike(f) {
   const ct = (f.content_type || '').toLowerCase();
-  const textTypes = ['text/', 'application/json', 'application/xml', 'application/javascript',
-                     'application/x-yaml', 'application/yaml', 'application/x-sh', 'application/sql'];
-  if (textTypes.some(t => ct.startsWith(t))) return true;
-  return /\.(txt|md|json|yaml|yml|csv|tsv|log|xml|py|js|ts|tsx|jsx|html|css|scss|sh|sql|toml|ini|cfg|conf|env|tf|hcl)$/i.test(f.filename || '');
+  if (ct.startsWith('text/') || ct.includes('json') || ct.includes('yaml') ||
+      ct.includes('javascript') || ct.includes('xml')) return true;
+  return /\.(md|txt|json|yaml|yml|js|ts|jsx|tsx|py|sh|html|css|csv|log|conf|toml|ini|sql)$/.test(
+    (f.filename || '').toLowerCase()
+  );
 }
 
 function renderFile(f, score) {
   const isPermanent = f.retention === 'permanent';
-  const pin = isPermanent ? '<span class="pin" title="Permanent — kept forever">📌</span>' : '';
-  const scoreBadge = (score != null) ? '<span class="score-badge">' + (score * 100).toFixed(0) + '% match</span>' : '';
-  const proj = f.linked_project && f.linked_project !== 'unassigned'
-    ? '<span class="sep">·</span><span class="proj">' + escHtml(f.linked_project) + '</span>'
+  const pin = isPermanent ? '<span class="pin" title="Permanent">📌</span>' : '';
+  const scoreBadge = (score != null) ? '<span class="score">' + (score * 100).toFixed(0) + '% match</span>' : '';
+  const proj = f.linked_project
+    ? '<span class="proj" data-proj="' + escHtml(f.linked_project) + '">' + escHtml(f.linked_project) + '</span>'
     : '';
-  const snippet = (f.snippet && f.snippet.trim())
-    ? '<div class="file-snippet">' + escHtml(f.snippet) + '</div>'
-    : '';
+  const arch = f.architect
+    ? '<span class="arch" data-arch="' + escHtml(f.architect) + '">' + escHtml(f.architect) + '</span>'
+    : '<span class="arch">unknown</span>';
   const viewBtn = isTextLike(f)
-    ? `<button class="file-action" onclick="viewFile('${escHtml(f.file_id)}', this)">View inline</button>`
+    ? `<button onclick="viewFile('${escHtml(f.file_id)}', this)">View inline</button>`
     : '';
-
-  return `<article class="file" data-id="${escHtml(f.file_id)}">
-    <h3 class="file-name">${escHtml(f.filename)}${pin}${scoreBadge}</h3>
+  return `<div class="file" data-id="${escHtml(f.file_id)}">
+    <div class="file-name">${escHtml(f.filename)}${pin}${scoreBadge}</div>
     <div class="file-meta">
-      ${escHtml(fmtDate(f.created_at))}<span class="sep">·</span>${escHtml(f.architect || 'unknown')}<span class="sep">·</span>${escHtml(fmtSize(f.size_bytes))}${proj}
+      ${escHtml(fmtDate(f.created_at))} · ${arch} · ${escHtml(fmtSize(f.size_bytes))}${proj}
     </div>
     ${f.description ? '<div class="file-desc">' + escHtml(f.description) + '</div>' : ''}
-    ${snippet}
     <div class="file-actions">
-      <button class="file-action" onclick="dl('${escHtml(f.file_id)}', this)">Download</button>
+      <button onclick="dl('${escHtml(f.file_id)}', this)">Download</button>
       ${viewBtn}
-      <button class="file-action danger" onclick="del('${escHtml(f.file_id)}', this.closest('.file').querySelector('.file-name').textContent.trim())">Delete</button>
+      <button class="del" onclick="del('${escHtml(f.file_id)}', '${escHtml(f.filename).replace(/'/g, '&#39;')}', ${isPermanent})">Delete</button>
     </div>
     <div class="file-id">${escHtml(f.file_id)}</div>
-  </article>`;
+  </div>`;
 }
+
+let activeRequest = 0;
 
 async function load() {
   const q = $('q').value.trim();
-  const proj = $('proj').value;
-  const arch = $('arch').value;
+  const proj = $('proj').value.trim();
+  const arch = $('arch').value.trim();
   const status = $('status'), results = $('results');
+
+  // Toggle clear buttons
+  $('proj-clear').classList.toggle('show', !!proj);
+  $('arch-clear').classList.toggle('show', !!arch);
+
+  // Show spinner
+  $('search-row').classList.add('searching');
+
+  // Track this request — late results from earlier requests get discarded
+  const reqId = ++activeRequest;
   status.classList.remove('err');
-  results.innerHTML = '';
-  status.textContent = q ? 'Searching…' : 'Loading recent files…';
-  status.style.display = 'block';
 
   try {
     const body = q ? { query: q, limit: 25 } : { limit: 50 };
@@ -428,27 +485,81 @@ async function load() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     });
+
+    // Stale response — newer query already in flight
+    if (reqId !== activeRequest) return;
+
     const text = await r.text();
     if (!r.ok) throw new Error(r.status + ': ' + text);
     const data = JSON.parse(text);
+    const items = data.files || data.results || data.items || [];
 
-    // list_files → { files: [...] }   |   search_files → { results: [...] }
-    const items = data.files || data.results || [];
+    $('search-row').classList.remove('searching');
 
     if (items.length === 0) {
+      results.innerHTML = '';
+      status.style.display = 'block';
       status.textContent = q ? 'No matches.' : 'No files yet.';
       return;
     }
     status.style.display = 'none';
     results.innerHTML = items.map(item => {
-      const score = (typeof item.score === 'number') ? item.score : null;
-      return renderFile(item, score);
+      const meta = item.file || item.item || item;
+      const score = item.score != null ? item.score : item._score;
+      return renderFile(meta, score);
     }).join('');
   } catch (err) {
+    if (reqId !== activeRequest) return;
+    $('search-row').classList.remove('searching');
+    results.innerHTML = '';
+    status.style.display = 'block';
     status.textContent = 'Failed: ' + err.message;
     status.classList.add('err');
   }
 }
+
+// Debounced load
+let debounceTimer = null;
+function debouncedLoad(delay = 300) {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(load, delay);
+}
+
+// Wire inputs to search-as-you-type
+$('q').addEventListener('input', () => debouncedLoad(300));
+$('proj').addEventListener('input', () => debouncedLoad(350));
+$('arch').addEventListener('input', () => debouncedLoad(350));
+
+// Clear-buttons
+$('proj-clear').addEventListener('click', () => {
+  $('proj').value = '';
+  $('proj-clear').classList.remove('show');
+  load();
+});
+$('arch-clear').addEventListener('click', () => {
+  $('arch').value = '';
+  $('arch-clear').classList.remove('show');
+  load();
+});
+
+// Click on architect or project chip in a file card → set filter to that value
+document.addEventListener('click', e => {
+  const projChip = e.target.closest('.proj[data-proj]');
+  if (projChip) {
+    e.preventDefault();
+    $('proj').value = projChip.dataset.proj;
+    $('proj-clear').classList.add('show');
+    load();
+    return;
+  }
+  const archChip = e.target.closest('.arch[data-arch]');
+  if (archChip) {
+    e.preventDefault();
+    $('arch').value = archChip.dataset.arch;
+    $('arch-clear').classList.add('show');
+    load();
+  }
+});
 
 async function dl(file_id, btn) {
   const orig = btn.textContent;
@@ -463,15 +574,14 @@ async function dl(file_id, btn) {
     const text = await r.text();
     if (!r.ok) throw new Error(r.status + ': ' + text);
     const data = JSON.parse(text);
-    const url = data.download_url;
-    if (!url) throw new Error('No download_url in response');
+    const url = data.download_url || data.url;
+    if (!url) throw new Error('No URL in response');
     window.open(url, '_blank');
   } catch (err) {
     alert('Download failed: ' + err.message);
-  } finally {
-    btn.textContent = orig;
-    btn.disabled = false;
   }
+  btn.textContent = orig;
+  btn.disabled = false;
 }
 
 async function viewFile(file_id, btn) {
@@ -485,68 +595,56 @@ async function viewFile(file_id, btn) {
       body: JSON.stringify({ file_id }),
     });
     const text = await r.text();
-    if (!r.ok) {
-      const errData = (() => { try { return JSON.parse(text); } catch { return null; }})();
-      const msg = errData?.error || text;
-      throw new Error(r.status + ': ' + msg);
+    if (r.status === 415) {
+      alert('This is a binary file — use Download instead.');
+      btn.textContent = orig;
+      btn.disabled = false;
+      return;
     }
+    if (!r.ok) throw new Error(r.status + ': ' + text);
     const data = JSON.parse(text);
-    const contents = data.contents || '';
-    const filename = data.filename || file_id;
-    const truncated = data.truncated;
+    const contents = data.contents || data.body || data.text || JSON.stringify(data, null, 2);
     const w = window.open('', '_blank');
-    w.document.title = filename;
     w.document.write(
-      '<!doctype html><html><head><meta charset="utf-8"><title>' + escHtml(filename) + '</title>' +
-      '<style>body{font-family:ui-monospace,SF Mono,Menlo,monospace;font-size:13px;padding:32px;background:#faf8f3;color:#1a1a1a;line-height:1.6;margin:0;}' +
-      '.head{font-family:-apple-system,Helvetica Neue,Arial,sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#999;margin-bottom:6px;}' +
-      'h1{font-family:-apple-system,Helvetica Neue,Arial,sans-serif;font-size:20px;font-weight:500;letter-spacing:-0.01em;margin-bottom:24px;color:#1a1a1a;}' +
-      '.warn{font-family:-apple-system,Helvetica Neue,Arial,sans-serif;background:#f6f3ec;border-left:3px solid #c0140c;padding:12px 16px;margin-bottom:24px;font-size:13px;color:#444;letter-spacing:0;text-transform:none;}' +
-      'pre{white-space:pre-wrap;word-break:break-word;margin:0;}</style></head><body>' +
-      '<div class="head">Brain · file</div><h1>' + escHtml(filename) + '</h1>' +
-      (truncated ? '<div class="warn">Truncated — showing first ' + (data.bytes_returned || 0).toLocaleString() + ' bytes of ' + (data.size_bytes || 0).toLocaleString() + '. Download for full file.</div>' : '') +
-      '<pre>' + escHtml(contents) + '</pre></body></html>'
+      '<!doctype html><html><head><meta charset="utf-8"><title>' + escHtml(file_id) +
+      '</title><style>body{font-family:ui-monospace,SF Mono,Menlo,monospace;font-size:13px;padding:32px;background:#faf8f3;color:#1a1a1a;line-height:1.55;}pre{white-space:pre-wrap;word-break:break-word;margin:0;max-width:900px;}</style></head><body><pre>' +
+      escHtml(contents) + '</pre></body></html>'
     );
     w.document.close();
   } catch (err) {
     alert('View failed: ' + err.message);
-  } finally {
-    btn.textContent = orig;
-    btn.disabled = false;
   }
+  btn.textContent = orig;
+  btn.disabled = false;
 }
 
-async function del(file_id, filename) {
+async function del(file_id, filename, isPermanent) {
+  if (isPermanent) {
+    alert('"' + filename + '" is permanent. Remove the retention=permanent tag in the AWS console first.');
+    return;
+  }
   let arch = localStorage.getItem('lbco-architect');
   if (!arch) {
     arch = prompt('Your name (for delete audit):');
-    if (!arch || !arch.trim()) return;
+    if (!arch) return;
     arch = arch.trim();
     localStorage.setItem('lbco-architect', arch);
   }
-  if (!confirm('Delete "' + filename + '"?\n\nThis cannot be undone.')) return;
+  if (!confirm('Delete "' + filename + '"? This cannot be undone.')) return;
   try {
     const r = await fetch('/api/delete', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ file_id, requesting_architect: arch }),
     });
-    if (!r.ok) {
-      const text = await r.text();
-      const errData = (() => { try { return JSON.parse(text); } catch { return null; }})();
-      const msg = errData?.error || text;
-      throw new Error(r.status + ': ' + msg);
-    }
+    if (!r.ok) throw new Error(r.status + ': ' + await r.text());
     load();
   } catch (err) {
     alert('Delete failed: ' + err.message);
   }
 }
 
-$('go').addEventListener('click', load);
-$('q').addEventListener('keypress', e => { if (e.key === 'Enter') load(); });
-$('proj').addEventListener('change', load);
-$('arch').addEventListener('change', load);
+// Initial load
 load();
 </script>
 </body>
