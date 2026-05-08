@@ -619,10 +619,7 @@ async function viewFile(file_id, btn) {
 }
 
 async function del(file_id, filename, isPermanent) {
-  if (isPermanent) {
-    alert('"' + filename + '" is permanent. Remove the retention=permanent tag in the AWS console first.');
-    return;
-  }
+  // Get architect name (cached after first use)
   let arch = localStorage.getItem('lbco-architect');
   if (!arch) {
     arch = prompt('Your name (for delete audit):');
@@ -630,12 +627,30 @@ async function del(file_id, filename, isPermanent) {
     arch = arch.trim();
     localStorage.setItem('lbco-architect', arch);
   }
-  if (!confirm('Delete "' + filename + '"? This cannot be undone.')) return;
+
+  let force = false;
+  if (isPermanent) {
+    const typed = prompt(
+      '⚠ PERMANENT FILE\n\n' +
+      'This file is tagged retention=permanent. Deleting it removes it forever ' +
+      'from S3 (all versions) and DynamoDB. This cannot be undone.\n\n' +
+      'Type the filename exactly to confirm:\n' + filename
+    );
+    if (typed === null) return;
+    if (typed.trim() !== filename) {
+      alert('Filename did not match. Delete aborted.');
+      return;
+    }
+    force = true;
+  } else {
+    if (!confirm('Delete "' + filename + '"? This cannot be undone.')) return;
+  }
+
   try {
     const r = await fetch('/api/delete', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ file_id, requesting_architect: arch }),
+      body: JSON.stringify({ file_id, requesting_architect: arch, force }),
     });
     if (!r.ok) throw new Error(r.status + ': ' + await r.text());
     load();
