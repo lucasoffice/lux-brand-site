@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Suit Supply | New York</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"GT America",ui-sans-serif,system-ui,sans-serif;font-size:15px;font-weight:400;line-height:1.62;color:#2D2E2C;background:#FFFFFF;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+a{color:#2D2E2C;text-decoration:none}
+
+.sidebar{position:fixed;left:0;top:0;width:220px;height:100vh;padding:28px 24px;background:#FFFFFF;border-right:1px solid #D9DADA;display:flex;flex-direction:column;z-index:100}
+.logo{font-family:"GT America",ui-sans-serif,system-ui,sans-serif;font-size:19px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;line-height:1.15;color:#2D2E2C;margin-bottom:48px}
+.logo .lbco{display:block;margin-top:8px;font-size:9px;font-weight:500;letter-spacing:0.22em;color:#565656}
+.sidebar nav{display:flex;flex-direction:column}
+.sidebar nav a{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#2D2E2C;padding:7px 0;border-bottom:1px solid #D9DADA;transition:color .18s}
+.sidebar nav a:first-child{border-top:1px solid #D9DADA}
+.sidebar nav a:hover{color:#1C3D7A}
+.sidebar nav a.nav-highlight{color:#1C3D7A}
+.sidebar-footer{margin-top:auto;font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;line-height:1.9}
+.sidebar-footer .rc{display:block;margin-top:10px;color:#2D2E2C}
+
+.main{margin-left:220px;min-height:100vh}
+.runhead{text-align:center;font-size:9px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:#2D2E2C;margin-bottom:32px}
+.conf-banner{text-align:center;font-size:11px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:#2D2E2C;padding:28px 40px 0}
+
+.hero{padding:44px 80px 56px}
+.hero-label{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;margin-bottom:40px}
+.hero h1{font-family:"GT America",ui-sans-serif,system-ui,sans-serif;font-size:104px;font-weight:500;letter-spacing:-0.045em;line-height:0.92;color:#2D2E2C;margin-bottom:24px}
+.hero .tagline{font-size:17px;line-height:1.55;color:#2D2E2C;max-width:600px;margin-bottom:44px}
+.hero .meta{border-top:1px solid #2D2E2C;padding-top:14px;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656}
+.hero .rc-tag{display:none}
+
+.plate{height:300px;background:#2D2E2C;display:flex;align-items:flex-end}
+.plate .pl-in{padding:0 32px 32px}
+.plate .pl-l{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#FFFFFF;margin-bottom:14px}
+.plate .pl-f{font-size:44px;font-weight:500;letter-spacing:-0.04em;line-height:1;color:#FFFFFF}
+.plate .pl-s{margin-top:12px;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#FFFFFF;opacity:.62}
+
+.photo-strip{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #D9DADA}
+.photo-cell{height:250px;background:#F7F7F6;border-right:1px solid #D9DADA;padding:26px;display:flex;flex-direction:column;justify-content:flex-end}
+.photo-cell:last-child{border-right:none}
+.ph-label{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;margin-bottom:10px}
+.ph-title{font-size:19px;font-weight:500;letter-spacing:-0.022em;color:#2D2E2C;margin-bottom:6px}
+.ph-sub{font-size:13px;line-height:1.5;color:#565656}
+
+.sect{padding:60px 80px 68px;border-top:1px solid #D9DADA}
+.sect-num{font-size:11px;font-weight:500;letter-spacing:0.18em;color:#1C3D7A;margin-bottom:10px}
+.sect-label{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;margin-bottom:16px}
+.sect h2{font-family:"GT America",ui-sans-serif,system-ui,sans-serif;font-size:34px;font-weight:500;letter-spacing:-0.022em;line-height:1.14;color:#2D2E2C;max-width:900px;margin-bottom:14px}
+.sect p.sect-sub{font-size:15px;line-height:1.62;color:#565656;max-width:660px;margin-bottom:38px}
+.sect p{font-size:15px;line-height:1.62}
+
+.factstrip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #D9DADA;border-bottom:1px solid #D9DADA;margin-bottom:40px}
+.fact{padding:20px 22px 22px;border-right:1px solid #D9DADA}
+.fact:last-child{border-right:none}
+.fact .fl{display:block;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;margin-bottom:10px}
+.fact .fv{display:block;font-size:21px;font-weight:500;letter-spacing:-0.022em;color:#2D2E2C;line-height:1.2}
+.fact p{font-size:13px;line-height:1.5;color:#565656;margin-top:9px}
+
+.ov-body{display:grid;grid-template-columns:1fr 220px;gap:48px;margin-bottom:46px}
+.ov-cols{columns:2;column-gap:40px}
+.ov-cols p{max-width:34em;margin-bottom:14px}
+.ov-cols p strong{font-weight:500}
+.rail .rail-h{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;padding-bottom:10px;border-bottom:1px solid #2D2E2C}
+.rail dl{margin:0}
+.rail dt{font-size:13px;font-weight:500;line-height:1.45;padding:12px 0 4px}
+.rail dd{font-size:12px;line-height:1.45;color:#565656;padding-bottom:12px;border-bottom:1px solid #D9DADA}
+
+.u-grid{display:grid;grid-template-columns:1fr;border-top:1px solid #D9DADA}
+.u-card{display:grid;grid-template-columns:34% 1fr;gap:40px;padding:20px 0;border-bottom:1px solid #D9DADA}
+.u-num{font-size:11px;font-weight:500;letter-spacing:0.18em;color:#1C3D7A;margin-bottom:8px}
+.u-card h3{font-size:17px;font-weight:500;letter-spacing:-0.02em;line-height:1.3;color:#2D2E2C}
+.u-card p{color:#2D2E2C;max-width:44em}
+
+.qty{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #D9DADA;border-bottom:1px solid #D9DADA;margin-bottom:44px}
+.qty div{padding:20px;border-right:1px solid #D9DADA}
+.qty div:last-child{border-right:none}
+.qty .qv{display:block;font-size:27px;font-weight:500;letter-spacing:-0.03em;color:#2D2E2C;line-height:1.1;margin-bottom:10px}
+.qty .ql{display:block;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;line-height:1.6}
+
+.scope-grid{display:grid;grid-template-columns:1fr;gap:48px}
+.scope-h{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;padding-bottom:12px;border-bottom:2px solid #2D2E2C}
+.scope-col dl{margin:0;max-width:72em}
+.scope-col dt{font-size:16px;font-weight:500;letter-spacing:-0.015em;padding-top:18px;display:flex;align-items:center;gap:9px}
+.scope-col dd{font-size:14px;line-height:1.55;color:#565656;padding:5px 0 18px;border-bottom:1px solid #D9DADA}
+.scope-col.excl dt{font-weight:400;color:#565656}
+.scope-col.excl dt .dash{color:#2D2E2C;font-size:12px}
+.chip{width:8px;height:8px;display:inline-block;border-radius:0;flex:none}
+.c-navy{background:#1C3D7A}.c-tan{background:#C2B280}.c-brown{background:#3D2314}.c-olive{background:#2E7D46}.c-cream{background:#EDE8DE}
+
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px 48px}
+.app-item{border-top:1px solid #D9DADA;padding-top:16px}
+.app-n{font-size:11px;font-weight:500;letter-spacing:0.18em;color:#1C3D7A;margin-bottom:10px}
+.app-item h3{font-size:19px;font-weight:500;letter-spacing:-0.02em;line-height:1.25;margin-bottom:9px}
+.app-item p{font-size:15px;line-height:1.6;color:#2D2E2C}
+.pull{margin-top:40px;border-top:1px solid #D9DADA;padding-top:18px;font-size:15px;font-weight:500;line-height:1.5;max-width:30em}
+
+.allow{width:100%;border-collapse:collapse;background:#F7F7F6}
+.allow th{text-align:left;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#2D2E2C;padding:14px 18px;border-bottom:1px solid #D9DADA}
+.allow th:last-child,.allow td:last-child{text-align:right}
+.allow td{padding:15px 18px;border-bottom:1px solid #D9DADA;vertical-align:top}
+.allow td.a-name{font-size:16px;font-weight:500;letter-spacing:-0.015em;width:32%}
+.allow td.a-basis{font-size:14px;line-height:1.5;color:#565656}
+.allow td.a-carr{font-size:14px;font-weight:500;width:24%}
+.mk{display:inline-block;width:2px;height:9px;background:#1C3D7A;margin-left:9px}
+.tnote{font-size:13px;line-height:1.5;color:#565656;margin-top:16px;max-width:60em}
+
+.own-top{display:grid;grid-template-columns:1fr 220px;gap:48px}
+.own-h{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;padding-bottom:12px;border-bottom:2px solid #2D2E2C}
+.own-l{margin:0}
+.own-l dt{font-size:16px;font-weight:500;letter-spacing:-0.015em;padding-top:16px;display:flex;align-items:center;gap:9px}
+.own-l dd{font-size:14px;line-height:1.55;color:#565656;padding:4px 0 16px;border-bottom:1px solid #D9DADA}
+.origins p{font-size:14px;line-height:1.45;padding:11px 0;border-bottom:1px solid #D9DADA;color:#2D2E2C}
+.flags{margin-top:38px;border-top:1px solid #D9DADA;padding-top:6px}
+.flag{font-size:14px;line-height:1.5;padding:12px 0;border-bottom:1px solid #D9DADA;color:#2D2E2C}
+.flag .em{color:#1C3D7A;font-weight:500;margin-right:8px}
+
+.team-grid{display:grid;grid-template-columns:1fr;gap:48px}
+.team-grid h3.grp{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;border-top:2px solid #2D2E2C;padding-top:12px}
+.tm{padding:24px 0;border-bottom:1px solid #D9DADA}
+.tm .initials{font-size:10px;font-weight:500;letter-spacing:0.18em;color:#1C3D7A;margin-bottom:8px}
+.tm h4{font-size:18px;font-weight:500;letter-spacing:-0.02em;color:#2D2E2C;margin-bottom:6px}
+.tm .role{font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#565656;margin-bottom:12px}
+.tm p{font-size:15px;line-height:1.6;max-width:68ch}
+.tm .assigned{margin-top:10px;font-size:13px;font-weight:500;line-height:1.5}
+.tm.ref{border-left:2px solid #1C3D7A;padding-left:16px}
+.ctag{font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;margin-left:10px}
+
+.price-table{width:100%;border-collapse:collapse}
+.price-table th{text-align:left;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#2D2E2C;padding:0 0 12px;border-bottom:1px solid #D9DADA}
+.price-table th:last-child,.price-table td:last-child{text-align:right}
+.price-table td{padding:13px 0;border-bottom:1px solid #D9DADA;font-size:15px;vertical-align:top}
+.price-table td.p-item{font-weight:500;width:28%}
+.price-table td.p-note{font-size:13px;line-height:1.45;color:#565656;padding-right:24px}
+.price-table td.p-amt{white-space:nowrap;width:18%}
+.price-table tr.section-head td{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;padding:26px 0 10px;border-bottom:1px solid #D9DADA}
+.price-table tr.subtotal td{font-size:16px;font-weight:500;border-top:1px solid #2D2E2C;border-bottom:none;padding-top:15px}
+.price-table tr.total{background-color:#2D2E2C}
+.price-table tr.total td{border-bottom:none;padding:28px 24px;color:#FFFFFF}
+.price-table tr.total td.tl{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;vertical-align:middle}
+.price-table tr.total td.tf{font-size:34px;font-weight:500;letter-spacing:-0.035em;vertical-align:middle}
+.price-note{font-size:13px;line-height:1.5;color:#565656;margin-top:14px}
+.dl-btn{display:inline-block;background:#2D2E2C;color:#FFFFFF;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;padding:15px 32px;margin-top:26px}
+
+.bars{margin-bottom:32px}
+.bar-track{position:relative;height:6px;background:#F7F7F6;margin-bottom:8px}
+.bar-fill{position:absolute;top:0;height:6px;background:#2D2E2C}
+.bar-ends{display:flex;justify-content:space-between;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;margin-top:14px}
+.timeline{display:grid;grid-template-columns:1fr}
+.phase-row{display:grid;grid-template-columns:1.1fr 1fr 2fr .6fr 1fr;gap:24px;padding:18px 0;border-bottom:1px solid #D9DADA}
+.phase-row.head{padding:0 0 12px;border-bottom:1px solid #2D2E2C;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656}
+.p-num{font-size:11px;font-weight:500;letter-spacing:0.18em;color:#1C3D7A;margin-bottom:7px}
+.phase-row h4{font-size:17px;font-weight:500;letter-spacing:-0.02em;line-height:1.25}
+.p-area{font-size:14px;color:#565656;line-height:1.5}
+.p-work{font-size:14px;line-height:1.5}
+.p-dur{font-size:16px;font-weight:500;text-align:right}
+.p-overlap{font-size:13px;line-height:1.45;color:#565656}
+.timeline-total{background:#2D2E2C;padding:22px 24px;margin-top:24px}
+.timeline-total .tt-r{font-size:13px;line-height:1.5;color:#FFFFFF}
+
+.ns-list{border-top:2px solid #2D2E2C;display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.ns-row{padding:18px 0;border-bottom:1px solid #D9DADA}
+.ns-n{font-size:11px;font-weight:500;letter-spacing:0.18em;color:#1C3D7A;margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.ns-action{font-size:15px;line-height:1.55;color:#2D2E2C;max-width:62ch}
+.ns-owner{margin-top:9px;font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#565656}
+.ns-row.pinned{grid-column:1 / -1;border-top:2px solid #2D2E2C;margin-top:32px;padding-top:22px}
+.ns-row.pinned .ns-action{font-size:19px;font-weight:500;letter-spacing:-0.02em;line-height:1.3}
+
+.diff-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.diff-item{background:#F7F7F6;border-left:2px solid #1C3D7A;padding:28px;border-radius:0}
+.diff-num{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#565656;margin-bottom:12px}
+.diff-item h4{font-size:19px;font-weight:500;letter-spacing:-0.02em;margin-bottom:10px;color:#2D2E2C}
+.diff-item p{font-size:15px;line-height:1.6}
+
+.footer-quote{background:#2D2E2C;padding:76px 80px}
+.footer-quote blockquote{font-size:26px;font-weight:500;letter-spacing:-0.03em;line-height:1.34;color:#FFFFFF;max-width:20em;margin-bottom:24px}
+.footer-quote .attr{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#FFFFFF;opacity:.62}
+.footer-bar{background:#2D2E2C;border-top:1px solid #565656;padding:26px 80px;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center}
+.footer-bar span,.footer-bar a{font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#FFFFFF;opacity:.7}
+.footer-bar span:nth-child(2){text-align:center}
+.footer-bar a{text-align:right;opacity:1}
+
+.fade{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .sidebar{position:static;width:100%;height:auto;border-right:none;border-bottom:1px solid #D9DADA;padding:22px}
+  .logo{margin-bottom:24px}
+  .main{margin-left:0}
+  .hero{padding:28px 22px 40px}
+  .hero h1{font-size:40px}
+  .plate{height:220px}
+  .sect{padding:44px 22px 48px}
+  .sect h2{font-size:26px}
+  .photo-strip,.factstrip,.qty,.ov-body,.own-top,.approach-grid,.ns-list,.u-card,.diff-grid,.team-grid{grid-template-columns:1fr}
+  .fact,.qty div{border-right:none;border-bottom:1px solid #D9DADA}
+  .ov-cols{columns:1}
+  .phase-row{grid-template-columns:1fr;gap:8px}
+  .p-dur{text-align:left}
+  .footer-quote{padding:44px 22px}
+  .footer-quote blockquote{font-size:21px}
+  .footer-bar{grid-template-columns:1fr;gap:8px}
+  .footer-bar span:nth-child(2),.footer-bar a{text-align:left}
+}
+</style></head><body>
+
+<div class="sidebar">
+  <div class="logo">SUIT SUPPLY<span class="lbco">LUX BRAND CO.</span></div>
+  <nav>
+    <a href="#overview">Overview</a>
+    <a href="#scope">Scope of Work</a>
+    <a href="#approach">How Built</a>
+    <a href="#allowances">Allowances</a>
+    <a href="#owner_supply">Owner Supply</a>
+    <a href="#team">Project Team</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#timeline">Schedule</a>
+    <a href="#next_steps">Open Items</a>
+    <a href="#guardrails">Guardrails</a>
+  </nav>
+  <div class="sidebar-footer">The Mall at Short Hills<br>Space #D-232<br>Union job site<span class="rc">LBCo 25021 &middot; v1.7</span></div>
+</div>
+
+<div class="main">
+
+  <div class="conf-banner">LUX BRAND COMPANY &middot; SUIT SUPPLY SHORT HILLS</div>
+
+  <div class="hero">
+    <div class="hero-label">Bid Proposal / LBCo 25021 / Suit Supply Short Hills Pop-Up</div>
+    <h1>Short Hills</h1>
+    <p class="tagline">Union build-out of the Suit Supply pop-up at Space #D-232, 5,644 SF, mobilized August 17, open October 16.</p>
+    <div class="meta">5,644 SF &middot; Space #D-232 &middot; The Mall at Short Hills, NJ &middot; Aug 17 &ndash; Oct 16, 2026 &middot; Union site &middot; v1.7</div>
+  </div>
+
+  <div class="plate">
+    <div class="pl-in">
+      <div class="pl-l">Lump sum &middot; cost of work plus 13.1 percent</div>
+      <div class="pl-f">$554,499.96</div>
+      <div class="pl-s">No contingency carried &middot; ten named allowance lines &middot; nine weeks general conditions</div>
+    </div>
+  </div>
+
+  <div class="photo-strip">
+    <div class="photo-cell">
+      <div class="ph-label">Site visit</div>
+      <div class="ph-title">Space #D-232</div>
+      <div class="ph-sub">Walked June 2026 with the Club Monaco fit-out in place. Photography held pending landlord release.</div>
+    </div>
+    <div class="photo-cell">
+      <div class="ph-label">Existing conditions</div>
+      <div class="ph-title">Storefront elevation</div>
+      <div class="ph-sub">34'-7" of frontage scaled at roughly 10'-2" floor to head. No dimensioned elevation issued.</div>
+    </div>
+    <div class="photo-cell">
+      <div class="ph-label">Existing conditions</div>
+      <div class="ph-title">Wood floor field</div>
+      <div class="ph-sub">Roughly 3,900 SF of board flooring to be patched, sanded to bare wood and oiled.</div>
+    </div>
+  </div>
+
+  <!-- 01 -->
+  <div class="sect fade" id="overview">
+    <div class="runhead">LUX BRAND COMPANY &middot; SUIT SUPPLY SHORT HILLS</div>
+    <div class="sect-num">01</div>
+    <div class="sect-label">Project Overview</div>
+    <h2>Nine weeks from the August 17 mobilization to the October 16 opening at Space #D-232.</h2>
+    <p class="sect-sub">The Mall at Short Hills tenant space trades while the flagship is renovated. Executive direction moved construction start from September 1 to August 17 and the opening from November 1 to October 16, 2026, with tear-down April 1, 2027.</p>
+
+    <div class="factstrip">
+      <div class="fact"><span class="fl">Tenant area</span><span class="fv">5,644 SF</span><p>Confirmed authoritative by H&eacute;l&egrave;ne Tran over the 5,600 and 5,668 SF figures in circulation.</p></div>
+      <div class="fact"><span class="fl">Address</span><span class="fv">Space #D-232</span><p>The Mall at Short Hills, NJ. Temporary store trading during the flagship renovation.</p></div>
+      <div class="fact"><span class="fl">Dates</span><span class="fv">Aug 17 &rarr; Oct 16</span><p>Start August 17, 2026. Open October 16, 2026. Tear-down April 1, 2027.</p></div>
+      <div class="fact"><span class="fl">Conditions</span><span class="fv">Union job site</span><p>Nine weeks of general conditions with superintendent and project manager carried.</p></div>
+    </div>
+
+    <div class="ov-body">
+      <div class="ov-cols">
+        <p><strong>Complete interior build-out</strong> of the Suit Supply temporary pop-up at Space #D-232, a 5,644 SF tenant space at The Mall at Short Hills. LUX Brand Company carries every hard construction trade outside millwork supply: selective demolition per HBC D-101, new drywall partitions, headers, ceilings, soffits and column wraps, platform and curb framing, carpentry and trim, and the GC-built shopwindow block, display-window plinths and MRC.01 mirror-cladding substrate.</p>
+        <p>Receipt and installation of all owner-supplied millwork is carried, roughly 30 furniture pieces plus 22 built-ins including 18 Suitwave units. Mirrors and glazing run to about 767 SF including 16 LED units. Wallcovering installation covers about 4,985 SF with paper supplied by Suit Supply, the storefront is repainted black, and about 3,900 SF of board flooring is sanded to bare wood for Saicos Ecoline. Electrical, fire protection head replacement, signage installation and FF&amp;E logistics complete the package.</p>
+      </div>
+      <div class="rail">
+        <div class="rail-h">Governing documents</div>
+        <dl>
+          <dt>HBC &mdash; Issue for Permit, LL Review, Bid Set</dt><dd>07/01/2026. Governs for permit and construction.</dd>
+          <dt>Puur+ Complete Set 12-06</dt><dd>Design intent, finishes, millwork.</dd>
+          <dt>Site Visit &mdash; Short Hills</dt><dd>June 2026.</dd>
+          <dt>LBCo_25021_Bid_Proposal_Suitsupply_ShortHills_v1_7.pdf</dt><dd>This proposal, revision 1.7.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="sect-label">Understanding</div>
+    <div class="u-grid">
+      <div class="u-card">
+        <div><div class="u-num">01</div><h3>Schedule was accelerated two weeks by executive order.</h3></div>
+        <div><p>The original timeline was a September 1 start with a November 1 opening. Suit Supply revised to August 17 and October 16, 2026, tear-down April 1, 2027. General conditions are priced for nine weeks, not the twelve-week baseline.</p></div>
+      </div>
+      <div class="u-card">
+        <div><div class="u-num">02</div><h3>Millwork supply is owner-carried and LUX installs.</h3></div>
+        <div><p>Per Edmund Spencer's July 6 direction and H&eacute;l&egrave;ne Tran's July 9 email, LUX prices the full scope outside millwork supply. Receipt and installation of 30 furniture pieces, 22 built-ins and 18 Suitwave units is priced at $40,000 as its own line.</p></div>
+      </div>
+      <div class="u-card">
+        <div><div class="u-num">03</div><h3>Two drawing sets govern together.</h3></div>
+        <div><p>The HBC Issue for Permit, LL Review, Bid Set dated 07/01/2026 governs for permit and construction. The Puur+ Complete Set 12-06 supplements it for design intent, finishes and millwork. Where they disagree the conflict was written into the RFI register.</p></div>
+      </div>
+      <div class="u-card">
+        <div><div class="u-num">04</div><h3>Storefront repaint conflicts with the facade intent on sheet 300.</h3></div>
+        <div><p>The July 28 request for a full black exterior repaint including the wood door conflicts with Puur+ sheet 300, which directs KEEP EXISTING MARBLE and KEEP EXISTING BRASS LINE. No dimensioned storefront elevation was issued, so LUX scaled 34'-7" of frontage at about 10'-2" floor to head and marked the repaint as an allowance to be trued at a painter site walk.</p></div>
+      </div>
+      <div class="u-card">
+        <div><div class="u-num">05</div><h3>Ecoline flooring requires a full sand to bare wood.</h3></div>
+        <div><p>Saicos Ecoline is a penetrating oil that requires bare wood, so the full sand across about 3,900 SF is a requirement of the specified product rather than an add. The allowance moved from $14,500 to $30,000 for that reason. Confirmation is needed that the intent is Ecoline oil and not a literal black floor paint.</p></div>
+      </div>
+      <div class="u-card">
+        <div><div class="u-num">06</div><h3>Tenant area and LED mirror counts were inconsistent across documents.</h3></div>
+        <div><p>Documents showed 5,600, 5,644 and 5,668 SF. H&eacute;l&egrave;ne Tran confirmed 5,644 SF as authoritative for permits and that figure is used throughout. LED mirror units remain open at 16 per Plan 100 against 14 per the Sourcing Overview; the price carries 16 and the delta returns as a credit.</p></div>
+      </div>
+      <div class="u-card">
+        <div><div class="u-num">07</div><h3>Union job site confirmed.</h3></div>
+        <div><p>The Non-Union reference in the v1.5 proposal was a clerical error. All trade pricing was already union-based, so the correction carries no price change in v1.7. Every subcontractor number behind this lump sum was quoted on union rates.</p></div>
+      </div>
+      <div class="u-card">
+        <div><div class="u-num">08</div><h3>NJ tax treatment is a capital improvement.</h3></div>
+        <div><p>Labor is untaxed as a capital improvement, with an ST-8 Certificate of Capital Improvement executed by Suit Supply at award. A 6.625 percent provision of $3,137.60 is carried on estimated material portions of trades that did not price sales tax within their own scope.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="sect fade" id="scope">
+    <div class="runhead">LUX BRAND COMPANY &middot; SUIT SUPPLY SHORT HILLS</div>
+    <div class="sect-num">02</div>
+    <div class="sect-label">Scope of Work</div>
+    <h2>Every hard construction trade except millwork supply is carried by LBCo crews.</h2>
+    <p class="sect-sub">Thirteen trade packages run from selective demolition per HBC D-101 through punch, including receipt and installation of all owner-supplied millwork. Ten items are excluded and named, led by millwork supply per Edmund Spencer's July 6 direction.</p>
+
+    <div class="qty">
+      <div><span class="qv">4,985 SF</span><span class="ql">Wallcovering installed, paper by Suit Supply</span></div>
+      <div><span class="qv">3,900 SF</span><span class="ql">Sanded to bare wood, Ecoline applied</span></div>
+      <div><span class="qv">767 SF</span><span class="ql">Mirrors and glazing, 16 LED units</span></div>
+      <div><span class="qv">30 + 22</span><span class="ql">Furniture pieces plus built-ins, 18 Suitwave</span></div>
+      <div><span class="qv">34'-7"</span><span class="ql">Storefront frontage at ~10'-2" to head</span></div>
+    </div>
+
+    <div class="scope-grid">
+      <div class="scope-col incl">
+        <div class="scope-h">Included</div>
+        <dl>
+          <dt>Demolition and removal</dt>
+          <dd>Selective demolition per HBC D-101: partitions, platforms, the full acoustical ceiling system, the door with frame remaining, alcove trim and selective drywall for FRT blocking access. Club Monaco signage removal, dumpsters and hauling carried.</dd>
+          <dt>Drywall and framing</dt>
+          <dd>New partitions, headers, ceilings, soffits and column wraps per the HBC set. Platform and curb framing, FRT plywood decking, FRT in-wall blocking, and a marked allowance for Level-5 finish at fitting room partitions receiving wallcovering.</dd>
+          <dt>Carpentry and trim</dt>
+          <dd>HM door, frame and hardware supplied and installed. WM-01 base and WM-02 cap supplied and installed with profile match per open RFI. Trim at modified cabinets and hanging accessories.</dd>
+          <dt>GC-built items and blocking</dt>
+          <dd>Blocking and reinforcement at existing walls, the shopwindow block SWB, display-window plinths with heights set on site, and the MRC.01 mirror-cladding substrate &mdash; all marked Made by GC and built by LBCo crews.</dd>
+          <dt>Millwork installation</dt>
+          <dd>Receipt and installation of all owner-supplied millwork: about 30 furniture pieces plus 22 built-ins including 18 Suitwave units and new components at reused cabinets, plus display-window lightbox 501.1 produced by TeamWorks.</dd>
+          <dt>Mirrors and glazing</dt>
+          <dd>About 767 SF covering LED mirror glass units, MRC.01 cladding, cabinet back panels and podium facets. Priced to a received glazing quotation checked against LBCo field takeoff, with joint field verification before glass is cut.</dd>
+          <dt>Painting and wall covering installation <span class="chip c-navy"></span> <span class="chip c-cream"></span></dt>
+          <dd>BM OC-152 system and Room B blue by approved local custom match. Wallpaper installation only over about 4,985 SF with paper supplied by Suit Supply, plus exterior storefront repaint in black including the wood door.</dd>
+          <dt>Flooring <span class="chip c-brown"></span></dt>
+          <dd>Light board patching, prep and full sand to bare wood, then Saicos Ecoline pitch-black application over about 3,900 SF. Product supplied by Suit Supply.</dd>
+          <dt>Electrical</dt>
+          <dd>Millwork and mirror LED feeds, circuit reuse at removed fixtures, camera-removal make-safe, and installation of added track lighting with heads assumed owner-supplied. The electrician files his own NJ permit under the LBCo master.</dd>
+          <dt>Fire protection</dt>
+          <dd>Existing sprinkler heads with concealed color-match replacement only, no additions or relocations. Shop drawings and permit included. The mall shutoff fee is carried at cost with no markup.</dd>
+          <dt>Signage and storefront</dt>
+          <dd>Receipt, inspection and installation of owner-supplied signage per landlord criteria, opaque vinyl application at storefront glazing, and an allowance for sign engineering, procurement and permit.</dd>
+          <dt>FF&amp;E logistics <span class="chip c-olive"></span></dt>
+          <dd>Receiving, staging and placement of sourced items from Miami (M1&ndash;M10), Short Hills (SH1&ndash;SH2) and the US Warehouse, including mannequins.</dd>
+          <dt>General conditions, supervision and PM</dt>
+          <dd>Superintendent and project manager for nine weeks, site labor, temporary protection carried by LBCo, temporary power coordination, equipment, documentation and final cleans.</dd>
+        </dl>
+      </div>
+      <div class="scope-col excl">
+        <div class="scope-h">Excluded</div>
+        <dl>
+          <dt><span class="dash">&mdash;</span> Millwork supply</dt>
+          <dd>Excluded per Suit Supply direction of July 6 and July 9. The owner supplies all millwork; LUX carries receipt and installation only.</dd>
+          <dt><span class="dash">&mdash;</span> Permit and municipal fees</dt>
+          <dd>All permit and municipal fees, landlord fees, deposits and utility connection costs are excluded. Trades file their own NJ permits under the LBCo master permit.</dd>
+          <dt><span class="dash">&mdash;</span> Hazmat, concrete and subfloor demolition</dt>
+          <dd>Hazmat abatement, concrete and subfloor demolition, structural and rooftop removals and thin-set or mastic removal are excluded. Only the marked allowance for the platform curb cut is carried.</dd>
+          <dt><span class="dash">&mdash;</span> Low-voltage, data, security and AV</dt>
+          <dd>Excluded from the electrical scope. The sound-system rack sits with the owner's AV vendor per the July 27 RFI response.</dd>
+          <dt><span class="dash">&mdash;</span> Sign fabrication and window vinyl material</dt>
+          <dd>Fabrication of the LED letter set and supply of window vinyl are excluded. Sheet 300 directs verification with Brandsigns and sizing with Suit Supply marketing. If directed to LUX, order of magnitude $14,000 by change proposal.</dd>
+          <dt><span class="dash">&mdash;</span> Owner-supplied materials</dt>
+          <dd>Wallpapers, Saicos Ecoline product, specialty textiles, rugs, acrylics AC.x, Hay racks and track heads are free-issued to site. LBCo installs and applies only.</dd>
+          <dt><span class="dash">&mdash;</span> Inbound freight</dt>
+          <dd>Inbound freight for sourced items from Miami, Short Hills, the US Warehouse and mannequins is arranged and paid by Suit Supply to the dock.</dd>
+          <dt><span class="dash">&mdash;</span> New acoustical ceiling</dt>
+          <dd>Existing ACT is demolished per D-101. Supply and reinstallation of grid and tile is carried at $0 pending confirmation, with BOH ceilings assumed drywall soffit or exposed per the HBC RCP.</dd>
+          <dt><span class="dash">&mdash;</span> Fire alarm modifications</dt>
+          <dd>No fire alarm modifications are included in this price.</dd>
+          <dt><span class="dash">&mdash;</span> Field-condition added scope</dt>
+          <dd>Reused-cabinet component replacement, Miami shirt-cabinet fit modifications and storefront header framing where the existing wall stops short of deck are added scope by change proposal. No work at the existing exit door.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="sect fade" id="approach">
+    <div class="runhead">LUX BRAND COMPANY &middot; SUIT SUPPLY SHORT HILLS</div>
+    <div class="sect-num">03</div>
+    <div class="sect-label">How This Number Was Built</div>
+    <h2>Fifteen RFIs ranked by cost impact replaced ten padded allowance lines.</h2>
+    <p class="sect-sub">LUX issued a 15-item RFI register ordered by dollar exposure so H&eacute;l&egrave;ne Tran and Matthew Dresser could close the high-dollar items before buyout. Landlord pass-throughs carry no markup and mirror sizes are set by joint field verification before glass is cut.</p>
+    <div class="approach-grid">
+      <div class="app-item">
+        <div class="app-n">01</div>
+        <h3>Ask the questions instead of padding the allowances.</h3>
+        <p>Uncertainty was written into a 15-item RFI register ranked by cost impact rather than buried in fat allowance lines. The register puts the storefront repaint extent, the flooring intent, the mirror count and the sign program at the top so the owner and architect can close the expensive items first and drive the number down at buyout.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">02</div>
+        <h3>Every uncertain line is a clearly marked allowance.</h3>
+        <p>Ten lines are named: painting and wallcovering installation, storefront repaint, flooring prep and application, concrete curb cut, dumpster volume, molding and door supply, display-window plinths, the Level-5 drywall upgrade, sign permit and engineering, and the mall sprinkler shutoff fee. All ten are trued to final subcontractor pricing by change proposal.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">03</div>
+        <h3>Nine-week union build to a fixed opening date.</h3>
+        <p>Mobilization is August 17 and the store opens October 16, 2026, with superintendent and project manager carried for nine weeks against union rates and mall access rules. Millwork deliveries are assumed from approximately September 21, and phased deliveries are acceptable so glazing and FF&amp;E can follow in sequence.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">04</div>
+        <h3>Joint field verification before glass is cut.</h3>
+        <p>Mirror and glazing sizes are carried per LBCo takeoff, but final sizes are set by joint field verification before any glass is cut. Plinth and mirror heights are set on site for the same reason. Remake risk on 767 SF of glass and 16 LED units is removed by a measurement, not by a contingency.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">05</div>
+        <h3>Landlord and pass-through costs at cost, no markup.</h3>
+        <p>The mall sprinkler shutoff and recharge fee is paid by LBCo direct to the mall at cost with zero markup applied. It sits in the price as a $1,500 marked allowance and is trued to the mall's actual invoice, up or down, when the invoice arrives.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">06</div>
+        <h3>Trades file their own permits under the LBCo master.</h3>
+        <p>The electrical and fire protection subcontractors file their own NJ permits under the LBCo master permit. Approvals move in parallel instead of serially through a single filing, which matters when the construction window is nine weeks and the opening date is fixed.</p>
+      </div>
+      <div class="app-item">
+        <div class="app-n">07</div>
+        <h3>Owner-supplied material logistics handled as a priced discipline.</h3>
+        <p>Receiving, staging and placement of Miami, Short Hills and US Warehouse goods is carried at $10,000 as its own line. Free-issued goods are inspected on receipt and tracked against the Sourcing Overview, including ADA bench dimension verification on the M.9 fitting-room bench.</p>
+      </div>
+    </div>
+    <p class="pull">The register was issued to lower the number at buyout, not to protect it.</p>
+  </div>
+
+  <!-- 04 -->
+  <div class="sect fade" id="allowances">
+    <div class="runhead">LUX BRAND COMPANY &middot; SUIT SUPPLY SHORT HILLS</div>
+    <div class="sect-num">04</div>
+    <div class="sect-label">Allowance Register</div>
+    <h2>Ten allowance lines are named in Clarification 16 and trued by change proposal.</h2>
+    <p class="sect-sub">Nothing in this proposal hides behind a lump allowance. Where a discrete figure exists it is published; the $3,000 Level-5 drywall allowance is credited in full if the drywall subcontractor already carried Level 5 in his base scope.</p>
+    <table class="allow">
+      <tr><th>Allowance</th><th>Basis</th><th>Carried</th></tr>
+      <tr><td class="a-name">Painting and wallcovering installation <span class="chip c-navy"></span></td><td class="a-basis">About 4,985 SF, paper supplied by Suit Supply, BM OC-152 system with Room B blue custom match.</td><td class="a-carr">Within trade line<span class="mk"></span></td></tr>
+      <tr><td class="a-name">Exterior storefront repaint in black</td><td class="a-basis">34'-7" of scaled frontage at about 10'-2" head, including the wood door.</td><td class="a-carr">Within trade line<span class="mk"></span></td></tr>
+      <tr><td class="a-name">Flooring prep, sand and Ecoline <span class="chip c-brown"></span></td><td class="a-basis">Full sand to bare wood and Saicos Ecoline application over about 3,900 SF.</td><td class="a-carr">$30,000<span class="mk"></span></td></tr>
+      <tr><td class="a-name">Concrete curb cut at platform</td><td class="a-basis">Only concrete work carried; all other concrete scope excluded.</td><td class="a-carr">$1,800<span class="mk"></span></td></tr>
+      <tr><td class="a-name">Dumpster volume and hauling</td><td class="a-basis">Volume trued to actual pulls during demolition and finishes.</td><td class="a-carr">Within trade line<span class="mk"></span></td></tr>
+      <tr><td class="a-name">Molding and door supply</td><td class="a-basis">WM-01 base, WM-02 cap and HM door, profile match per open RFI.</td><td class="a-carr">Within trade line<span class="mk"></span></td></tr>
+      <tr><td class="a-name">Display-window plinths</td><td class="a-basis">Heights set on site; plinth profile drawing outstanding.</td><td class="a-carr">Within trade line<span class="mk"></span></td></tr>
+      <tr><td class="a-name">Level-5 drywall finish upgrade</td><td class="a-basis">Fitting room partitions receiving wallcovering. Credited in full if already in base scope.</td><td class="a-carr">$3,000<span class="mk"></span></td></tr>
+      <tr><td class="a-name">Sign engineering, procurement and permit</td><td class="a-basis">Owner-managed sign program assumed; fabrication excluded.</td><td class="a-carr">Within trade line<span class="mk"></span></td></tr>
+      <tr><td class="a-name">Mall sprinkler shutoff and recharge fee</td><td class="a-basis">Paid direct to the mall at cost, trued to the mall's invoice.</td><td class="a-carr">$1,500 at cost<span class="mk"></span></td></tr>
+    </table>
+    <p class="tnote">All ten lines are identified in Clarification 16 and reconciled to final subcontractor pricing by change proposal.</p>
+  </div>
+
+  <!-- 05 -->
+  <div class="sect fade" id="owner_supply">
+    <div class="runhead">LUX BRAND COMPANY &middot; SUIT SUPPLY SHORT HILLS</div>
+    <div class="sect-num">05</div>
+    <div class="sect-label">Owner-Supplied Material Chain</div>
+    <h2>Thirty furniture pieces, twenty-two built-ins and eighteen Suitwave units arrive free-issued to the dock.</h2>
+    <p class="sect-sub">Per Edmund Spencer's July 6 framework and H&eacute;l&egrave;ne Tran's July 9 email, Suit Supply supplies all millwork and LUX carries receipt and installation only. Inbound freight from Miami, Short Hills and the US Warehouse is arranged and paid by Suit Supply to the dock.</p>
+    <div class="own-top">
+      <div>
+        <div class="own-h">Ledger A &mdash; Received and installed by LBCo</div>
+        <dl class="own-l">
+          <dt>~30 furniture pieces</dt><dd>Received, inspected against the Sourcing Overview, staged and placed by LBCo crews.</dd>
+          <dt>22 built-ins including 18 Suitwave units</dt><dd>Set, levelled and anchored; installation labor priced at $40,000.</dd>
+          <dt>New components at reused cabinets</dt><dd>Installed as supplied. Component replacement from field conditions is added scope by change proposal.</dd>
+          <dt>Display-window lightbox 501.1</dt><dd>Produced by TeamWorks, installed by LBCo in the display windows.</dd>
+          <dt>Owner-supplied signage</dt><dd>Inspected on receipt against landlord criteria, then installed with opaque vinyl at the storefront glazing.</dd>
+          <dt>Track lighting heads</dt><dd>Assumed owner-supplied. LBCo installs added track and sets heads.</dd>
+        </dl>
+      </div>
+      <div class="origins">
+        <div class="own-h">Logistics origins</div>
+        <p>M1&ndash;M10 &mdash; Miami</p>
+        <p>SH1&ndash;SH2 &mdash; Short Hills</p>
+        <p>US Warehouse</p>
+        <p>Mannequins &mdash; freight to dock</p>
+      </div>
+    </div>
+    <div style="margin-top:44px">
+      <div class="own-h">Ledger B &mdash; Free-issued materials applied by LBCo</div>
+      <dl class="own-l">
+        <dt>Four wallcoverings <span class="chip c-cream"></span></dt><dd>Installation only over about 4,985 SF; paper supplied by Suit Supply.</dd>
+        <dt>Saicos Ecoline pitch-black <span class="chip c-brown"></span></dt><dd>Applied over about 3,900 SF after a full sand to bare wood.</dd>
+        <dt>Specialty textiles and rugs <span class="chip c-olive"></span></dt><dd>Placed and secured; flammability documentation outstanding.</dd>
+        <dt>Acrylics AC.x <span class="chip c-tan"></span></dt><dd>Received and installed at millwork and display positions.</dd>
+        <dt>Hay racks</dt><dd>Received, assembled where required and placed on the sales floor.</dd>
+        <dt>Mannequins</dt><dd>Received from Miami and the US Warehouse, staged and placed.</dd>
+      </dl>
+    </div>
+    <div class="flags">
+      <p class="flag"><span class="em">&mdash;</span>Flammability documentation outstanding: ASTM E84 flame-spread for the four wallcoverings, NFPA 701 for fitting-room curtains, TB 117-2013 for the upholstered cubes and bench.</p>
+      <p class="flag"><span class="em">&mdash;</span>ADA seating dimensions and anchorage for the M.9 fitting-room bench arriving from Miami to be confirmed, or verified on receipt.</p>
+      <p class="flag"><span class="em">&mdash;</span>Millwork deliveries assumed from approximately September 21, with phased deliveries acceptable across the three-week install window.</p>
+    </div>
+  </div>
+
+  <!-- 06 -->
+  <div class="sect fade" id="team">
+    <div class="runhead">LUX BRAND COMPANY &middot; SUIT SUPPLY SHORT HILLS</div>
+    <div class="sect-num">06</div>
+    <div class="sect-label">Project Team</div>
+    <h2>Twelve years of Suit Supply store construction sits behind this lump sum.</h2>
+    <p class="sect-sub">Luke Shank authored the proposal, the RFI register and the subcontractor leveling. Jon Buck carries the schedule from the accelerated August 17 mobilization to the October 16 opening, with Krystle Avila on submittals and owner-supplied material tracking.</p>
+    <div class="team-grid">
+      <div>
+        <h3 class="grp">Lux Brand Company</h3>
+        <div class="tm">
+          <div class="initials">LS</div>
+          <h4>Luke Shank</h4>
+          <div class="role">Director of Construction &middot; LUX Brand Company</div>
+          <p>Luke leads the LUX Brand Company construction group and authored the Short Hills lump-sum proposal, the 15-item RFI register and the subcontractor leveling behind it. He has managed Suit Supply store construction across more than twelve years of brand relationship.</p>
+          <p class="assigned">Single point of contact for pricing, allowances and change proposals &mdash; luke@lbco.com.</p>
+        </div>
+        <div class="tm">
+          <div class="initials">JB</div>
+          <h4>Jon Buck</h4>
+          <div class="role">Project Manager &middot; LUX Brand Company</div>
+          <p>Jon opened the Short Hills engagement with Suit Supply and HBC and tracked the schedule revisions from the original September 1 start to the accelerated August 17 mobilization. He carries day-to-day project management, trade coordination and schedule control through the October 16 opening.</p>
+        </div>
+        <div class="tm">
+          <div class="initials">KA</div>
+          <h4>Krystle Avila</h4>
+          <div class="role">Project Coordinator &middot; LUX Brand Company</div>
+          <p>Krystle managed outreach to the Suit Supply millwork contacts and the pursuit of local Northeast fabrication estimates. On this project she coordinates submittals, owner-supplied material tracking and documentation for the receipt and installation of all free-issued millwork and finishes.</p>
+        </div>
+      </div>
+      <div>
+        <h3 class="grp">Owner and design side</h3>
+        <div class="tm ref">
+          <div class="initials">HT</div>
+          <h4>H&eacute;l&egrave;ne Tran<span class="ctag">Client contact</span></h4>
+          <div class="role">Director of Store Development, USA &middot; Suit Supply</div>
+          <p>H&eacute;l&egrave;ne directs Suit Supply US store development from the brand's Broome Street office and issued the design sets, the Sourcing Overview and the revised pop-up schedule for Short Hills. She confirmed 5,644 SF as the authoritative tenant area for permits.</p>
+          <p class="assigned">Owner-side decision maker on scope additions, allowances and award.</p>
+        </div>
+        <div class="tm">
+          <div class="initials">ES</div>
+          <h4>Edmund Spencer<span class="ctag">Client contact</span></h4>
+          <div class="role">Global Head of Environments &middot; Suit Supply</div>
+          <p>Edmund set the commercial framework for this bid on July 6, directing that LUX price the full scope outside millwork supply including installation and all other hard construction trades. He remains the global authority on environment standards for the temporary store.</p>
+        </div>
+        <div class="tm">
+          <div class="initials">MD</div>
+          <h4>Matthew Dresser<span class="ctag">Client contact</span></h4>
+          <div class="role">Architect &middot; HBC Architecture</div>
+          <p>Matthew authored the governing Issue for Permit, LL Review, Bid Set dated 07/01/2026, including the D-101 demolition plan. He owns the permit and site-interface RFI items, including field-verification access and confirmation of the shopwindow block and mirror-cladding scope.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 -->
+  <div class="sect fade" id="pricing">
+    <div class="runhead">LUX BRAND COMPANY &middot; SUIT SUPPLY SHORT HILLS</div>
+    <div class="sect-num">07</div>
+    <div class="sect-label">Pricing</div>
+    <h2>$554,499.96 lump sum at 13.1 percent overhead with no contingency carried.</h2>
+    <p class="sect-sub">Cost of work totals $490,082.20 across sixteen lines, including $122,086.60 of general conditions for nine weeks and a $3,137.60 NJ sales tax provision at 6.625 percent on estimated material portions. Overhead and profit is $64,417.76.</p>
+    <table class="price-table">
+      <tr><th>Line item</th><th>Scope note</th><th>Amount</th></tr>
+      <tr class="section-head"><td colspan="3">Cost of work</td></tr>
+      <tr><td class="p-item">Demolition and removal</td><td class="p-note">Per HBC D-101, ACT system removed</td><td class="p-amt">$28,186.00</td></tr>
+      <tr><td class="p-item">Drywall &amp; framing</td><td class="p-note">Partitions, soffits, column wraps, FRT blocking</td><td class="p-amt">$58,798.00</td></tr>
+      <tr><td class="p-item">Carpentry &amp; trim</td><td class="p-note">HM door, WM-01 base, WM-02 cap</td><td class="p-amt">$35,675.00</td></tr>
+      <tr><td class="p-item">GC-built items &amp; blocking</td><td class="p-note">SWB, plinths, MRC.01 substrate</td><td class="p-amt">$18,800.00</td></tr>
+      <tr><td class="p-item">Millwork installation</td><td class="p-note">30 furniture pieces, 22 built-ins, 18 Suitwave</td><td class="p-amt">$40,000.00</td></tr>
+      <tr><td class="p-item">Concrete (curb cut allowance)</td><td class="p-note">Platform curb cut only</td><td class="p-amt">$1,800.00</td></tr>
+      <tr><td class="p-item">Mirrors &amp; glazing</td><td class="p-note">~767 SF, sizes set by joint field verification</td><td class="p-amt">$38,250.00</td></tr>
+      <tr><td class="p-item">Painting &amp; wall covering</td><td class="p-note">Paper by Suit Supply, ~4,985 SF, storefront black</td><td class="p-amt">$65,500.00</td></tr>
+      <tr><td class="p-item">Flooring</td><td class="p-note">Full sand to bare wood, Saicos Ecoline</td><td class="p-amt">$30,000.00</td></tr>
+      <tr><td class="p-item">Electrical</td><td class="p-note">Millwork and mirror LED feeds, added track</td><td class="p-amt">$19,850.00</td></tr>
+      <tr><td class="p-item">Fire protection</td><td class="p-note">Concealed color-match heads, no relocations</td><td class="p-amt">$9,860.00</td></tr>
+      <tr><td class="p-item">Signage &amp; storefront</td><td class="p-note">Receipt, install, vinyl, permit allowance</td><td class="p-amt">$6,639.00</td></tr>
+      <tr><td class="p-item">FF&amp;E logistics</td><td class="p-note">Miami, Short Hills and US Warehouse goods</td><td class="p-amt">$10,000.00</td></tr>
+      <tr><td class="p-item">General conditions, supervision &amp; PM</td><td class="p-note">Superintendent and PM, nine weeks</td><td class="p-amt">$122,086.60</td></tr>
+      <tr><td class="p-item">Mall sprinkler shutoff fee</td><td class="p-note">Paid direct to the mall, no markup</td><td class="p-amt">$1,500.00</td></tr>
+      <tr><td class="p-item">NJ sales tax provision</td><td class="p-note">Materials, 6.625% on estimated portions</td><td class="p-amt">$3,137.60</td></tr>
+      <tr class="subtotal"><td>Cost of work</td><td></td><td>$490,082.20</td></tr>
+      <tr class="section-head"><td colspan="3">Overhead &amp; profit</td></tr>
+      <tr><td class="p-item">Overhead and profit</td><td class="p-note">13.1% on cost of work</td><td class="p-amt">$64,417.76</td></tr>
+      <tr class="total"><td class="tl" colspan="2">Grand total</td><td class="tf">$554,499.96</td></tr>
+    </table>
+    <p class="price-note">Contingency 0% &mdash; none carried; uncertainty is held in the ten named allowance lines above.</p>
+    <p class="price-note">Priced to the HBC Issue for Permit, LL Review, Bid Set dated 07/01/2026, supplemented by the Puur+ Complete Set 12-06, on a union job site.</p>
+    <p class="price-note">Labor untaxed as a capital improvement; ST-8 Certificate of Capital Improvement to be executed by Suit Supply at award.</p>
+    <a class="dl-btn" href="./LBCo_25021_Bid_Proposal_Suitsupply_ShortHills_v1_7.pdf" download>Download proposal v1.7 (PDF)</a>
+  </div>
+
+  <!-- 08 -->
+  <div class="sect fade" id="timeline">
+    <div class="runhead">LUX BRAND COMPANY &middot; SUIT SUPPLY SHORT HILLS</div>
+    <div class="sect-num">08</div>
+    <div class="sect-label">Schedule</div>
+    <h2>Five phases sequence flooring ahead of the September 21 millwork deliveries.</h2>
+    <p class="sect-sub">Nine weeks of general conditions run from the August 17 mobilization to the October 16 opening. Framing overlaps the demolition tail and phased millwork deliveries are accepted.</p>
+    <div class="bars">
+      <div class="bar-track"><div class="bar-fill" style="left:0;width:22%"></div></div>
+      <div class="bar-track"><div class="bar-fill" style="left:19%;width:33%"></div></div>
+      <div class="bar-track"><div class="bar-fill" style="left:50%;width:28%"></div></div>
+      <div class="bar-track"><div class="bar-fill" style="left:70%;width:24%"></div></div>
+      <div class="bar-track"><div class="bar-fill" style="left:90%;width:10%"></div></div>
+      <div class="bar-ends"><span>Aug 17</span><span>Oct 16</span></div>
+    </div>
+    <div class="timeline">
+      <div class="phase-row head"><div>Phase</div><div>Area</div><div>Work</div><div style="text-align:right">Duration</div><div>Sequencing note</div></div>
+      <div class="phase-row">
+        <div><div class="p-num">01</div><h4>Mobilization &amp; demolition</h4></div>
+        <div class="p-area">Space #D-232 &mdash; full tenant area</div>
+        <div class="p-work">Site protection, temporary power coordination and selective demolition per HBC D-101 including partitions, platforms and full ACT removal.</div>
+        <div class="p-dur">2 wks</div>
+        <div class="p-overlap">Start Aug 17</div>
+      </div>
+      <div class="phase-row">
+        <div><div class="p-num">02</div><h4>Framing, rough-in &amp; substrates</h4></div>
+        <div class="p-area">Sales floor, fitting rooms, BOH</div>
+        <div class="p-work">New partitions, headers, soffits, column wraps, platform and curb framing, FRT blocking, electrical and sprinkler rough-in, GC-built SWB and MRC.01 substrate.</div>
+        <div class="p-dur">3 wks</div>
+        <div class="p-overlap">Overlaps demolition tail</div>
+      </div>
+      <div class="phase-row">
+        <div><div class="p-num">03</div><h4>Finishes</h4></div>
+        <div class="p-area">Full store plus storefront</div>
+        <div class="p-work">Level-5 drywall finish at fitting rooms, paint, wallcovering installation, flooring sand to bare wood and Saicos Ecoline application, storefront black repaint.</div>
+        <div class="p-dur">3 wks</div>
+        <div class="p-overlap">Flooring sequenced ahead of millwork set</div>
+      </div>
+      <div class="phase-row">
+        <div><div class="p-num">04</div><h4>Millwork, glazing &amp; FF&amp;E</h4></div>
+        <div class="p-area">Sales floor, display windows, fitting rooms</div>
+        <div class="p-work">Receipt and installation of owner-supplied millwork from about September 21, LED mirrors and glazing after joint field verification, lightbox 501.1, signage and vinyl, FF&amp;E placement.</div>
+        <div class="p-dur">3 wks</div>
+        <div class="p-overlap">Phased deliveries accepted</div>
+      </div>
+      <div class="phase-row">
+        <div><div class="p-num">05</div><h4>Punch, inspections &amp; turnover</h4></div>
+        <div class="p-area">Full tenant area</div>
+        <div class="p-work">Trade inspections, final cleans, documentation and punch closeout to opening.</div>
+        <div class="p-dur">1 wk</div>
+        <div class="p-overlap">Open Oct 16, 2026</div>
+      </div>
+    </div>
+    <div class="timeline-total"><p class="tt-r">Twelve-week baseline of a September 1 start and November 1 opening was superseded by executive direction; tear-down April 1, 2027.</p></div>
+  </div>
+
+  <!-- 09 -->
+  <div class="sect fade" id="next_steps">
+    <div class="runhead">LUX BRAND COMPANY &middot; SUIT SUPPLY SHORT HILLS</div>
+    <div class="sect-num">09</div>
+    <div class="sect-label">Open Items</div>
+    <h2>Fourteen open items close before buyout, starting with the black storefront repaint.</h2>
+    <p class="sect-sub">The register is ordered by cost impact, not by trade. Items 01 through 04 carry the largest dollar exposure and sit with H&eacute;l&egrave;ne Tran and Matthew Dresser.</p>
+    <div class="ns-list">
+      <div class="ns-row">
+        <div class="ns-n"><span class="chip c-navy"></span>01</div>
+        <p class="ns-action">Confirm the intended extent of the black storefront repaint against Puur+ sheet 300, which directs KEEP EXISTING MARBLE and KEEP EXISTING BRASS LINE.</p>
+        <div class="ns-owner">Owner &mdash; H&eacute;l&egrave;ne Tran</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n"><span class="chip c-navy"></span>02</div>
+        <p class="ns-action">Confirm whether the floor intent is the specified Saicos Ecoline penetrating oil or a literal black floor paint, and confirm the intended sanding extent.</p>
+        <div class="ns-owner">Owner &mdash; H&eacute;l&egrave;ne Tran</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n"><span class="chip c-navy"></span>03</div>
+        <p class="ns-action">Confirm the final LED mirror unit count &mdash; 16 per Plan 100 versus 14 per the Sourcing Overview.</p>
+        <div class="ns-owner">Owner &mdash; H&eacute;l&egrave;ne Tran / Matthew Dresser</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n"><span class="chip c-navy"></span>04</div>
+        <p class="ns-action">Confirm whether Suit Supply retains the sign program with Brandsigns or directs LBCo to supply the sign package at an order of magnitude of $14,000 by change proposal.</p>
+        <div class="ns-owner">Owner &mdash; H&eacute;l&egrave;ne Tran</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">05</div>
+        <p class="ns-action">Confirm whether the drywall subcontractor's base scope already carries Level-5 finish at the fitting room partitions so the $3,000 allowance can be credited.</p>
+        <div class="ns-owner">Owner &mdash; Luke Shank</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">06</div>
+        <p class="ns-action">Provide the plinth profile drawing referenced as see attached in the spec but not issued with the set.</p>
+        <div class="ns-owner">Owner &mdash; Matthew Dresser / Puur+</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">07</div>
+        <p class="ns-action">Provide the Club Monaco drawing No. 173 modified referenced for the base molding profile match.</p>
+        <div class="ns-owner">Owner &mdash; Matthew Dresser</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">08</div>
+        <p class="ns-action">Provide flammability documentation for owner-supplied materials: ASTM E84 flame-spread for the four wallcoverings, NFPA 701 for fitting-room curtains, TB 117-2013 for the upholstered cubes and bench.</p>
+        <div class="ns-owner">Owner &mdash; H&eacute;l&egrave;ne Tran</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">09</div>
+        <p class="ns-action">Execute the NJ Certificate of Capital Improvement (ST-8) at award so labor is correctly untaxed.</p>
+        <div class="ns-owner">Owner &mdash; H&eacute;l&egrave;ne Tran / Suit Supply</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">10</div>
+        <p class="ns-action">Schedule the painter site walk to true the scaled storefront repaint allowance to actual frontage and head height.</p>
+        <div class="ns-owner">Owner &mdash; Luke Shank</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">11</div>
+        <p class="ns-action">Schedule joint field verification of mirror and glazing sizes and set plinth and mirror heights on site before any glass is cut.</p>
+        <div class="ns-owner">Owner &mdash; Jon Buck</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">12</div>
+        <p class="ns-action">Confirm ADA seating dimensions and anchorage for the M.9 fitting-room bench arriving from Miami, or verify on receipt.</p>
+        <div class="ns-owner">Owner &mdash; Krystle Avila</div>
+      </div>
+      <div class="ns-row">
+        <div class="ns-n">13</div>
+        <p class="ns-action">Confirm no new acoustical ceiling is required so the $0 carry for ACT grid and tile can stand.</p>
+        <div class="ns-owner">Owner &mdash; Matthew Dresser</div>
+      </div>
+      <div class="ns-row pinned">
+        <div class="ns-n">14</div>
+        <p class="ns-action">Confirm award so LBCo can mobilize on the fixed August 17 construction start.</p>
+        <div class="ns-owner">Owner &mdash; H&eacute;l&egrave;ne Tran</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="sect fade" id="guardrails">
+    <div class="runhead">LUX BRAND COMPANY &middot; SUIT SUPPLY SHORT HILLS</div>
+    <div class="sect-num">10</div>
+    <div class="sect-label">Commercial Guardrails</div>
+    <h2>The mall sprinkler shutoff fee passes through at $1,500 with zero markup.</h2>
+    <p class="sect-sub">Two commitments govern how money moves on this job. Landlord and mall fees are paid at cost and trued to invoice, and every allowance is named line by line and credited back where it is not spent.</p>
+    <div class="diff-grid">
+      <div class="diff-item">
+        <div class="diff-num">Guardrail 01</div>
+        <h4>Landlord fees passed through at cost with no markup.</h4>
+        <p>The mall sprinkler shutdown and recharge fee is carried as a $1,500 marked allowance. LBCo pays the mall direct at cost, applies zero markup, and trues the line to the mall's actual invoice. If the invoice comes in under $1,500 the difference returns to Suit Supply as a credit; if it comes in over, the delta is documented with the invoice attached rather than absorbed into another trade line. Permit and municipal fees, landlord fees, deposits and utility connection costs sit outside this price entirely.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">Guardrail 02</div>
+        <h4>Allowances are named line by line and credited back.</h4>
+        <p>All ten allowance lines are identified in Clarification 16 and trued by change proposal against final subcontractor pricing. The $3,000 Level-5 drywall allowance is credited in full if the drywall subcontractor already carried Level 5 in his base scope at the fitting room partitions. The flooring allowance moved from $14,500 to $30,000 only because Ecoline oil requires bare wood across about 3,900 SF, and it will be trued to the sanding extent H&eacute;l&egrave;ne Tran confirms. No contingency sits behind these lines; the uncertainty is on the page where it can be closed.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-quote">
+    <blockquote>&ldquo;Rather than pad those lines with fat allowances, we'd rather ask the questions and give you a tighter, more honest number.&rdquo;</blockquote>
+    <div class="attr">Luke Shank &mdash; LUX Brand Company</div>
+  </div>
+  <div class="footer-bar">
+    <span>&copy; 2026 LUX Brand Company</span>
+    <span>Prepared for Suit Supply &mdash; Store Development USA</span>
+    <a href="mailto:luke@lbco.com">luke@lbco.com</a>
+  </div>
+
+</div>
+
+<script>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in')}})},{threshold:0.05,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
+var links=Array.prototype.slice.call(document.querySelectorAll('.sidebar nav a'));
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+function sync(){
+  var y=window.scrollY+160,idx=0;
+  secs.forEach(function(s,i){if(s&&s.offsetTop<=y){idx=i}});
+  links.forEach(function(a,i){a.classList.toggle('nav-highlight',i===idx)});
+}
+window.addEventListener('scroll',sync,{passive:true});window.addEventListener('load',sync);
+</script>
+</body></html>
