@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tag Heuer | Springfield NJ</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#FFFFFF}
+body{background:#FFFFFF;color:#000000;font-family:'Helvetica Neue','Helvetica','Arial',sans-serif;font-size:16px;font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased;font-feature-settings:"kern" 1}
+p{font-family:'Helvetica Neue','Helvetica','Arial',sans-serif;font-size:16px;font-weight:400;line-height:1.55}
+h1,h2,h3,h4,blockquote,td,th,dt,dd,li,input,button{font-family:'Helvetica Neue','Helvetica','Arial',sans-serif}
+
+/* SIDEBAR */
+.sidebar{position:fixed;top:0;left:0;width:220px;height:100vh;background:#FFFFFF;border-right:1px solid #D9D9D9;padding:40px 26px;display:flex;flex-direction:column;z-index:10}
+.logo{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:17px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:#000000;padding-bottom:10px;border-bottom:2px solid #E3001D;margin-bottom:10px}
+.logo .lbco{display:block;font-size:11px;font-weight:700;letter-spacing:0.12em;color:#000000;margin-top:8px}
+.sidebar .mast-sub{font-size:11px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#545454;margin-bottom:44px}
+.sidebar nav{display:flex;flex-direction:column;gap:13px;margin-bottom:auto}
+.sidebar nav a{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000000;text-decoration:none;border-left:2px solid transparent;padding-left:9px;transition:color .18s,border-color .18s}
+.sidebar nav a:hover{color:#E3001D;border-left:2px solid #E3001D}
+.sidebar nav a.nav-highlight{color:#E3001D;border-left:2px solid #E3001D}
+.sidebar-footer{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#545454;line-height:1.9;padding-top:24px;border-top:1px solid #D9D9D9}
+.sidebar-footer .rc{display:block;margin-top:8px;color:#E3001D}
+
+main{margin-left:220px;min-height:100vh}
+
+/* CONF BANNER */
+.conf-banner{background:#000000;color:#FFFFFF;padding:11px 80px;font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;display:flex;justify-content:center;gap:16px;align-items:center}
+.conf-banner .dot{width:6px;height:6px;background:#E3001D;display:inline-block}
+
+/* HERO */
+.hero{padding:74px 80px 46px}
+.hero-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#545454;margin-bottom:26px}
+.hero h1{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:96px;font-weight:900;letter-spacing:-0.03em;line-height:0.92;color:#000000;margin-bottom:22px}
+.hero .tagline{font-size:19px;font-weight:400;line-height:1.5;color:#000000;max-width:720px;margin-bottom:34px}
+.hero .meta{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#545454;padding-top:20px;border-top:3px solid #E3001D;max-width:780px}
+.hero .rc-tag{display:inline-block;margin-top:20px;background:#E3001D;color:#FFFFFF;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:8px 14px}
+
+/* PHOTO STRIP */
+.photo-strip{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #D9D9D9;border-bottom:1px solid #D9D9D9}
+.photo-cell{aspect-ratio:4/3;background:#F5F5F5;border-right:1px solid #D9D9D9;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:26px}
+.photo-cell:last-child{border-right:none}
+.ph-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E3001D;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid #E3001D}
+.ph-title{font-size:19px;font-weight:700;letter-spacing:-0.01em;color:#000000;margin-bottom:6px}
+.ph-sub{font-size:13px;font-weight:400;color:#545454;line-height:1.5;max-width:250px}
+
+/* SECTIONS */
+.sect{padding:72px 80px;border-top:1px solid #D9D9D9}
+.sect-num{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:64px;font-weight:900;letter-spacing:-0.04em;line-height:1;color:#E3001D;margin-bottom:6px}
+.sect-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000000;padding-bottom:12px;border-bottom:2px solid #E3001D;display:inline-block;margin-bottom:26px}
+.sect h2{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:40px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;color:#000000;max-width:920px;margin-bottom:18px}
+.sect p.sect-sub{font-size:16px;font-weight:400;line-height:1.55;color:#545454;max-width:800px;margin-bottom:38px}
+.sect h3.blk-h{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000000;padding-bottom:10px;border-bottom:2px solid #E3001D;display:inline-block;margin:44px 0 22px}
+.sect h3.blk-h.grn{border-bottom:2px solid #008150}
+
+/* STAT STRIP */
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #D9D9D9;border-bottom:1px solid #D9D9D9;margin-bottom:34px}
+.stat-strip div{padding:24px 22px 24px 0;border-right:1px solid #D9D9D9}
+.stat-strip div:last-child{border-right:none}
+.stat-strip span.sv{display:block;font-size:40px;font-weight:900;letter-spacing:-0.03em;line-height:1.05;color:#000000;margin-bottom:8px}
+.stat-strip span.sv.sm{font-size:26px;letter-spacing:-0.02em}
+.stat-strip span.sl{display:block;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#545454}
+.body-col p{max-width:830px;margin-bottom:16px}
+.body-col p.muted{color:#545454}
+.status-line{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000000;border-left:4px solid #E3001D;padding:10px 0 10px 14px;margin:24px 0 20px}
+
+/* DOC REGISTER */
+.doc-reg{border-top:1px solid #D9D9D9;margin-top:26px}
+.doc-reg dt{font-size:15px;font-weight:700;color:#000000;padding:16px 0 0;border-top:none}
+.doc-reg dd{font-size:15px;font-weight:400;color:#545454;padding:4px 0 16px;border-bottom:1px solid #D9D9D9}
+
+/* CALLOUT */
+.callout{margin-top:38px;border-top:2px solid #E3001D;padding-top:14px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E3001D}
+
+/* U-GRID */
+.u-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #D9D9D9}
+.u-card{border-bottom:1px solid #D9D9D9;border-right:1px solid #D9D9D9;padding:26px 26px 26px 0}
+.u-card:nth-child(2n){border-right:none;padding-right:0;padding-left:26px}
+.u-num{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E3001D;margin-bottom:10px}
+.u-card h3{font-size:15px;font-weight:700;color:#000000;margin-bottom:10px}
+.u-card p{font-size:15px;color:#545454}
+
+/* SCOPE */
+.scope-grid{display:block;margin-top:6px}
+.scope-col{display:block}
+.scope-col.incl ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.scope-col.incl li{border:1px solid #D9D9D9;background:#F5F5F5;padding:20px}
+.scope-col.incl li h4{font-size:16px;font-weight:700;color:#000000;margin-bottom:9px;letter-spacing:-0.005em}
+.scope-col.incl li h4::before{content:"";display:inline-block;width:6px;height:6px;background:#E3001D;margin-right:9px;vertical-align:middle}
+.scope-col.incl li p.sd{font-size:15px;color:#545454}
+.scope-col.incl li p.spec{text-align:right;margin-top:14px;padding-top:10px;border-top:1px solid #D9D9D9;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#545454}
+.scope-col.excl ul{list-style:none;border-top:1px solid #D9D9D9}
+.scope-col.excl li{border-left:4px solid #008150;border-bottom:1px solid #D9D9D9;padding:16px 0 16px 16px}
+.scope-col.excl li h4{font-size:15px;font-weight:700;color:#000000;margin-bottom:5px}
+.scope-col.excl li p.sd{font-size:15px;color:#545454}
+.scope-h{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase}
+.note-line{margin-top:26px;font-size:14px;color:#000000;border-top:1px solid #D9D9D9;padding-top:14px}
+
+/* APPROACH */
+.approach-grid{display:block;border-top:1px solid #D9D9D9}
+.app-item{display:grid;grid-template-columns:74px 290px 1fr 132px;gap:24px;align-items:start;padding:24px 0;border-bottom:1px solid #D9D9D9}
+.app-n{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:32px;font-weight:900;line-height:1;letter-spacing:-0.03em;color:#E3001D}
+.app-item h4{font-size:18px;font-weight:700;letter-spacing:-0.01em;color:#000000}
+.app-item p{font-size:15px;color:#545454}
+.chip{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 9px;border:1px solid #D9D9D9;color:#545454;white-space:nowrap}
+.chip.pend{color:#000000;border:1px solid #000000}
+.chip.conf{color:#008150;border:1px solid #008150}
+.chip.open{color:#000000;background:#F5F5F5;border:1px solid #D9D9D9}
+.mile-strip{display:grid;grid-template-columns:repeat(3,1fr);margin-top:34px;border-top:2px solid #E3001D}
+.mile-strip div{padding:22px 22px 22px 0;border-right:1px solid #D9D9D9}
+.mile-strip div:last-child{border-right:none}
+.mile-strip h4{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E3001D;margin-bottom:10px}
+.mile-strip p{font-size:15px;color:#545454}
+.mile-strip p strong{color:#000000;font-weight:700}
+.tail p{max-width:830px;margin-top:16px;font-size:15px;color:#545454}
+
+/* TABLES */
+.price-table{width:100%;border-collapse:collapse;margin-top:6px;font-size:15px;border:1px solid #D9D9D9}
+.price-table th,.price-table td{border:1px solid #D9D9D9;padding:14px;vertical-align:top;text-align:left}
+.price-table thead th{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:#F5F5F5;color:#000000}
+.price-table td.num{text-align:right;font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.price-table tr.section-head td{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:#F5F5F5;color:#000000;border-bottom:2px solid #E3001D}
+.price-table tr.subtotal td{font-size:15px;font-weight:500}
+.price-table tr.subtotal td.num{font-weight:700}
+.price-table tr.ohc td{color:#545454}
+.price-table tr.total td{background:#E3001D;border:1px solid #E3001D;color:#FFFFFF;padding:22px 14px}
+.price-table tr.total td.lab{font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FFFFFF}
+.price-table tr.total td.num{font-size:34px;font-weight:900;color:#FFFFFF;letter-spacing:-0.02em}
+.price-note{font-size:13px;color:#545454;margin-top:14px;max-width:800px}
+.a-table{width:100%;border-collapse:collapse;font-size:14px;border:1px solid #D9D9D9;margin-top:6px}
+.a-table th,.a-table td{border:1px solid #D9D9D9;padding:13px;text-align:left;vertical-align:top;color:#545454}
+.a-table thead th{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:#F5F5F5;color:#000000}
+.a-table td.asn{font-size:15px;font-weight:500;color:#000000}
+.a-table tr.block td.asn{border-left:4px solid #E3001D}
+
+/* TEAM */
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:6px}
+.tm{border:1px solid #D9D9D9;background:#FFFFFF;padding:24px}
+.tm .initials{width:46px;height:46px;border-radius:50%;background:#E3001D;color:#FFFFFF;font-size:14px;font-weight:900;letter-spacing:0.06em;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.tm .role{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E3001D;margin-bottom:8px}
+.tm h3{font-size:22px;font-weight:700;letter-spacing:-0.01em;color:#000000;margin-bottom:6px;text-transform:uppercase}
+.tm p.org{font-size:13px;color:#545454;margin-bottom:14px}
+.tm p{font-size:15px;color:#545454}
+.tm .assigned{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#545454;border:1px solid #D9D9D9;padding:5px 9px;margin-bottom:16px}
+.tm.ref{border-left:4px solid #008150}
+.tm.ref .initials{background:#008150}
+.tm.ref .role{color:#008150}
+.resp-strip{display:grid;grid-template-columns:1fr 1fr;margin-top:32px;border-top:2px solid #E3001D}
+.resp-strip p{font-size:14px;padding:16px 20px 16px 0;border-bottom:1px solid #D9D9D9;color:#545454}
+.resp-strip p strong{display:block;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000000;margin-bottom:5px}
+
+/* TIMELINE */
+.timeline{margin-top:6px;border:1px solid #D9D9D9}
+.wk-scale{display:grid;grid-template-columns:repeat(8,1fr)}
+.wk-scale div{padding:12px 8px;border-right:1px solid #D9D9D9;border-bottom:1px solid #000000}
+.wk-scale div:last-child{border-right:none}
+.wk-scale div.bnd{border-right:2px solid #000000}
+.wk-scale span.wk{display:block;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000000}
+.wk-scale span.wd{display:block;font-size:10px;font-weight:400;color:#545454;margin-top:4px}
+.phase-row{display:grid;grid-template-columns:88px 230px 1fr 300px 74px 104px;gap:16px;align-items:center;padding:18px 20px;border-bottom:1px solid #D9D9D9;font-size:14px}
+.phase-row:last-child{border-bottom:none}
+.phase-row.head{background:#F5F5F5;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000000;padding:13px 20px}
+.p-num{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E3001D}
+.p-area{font-size:15px;font-weight:700;color:#000000;line-height:1.35}
+.p-work{font-size:14px;color:#545454;line-height:1.45}
+.p-dur{font-size:15px;font-weight:700;color:#000000;text-align:right}
+.p-overlap{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#008150;text-align:right}
+.bar-track{position:relative;display:grid;grid-template-columns:repeat(8,1fr);height:26px;border-bottom:1px solid #D9D9D9}
+.bar-track .tick{border-right:1px solid #D9D9D9}
+.bar-track .tick.bnd{border-right:2px solid #000000}
+.bar-track .tick:last-child{border-right:none}
+.bar{position:absolute;top:9px;height:8px;background:#E3001D}
+.omark{position:absolute;top:8px;width:6px;height:6px;background:#008150}
+.mile-list{list-style:none;margin-top:28px;border-top:2px solid #E3001D}
+.mile-list li{font-size:14px;padding:14px 0;border-bottom:1px solid #D9D9D9;color:#000000;display:flex;justify-content:space-between;gap:16px}
+.mile-list li span{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E3001D}
+.timeline-total{background:#000000;color:#FFFFFF;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;font-size:13px;font-weight:700;letter-spacing:0.06em;border-top:3px solid #E3001D}
+.timeline-total strong{color:#FFFFFF;font-weight:900;letter-spacing:0.10em;text-transform:uppercase}
+.timeline-total .tt-r{color:#D9D9D9;font-size:12px;font-weight:400}
+
+/* NEXT STEPS */
+.ns-list{margin-top:6px;border-top:2px solid #E3001D}
+.ns-row{display:grid;grid-template-columns:64px 1fr 250px 104px;gap:20px;align-items:start;padding:20px 0;border-bottom:1px solid #D9D9D9}
+.ns-row.head{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:12px 0;background:#F5F5F5}
+.ns-n{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:28px;font-weight:900;line-height:1;letter-spacing:-0.03em;color:#E3001D}
+.ns-action{font-size:16px;font-weight:500;color:#000000;line-height:1.5}
+.ns-owner{font-size:14px;color:#545454;line-height:1.5}
+
+/* GUARDRAILS */
+.diff-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:6px}
+.diff-item{background:#FFFFFF;border:1px solid #D9D9D9;border-left:4px solid #E3001D;padding:28px}
+.diff-num{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E3001D;margin-bottom:12px}
+.diff-item h4{font-size:24px;font-weight:700;letter-spacing:-0.01em;color:#000000;margin-bottom:12px}
+.diff-item p{font-size:16px;color:#545454;max-width:830px}
+.diff-item .metrics{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;padding-top:16px;border-top:1px solid #D9D9D9}
+.diff-item .metrics span{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000000}
+
+/* FOOTER */
+.footer-quote{background:#000000;color:#FFFFFF;padding:70px 80px;border-top:3px solid #E3001D}
+.footer-quote blockquote{font-family:'Helvetica Neue','Helvetica','Arial Narrow',sans-serif;font-size:30px;font-weight:700;letter-spacing:-0.02em;line-height:1.25;max-width:880px;color:#FFFFFF;margin-bottom:24px}
+.footer-quote .attr{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E3001D}
+.footer-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:#F5F5F5;color:#545454;padding:24px 80px;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border-top:1px solid #D9D9D9}
+.footer-bar a{color:#000000;text-decoration:none;border-bottom:2px solid #E3001D}
+
+.fade{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+
+@media (max-width:900px){
+  .sidebar{position:relative;width:100%;height:auto;border-right:none;border-bottom:1px solid #D9D9D9;padding:24px}
+  .sidebar nav{flex-direction:row;flex-wrap:wrap;gap:12px;margin:18px 0}
+  .sidebar .mast-sub{margin-bottom:12px}
+  main{margin-left:0}
+  .hero,.sect,.footer-quote{padding:40px 24px}
+  .hero h1{font-size:40px}
+  .sect h2{font-size:28px}
+  .conf-banner,.footer-bar{padding-left:24px;padding-right:24px}
+  .stat-strip,.u-grid,.team-grid,.mile-strip,.resp-strip,.scope-col.incl ul,.diff-item .metrics{grid-template-columns:1fr}
+  .stat-strip div,.mile-strip div{border-right:none;border-bottom:1px solid #D9D9D9;padding-right:0}
+  .u-card{border-right:none}
+  .u-card:nth-child(2n){padding-left:0}
+  .photo-strip{grid-template-columns:1fr}
+  .photo-cell{border-right:none;border-bottom:1px solid #D9D9D9}
+  .app-item{grid-template-columns:56px 1fr;gap:12px}
+  .app-item p,.app-item .chip{grid-column:1/-1}
+  .phase-row{grid-template-columns:1fr 1fr;gap:8px}
+  .phase-row .p-work,.phase-row .bars{grid-column:1/-1}
+  .ns-row{grid-template-columns:44px 1fr;gap:12px}
+  .ns-row .ns-owner,.ns-row .chip{grid-column:1/-1}
+  .wk-scale{grid-template-columns:repeat(4,1fr)}
+  .a-table,.price-table{font-size:13px}
+}
+</style></head>
+<body>
+
+<div class="sidebar">
+  <div class="logo">Tag Heuer<span class="lbco">&times; LUX BRAND CO.</span></div>
+  <div class="mast-sub">Springfield NJ — 2026 Rough Costing</div>
+  <nav>
+    <a href="#overview">01 Overview</a>
+    <a href="#scope">02 Scope of Work</a>
+    <a href="#approach">03 Execution Approach</a>
+    <a href="#assumptions-register">04 Assumptions</a>
+    <a href="#team">05 Project Team</a>
+    <a href="#pricing">06 Pricing</a>
+    <a href="#timeline">07 Schedule</a>
+    <a href="#next_steps">08 Next Steps</a>
+    <a href="#guardrails" class="nav-highlight">09 Guardrails</a>
+  </nav>
+  <div class="sidebar-footer">
+    Springfield, NJ<br>
+    Boutique Interior Build-Out<br>
+    2026
+    <span class="rc">Rough Costing</span>
+  </div>
+</div>
+
+<main>
+
+<div class="conf-banner"><span class="dot"></span>Confidential · Rough Costing Exercise · Not a Formal Bid<span class="dot"></span></div>
+
+<div class="hero">
+  <div class="hero-label">Rough Costing Exercise — Springfield NJ · Prepared for Tag Heuer</div>
+  <h1>Springfield, New Jersey</h1>
+  <p class="tagline">Tag Heuer boutique interior build-out priced from a provisional framework pending the issued bid set.</p>
+  <div class="meta">2026 · lbco.com/tagheuer/springfield-nj/ · 1,800 SF nominal, unconfirmed · 3 phases · 8 weeks</div>
+  <div><span class="rc-tag">Rough Costing Exercise — Not a Formal Bid</span></div>
+</div>
+
+<div class="photo-strip">
+  <div class="photo-cell">
+    <div class="ph-label">Site Visit</div>
+    <div class="ph-title">Not Yet Scheduled</div>
+    <p class="ph-sub">Site visit — Springfield NJ — date pending. No interior photography of the unit exists in the LUX file.</p>
+  </div>
+  <div class="photo-cell">
+    <div class="ph-label">Existing Conditions</div>
+    <div class="ph-title">Unverified</div>
+    <p class="ph-sub">Slab condition, ceiling height, and demising wall construction remain unmeasured. These cells stand in for survey imagery.</p>
+  </div>
+  <div class="photo-cell">
+    <div class="ph-label">Documentation</div>
+    <div class="ph-title">Zero Documents</div>
+    <p class="ph-sub">No bid set, RFP, or landlord criteria accompanied this request. Photographs follow the joint walk.</p>
+  </div>
+</div>
+
+<!-- 01 OVERVIEW -->
+<div class="sect" id="overview">
+  <div class="sect-num">01</div>
+  <div class="sect-label">Project Overview</div>
+  <h2>Springfield boutique priced without documents.</h2>
+  <p class="sect-sub">No bid set, RFP, or site survey accompanied this request. The figures below are a provisional framework for a Tag Heuer boutique interior build-out, structured for replacement against the issued drawings.</p>
+
+  <div class="stat-strip">
+    <div><span class="sv sm">1,800 SF</span><span class="sl">Square Footage — Nominal, Unconfirmed</span></div>
+    <div><span class="sv">3</span><span class="sl">Phases</span></div>
+    <div><span class="sv">8 WKS</span><span class="sl">Duration</span></div>
+    <div><span class="sv">0</span><span class="sl">Documents Received</span></div>
+  </div>
+
+  <div class="body-col">
+    <p>This is a full interior build-out of a Tag Heuer retail boutique in Springfield, New Jersey, scheduled in calendar 2026. The work runs selective demolition through punch list and turnover across three phases and eight weeks. Square footage reads 1,800 SF nominal and remains unconfirmed until the lease exhibit is issued.</p>
+    <p>Zero bid documents were attached to this request. The scope framework below was derived from typical Tag Heuer boutique work — brand-standard display cases, wall systems, cash wrap, architectural and display lighting, and low-voltage rough-in. Final scope, quantities, and phasing are confirmed against the issued drawing set, the brand standards manual, and landlord criteria.</p>
+    <p>Anticipated work covers framing and drywall, millwork installation, flooring, wall and ceiling finishes, MEP modifications to suit the new plan, security rough-in, and storefront and signage coordination. Every quantity in this document carries a $0 figure or an unconfirmed marker. No allowance, unit rate, or lump sum in this file was priced against a drawing.</p>
+    <div class="status-line">Site Visit — Springfield NJ — Month and Year Pending</div>
+    <p class="muted">Client contact of record: name and title pending confirmation from Tag Heuer. All four observations below carry open confirmations and are replaced by findings from the issued documents and the joint site walk. Nothing in this section is a priced commitment.</p>
+    <p class="muted">Four documents govern the hard number. None of the four were in hand at the time of issue, and the register below states the status of each.</p>
+  </div>
+
+  <dl class="doc-reg">
+    <dt>Bid set and drawing package</dt>
+    <dd>Not issued. Quantities for demolition, partitions, flooring, ceiling, and devices cannot be taken off. Gates all four pricing line items.</dd>
+    <dt>Brand standards manual</dt>
+    <dd>Not issued. Wall finish level, case model numbers, lighting fixture schedule, and cash wrap detail remain undefined. Gates millwork and lighting pricing.</dd>
+    <dt>Landlord criteria and rules of work</dt>
+    <dd>Not issued. Permitted work hours, loading dock access, dust protection standards, and hoisting rules remain unknown. Gates general conditions.</dd>
+    <dt>Existing conditions survey</dt>
+    <dd>Not performed. MEP capacity, slab flatness, ceiling height, and demising wall construction remain unmeasured. Gates demolition and MEP pricing.</dd>
+  </dl>
+
+  <h3 class="blk-h">Understanding — Four Observations</h3>
+  <div class="u-grid">
+    <div class="u-card">
+      <div class="u-num">Observation 01</div>
+      <h3>No documents received</h3>
+      <p>This request included no bid set, RFP, or site survey. All observations here are replaced with findings from the issued documents and the site walk. Nothing in this section survives receipt of the drawings.</p>
+    </div>
+    <div class="u-card">
+      <div class="u-num">Observation 02</div>
+      <h3>Springfield NJ location</h3>
+      <p>Unit type is unconfirmed — inline mall unit, street-level storefront, or shop-in-shop within a host retailer. Unit type drives access hours, dust protection, and landlord requirements. It moves general conditions directly.</p>
+    </div>
+    <div class="u-card">
+      <div class="u-num">Observation 03</div>
+      <h3>Brand standard millwork</h3>
+      <p>Display cases, wall systems, and cash wrap are either Tag Heuer vendor-supplied under OFCI terms or contractor-furnished. Responsibility is unconfirmed. Lead times are verified against the target opening date before the schedule locks.</p>
+    </div>
+    <div class="u-card">
+      <div class="u-num">Observation 04</div>
+      <h3>Existing conditions unknown</h3>
+      <p>Existing MEP capacity, slab condition, ceiling height, demising wall construction, and landlord-provided base building work are unverified. All five are verified prior to hard pricing. Each is logged in the assumptions register.</p>
+    </div>
+  </div>
+
+  <div class="callout">Confidentiality — Rough Costing Exercise. Not a Formal Bid.</div>
+</div>
+
+<!-- 02 SCOPE -->
+<div class="sect" id="scope">
+  <div class="sect-num">02</div>
+  <div class="sect-label">Scope of Work</div>
+  <h2>Seven work packages in. Five out.</h2>
+  <p class="sect-sub">Included scope runs selective demolition through punch and turnover, with millwork installation priced as vendor-supplied receiving until fixture responsibility is confirmed. Exclusions are stated so nothing is assumed carried.</p>
+
+  <div class="scope-grid">
+    <div class="scope-col incl">
+      <h3 class="blk-h">Included (7)</h3>
+      <ul>
+        <li>
+          <h4>Selective demolition</h4>
+          <p class="sd">Removal of existing finishes, fixtures, and partitions as required to receive new work, including legal disposal. Noisy demolition is scheduled off-hours. Debris volume is unquantified pending the site walk and the demolition plan.</p>
+          <p class="spec">Spec — Gauge / Finish / Tolerance / Install Method Pending</p>
+        </li>
+        <li>
+          <h4>Framing, drywall, and finishes</h4>
+          <p class="sd">Metal stud framing, gypsum board, taping, and paint or specialty wall finishes per brand standard. Linear footage of new partition is not established. Level of finish follows the brand standards manual once issued.</p>
+          <p class="spec">Spec — Gauge / Finish / Tolerance / Install Method Pending</p>
+        </li>
+        <li>
+          <h4>Millwork installation</h4>
+          <p class="sd">Receiving, uncrating, and installation of brand display cases, wall units, and cash wrap. Priced as vendor-supplied fixtures unless noted otherwise. Fixture count reads zero until the fixture schedule is issued.</p>
+          <p class="spec">Spec — Gauge / Finish / Tolerance / Install Method Pending</p>
+        </li>
+        <li>
+          <h4>Lighting and electrical</h4>
+          <p class="sd">Branch wiring, device rough-in, and installation of architectural and display lighting including controls. Existing panel capacity is unverified. Device count is unestablished and carries no allowance in this file.</p>
+          <p class="spec">Spec — Gauge / Finish / Tolerance / Install Method Pending</p>
+        </li>
+        <li>
+          <h4>Flooring and ceiling</h4>
+          <p class="sd">Substrate preparation and installation of specified flooring, plus ceiling system and integrated details. Slab flatness and moisture readings are unmeasured. Ceiling height is unconfirmed against the reflected ceiling plan.</p>
+          <p class="spec">Spec — Gauge / Finish / Tolerance / Install Method Pending</p>
+        </li>
+        <li>
+          <h4>Low voltage and security rough-in</h4>
+          <p class="sd">Conduit, boxes, and pathways for POS, data, CCTV, and alarm. Final device installation is by owner vendors. Vendor coordination points are confirmed at the fixture release, not before.</p>
+          <p class="spec">Spec — Gauge / Finish / Tolerance / Install Method Pending</p>
+        </li>
+        <li>
+          <h4>Final clean and punch</h4>
+          <p class="sd">Detail clean, punch list closeout, and turnover package with warranties and as-builts. The turnover package is issued at the end of week 08. Punch runs one week and carries no float.</p>
+          <p class="spec">Spec — Gauge / Finish / Tolerance / Install Method Pending</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="scope-col excl">
+      <h3 class="blk-h grn">Excluded (5)</h3>
+      <ul>
+        <li><h4>Landlord base building work</h4><p class="sd">Base building HVAC, sprinkler main, and utility service upgrades are assumed by landlord. None are carried in the number.</p></li>
+        <li><h4>Permits and municipal fees</h4><p class="sd">Permit and plan review fees are excluded and assumed paid directly by owner. LUX files the application and manages the review.</p></li>
+        <li><h4>Furniture, fixtures, and merchandise</h4><p class="sd">Owner-supplied FF&amp;E, watches, and merchandising props are excluded. Receiving and storage of merchandise are not carried.</p></li>
+        <li><h4>Exterior signage fabrication</h4><p class="sd">Sign fabrication and landlord sign approvals are by brand vendor. LUX provides blocking and power only.</p></li>
+        <li><h4>Hazardous material abatement</h4><p class="sd">Asbestos, lead, and mold abatement are excluded pending survey. No survey has been issued for this unit.</p></li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="note-line">Millwork supply responsibility unconfirmed. Priced as receive-and-install until OFCI status is issued.</p>
+</div>
+
+<!-- 03 APPROACH -->
+<div class="sect" id="approach">
+  <div class="sect-num">03</div>
+  <div class="sect-label">Execution Approach</div>
+  <h2>Long-lead packages release at award.</h2>
+  <p class="sect-sub">Five operating commitments govern this build — mobilization structure, permitted work hours, procurement release, continuous supervision, and weekly owner reporting. Each carries an open confirmation against landlord criteria.</p>
+
+  <div class="approach-grid">
+    <div class="app-item">
+      <div class="app-n">01</div>
+      <h4>Phased single-mobilization build</h4>
+      <p>The store is delivered in one continuous mobilization or phased around adjacent tenant operations. Unit type decides which. LUX priced one mobilization across three phases and eight weeks.</p>
+      <div><span class="chip pend">Pending Landlord</span></div>
+    </div>
+    <div class="app-item">
+      <div class="app-n">02</div>
+      <h4>Work hours</h4>
+      <p>Pricing assumes standard daytime hours with noisy demolition performed off-hours. Center-permitted work hours are confirmed before buyout. Off-hours premium applies to demolition only in this framework.</p>
+      <div><span class="chip pend">Pending Landlord</span></div>
+    </div>
+    <div class="app-item">
+      <div class="app-n">03</div>
+      <h4>Long-lead procurement first</h4>
+      <p>Millwork, lighting, and specialty finish packages release immediately at award. The release protects the opening date against fabrication lead times. Purchase orders and confirmed ship dates go to the owner.</p>
+      <div><span class="chip conf">Confirmed</span></div>
+    </div>
+    <div class="app-item">
+      <div class="app-n">04</div>
+      <h4>Single superintendent, full time</h4>
+      <p>One superintendent holds the site from mobilization through punch. Supervision is continuous, not shared across projects. Quality control and brand standard compliance sit with that one name.</p>
+      <div><span class="chip conf">Confirmed</span></div>
+    </div>
+    <div class="app-item">
+      <div class="app-n">05</div>
+      <h4>Weekly owner reporting</h4>
+      <p>One progress report issues each week with photos, schedule status, and the RFI and change log. Each report carries a two-week look-ahead. Reports run every week from mobilization through turnover.</p>
+      <div><span class="chip conf">Confirmed</span></div>
+    </div>
+  </div>
+
+  <div class="mile-strip">
+    <div>
+      <h4>Phase 1 — 3 WKS</h4>
+      <p><strong>Mobilize, demo, rough-in.</strong> Deliverable: rough-in inspection signed at end of week 03. Start date reads week-of pending landlord confirmation.</p>
+    </div>
+    <div>
+      <h4>Phase 2 — 4 WKS</h4>
+      <p><strong>Finishes, millwork, lighting.</strong> Deliverable: millwork set complete and lighting energized at end of week 07. Start reads week-of pending fixture ship dates.</p>
+    </div>
+    <div>
+      <h4>Phase 3 — 1 WK</h4>
+      <p><strong>Punch, clean, turnover.</strong> Deliverable: turnover package with warranties and as-builts at end of week 08. Start reads week-of pending the schedule lock.</p>
+    </div>
+  </div>
+
+  <div class="tail">
+    <p>Three of the five commitments are fixed today. Items 01 and 02 depend on landlord rules of work, and both move general conditions rather than trade cost. LUX priced the conservative case on both — one mobilization, daytime hours, off-hours demolition.</p>
+    <p>Buyout follows the same order as the phase structure. Demolition and framing subcontracts award first, millwork receiving and lighting second, low voltage last. No subcontract is issued against this document; buyout starts at receipt of the drawing set.</p>
+    <p>Calendar dates are not fabricated in this file. Every date field reads week-of and locks once the target opening date and permitted work hours are confirmed with the landlord.</p>
+  </div>
+</div>
+
+<!-- 04 ASSUMPTIONS -->
+<div class="sect" id="assumptions-register">
+  <div class="sect-num">04</div>
+  <div class="sect-label">Assumptions Register</div>
+  <h2>Every open item logged against an owner.</h2>
+  <p class="sect-sub">This costing rests on assumptions rather than documents. Each is registered here with the party who closes it and the pricing item it moves. Five rows carry a red rule and block hard pricing outright.</p>
+
+  <table class="a-table">
+    <thead>
+      <tr><th>Assumption</th><th>Basis</th><th>Closed By</th><th>Pricing Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr class="block"><td class="asn">Unit type — inline mall, street-level, or shop-in-shop — unconfirmed</td><td>Drives access hours, dust protection, and landlord rules</td><td>Project Executive, LUX Brand Company</td><td>General conditions</td></tr>
+      <tr class="block"><td class="asn">Millwork supply OFCI versus contractor-furnished</td><td>Brand standard fixture packages</td><td>Project Manager, LUX Brand Company</td><td>Millwork receiving and installation</td></tr>
+      <tr><td class="asn">Permitted work hours</td><td>Priced at standard daytime hours, noisy demolition off-hours</td><td>Project Executive, LUX Brand Company</td><td>General conditions</td></tr>
+      <tr class="block"><td class="asn">Existing MEP capacity</td><td>Not verified</td><td>Site Superintendent, LUX Brand Company</td><td>MEP, lighting, and low voltage</td></tr>
+      <tr class="block"><td class="asn">Slab condition and ceiling height</td><td>Not verified</td><td>Site Superintendent, LUX Brand Company</td><td>Demolition and construction trades</td></tr>
+      <tr class="block"><td class="asn">Demising wall construction</td><td>Not verified</td><td>Site Superintendent, LUX Brand Company</td><td>Demolition and construction trades</td></tr>
+      <tr><td class="asn">Landlord-provided base building work</td><td>Assumed by landlord</td><td>Client contact, Tag Heuer / LVMH Watches</td><td>Excluded</td></tr>
+      <tr><td class="asn">Hazardous material survey</td><td>No survey issued</td><td>Client contact, Tag Heuer / LVMH Watches</td><td>Excluded</td></tr>
+      <tr><td class="asn">Target opening date</td><td>Not set</td><td>Client contact, Tag Heuer / LVMH Watches</td><td>Overhead and contingency</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tail">
+    <p>Nine assumptions carry this exercise. Five are marked with a red rule because they block a hard number rather than adjust one — unit type, millwork supply responsibility, MEP capacity, slab and ceiling condition, and demising wall construction. Three sit with the site superintendent and close during the joint walk.</p>
+    <p>Three assumptions sit on the Tag Heuer side and cannot be closed by LUX. Base building scope and the hazardous material survey stay in the exclusion list until documents say otherwise. The target opening date drives the contingency carry and the procurement release order.</p>
+    <p>Owner names read by role in this file. Each name is filled from the award-stage staffing letter, and the register reissues with names on the first weekly report.</p>
+  </div>
+</div>
+
+<!-- 05 TEAM -->
+<div class="sect" id="team">
+  <div class="sect-num">05</div>
+  <div class="sect-label">Project Team</div>
+  <h2>One superintendent on site every working day.</h2>
+  <p class="sect-sub">Four names carry this project — project executive, project manager, site superintendent, and the Tag Heuer / LVMH Watches owner representative. Roles are fixed at award and do not rotate between phases.</p>
+
+  <div class="team-grid">
+    <div class="tm">
+      <span class="assigned">Assigned · Springfield NJ</span>
+      <div class="initials">PE</div>
+      <div class="role">Project Executive</div>
+      <h3>Name Pending</h3>
+      <p class="org">LUX Brand Company</p>
+      <p>Senior leader accountable for commercial terms, staffing, and escalation on this project. Background covers luxury retail construction delivery across multiple brand rollouts. Holds single ownership of the schedule and budget commitments on the Springfield boutique.</p>
+    </div>
+    <div class="tm">
+      <span class="assigned">Assigned · Springfield NJ</span>
+      <div class="initials">PM</div>
+      <div class="role">Project Manager</div>
+      <h3>Name Pending</h3>
+      <p class="org">LUX Brand Company</p>
+      <p>Day-to-day manager for buyout, submittals, RFIs, and subcontractor coordination. Experience runs to millwork-heavy boutique interiors and brand standard compliance reviews. Owns the master schedule and the weekly report for this build-out.</p>
+    </div>
+    <div class="tm">
+      <span class="assigned">Assigned · Springfield NJ</span>
+      <div class="initials">SI</div>
+      <div class="role">Site Superintendent</div>
+      <h3>Name Pending</h3>
+      <p class="org">LUX Brand Company</p>
+      <p>Full-time on-site lead responsible for trade sequencing, safety, quality control, and landlord compliance. Track record covers after-hours and off-hours retail work in occupied centers. Runs daily logs, inspections, and punch closeout in Springfield.</p>
+    </div>
+    <div class="tm ref">
+      <span class="assigned">Client Contact</span>
+      <div class="initials">TH</div>
+      <div class="role">Owner Representative — Title Pending</div>
+      <h3>Name Pending</h3>
+      <p class="org">Tag Heuer / LVMH Watches</p>
+      <p>Client-side owner representative for design intent, brand standards, and approvals. Primary decision maker for change orders and fixture releases. Coordinates with LUX on merchandising and the opening date.</p>
+    </div>
+  </div>
+
+  <div class="resp-strip">
+    <p><strong>Escalation</strong>Project Executive, LUX Brand Company. Commercial terms and staffing decisions resolve here within one business day.</p>
+    <p><strong>Daily Site Authority</strong>Site Superintendent, LUX Brand Company. Trade sequencing, safety, and access control sit with this role on every working day.</p>
+    <p><strong>Brand Standard Approvals</strong>Tag Heuer / LVMH Watches representative. Finish, fixture, and lighting approvals issue from the client side only.</p>
+    <p><strong>Schedule and Weekly Report</strong>Project Manager, LUX Brand Company. One report per week with photos, schedule status, and a two-week look-ahead.</p>
+  </div>
+  <p class="note-line">Client contact of record: name and title pending confirmation from Tag Heuer.</p>
+</div>
+
+<!-- 06 PRICING -->
+<div class="sect" id="pricing">
+  <div class="sect-num">06</div>
+  <div class="sect-label">Pricing</div>
+  <h2>Four line items carrying zero dollars.</h2>
+  <p class="sect-sub">No quantities were issued, so every line reads $0 until the bid set and brand standards manual land. Overhead is carried at 12 percent and contingency at 5 percent.</p>
+
+  <table class="price-table">
+    <thead>
+      <tr><th>Line Item</th><th>Phase</th><th>Basis</th><th>Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr class="section-head"><td>Base Scope — Four Line Items</td><td>Phases 1–3</td><td>Quantities Not Issued</td><td class="num">$0</td></tr>
+      <tr><td>General conditions and supervision</td><td>Phases 1–3</td><td>Weeks &times; rate — rate pending</td><td class="num">$0</td></tr>
+      <tr><td>Demolition and construction trades</td><td>Phases 1–2</td><td>SF &times; rate — quantity pending</td><td class="num">$0</td></tr>
+      <tr><td>Millwork receiving and installation</td><td>Phase 2</td><td>Fixture count — schedule pending</td><td class="num">$0</td></tr>
+      <tr><td>MEP, lighting, and low voltage</td><td>Phases 1–2</td><td>Device count — drawings pending</td><td class="num">$0</td></tr>
+      <tr class="subtotal"><td>Phase 1 subtotal — mobilize, demo, rough-in</td><td>Phase 1</td><td>3 weeks</td><td class="num">$0</td></tr>
+      <tr class="subtotal"><td>Phase 2 subtotal — finishes, millwork, lighting</td><td>Phase 2</td><td>4 weeks</td><td class="num">$0</td></tr>
+      <tr class="subtotal"><td>Phase 3 subtotal — punch, clean, turnover</td><td>Phase 3</td><td>1 week</td><td class="num">$0</td></tr>
+      <tr class="ohc"><td>Overhead — 12%</td><td>Phases 1–3</td><td>Percentage of base scope</td><td class="num">$0</td></tr>
+      <tr class="ohc"><td>Contingency — 5%</td><td>Phases 1–3</td><td>Percentage of base scope</td><td class="num">$0</td></tr>
+      <tr class="total"><td class="lab" colspan="3">Grand Total — Springfield NJ Boutique Build-Out</td><td class="num">Pending</td></tr>
+    </tbody>
+  </table>
+
+  <p class="price-note">Permit and plan review fees excluded. LUX files and manages the application.</p>
+  <p class="price-note">Pricing valid only against the issued drawing set. No quantities were available at time of issue.</p>
+  <p class="price-note">Overhead at 12 percent and contingency at 5 percent are carried on the base scope total, not on excluded items. Both percentages hold through buyout unless the drawing set changes the phase count. The four base line items map one-to-one against the seven included work packages in section 02, and no work package sits outside a line item. Fixture-related cost moves entirely inside the millwork line once OFCI status is issued.</p>
+</div>
+
+<!-- 07 SCHEDULE -->
+<div class="sect" id="timeline">
+  <div class="sect-num">07</div>
+  <div class="sect-label">Schedule</div>
+  <h2>Eight weeks from mobilization to turnover.</h2>
+  <p class="sect-sub">Three phases run start-overlapped, sequential, then finish. Week-of dates lock once the target opening date and permitted work hours are confirmed with the landlord.</p>
+
+  <div class="timeline">
+    <div class="wk-scale">
+      <div><span class="wk">WK 01</span><span class="wd">week-of pending</span></div>
+      <div><span class="wk">WK 02</span><span class="wd">week-of pending</span></div>
+      <div class="bnd"><span class="wk">WK 03</span><span class="wd">week-of pending</span></div>
+      <div><span class="wk">WK 04</span><span class="wd">week-of pending</span></div>
+      <div><span class="wk">WK 05</span><span class="wd">week-of pending</span></div>
+      <div><span class="wk">WK 06</span><span class="wd">week-of pending</span></div>
+      <div class="bnd"><span class="wk">WK 07</span><span class="wd">week-of pending</span></div>
+      <div><span class="wk">WK 08</span><span class="wd">week-of pending</span></div>
+    </div>
+    <div class="phase-row head">
+      <div>Phase</div><div>Area</div><div>Activity</div><div>Week Scale</div><div>Duration</div><div>Overlap</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 01</div>
+      <h4 class="p-area">Sales floor — area pending</h4>
+      <p class="p-work">Mobilization, demo, rough-in</p>
+      <div class="bars">
+        <div class="bar-track">
+          <div class="tick"></div><div class="tick"></div><div class="tick bnd"></div><div class="tick"></div><div class="tick"></div><div class="tick"></div><div class="tick bnd"></div><div class="tick"></div>
+          <div class="bar" style="left:0;width:37.5%"></div>
+          <div class="omark" style="left:0"></div>
+        </div>
+      </div>
+      <div class="p-dur">3 wks</div>
+      <div class="p-overlap">Start</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 02</div>
+      <h4 class="p-area">Sales floor and back of house — area pending</h4>
+      <p class="p-work">Finishes, millwork set, lighting</p>
+      <div class="bars">
+        <div class="bar-track">
+          <div class="tick"></div><div class="tick"></div><div class="tick bnd"></div><div class="tick"></div><div class="tick"></div><div class="tick"></div><div class="tick bnd"></div><div class="tick"></div>
+          <div class="bar" style="left:37.5%;width:50%"></div>
+          <div class="omark" style="left:37.5%"></div>
+        </div>
+      </div>
+      <div class="p-dur">4 wks</div>
+      <div class="p-overlap">Sequential</div>
+    </div>
+    <div class="phase-row">
+      <div class="p-num">Phase 03</div>
+      <h4 class="p-area">Whole store — area pending</h4>
+      <p class="p-work">Punch, clean, turnover</p>
+      <div class="bars">
+        <div class="bar-track">
+          <div class="tick"></div><div class="tick"></div><div class="tick bnd"></div><div class="tick"></div><div class="tick"></div><div class="tick"></div><div class="tick bnd"></div><div class="tick"></div>
+          <div class="bar" style="left:87.5%;width:12.5%"></div>
+          <div class="omark" style="left:94%"></div>
+        </div>
+      </div>
+      <div class="p-dur">1 wk</div>
+      <div class="p-overlap">Finish</div>
+    </div>
+  </div>
+  <div class="timeline-total">
+    <span><strong>Total Duration — 8 Weeks</strong> · 3 phases · single mobilization</span>
+    <span class="tt-r">Start date reads week-of pending landlord confirmation of permitted work hours.</span>
+  </div>
+
+  <ul class="mile-list">
+    <li>Rough-in inspection signed and closed<span>End WK 03</span></li>
+    <li>Millwork set complete and lighting energized<span>End WK 07</span></li>
+    <li>Turnover package issued with warranties and as-builts<span>End WK 08</span></li>
+  </ul>
+
+  <div class="tail">
+    <p>Phase 1 carries three weeks and absorbs mobilization, protection, selective demolition, and rough-in for electrical, low voltage, and security pathways. The rough-in inspection is the gate; finishes do not start ahead of it. Off-hours demolition sits inside those three weeks and adds no calendar duration.</p>
+    <p>Phase 2 carries four weeks and is the longest run in the schedule. Millwork delivery drives it, and the four weeks hold only if fixture ship dates land inside week 04. If ship dates slip, phase 2 extends and the turnover date moves week for week.</p>
+    <p>Phase 3 carries one week for punch, detail clean, and turnover. There is no float in the eighth week. Any punch list carried beyond week 08 is closed on a separate access schedule agreed with the landlord.</p>
+    <p>Noisy demolition scheduled off-hours. Standard daytime hours assumed for all other work pending landlord confirmation.</p>
+  </div>
+</div>
+
+<!-- 08 NEXT STEPS -->
+<div class="sect" id="next_steps">
+  <div class="sect-num">08</div>
+  <div class="sect-label">Next Steps</div>
+  <h2>Four actions convert this exercise into a hard number.</h2>
+  <p class="sect-sub">Documents, site walk, fixture responsibility, and work hours. Each item carries a named owner, and three sit on the Tag Heuer side.</p>
+
+  <div class="ns-list">
+    <div class="ns-row head">
+      <div>#</div><div>Action</div><div>Owner</div><div>Status</div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">01</div>
+      <p class="ns-action">Issue the bid set, brand standards manual, and landlord criteria to LUX for hard pricing.</p>
+      <p class="ns-owner">Client contact, Tag Heuer / LVMH Watches — name pending</p>
+      <div><span class="chip open">Open</span></div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">02</div>
+      <p class="ns-action">Schedule joint site walk in Springfield NJ to verify existing conditions.</p>
+      <p class="ns-owner">Site Superintendent, LUX Brand Company — name pending</p>
+      <div><span class="chip open">Open</span></div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">03</div>
+      <p class="ns-action">Confirm fixture supply responsibility and vendor lead times.</p>
+      <p class="ns-owner">Project Manager, LUX Brand Company — name pending</p>
+      <div><span class="chip open">Open</span></div>
+    </div>
+    <div class="ns-row">
+      <div class="ns-n">04</div>
+      <p class="ns-action">Confirm target opening date and permitted work hours with landlord.</p>
+      <p class="ns-owner">Project Executive, LUX Brand Company — name pending</p>
+      <div><span class="chip open">Open</span></div>
+    </div>
+  </div>
+
+  <div class="tail">
+    <p>Items 01 and 02 gate hard pricing. Items 03 and 04 gate the schedule.</p>
+    <p>Item 01 releases quantity takeoff on all four pricing lines. Item 02 closes five of the nine register rows in a single visit of roughly two hours. Item 03 moves the millwork line from receive-and-install to a supply-and-install number or leaves it as receiving. Item 04 fixes the week-of dates across the eight-week grid and sets the contingency carry.</p>
+  </div>
+</div>
+
+<!-- 09 GUARDRAILS -->
+<div class="sect" id="guardrails">
+  <div class="sect-num">09</div>
+  <div class="sect-label">Guardrails</div>
+  <h2>Two commitments hold regardless of scope changes.</h2>
+  <p class="sect-sub">Full-time supervision and a five-business-day procurement release are fixed terms of this proposal. Both survive scope revisions to the Springfield build.</p>
+
+  <div class="diff-grid">
+    <div class="diff-item">
+      <div class="diff-num">Guardrail 01</div>
+      <h4>Fixed on-site supervision.</h4>
+      <p>One dedicated superintendent stands on site every working day from mobilization through turnover. Daily logs and photo documentation issue to the owner. The role does not split across other projects and does not rotate between the three phases.</p>
+      <div class="metrics">
+        <span>Daily Logs — 100% of Working Days</span>
+        <span>Photo Sets — Weekly to Owner</span>
+      </div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">Guardrail 02</div>
+      <h4>Locked long-lead procurement.</h4>
+      <p>Millwork, lighting, and specialty finishes release within five business days of award. Purchase orders and confirmed ship dates go to the owner in writing. Release order follows the phase structure, with fixture packages ahead of low voltage.</p>
+      <div class="metrics">
+        <span>Release Window — 5 Business Days</span>
+        <span>Ship Dates — Confirmed in Writing</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tail">
+    <p>Both guardrails are priced inside general conditions and the millwork line. Neither is an allowance, and neither is withdrawn if the drawing set reduces scope. If fixture responsibility shifts to contractor-furnished, the five-business-day window still governs the release.</p>
+  </div>
+</div>
+
+<div class="footer-quote">
+  <blockquote>Zero documents were issued. Every figure on this page reads $0 and stays there until the bid set, brand standards manual, and landlord criteria land in the file.</blockquote>
+  <div class="attr">Project Executive — LUX Brand Company</div>
+</div>
+<div class="footer-bar">
+  <span>&copy; 2026 LUX Brand Company · Confidential</span>
+  <span>Prepared for Tag Heuer / LVMH Watches — Springfield NJ</span>
+  <a href="https://lbco.com/tagheuer/springfield-nj/">lbco.com/tagheuer/springfield-nj/</a>
+</div>
+
+</main>
+
+<script>
+document.querySelectorAll('.u-card,.tm,.app-item,.diff-item,.phase-row,.ns-row,.scope-col li,.a-table tbody tr,.price-table tbody tr,.mile-strip div,.doc-reg dt,.doc-reg dd').forEach(el=>el.classList.add('fade'));
+const io=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*26);io.unobserve(e.target);}
+  });
+},{threshold:.08});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+
+const links=Array.from(document.querySelectorAll('.sidebar nav a'));
+links.forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(id&&id.startsWith('#')){
+      const t=document.querySelector(id);
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+    }
+  });
+});
+const sects=Array.from(document.querySelectorAll('.sect[id]'));
+const setActive=()=>{
+  let current=sects[0];
+  const y=window.scrollY+180;
+  sects.forEach(s=>{if(s.offsetTop<=y)current=s;});
+  links.forEach(a=>{
+    if(a.getAttribute('href')==='#'+current.id)a.classList.add('nav-highlight');
+    else a.classList.remove('nav-highlight');
+  });
+};
+window.addEventListener('scroll',setActive,{passive:true});
+setActive();
+</script>
+
+</body></html>
