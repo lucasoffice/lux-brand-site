@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Ralph Lauren Boca · Living Hub</title>
+<style>
+:root {
+  --navy: #031E3A;
+  --cream: #F6F3EC;
+  --page: #fff;
+  --ink: #031E3A;
+  --muted: #6b7a88;
+  --hair: #e4ddd2;
+  --serif: Georgia, "Iowan Old Style", Palatino, "Times New Roman", serif;
+  --sans: -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-height: 100%; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.hdr {
+  background: var(--navy);
+  color: #fff;
+  padding: 22px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.hdr h1 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+}
+.hdr .sub {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 28px 24px 64px; }
+
+.gate {
+  min-height: 58vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
+.gate h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+}
+.gate p { color: var(--muted); font-size: 13px; max-width: 360px; }
+.gate input {
+  width: 220px;
+  text-align: center;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 22px;
+  letter-spacing: 0.28em;
+  padding: 14px 16px;
+  border: 1px solid var(--hair);
+  background: var(--page);
+  color: var(--navy);
+  outline: none;
+}
+.gate input:focus { border-color: var(--navy); }
+.gate button, .refresh {
+  appearance: none;
+  border: 0;
+  background: var(--navy);
+  color: #fff;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  cursor: pointer;
+}
+.gate .err { color: #8a1f1f; font-size: 13px; min-height: 18px; }
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.kpi {
+  background: var(--page);
+  border: 1px solid var(--hair);
+  padding: 20px 18px;
+}
+.kpi .v {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.kpi .l {
+  margin-top: 6px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.panel {
+  background: var(--page);
+  border: 1px solid var(--hair);
+  margin-bottom: 18px;
+}
+.panel h3 {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  padding: 16px 20px 0;
+}
+.panel .body { padding: 14px 20px 20px; }
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.toolbar .when { font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
+.bars { display: flex; flex-direction: column; gap: 10px; }
+.bar-row { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.bar-row .name { min-width: 140px; }
+.bar-row .track { flex: 1; height: 3px; background: #efe8dc; position: relative; }
+.bar-row .fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--navy); }
+.bar-row .n { min-width: 28px; text-align: right; color: var(--muted); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th {
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  padding: 8px 10px 8px 0;
+  border-bottom: 1px solid var(--hair);
+}
+td { padding: 10px 10px 10px 0; border-bottom: 1px solid #f0ebe3; vertical-align: top; }
+.ask {
+  padding: 12px 0;
+  border-bottom: 1px solid #f0ebe3;
+}
+.ask:last-child { border-bottom: 0; }
+.ask time { display: block; color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+.ask .q { white-space: pre-wrap; word-break: break-word; }
+.ask .a { margin-top: 6px; color: var(--muted); font-size: 13px; }
+.empty { color: var(--muted); font-style: italic; padding: 12px 0; }
+.hidden { display: none !important; }
+@media (max-width: 800px) {
+  .kpis { grid-template-columns: repeat(2, 1fr); }
+  .hdr, .wrap { padding-left: 16px; padding-right: 16px; }
+}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <h1>Ralph Lauren · Boca Living Hub</h1>
+  <div class="sub">Internal analytics · not linked from the bid</div>
+</header>
+
+<div id="gate" class="wrap gate">
+  <h2>Enter PIN</h2>
+  <p>Server-checked. This page is not in the public navigation.</p>
+  <input id="pin" type="password" inputmode="numeric" autocomplete="off" autofocus>
+  <button type="button" id="unlock">Open</button>
+  <div id="pinErr" class="err"></div>
+</div>
+
+<div id="dash" class="wrap hidden">
+  <div class="toolbar">
+    <div class="when" id="updated">—</div>
+    <button type="button" class="refresh" id="refresh">Refresh</button>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><div class="v" id="kPageviews">—</div><div class="l">Pageviews</div></div>
+    <div class="kpi"><div class="v" id="kEvents">—</div><div class="l">Events</div></div>
+    <div class="kpi"><div class="v" id="kDownloads">—</div><div class="l">Downloads</div></div>
+    <div class="kpi"><div class="v" id="kAsks">—</div><div class="l">Chat asks</div></div>
+  </div>
+  <div class="panel">
+    <h3>By type</h3>
+    <div class="body" id="byType"></div>
+  </div>
+  <div class="panel">
+    <h3>Recent visits</h3>
+    <div class="body" id="visits"></div>
+  </div>
+  <div class="panel">
+    <h3>Asks</h3>
+    <div class="body" id="asks"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var SUPA_URL = "https://uugouwyiudxvkzgvtzwl.supabase.co";
+  var SUPA_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV1Z291d3lpdWR4dmt6Z3Z0endsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg1MzU2MjgsImV4cCI6MjEwNDExMTYyOH0.FOE7k5XyKzbwSL826oXFb4xOfgnLp8b-nAK7zfJAzj0";
+  var PIN = null;
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function num() {
+    for (var i = 0; i < arguments.length; i++) {
+      var v = arguments[i];
+      if (typeof v === "number" && isFinite(v)) return v;
+      if (typeof v === "string" && v !== "" && isFinite(+v)) return +v;
+    }
+    return 0;
+  }
+  function asObj(data) {
+    if (Array.isArray(data)) return data[0] || {};
+    return data && typeof data === "object" ? data : {};
+  }
+  function pickArr() {
+    for (var i = 0; i < arguments.length; i++) {
+      if (Array.isArray(arguments[i])) return arguments[i];
+    }
+    return [];
+  }
+  function fmtWhen(v) {
+    if (!v) return "—";
+    var d = new Date(v);
+    if (isNaN(d.getTime())) return String(v);
+    return d.toLocaleString();
+  }
+  function first(row, keys) {
+    for (var i = 0; i < keys.length; i++) {
+      if (row[keys[i]] != null && row[keys[i]] !== "") return row[keys[i]];
+    }
+    return "";
+  }
+  function typeMap(raw) {
+    var out = {};
+    if (!raw) return out;
+    if (Array.isArray(raw)) {
+      raw.forEach(function (row) {
+        if (!row || typeof row !== "object") return;
+        var t = first(row, ["type", "event_type", "name", "key"]) || "(unknown)";
+        out[t] = num(out[t], 0) + num(row.n, row.count, row.total, 1);
+      });
+      return out;
+    }
+    if (typeof raw === "object") {
+      Object.keys(raw).forEach(function (k) { out[k] = num(raw[k]); });
+    }
+    return out;
+  }
+  function downloadTotal(data, k, byType) {
+    var direct = num(k.downloads, k.pdf_downloads, k.download_count, data.downloads);
+    if (direct) return direct;
+    var n = 0;
+    Object.keys(byType).forEach(function (t) {
+      if (/download|pdf/i.test(t)) n += num(byType[t]);
+    });
+    if (k.downloads && typeof k.downloads === "object" && !Array.isArray(k.downloads)) {
+      Object.keys(k.downloads).forEach(function (name) { n += num(k.downloads[name]); });
+    }
+    return n;
+  }
+
+  function normalize(payload) {
+    var data = asObj(payload);
+    var k = asObj(data.kpis || data.stats || data.totals || data);
+    var byType = typeMap(k.by_type || k.byType || data.by_type || data.byType || (data.events && (data.events.by_type || data.events.byType)));
+    var visits = pickArr(data.visits, data.recent_visits, data.recent, k.visits, data.events && data.events.recent);
+    var asks = pickArr(data.asks, data.chat_asks, data.questions, k.asks);
+    if (!asks.length && data.byIp && typeof data.byIp === "object") {
+      Object.keys(data.byIp).forEach(function (ip) {
+        (data.byIp[ip] || []).forEach(function (a) {
+          asks.push(Object.assign({ ip: ip }, a));
+        });
+      });
+    }
+    var ev = asObj(data.events);
+    return {
+      pageviews: num(k.pageviews, k.page_views, k.views, byType.pageview, byType.page_view, ev.byType && ev.byType.page_view),
+      events: num(k.events, k.event_count, k.total_events, ev.count, visits.length),
+      downloads: downloadTotal(data, k, byType),
+      chatAsks: num(k.chat_asks, k.asks_count, k.ask_count, data.count, asks.length),
+      byType: byType,
+      visits: visits,
+      asks: asks
+    };
+  }
+
+  function renderBars(map) {
+    var keys = Object.keys(map);
+    if (!keys.length) return '<div class="empty">No events yet.</div>';
+    keys.sort(function (a, b) { return map[b] - map[a]; });
+    var max = map[keys[0]] || 1;
+    return '<div class="bars">' + keys.map(function (t) {
+      var pct = Math.round((map[t] / max) * 100);
+      return '<div class="bar-row"><span class="name">' + esc(t) + '</span><span class="track"><span class="fill" style="width:' + pct + '%"></span></span><span class="n">' + map[t] + '</span></div>';
+    }).join("") + "</div>";
+  }
+
+  function renderVisits(rows) {
+    if (!rows.length) return '<div class="empty">No visits yet.</div>';
+    var html = "<table><thead><tr><th>When</th><th>Type</th><th>Name / path</th><th>Who</th></tr></thead><tbody>";
+    rows.slice(0, 80).forEach(function (v) {
+      var when = first(v, ["ts", "created_at", "last_seen", "at", "timestamp"]);
+      var type = first(v, ["type", "event_type", "kind"]);
+      var name = first(v, ["name", "path", "href", "title"]);
+      var who = [first(v, ["city"]), first(v, ["region"]), first(v, ["country"]), first(v, ["ip", "ip_asn"])].filter(Boolean).join(" · ") || "—";
+      html += "<tr><td>" + esc(fmtWhen(when)) + "</td><td>" + esc(type || "—") + "</td><td>" + esc(name || "—") + "</td><td>" + esc(who) + "</td></tr>";
+    });
+    return html + "</tbody></table>";
+  }
+
+  function renderAsks(rows) {
+    if (!rows.length) return '<div class="empty">No chat asks yet.</div>';
+    return rows.slice(0, 80).map(function (a) {
+      var when = first(a, ["ts", "created_at", "at", "timestamp"]);
+      var msg = first(a, ["message", "question", "q", "text", "ask"]) || "(empty)";
+      var reply = first(a, ["replyPreview", "reply", "answer", "a"]);
+      var who = first(a, ["ip", "city", "session"]);
+      return '<div class="ask"><time>' + esc(fmtWhen(when) + (who ? " · " + who : "")) + "</time><div class=\"q\">" + esc(msg) + "</div>" +
+        (reply ? "<div class=\"a\">→ " + esc(reply) + "</div>" : "") + "</div>";
+    }).join("");
+  }
+
+  function render(payload) {
+    var d = normalize(payload);
+    $("kPageviews").textContent = d.pageviews;
+    $("kEvents").textContent = d.events;
+    $("kDownloads").textContent = d.downloads;
+    $("kAsks").textContent = d.chatAsks;
+    $("byType").innerHTML = renderBars(d.byType);
+    $("visits").innerHTML = renderVisits(d.visits);
+    $("asks").innerHTML = renderAsks(d.asks);
+    $("updated").textContent = "Updated " + new Date().toLocaleString();
+  }
+
+  async function fetchAnalytics(pin) {
+    var res = await fetch(SUPA_URL + "/rest/v1/rpc/get_boca_analytics", {
+      method: "POST",
+      headers: {
+        apikey: SUPA_KEY,
+        Authorization: "Bearer " + SUPA_KEY,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ p: pin })
+    });
+    var text = await res.text();
+    var body = null;
+    try { body = text ? JSON.parse(text) : null; } catch (e) { body = { message: text }; }
+    return { res: res, body: body, text: text };
+  }
+
+  async function unlock() {
+    $("pinErr").textContent = "";
+    var pin = $("pin").value.trim();
+    if (!pin) { $("pinErr").textContent = "Enter the PIN."; return; }
+    var out = await fetchAnalytics(pin);
+    if (!out.res.ok) {
+      var msg = (out.body && out.body.message) || "";
+      $("pinErr").textContent = /unauthor/i.test(msg) || out.res.status === 401 || out.res.status === 403
+        ? "Incorrect PIN."
+        : "Could not open (" + out.res.status + ").";
+      return;
+    }
+    PIN = pin;
+    $("gate").classList.add("hidden");
+    $("dash").classList.remove("hidden");
+    render(out.body);
+  }
+
+  $("unlock").addEventListener("click", unlock);
+  $("pin").addEventListener("keydown", function (e) { if (e.key === "Enter") unlock(); });
+  $("refresh").addEventListener("click", async function () {
+    if (!PIN) return;
+    var out = await fetchAnalytics(PIN);
+    if (out.res.ok) render(out.body);
+  });
+})();
+</script>
+</body>
+</html>
