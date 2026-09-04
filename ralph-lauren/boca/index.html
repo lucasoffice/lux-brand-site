@@ -159,7 +159,7 @@ a { color: inherit; }
 }
 .facts .v { font-family: var(--serif); font-size: 18px; color: var(--navy-deep); font-weight: 400; }
 .sect { position: relative; padding: 72px 80px; border-bottom: 1px solid var(--hair); }
-.sect#team, .sect#schedule, .sect#guardrails, .sect#deliverables { background: var(--band); }
+.sect#team, .sect#schedule, .sect#guardrails, .sect#deliverables, .sect#proposal-assistant { background: var(--band); }
 .sect-num {
   position: absolute; top: 32px; right: 56px;
   font-family: var(--inscribe); font-size: 42px; font-weight: 400;
@@ -306,6 +306,7 @@ a { color: inherit; }
     <a href="#schedule">Schedule</a>
     <a href="#roster">Roster</a>
     <a href="#guardrails">Guardrails</a>
+    <a href="#proposal-assistant">Assistant</a>
   </nav>
   <div class="sidebar-footer">
     Lux Brand Company<br>
@@ -607,6 +608,17 @@ a { color: inherit; }
       <p>The proposed Boca roster is named before trades go out. Mall fire alarm is Johnson Controls. Robert Colvin is proposed, not awarded. Nothing on that list is an award.</p>
     </div>
   </div>
+</div>
+
+<div class="sect" id="proposal-assistant">
+  <div class="sect-num">08</div>
+  <div class="sect-label">Lux Brand proposal assistant for this page’s numbers</div>
+  <h2>Ask these numbers.</h2>
+  <p class="sect-sub">Answers from the figures on this exhibit. Not a bid. Not a send.</p>
+  <link rel="stylesheet" href="https://rl-boca-chat.vercel.app/widget.css">
+  <div data-rl-boca-chat></div>
+  <script>window.RL_BOCA_CHAT_API="https://rl-boca-chat.vercel.app";</script>
+  <script src="https://rl-boca-chat.vercel.app/widget.js" defer></script>
 </div>
 
 <div class="footer-quote">
