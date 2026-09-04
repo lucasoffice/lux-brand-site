@@ -6,9 +6,16 @@
 <title>Ralph Lauren | Boca Raton</title>
 <style>
 /* Heritage Prep. Page language is Ralph Lauren. LBCo is the GC in the sidebar only.
-   SET: 21 weeks, 10% CM, 1.5% insurance, $4,400/wk super, 1% pre-con first pay app.
-   OPEN: trades / parking / shutdown / PM / CO markup / grand total.
-   Payment: LBC proposes net 30 (RL stated policy is net 90). */
+   TODO(cody): drop binaries into this folder — exact hub hrefs already point here:
+     RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf
+     RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx
+     RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf
+   Do not invent bytes. Do not send to Charrette.
+   SET: 21 weeks, 10% CM, 1.5% insurance, $4,400/wk super, $3,500/wk PM (Shawn) + 4 trips,
+   5 months parking × $250 = $1,250, 1% pre-con first pay app.
+   OPEN: trades / sprinkler-shutdown count / CO markup / grand total.
+   Payment: opening ask net 30; net 45 is a possible settlement band if 30 is refused;
+   RL stated policy is net 90. Do not call net 45 an LBC standard. */
 :root {
   --page: #ffffff;
   --navy: #031E3A;
@@ -151,7 +158,7 @@ a { color: inherit; }
 }
 .facts .v { font-family: var(--serif); font-size: 18px; color: var(--navy-deep); font-weight: 400; }
 .sect { position: relative; padding: 72px 80px; border-bottom: 1px solid var(--hair); }
-.sect#team, .sect#schedule, .sect#guardrails { background: var(--band); }
+.sect#team, .sect#schedule, .sect#guardrails, .sect#deliverables, .sect#cody { background: var(--band); }
 .sect-num {
   position: absolute; top: 32px; right: 56px;
   font-family: var(--inscribe); font-size: 42px; font-weight: 400;
@@ -232,6 +239,38 @@ a { color: inherit; }
 }
 .dl-btn:hover { background: var(--navy); }
 .dl-note { font-size: 11px; color: var(--muted); margin-top: 12px; letter-spacing: 0.04em; }
+.del-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
+.del-card {
+  background: var(--page); padding: 28px 26px 24px;
+  text-decoration: none; display: block;
+}
+.del-card h3 {
+  font-family: var(--serif); font-size: 22px; font-weight: 400;
+  color: var(--navy-deep); margin-bottom: 10px;
+}
+.del-card p { font-size: 14px; color: var(--ink); line-height: 1.55; opacity: 0.9; }
+.del-card .del-k {
+  font-size: 9px; font-weight: 400; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+}
+.del-card .del-fmt {
+  display: inline-block; margin-top: 16px;
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy);
+}
+.del-card.is-ready:hover { background: #fafafa; }
+.tbd {
+  display: inline-block;
+  border: 1px solid var(--navy);
+  color: var(--navy);
+  font-size: 9px; font-weight: 400; letter-spacing: 0.18em;
+  text-transform: uppercase; padding: 4px 9px;
+}
+#boca-cody {
+  min-height: 120px;
+  border: 1px solid var(--hair);
+  background: var(--page);
+  padding: 28px 26px;
+}
 .cal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 8px; border-top: 1px solid var(--navy); }
 .cal-item { padding: 20px 24px 8px 0; }
 .cal-item .k { font-size: 9px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
@@ -257,7 +296,7 @@ a { color: inherit; }
   .sect { padding-top: 48px; padding-bottom: 48px; }
   .hero { padding-top: 48px; }
   .hero h1 { font-size: 36px; }
-  .u-grid, .rev-grid, .diff-grid, .team-grid, .facts, .cal { grid-template-columns: 1fr; }
+  .u-grid, .rev-grid, .diff-grid, .team-grid, .facts, .cal, .del-grid { grid-template-columns: 1fr; }
   .facts div { border-right: none; border-bottom: 1px solid var(--hair); }
 }
 </style>
@@ -271,6 +310,7 @@ a { color: inherit; }
     <img class="mark-lbco" src="data:image/png;base64,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" alt="Lux Brand Company" width="48" height="48">
   </div>
   <nav>
+    <a href="#deliverables">Deliverables</a>
     <a href="#understanding">Understanding</a>
     <a href="#team">Team</a>
     <a href="#revisions">Revisions</a>
@@ -278,6 +318,7 @@ a { color: inherit; }
     <a href="#schedule">Schedule</a>
     <a href="#roster">Roster</a>
     <a href="#guardrails">Guardrails</a>
+    <a href="#cody">Chat</a>
   </nav>
   <div class="sidebar-footer">
     Lux Brand Company<br>
@@ -301,12 +342,12 @@ a { color: inherit; }
   <h1>Town Center at Boca Raton<em>space 1062</em></h1>
   <p class="tagline">Open-book cost-plus construction management. 600 Glades Road.</p>
   <div class="meta">NDA 14 Jul 2026 &nbsp;·&nbsp; Architect TPG &nbsp;·&nbsp; Drawings contact Dorit Alexander &nbsp;·&nbsp; 3,384 sf</div>
-  <div class="meta">Set &nbsp;·&nbsp; CM 10% &nbsp;·&nbsp; Super $4,400/wk &nbsp;·&nbsp; 21 weeks &nbsp;·&nbsp; Insurance 1.5% &nbsp;·&nbsp; Pre-con 1% first pay app</div>
+  <div class="meta">Set &nbsp;·&nbsp; CM 10% &nbsp;·&nbsp; Super $4,400/wk &nbsp;·&nbsp; PM $3,500/wk + 4 trips &nbsp;·&nbsp; 21 weeks &nbsp;·&nbsp; Parking 5 mo &nbsp;·&nbsp; Insurance 1.5% &nbsp;·&nbsp; Pre-con 1% first pay app</div>
 </div>
 
 <div class="facts">
   <div><div class="k">Contract</div><div class="v">Cost-plus CM, open book</div></div>
-  <div><div class="k">Payment</div><div class="v">LBC proposes net 30</div></div>
+  <div><div class="k">Payment</div><div class="v">Opening ask: net 30</div></div>
   <div><div class="k">Commence</div><div class="v">2 Apr 2027</div></div>
   <div><div class="k">Substantial / final</div><div class="v">18 Aug / 25 Aug 2027</div></div>
   <div><div class="k">CM fee · Set</div><div class="v">10%</div></div>
@@ -315,11 +356,52 @@ a { color: inherit; }
   <div><div class="k">Insurance · Set</div><div class="v">1.5%</div></div>
 </div>
 
+<div class="sect" id="deliverables">
+  <div class="sect-num">00</div>
+  <div class="sect-label">Deliverables</div>
+  <h2>What to take from this page.</h2>
+  <p class="sect-sub">Named files in this folder. Cost sheet href is the 4 Sep CLIENT workbook; until Cody drops that file the download falls back to the 3 Sep CLIENT exhibit.</p>
+  <div class="del-grid">
+    <a class="del-card is-ready" id="dl-cost-sheet"
+       href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx"
+       data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx"
+       data-fallback="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx"
+       download="RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx">
+      <div class="del-k" id="dl-cost-k">CLIENT xlsx</div>
+      <h3>Cost sheet</h3>
+      <p>CLIENT GC / CM exhibit. Landis-aligned. Path: <span style="letter-spacing:0">RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx</span>.</p>
+      <span class="del-fmt">XLSX</span>
+    </a>
+    <a class="del-card is-ready" id="dl-cash"
+       href="./RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf"
+       download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
+      <div class="del-k">CLIENT PDF</div>
+      <h3>Payment terms · cash impact</h3>
+      <p>Opening ask net 30. Net 45 is a possible settlement band. Ralph Lauren stated policy is net 90. Path: <span style="letter-spacing:0">RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf</span>.</p>
+      <span class="del-fmt">PDF</span>
+    </a>
+    <a class="del-card is-ready" id="dl-redline"
+       href="./RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf"
+       download="RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf">
+      <div class="del-k">CLIENT PDF</div>
+      <h3>CM agreement redline</h3>
+      <p>Claudia form mark-up. Path: <span style="letter-spacing:0">RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf</span>.</p>
+      <span class="del-fmt">PDF</span>
+    </a>
+    <a class="del-card" href="#cody">
+      <div class="del-k">TBD</div>
+      <h3>Page chatbot</h3>
+      <p>Mount point for Cody. Not live on this exhibit yet.</p>
+      <span class="del-fmt">#cody</span>
+    </a>
+  </div>
+</div>
+
 <div class="sect" id="understanding">
   <div class="sect-num">01</div>
   <div class="sect-label">Understanding</div>
   <h2>Confirmed terms.</h2>
-  <p class="sect-sub">Preliminary costing. Cost-plus, open book. Charrette Management Group is the owner’s representative. Confirmed commercial terms are below; trade packages stay $0 until bids.</p>
+  <p class="sect-sub">Preliminary costing. Cost-plus, open book. Charrette Management Group is the owner’s representative. Confirmed commercial terms are below; trade packages stay TBD until bids.</p>
   <div class="u-grid">
     <div class="u-card">
       <div class="u-num">Term 1</div>
@@ -329,7 +411,7 @@ a { color: inherit; }
     <div class="u-card">
       <div class="u-num">Term 2</div>
       <h3>Competitive bid</h3>
-      <p>Trades will be bid. A proposed sub roster is named before bidding. Trade package dollars stay $0 until bids land.</p>
+      <p>Trades will be bid. A proposed sub roster is named before bidding. Trade package dollars stay TBD until bids land.</p>
     </div>
     <div class="u-card">
       <div class="u-num">Term 3</div>
@@ -338,8 +420,8 @@ a { color: inherit; }
     </div>
     <div class="u-card">
       <div class="u-num">Term 4</div>
-      <h3>Payment — LBC proposes net 30</h3>
-      <p>LBC proposes net 30. Ralph Lauren’s stated payment policy is net 90.</p>
+      <h3>Payment — opening ask net 30</h3>
+      <p>LBC’s opening ask is net 30. If net 30 is not accepted, net 45 is a possible settlement band. Ralph Lauren’s stated payment policy is net 90.</p>
     </div>
     <div class="u-card">
       <div class="u-num">Term 5</div>
@@ -369,14 +451,26 @@ a { color: inherit; }
     <div class="tm">
       <div class="initials">SR</div>
       <h3>Shawn Rasmusen</h3>
-      <div class="role">Estimating</div>
-      <p>On the 19 Aug call.</p>
+      <div class="role">Estimating / Project Manager</div>
+      <p>On the 19 Aug call. Project manager at $3,500 per week plus 4 trips (see pricing).</p>
     </div>
     <div class="tm">
       <div class="initials">RC</div>
       <h3>Robert Colvin</h3>
       <div class="role">Superintendent — proposed</div>
       <p>Proposed site superintendent. Not awarded. Weekly rate is $4,400 (see pricing).</p>
+    </div>
+    <div class="tm">
+      <div class="initials">JM</div>
+      <h3>Jenny Morrow</h3>
+      <div class="role">Director of Accounting — HR / authorized signer</div>
+      <p>On this job for cost-plus open-book pay apps, AR/AP, and insurance / COI / commercial billing with Charrette.</p>
+    </div>
+    <div class="tm">
+      <div class="initials">CD</div>
+      <h3>Chris Deutschlaender</h3>
+      <div class="role">Project Coordinator</div>
+      <p>On this job for day-to-day coordination and mall / GC logistics so open items move.</p>
     </div>
   </div>
 </div>
@@ -385,7 +479,7 @@ a { color: inherit; }
   <div class="sect-num">03</div>
   <div class="sect-label">Revisions</div>
   <h2>Set and open.</h2>
-  <p class="sect-sub">Set items are confirmed. Open items wait on bids or a later figure. LBC proposes net 30.</p>
+  <p class="sect-sub">Set items are confirmed. Open items wait on bids or a later figure. Opening ask is net 30.</p>
   <div class="rev-grid">
     <div class="rev-item">
       <h4>Contract form</h4>
@@ -393,7 +487,7 @@ a { color: inherit; }
     </div>
     <div class="rev-item">
       <h4>How trades are bought</h4>
-      <p>Confirmed competitive bid with a proposed roster before bidding. Trade package amounts are zero until bids land.</p>
+      <p>Confirmed competitive bid with a proposed roster before bidding. Trade package amounts are TBD until bids land.</p>
     </div>
     <div class="rev-item">
       <h4>Fire alarm</h4>
@@ -405,15 +499,15 @@ a { color: inherit; }
     </div>
     <div class="rev-item">
       <h4>Commercial inputs — set</h4>
-      <p>21 weeks · 10% CM fee · 1.5% insurance · $4,400/wk superintendent · 1% pre-construction (first pay app / NTP).</p>
+      <p>21 weeks · 10% CM fee · 1.5% insurance · $4,400/wk superintendent · $3,500/wk project manager (Shawn Rasmusen) + 4 trips · 5 months parking × $250 = $1,250 · 1% pre-construction (first pay app / NTP).</p>
     </div>
     <div class="rev-item">
       <h4>Payment — proposed</h4>
-      <p>LBC proposes net 30. Ralph Lauren’s stated payment policy is net 90.</p>
+      <p>Opening ask is net 30. If net 30 is not accepted, net 45 is a possible settlement band. Ralph Lauren’s stated payment policy is net 90.</p>
     </div>
     <div class="rev-item">
       <h4>Still open</h4>
-      <p>Trade-package dollars, project manager, parking-month count, sprinkler-shutdown count, CO markup %, and the grand total stay Open.</p>
+      <p>Trade-package dollars, sprinkler-shutdown count, CO markup %, and the grand total stay Open / TBD.</p>
     </div>
   </div>
 </div>
@@ -422,7 +516,7 @@ a { color: inherit; }
   <div class="sect-num">04</div>
   <div class="sect-label">Pricing</div>
   <h2>Open-book GC / CM exhibit.</h2>
-  <p class="sect-sub">Set items are labeled Set. Trade dollars, parking months, sprinkler-shutdown count, project manager, CO markup, and the grand total stay Open. The download is the client GC / CM exhibit.</p>
+  <p class="sect-sub">Set items are labeled Set. Trade dollars, sprinkler-shutdown count, CO markup, and the grand total stay Open / TBD. The download is the client GC / CM exhibit.</p>
   <table class="price-table">
     <tr class="head"><td>Item</td><td>Status</td></tr>
     <tr class="group"><td colspan="2">Duration and staffing</td></tr>
@@ -431,31 +525,36 @@ a { color: inherit; }
     <tr><td>Weekly GC and supervision</td><td>Weekly lump — breakouts below</td></tr>
     <tr><td>Superintendent weekly rate</td><td>$4,400 / wk &nbsp; <span class="set">Set</span></td></tr>
     <tr class="note"><td colspan="2">$4,400 per week. Robert Colvin is proposed, not awarded.</td></tr>
-    <tr><td>Project manager</td><td><span class="open">Open</span></td></tr>
-    <tr class="note"><td colspan="2">Open until a single figure is set.</td></tr>
+    <tr><td>Project manager</td><td>$3,500 / wk + 4 trips &nbsp; <span class="set">Set</span></td></tr>
+    <tr class="note"><td colspan="2">Shawn Rasmusen. $3,500 per week plus 4 trips. Weekly rate follows the 21-week duration.</td></tr>
     <tr class="group"><td colspan="2">Fees</td></tr>
     <tr><td>Pre-construction fee</td><td>1% of project total &nbsp; <span class="set">Set</span></td></tr>
     <tr class="note"><td colspan="2">Payable with the first pay application / NTP. Not held to the end of the job. Dollar amount follows the project total once trades are bid.</td></tr>
     <tr><td>CM fee % of cost of work</td><td>10% &nbsp; <span class="set">Set</span></td></tr>
     <tr><td>Insurance %</td><td>1.5% &nbsp; <span class="set">Set</span></td></tr>
     <tr class="note"><td colspan="2">1.5%. Workers’ compensation 1.2% of payroll is a separate GC payroll line and is not included in this insurance percentage.</td></tr>
-    <tr><td>CO markup %</td><td><span class="open">Open</span></td></tr>
+    <tr><td>CO markup %</td><td><span class="open">Open / TBD</span></td></tr>
     <tr class="note"><td colspan="2">Separate line. Not assumed equal to the 10% project CM fee.</td></tr>
     <tr><td>Main-office overhead</td><td>N/A</td></tr>
     <tr class="group"><td colspan="2">Trade packages</td></tr>
-    <tr><td>Packages 1–20</td><td>$0 — bids not received</td></tr>
+    <tr><td>Packages 1–20</td><td>TBD — bids not received</td></tr>
     <tr class="group"><td colspan="2">Mall fees (3,384 sf) — unit rates, not a bid total</td></tr>
     <tr><td>Temp electric</td><td>$0.43 / sf</td></tr>
     <tr><td>Temp water</td><td>$0.10 / sf</td></tr>
     <tr><td>After hours</td><td>$400 one-time</td></tr>
-    <tr><td>Parking</td><td>$250 / month &nbsp; <span class="open">Open count</span></td></tr>
+    <tr><td>Parking</td><td>5 months × $250 = $1,250 &nbsp; <span class="set">Set</span></td></tr>
+    <tr class="note"><td colspan="2">Five months from the 21-week duration. $250 per month.</td></tr>
     <tr><td>Tenant coordination</td><td>$250 one-time</td></tr>
-    <tr><td>Sprinkler shutdown</td><td>$250 each &nbsp; <span class="open">Open count</span></td></tr>
-    <tr class="note"><td colspan="2">Parking months and shutdown counts stay Open. Not extended into a dollar total here. Permits and sales tax invoiced separately.</td></tr>
-    <tr class="total"><td>Grand total</td><td><span class="open">Open — pending bids</span></td></tr>
+    <tr><td>Sprinkler shutdown</td><td>$250 each &nbsp; <span class="open">Open / TBD count</span></td></tr>
+    <tr class="note"><td colspan="2">Sprinkler-shutdown count stays Open / TBD. Permits and sales tax invoiced separately.</td></tr>
+    <tr class="total"><td>Grand total</td><td><span class="open">Open / TBD — pending bids</span></td></tr>
   </table>
-  <a class="dl-btn" href="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx" download="RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx">Download GC / CM exhibit</a>
-  <p class="dl-note">Ralph Lauren Boca · space 1062 · cost-plus CM · 21 weeks · $4,400/wk superintendent · 10% CM · 1.5% insurance · 1% pre-con first pay app · LBC proposes net 30.</p>
+  <a class="dl-btn" id="dl-cost-btn"
+     href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx"
+     data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx"
+     data-fallback="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx"
+     download="RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx">Download GC / CM exhibit</a>
+  <p class="dl-note">Ralph Lauren Boca · space 1062 · cost-plus CM · 21 weeks · $4,400/wk superintendent · $3,500/wk PM + 4 trips · 5 months parking · 10% CM · 1.5% insurance · 1% pre-con first pay app · opening ask net 30.</p>
 </div>
 
 <div class="sect" id="schedule">
@@ -519,7 +618,7 @@ a { color: inherit; }
     <div class="diff-item">
       <div class="diff-num">01</div>
       <h4>Set and open</h4>
-      <p>21 weeks, 10% CM, 1.5% insurance, $4,400/wk superintendent, and 1% pre-con (first pay app) are Set. Trade dollars, project manager, parking months, sprinkler-shutdown count, CO markup %, and the grand total stay Open. Workers’ compensation 1.2% of payroll is not included in the insurance line. LBC proposes net 30.</p>
+      <p>21 weeks, 10% CM, 1.5% insurance, $4,400/wk superintendent, $3,500/wk project manager (Shawn Rasmusen) + 4 trips, 5 months parking × $250 = $1,250, and 1% pre-con (first pay app) are Set. Trade dollars, sprinkler-shutdown count, CO markup %, and the grand total stay Open / TBD. Workers’ compensation 1.2% of payroll is not included in the insurance line. Opening ask is net 30. If net 30 is not accepted, net 45 is a possible settlement band.</p>
     </div>
     <div class="diff-item">
       <div class="diff-num">02</div>
@@ -529,8 +628,18 @@ a { color: inherit; }
   </div>
 </div>
 
+<div class="sect" id="cody" data-cody-mount="ralph-lauren-boca">
+  <div class="sect-num">08</div>
+  <div class="sect-label">Page chatbot</div>
+  <h2>Ask this exhibit.</h2>
+  <p class="sect-sub">Mount point for Cody. Not live yet. No send from this page.</p>
+  <div id="boca-cody" data-cody-mount="ralph-lauren-boca" aria-live="polite">
+    <p>TBD — page chatbot when Cody ships.</p>
+  </div>
+</div>
+
 <div class="footer-quote">
-  <p>Open-book cost-plus exhibit for Town Center space 1062. Set terms as shown. Open items pending bids. LBC proposes net 30.</p>
+  <p>Open-book cost-plus exhibit for Town Center space 1062. Set terms as shown. Open items TBD pending bids. Opening ask is net 30.</p>
 </div>
 <div class="footer-bar">
   <span>Lux Brand Company · 2026</span>
@@ -542,7 +651,7 @@ a { color: inherit; }
 
 <script>
 (function(){
-  var nodes = document.querySelectorAll('.u-card, .tm, .rev-item, .diff-item, .price-table tr, .cal-item');
+  var nodes = document.querySelectorAll('.u-card, .tm, .rev-item, .diff-item, .del-card, .price-table tr, .cal-item');
   nodes.forEach(function(el, i){
     el.style.opacity = '0';
     el.style.transform = 'translateY(8px)';
@@ -551,18 +660,40 @@ a { color: inherit; }
   });
   if (!('IntersectionObserver' in window)) {
     nodes.forEach(function(el){ el.style.opacity = '1'; el.style.transform = 'none'; });
-    return;
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'none';
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    nodes.forEach(function(el){ io.observe(el); });
   }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'none';
-        io.unobserve(e.target);
+
+  /* Exact Cody drop-in names stay on the href. Prefer 4 Sep CLIENT xlsx; else 3 Sep. Never invent bytes. */
+  function headOk(url, yes, no) {
+    fetch(url, { method: 'HEAD' }).then(function(r){ r.ok ? yes() : no(); }).catch(no);
+  }
+  function wirePrefer(el) {
+    if (!el) return;
+    var prefer = el.getAttribute('data-prefer');
+    var fallback = el.getAttribute('data-fallback') || el.getAttribute('href');
+    if (!prefer) return;
+    headOk(prefer, function(){
+      el.setAttribute('href', prefer);
+      el.setAttribute('download', prefer.split('/').pop());
+    }, function(){
+      if (fallback) {
+        el.setAttribute('href', fallback);
+        el.setAttribute('download', fallback.split('/').pop());
       }
     });
-  }, { threshold: 0.08 });
-  nodes.forEach(function(el){ io.observe(el); });
+  }
+  wirePrefer(document.getElementById('dl-cost-sheet'));
+  wirePrefer(document.getElementById('dl-cost-btn'));
 })();
 </script>
 </body>
