@@ -11,6 +11,7 @@
      cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf
      RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx
      RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf
+     RL-Boca-CLIENT-PACK-2026-09-04.zip
    Do not invent bytes. Do not send.
    SET: 21 weeks, 10% CM, 10% CO markup (one-or-the-other, not stacked), 1.5% insurance,
    $4,400/wk super, $3,500/wk PM (Shawn) + 4 trips, 5 months parking × $250 = $1,250,
@@ -362,19 +363,33 @@ a { color: inherit; }
 }
 .dl-all:hover { background: var(--navy); }
 .dl-rail-row {
-  display: grid; grid-template-columns: 220px 1fr auto; gap: 16px; align-items: center;
+  display: grid; grid-template-columns: 240px 1fr auto; gap: 16px; align-items: center;
   padding: 16px 22px; border-bottom: 1px solid var(--hair); text-decoration: none;
 }
 .dl-rail-row:last-child { border-bottom: none; }
-.dl-rail-row.is-primary { background: #fafafa; }
+.dl-rail-row.is-primary { background: var(--navy-deep); color: #fff; }
+.dl-rail-row.is-primary h3 { color: #fff; }
+.dl-rail-row.is-primary p, .dl-rail-row.is-primary .dl-file { color: rgba(255,255,255,0.82); opacity: 1; }
 .dl-rail-row h3 {
   font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--navy-deep);
 }
 .dl-rail-row p { font-size: 13px; color: var(--ink); opacity: 0.85; margin: 0; }
+.dl-rail-row .dl-file {
+  display: block; margin-top: 5px;
+  font-size: 10px; letter-spacing: 0; color: var(--muted);
+}
 .dl-rail-row .fmt {
   font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy);
 }
-.dl-rail-row:hover { background: #fafafa; }
+.dl-row-btn {
+  display: inline-block; text-decoration: none; white-space: nowrap;
+  background: var(--navy-deep); color: #fff;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 10px 16px;
+}
+.dl-row-btn:hover { background: var(--navy); }
+.dl-rail-row.is-primary .dl-row-btn { background: #fff; color: var(--navy-deep); }
+.dl-rail-row.is-primary .dl-row-btn:hover { background: #e8e8e8; }
 
 #proposal-assistant { min-height: 220px; margin-top: 8px; }
 
@@ -413,20 +428,20 @@ a { color: inherit; }
   <div class="rail" id="sidebar-rail">
     <div class="rail-label">Deliverables</div>
     <a class="rail-item" href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904" download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
-      <span class="rail-top"><span class="rail-title">Payment cash</span><span class="rail-fmt">PDF</span></span>
-      <span class="rail-why">Why net 30 vs 90</span>
+      <span class="rail-top"><span class="rail-title">Payment terms cash impact</span><span class="rail-fmt">PDF</span></span>
+      <span class="rail-why">Why opening ask is net 30 vs net 90 cash trough</span>
     </a>
     <a class="rail-item" id="rail-cost-sheet" href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904" data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904" data-fallback="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx" download="RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx">
       <span class="rail-top"><span class="rail-title">CLIENT cost sheet</span><span class="rail-fmt">XLSX</span></span>
-      <span class="rail-why">Landis open-book CM</span>
+      <span class="rail-why">Open-book CM / Landis-shaped fee exhibit; trades TBD</span>
     </a>
     <a class="rail-item" href="./RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf?v=20260904" download="RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf">
-      <span class="rail-top"><span class="rail-title">CM redline</span><span class="rail-fmt">PDF</span></span>
-      <span class="rail-why">Claudia form markups</span>
+      <span class="rail-top"><span class="rail-title">CM form redline</span><span class="rail-fmt">PDF</span></span>
+      <span class="rail-why">Markups on Claudia’s Sept 2024 CM agreement (their form)</span>
     </a>
-    <a class="rail-item is-all js-download-all" href="#deliverables">
-      <span class="rail-top"><span class="rail-title">Download all</span><span class="rail-fmt">3 files</span></span>
-      <span class="rail-why">Cost sheet · payment cash · redline</span>
+    <a class="rail-item is-all" href="./RL-Boca-CLIENT-PACK-2026-09-04.zip?v=20260904" download="RL-Boca-CLIENT-PACK-2026-09-04.zip">
+      <span class="rail-top"><span class="rail-title">Download all</span><span class="rail-fmt">ZIP</span></span>
+      <span class="rail-why">Zip of the three-file client pack</span>
     </a>
   </div>
   <div class="sidebar-footer">
@@ -475,35 +490,40 @@ a { color: inherit; }
   <div class="sect-num">00</div>
   <div class="sect-label">Deliverables</div>
   <h2>What to take from this page.</h2>
-  <p class="sect-sub">Three named files. Payment cash is the opening argument — beside the cost sheet.</p>
+  <p class="sect-sub">Each file has its own download. Download all is the three-file client pack. Chat is on this page, not a file.</p>
   <div class="dl-rail">
     <div class="dl-rail-head">
       <div class="k">Group</div>
-      <a class="dl-all js-download-all" href="#deliverables">Download all</a>
+      <a class="dl-all" href="./RL-Boca-CLIENT-PACK-2026-09-04.zip?v=20260904" download="RL-Boca-CLIENT-PACK-2026-09-04.zip">Download all · ZIP</a>
     </div>
-    <a class="dl-rail-row is-primary" id="dl-cash"
-       href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904"
-       download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
-      <h3>Payment cash</h3>
-      <p>Opening ask net 30 · why it matters</p>
-      <span class="fmt">PDF</span>
-    </a>
-    <a class="dl-rail-row" id="dl-cost-sheet"
-       href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
-       data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
-       data-fallback="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx"
-       download="RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx">
+    <div class="dl-rail-row is-primary">
+      <h3>Payment terms cash impact</h3>
+      <div>
+        <p>Why opening ask is net 30 vs net 90 cash trough.</p>
+        <span class="dl-file">cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf</span>
+      </div>
+      <a class="dl-row-btn" id="dl-cash" href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904" download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">Download PDF</a>
+    </div>
+    <div class="dl-rail-row">
       <h3>CLIENT cost sheet</h3>
-      <p>Landis open-book CM</p>
-      <span class="fmt">XLSX</span>
-    </a>
-    <a class="dl-rail-row" id="dl-redline"
-       href="./RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf?v=20260904"
-       download="RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf">
-      <h3>CM redline</h3>
-      <p>Claudia form markups</p>
-      <span class="fmt">PDF</span>
-    </a>
+      <div>
+        <p>Open-book CM / Landis-shaped fee exhibit; trades TBD.</p>
+        <span class="dl-file">RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx</span>
+      </div>
+      <a class="dl-row-btn" id="dl-cost-sheet"
+         href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
+         data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
+         data-fallback="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx"
+         download="RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx">Download XLSX</a>
+    </div>
+    <div class="dl-rail-row">
+      <h3>CM form redline</h3>
+      <div>
+        <p>Markups on Claudia’s Sept 2024 CM agreement (their form).</p>
+        <span class="dl-file">RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf</span>
+      </div>
+      <a class="dl-row-btn" id="dl-redline" href="./RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf?v=20260904" download="RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf">Download PDF</a>
+    </div>
   </div>
 </div>
 
@@ -609,31 +629,36 @@ a { color: inherit; }
   <div class="dl-rail">
     <div class="dl-rail-head">
       <div class="k">Downloads</div>
-      <a class="dl-all js-download-all" href="#deliverables">Download all</a>
+      <a class="dl-all" href="./RL-Boca-CLIENT-PACK-2026-09-04.zip?v=20260904" download="RL-Boca-CLIENT-PACK-2026-09-04.zip">Download all · ZIP</a>
     </div>
-    <a class="dl-rail-row is-primary"
-       href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904"
-       download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
-      <h3>Payment cash</h3>
-      <p>Opening ask net 30 · why it matters</p>
-      <span class="fmt">PDF</span>
-    </a>
-    <a class="dl-rail-row" id="dl-cost-btn"
-       href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
-       data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
-       data-fallback="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx"
-       download="RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx">
+    <div class="dl-rail-row is-primary">
+      <h3>Payment terms cash impact</h3>
+      <div>
+        <p>Why opening ask is net 30 vs net 90 cash trough.</p>
+        <span class="dl-file">cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf</span>
+      </div>
+      <a class="dl-row-btn" href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904" download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">Download PDF</a>
+    </div>
+    <div class="dl-rail-row">
       <h3>CLIENT cost sheet</h3>
-      <p>Landis open-book CM</p>
-      <span class="fmt">XLSX</span>
-    </a>
-    <a class="dl-rail-row"
-       href="./RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf?v=20260904"
-       download="RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf">
-      <h3>CM redline</h3>
-      <p>Claudia form markups</p>
-      <span class="fmt">PDF</span>
-    </a>
+      <div>
+        <p>Open-book CM / Landis-shaped fee exhibit; trades TBD.</p>
+        <span class="dl-file">RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx</span>
+      </div>
+      <a class="dl-row-btn" id="dl-cost-btn"
+         href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
+         data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
+         data-fallback="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx"
+         download="RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx">Download XLSX</a>
+    </div>
+    <div class="dl-rail-row">
+      <h3>CM form redline</h3>
+      <div>
+        <p>Markups on Claudia’s Sept 2024 CM agreement (their form).</p>
+        <span class="dl-file">RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf</span>
+      </div>
+      <a class="dl-row-btn" href="./RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf?v=20260904" download="RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf">Download PDF</a>
+    </div>
   </div>
   <p class="dl-note">Ralph Lauren Boca · space 1062 · cost-plus CM · 21 weeks · opening ask net 30.</p>
 </div>
@@ -771,27 +796,6 @@ a { color: inherit; }
   wirePrefer(document.getElementById('dl-cost-btn'));
   wirePrefer(document.getElementById('rail-cost-sheet'));
 
-  var ALL_FILES = [
-    { href: './cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904', name: 'RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf' },
-    { href: './RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904', name: 'RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx' },
-    { href: './RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf?v=20260904', name: 'RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf' }
-  ];
-  function downloadAll(e) {
-    if (e) e.preventDefault();
-    ALL_FILES.forEach(function(f, i) {
-      setTimeout(function() {
-        var a = document.createElement('a');
-        a.href = f.href;
-        a.setAttribute('download', f.name);
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      }, i * 350);
-    });
-  }
-  document.querySelectorAll('.js-download-all').forEach(function(el) {
-    el.addEventListener('click', downloadAll);
-  });
 })();
 </script>
 </body>
