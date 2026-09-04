@@ -431,7 +431,7 @@ a { color: inherit; }
   <div class="meta">Set &nbsp;·&nbsp; CM 10% &nbsp;·&nbsp; Super $4,400/wk &nbsp;·&nbsp; PM $3,500/wk + 4 trips &nbsp;·&nbsp; 21 weeks &nbsp;·&nbsp; Parking 5 mo &nbsp;·&nbsp; Insurance 1.5% &nbsp;·&nbsp; Pre-con 1% first pay app</div>
 </div>
 
-<a class="net30-strip" href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904b" download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
+<a class="net30-strip" href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf" download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
   <span class="net30-k">Opening ask</span>
   <span class="net30-v">Opening ask net 30 · why it matters.</span>
   <span class="net30-fmt">Cash PDF</span>
@@ -449,11 +449,11 @@ a { color: inherit; }
   <div class="dl-rail">
     <div class="dl-rail-head">
       <div class="k">Client pack</div>
-      <a class="dl-all" href="./RL-Boca-CLIENT-PACK-2026-09-04.zip?v=20260904b" download="RL-Boca-CLIENT-PACK-2026-09-04.zip">Download all</a>
+      <a class="dl-all" href="./RL-Boca-CLIENT-PACK-2026-09-04.zip" download="RL-Boca-CLIENT-PACK-2026-09-04.zip">Download all</a>
     </div>
     <a class="dl-rail-row" id="dl-cost-sheet"
-       href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
-       data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
+       href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx"
+       data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx"
        data-fallback="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx"
        download="RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx">
       <h3>CLIENT cost sheet</h3>
@@ -461,14 +461,14 @@ a { color: inherit; }
       <span class="fmt">RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx</span>
     </a>
     <a class="dl-rail-row is-primary" id="dl-cash"
-       href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904b"
+       href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf"
        download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
       <h3>Payment cash impact</h3>
       <p>Why net 30 vs net 90</p>
       <span class="fmt">RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf</span>
     </a>
     <a class="dl-rail-row" id="dl-redline"
-       href="./RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf?v=20260904"
+       href="./RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf"
        download="RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf">
       <h3>CM form redline</h3>
       <p>Markups on Claudia’s form</p>
@@ -654,11 +654,11 @@ a { color: inherit; }
     if (!prefer) return;
     headOk(prefer, function(){
       el.setAttribute('href', prefer);
-      el.setAttribute('download', prefer.split('/').pop());
+      el.setAttribute('download', prefer.split('/').pop().split('?')[0]);
     }, function(){
       if (fallback) {
         el.setAttribute('href', fallback);
-        el.setAttribute('download', fallback.split('/').pop());
+        el.setAttribute('download', fallback.split('/').pop().split('?')[0]);
       }
     });
   }
