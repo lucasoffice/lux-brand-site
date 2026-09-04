@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Ralph Lauren Boca · Living Hub</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
 <style>
 :root {
   --navy: #031E3A;
@@ -164,6 +166,14 @@ td { padding: 10px 10px 10px 0; border-bottom: 1px solid #f0ebe3; vertical-align
 .ask .a { margin-top: 6px; color: var(--muted); font-size: 13px; }
 .empty { color: var(--muted); font-style: italic; padding: 12px 0; }
 .hidden { display: none !important; }
+#map { width: 100%; height: 420px; background: #0a1020; border-radius: 8px; overflow: hidden; }
+.leaflet-container { background: #0a1020 !important; font-family: inherit !important; }
+.leaflet-popup-content-wrapper { background: #111827; color: #e5e7eb; border-radius: 4px; box-shadow: 0 6px 22px rgba(0,0,0,.6); }
+.leaflet-popup-tip { background: #111827; }
+.leaflet-popup-content { margin: 12px 14px; font-size: 12px; line-height: 1.5; }
+.leaflet-popup-content strong { color: #10b981; }
+.leaflet-control-attribution { background: rgba(15,17,21,.8) !important; color: #6b7280 !important; font-size: 9px !important; }
+.leaflet-control-attribution a { color: #9ca3af !important; }
 @media (max-width: 800px) {
   .kpis { grid-template-columns: repeat(2, 1fr); }
   .hdr, .wrap { padding-left: 16px; padding-right: 16px; }
@@ -194,6 +204,12 @@ td { padding: 10px 10px 10px 0; border-bottom: 1px solid #f0ebe3; vertical-align
     <div class="kpi"><div class="v" id="kEvents">—</div><div class="l">Events</div></div>
     <div class="kpi"><div class="v" id="kDownloads">—</div><div class="l">Downloads</div></div>
     <div class="kpi"><div class="v" id="kAsks">—</div><div class="l">Chat asks</div></div>
+  </div>
+  <div class="panel">
+    <h3>Where the page is opening</h3>
+    <div class="body">
+      <div id="map" style="height:420px;border-radius:8px"></div>
+    </div>
   </div>
   <div class="panel">
     <h3>By type</h3>
@@ -301,7 +317,8 @@ td { padding: 10px 10px 10px 0; border-bottom: 1px solid #f0ebe3; vertical-align
       chatAsks: num(k.chat_asks, k.asks_count, k.ask_count, data.count, asks.length),
       byType: byType,
       visits: visits,
-      asks: asks
+      asks: asks,
+      map_points: pickArr(data.map_points, k.map_points)
     };
   }
 
@@ -341,6 +358,42 @@ td { padding: 10px 10px 10px 0; border-bottom: 1px solid #f0ebe3; vertical-align
     }).join("");
   }
 
+  var map = null, markerLayer = null;
+  function renderMap(points) {
+    if (typeof L === "undefined") {
+      setTimeout(function () { renderMap(points); }, 300);
+      return;
+    }
+    if (!map) {
+      map = L.map("map", { worldCopyJump: true }).setView([20, 0], 2);
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png", {
+        attribution: "&copy; OpenStreetMap &copy; CARTO", subdomains: "abcd", maxZoom: 18
+      }).addTo(map);
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png", {
+        subdomains: "abcd", maxZoom: 18, pane: "overlayPane"
+      }).addTo(map);
+      markerLayer = L.layerGroup().addTo(map);
+    }
+    markerLayer.clearLayers();
+    points = (points || []).filter(function (p) { return p && p.lat != null && p.lng != null; });
+    if (!points.length) return;
+    var maxVisits = Math.max.apply(null, points.map(function (p) { return p.visits || 1; }));
+    var latlngs = [];
+    points.forEach(function (p) {
+      var r = 8 + 18 * ((p.visits || 1) / maxVisits);
+      var ll = [p.lat, p.lng];
+      latlngs.push(ll);
+      L.circleMarker(ll, {
+        radius: r, color: "#10b981", weight: 1, fillColor: "#10b981", fillOpacity: 0.45
+      }).bindPopup("<strong>" + esc(p.city || "Unknown") + "</strong><br>" +
+        [p.region, p.country].filter(Boolean).map(esc).join(", ") +
+        "<div>" + (p.visits || 0) + " open" + ((p.visits || 0) === 1 ? "" : "s") + "</div>"
+      ).addTo(markerLayer);
+    });
+    if (latlngs.length) map.fitBounds(L.latLngBounds(latlngs).pad(0.3));
+    setTimeout(function () { if (map) map.invalidateSize(); }, 0);
+  }
+
   function render(payload) {
     var d = normalize(payload);
     $("kPageviews").textContent = d.pageviews;
@@ -351,6 +404,7 @@ td { padding: 10px 10px 10px 0; border-bottom: 1px solid #f0ebe3; vertical-align
     $("visits").innerHTML = renderVisits(d.visits);
     $("asks").innerHTML = renderAsks(d.asks);
     $("updated").textContent = "Updated " + new Date().toLocaleString();
+    renderMap(d.map_points);
   }
 
   async function fetchAnalytics(pin) {
