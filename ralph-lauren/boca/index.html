@@ -8,10 +8,12 @@
 <style>
 /* Heritage Prep. Page language is Ralph Lauren. LBCo is the GC in the sidebar only.
    Client binaries on this page:
-     cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf
      RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx
      RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf
-   Do not invent bytes. Do not send.
+   Cash PDF (cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf)
+   is NOT client-ready — clips the right edge. Do not wire as a finished
+   download. Wait for Ricky GO with a new binary.
+   Do not invent bytes. Do not send. Zero Charrette until Luke Signs.
    SET: 21 weeks, 10% CM, 10% CO markup (one-or-the-other, not stacked), 1.5% insurance,
    $4,400/wk super, $3,500/wk PM (Shawn) + 4 trips, 5 months parking × $250 = $1,250,
    1% pre-con first pay app.
@@ -303,6 +305,9 @@ a { color: inherit; }
 }
 .rail-item.is-all .rail-title { color: var(--navy); }
 .rail-item:hover .rail-title { color: var(--navy); }
+.rail-item.is-hold, .rail-item.is-hold:hover { cursor: default; }
+.rail-item.is-hold .rail-title { color: var(--muted); }
+.rail-item.is-hold .rail-fmt { color: #b42318; }
 
 .net30-strip {
   display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
@@ -362,6 +367,9 @@ a { color: inherit; }
 }
 .dl-rail-row:last-child { border-bottom: none; }
 .dl-rail-row.is-primary { background: #fafafa; }
+.dl-rail-row.is-hold { background: #fafafa; cursor: default; }
+.dl-rail-row.is-hold:hover { background: #fafafa; }
+.dl-rail-row.is-hold .fmt { color: #b42318; }
 .dl-rail-row h3 {
   font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--navy-deep);
 }
@@ -407,10 +415,10 @@ a { color: inherit; }
   </nav>
   <div class="rail" id="sidebar-rail">
     <div class="rail-label">Deliverables</div>
-    <a class="rail-item" href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904" download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
-      <span class="rail-top"><span class="rail-title">Payment cash</span><span class="rail-fmt">PDF</span></span>
-      <span class="rail-why">Why net 30 vs 90</span>
-    </a>
+    <div class="rail-item is-hold" id="rail-cash">
+      <span class="rail-top"><span class="rail-title">Payment cash</span><span class="rail-fmt">Hold</span></span>
+      <span class="rail-why">Why net 30 vs 90 · PDF rebuild in flight</span>
+    </div>
     <a class="rail-item" id="rail-cost-sheet" href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904" data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904" data-fallback="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx" download="RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx">
       <span class="rail-top"><span class="rail-title">CLIENT cost sheet</span><span class="rail-fmt">XLSX</span></span>
       <span class="rail-why">Landis open-book CM</span>
@@ -420,8 +428,8 @@ a { color: inherit; }
       <span class="rail-why">Claudia form markups</span>
     </a>
     <a class="rail-item is-all js-download-all" href="#deliverables">
-      <span class="rail-top"><span class="rail-title">Download all</span><span class="rail-fmt">3 files</span></span>
-      <span class="rail-why">Cost sheet · payment cash · redline</span>
+      <span class="rail-top"><span class="rail-title">Download all</span><span class="rail-fmt">2 files</span></span>
+      <span class="rail-why">Cost sheet · CM redline</span>
     </a>
   </div>
   <div class="sidebar-footer">
@@ -449,10 +457,10 @@ a { color: inherit; }
   <div class="meta">Set &nbsp;·&nbsp; CM 10% &nbsp;·&nbsp; Super $4,400/wk &nbsp;·&nbsp; PM $3,500/wk + 4 trips &nbsp;·&nbsp; 21 weeks &nbsp;·&nbsp; Parking 5 mo &nbsp;·&nbsp; Insurance 1.5% &nbsp;·&nbsp; Pre-con 1% first pay app</div>
 </div>
 
-<a class="net30-strip" href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904" download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
+<a class="net30-strip" href="#deliverables">
   <span class="net30-k">Opening ask</span>
   <span class="net30-v">Opening ask net 30 · why it matters</span>
-  <span class="net30-fmt">Cash impact PDF</span>
+  <span class="net30-fmt">PDF hold</span>
 </a>
 
 <div class="facts">
@@ -470,19 +478,17 @@ a { color: inherit; }
   <div class="sect-num">00</div>
   <div class="sect-label">Deliverables</div>
   <h2>What to take from this page.</h2>
-  <p class="sect-sub">Three named files. Payment cash is the opening argument — beside the cost sheet.</p>
+  <p class="sect-sub">Rail first. Ready files are the cost sheet and CM redline. Payment cash PDF is on hold.</p>
   <div class="dl-rail">
     <div class="dl-rail-head">
       <div class="k">Group</div>
       <a class="dl-all js-download-all" href="#deliverables">Download all</a>
     </div>
-    <a class="dl-rail-row is-primary" id="dl-cash"
-       href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904"
-       download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
+    <div class="dl-rail-row is-primary is-hold" id="dl-cash">
       <h3>Payment cash</h3>
-      <p>Opening ask net 30 · why it matters</p>
-      <span class="fmt">PDF</span>
-    </a>
+      <p>Opening ask net 30 · why it matters. PDF rebuild in flight — not a client download.</p>
+      <span class="fmt">Hold</span>
+    </div>
     <a class="dl-rail-row" id="dl-cost-sheet"
        href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
        data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
@@ -606,13 +612,11 @@ a { color: inherit; }
       <div class="k">Downloads</div>
       <a class="dl-all js-download-all" href="#deliverables">Download all</a>
     </div>
-    <a class="dl-rail-row is-primary"
-       href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904"
-       download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
+    <div class="dl-rail-row is-primary is-hold">
       <h3>Payment cash</h3>
-      <p>Opening ask net 30 · why it matters</p>
-      <span class="fmt">PDF</span>
-    </a>
+      <p>Opening ask net 30 · why it matters. PDF rebuild in flight — not a client download.</p>
+      <span class="fmt">Hold</span>
+    </div>
     <a class="dl-rail-row" id="dl-cost-btn"
        href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
        data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
@@ -767,7 +771,6 @@ a { color: inherit; }
   wirePrefer(document.getElementById('rail-cost-sheet'));
 
   var ALL_FILES = [
-    { href: './cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904', name: 'RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf' },
     { href: './RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904', name: 'RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx' },
     { href: './RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf?v=20260904', name: 'RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf' }
   ];
