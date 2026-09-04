@@ -143,18 +143,15 @@ a { color: inherit; }
   color: var(--navy); font-weight: 400; max-width: 620px; line-height: 1.35;
 }
 .meta { margin-top: 18px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.facts {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+.facts-strip {
+  padding: 10px 80px 12px;
   border-bottom: 1px solid var(--hair);
   background: var(--band);
+  font-size: 12px; color: var(--muted); line-height: 1.45;
 }
-.facts div { padding: 22px 24px; border-right: 1px solid var(--hair); }
-.facts div:last-child { border-right: none; }
-.facts .k {
-  font-size: 9px; font-weight: 400; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
-}
-.facts .v { font-family: var(--serif); font-size: 18px; color: var(--navy-deep); font-weight: 400; }
+.facts-strip p { margin: 0; }
+#deliverables { padding-top: 40px; padding-bottom: 48px; }
+#deliverables h2 { font-size: 22px; margin-bottom: 4px; }
 .sect { position: relative; padding: 72px 80px; border-bottom: 1px solid var(--hair); }
 .sect#team, .sect#schedule, .sect#guardrails, .sect#deliverables, .sect.assistant { background: var(--band); }
 .sect-num {
@@ -226,8 +223,6 @@ a { color: inherit; }
   font-size: 9px; font-weight: 400; letter-spacing: 0.18em;
   text-transform: uppercase; padding: 4px 9px;
 }
-.facts div:nth-child(4n) { border-right: none; }
-.facts div:nth-child(n+5) { border-top: 1px solid var(--hair); }
 .dl-btn {
   display: inline-block; margin-top: 32px;
   background: var(--navy-deep); color: #fff;
@@ -307,16 +302,16 @@ a { color: inherit; }
 .dl-row { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
 
 .net30-strip {
-  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
   background: var(--navy-deep); color: #fff; text-decoration: none;
-  padding: 16px 80px;
+  padding: 10px 80px;
   border-bottom: 1px solid var(--navy-deep);
 }
 .net30-strip .net30-k {
   font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.7;
 }
 .net30-strip .net30-v {
-  font-family: var(--serif); font-size: 20px; font-weight: 400;
+  font-family: var(--serif); font-size: 16px; font-weight: 400;
 }
 .net30-strip .net30-fmt {
   margin-left: auto; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.75;
@@ -382,15 +377,14 @@ a { color: inherit; }
 @media (max-width: 900px) {
   .sidebar { display: none; }
   .main { margin-left: 0; }
-  .hero, .sect, .banner, .footer-quote, .footer-bar, .net30-strip { padding-left: 28px; padding-right: 28px; }
+  .hero, .sect, .banner, .footer-quote, .footer-bar, .net30-strip, .facts-strip { padding-left: 28px; padding-right: 28px; }
   .sect { padding-top: 48px; padding-bottom: 48px; }
   .hero { padding-top: 48px; }
   .hero h1 { font-size: 36px; }
-  .u-grid, .rev-grid, .diff-grid, .team-grid, .facts, .cal, .del-grid { grid-template-columns: 1fr; }
-  .facts div { border-right: none; border-bottom: 1px solid var(--hair); }
+  .u-grid, .rev-grid, .diff-grid, .team-grid, .cal, .del-grid { grid-template-columns: 1fr; }
   .dl-rail-row { grid-template-columns: 1fr; gap: 6px; }
   .dl-row { flex-direction: column; }
-  .net30-strip .net30-v { font-size: 18px; }
+  .net30-strip .net30-v { font-size: 15px; }
 }
 </style>
 </head>
@@ -443,15 +437,9 @@ a { color: inherit; }
   <span class="net30-fmt">Cash PDF</span>
 </a>
 
-<div class="facts">
-  <div><div class="k">Contract</div><div class="v">Cost-plus CM, open book</div></div>
-  <div><div class="k">Payment</div><div class="v">Net 30</div></div>
-  <div><div class="k">Commence</div><div class="v">2 Apr 2027</div></div>
-  <div><div class="k">Substantial / final</div><div class="v">18 Aug / 25 Aug 2027</div></div>
-  <div><div class="k">CM fee · Set</div><div class="v">10%</div></div>
-  <div><div class="k">Superintendent · Set</div><div class="v">$4,400 / wk</div></div>
-  <div><div class="k">Duration · Set</div><div class="v">21 weeks</div></div>
-  <div><div class="k">Insurance · Set</div><div class="v">1.5%</div></div>
+<div class="facts-strip">
+  <p>Cost-plus CM, open book · commence 2 Apr 2027 · substantial 18 Aug · final 25 Aug 2027</p>
+  <p>Set · 10% CM · $4,400/wk super · 21 weeks · 1.5% insurance</p>
 </div>
 
 <div class="sect" id="deliverables">
