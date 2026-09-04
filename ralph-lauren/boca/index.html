@@ -150,17 +150,10 @@ a { color: inherit; }
   color: var(--navy); font-weight: 400; max-width: 620px; line-height: 1.35;
 }
 .meta { margin-top: 18px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.facts-strip {
-  padding: 10px 80px 12px;
-  border-bottom: 1px solid var(--hair);
-  background: var(--band);
-  font-size: 12px; color: var(--muted); line-height: 1.45;
-}
-.facts-strip p { margin: 0; }
 #deliverables { padding-top: 40px; padding-bottom: 48px; }
 #deliverables h2 { font-size: 22px; margin-bottom: 4px; }
 .sect { position: relative; padding: 72px 80px; border-bottom: 1px solid var(--hair); }
-.sect#team, .sect#schedule, .sect#guardrails, .sect#deliverables, .sect.assistant { background: var(--band); }
+.sect#deliverables, .sect#roster, .sect.assistant { background: var(--band); }
 .sect-num {
   position: absolute; top: 32px; right: 56px;
   font-family: var(--inscribe); font-size: 42px; font-weight: 400;
@@ -174,95 +167,28 @@ a { color: inherit; }
   font-family: var(--serif); font-size: 34px; font-weight: 400;
   color: var(--navy-deep); margin-bottom: 14px;
 }
-.sect-sub { font-size: 15px; color: var(--ink); max-width: 680px; margin-bottom: 36px; opacity: 0.85; }
-.u-grid, .rev-grid, .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
-.team-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
-.u-card, .tm, .rev-item, .diff-item {
-  background: var(--page); padding: 28px 26px 24px;
+.sect-sub { font-size: 15px; color: var(--ink); max-width: 820px; margin-bottom: 28px; opacity: 0.85; }
+.terms { max-width: 820px; }
+.terms-row {
+  display: grid; grid-template-columns: 132px 1fr; gap: 18px;
+  padding: 13px 0; border-bottom: 1px solid var(--hair);
 }
-.u-num, .role, .diff-num {
+.terms-row:last-child { border-bottom: none; }
+.terms-row .k {
   font-size: 9px; font-weight: 400; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+  text-transform: uppercase; color: var(--muted); padding-top: 3px;
 }
-.u-card h3, .tm h3, .rev-item h4, .diff-item h4 {
-  font-family: var(--serif); font-size: 22px; font-weight: 400;
-  color: var(--navy-deep); margin-bottom: 10px;
+.terms-row .v { font-size: 14px; color: var(--ink); line-height: 1.55; }
+.team-list {
+  max-width: 820px; margin: 0 0 28px; padding-left: 1.15em;
 }
-.u-card p, .tm p, .rev-item p, .diff-item p {
-  font-size: 14px; color: var(--ink); line-height: 1.55; opacity: 0.9;
+.team-list li {
+  padding: 7px 0;
+  font-size: 15px; color: var(--ink); line-height: 1.5;
 }
-.initials {
-  font-family: var(--inscribe);
-  font-size: 11px; letter-spacing: 0.18em;
-  color: var(--navy-deep); margin-bottom: 16px;
-  border-bottom: 1px solid var(--hair); padding-bottom: 10px; width: fit-content;
+.team-list strong {
+  font-family: var(--serif); font-weight: 400; color: var(--navy-deep);
 }
-.price-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-.price-table td {
-  padding: 14px 0; border-bottom: 1px solid var(--hair);
-  font-size: 14px; vertical-align: top;
-}
-.price-table td:last-child { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.price-table tr.head td {
-  font-size: 9px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--muted); padding-bottom: 10px;
-}
-.price-table tr.group td {
-  font-family: var(--serif); font-size: 18px; font-weight: 400;
-  color: var(--navy-deep); padding-top: 28px; border-bottom: 1px solid var(--navy);
-}
-.price-table tr.note td { font-size: 12px; color: var(--muted); border-bottom: none; padding-top: 4px; }
-.price-table tr.total td {
-  font-family: var(--serif); font-size: 22px; font-weight: 400;
-  color: var(--navy-deep); border-bottom: none; padding-top: 22px;
-}
-.open {
-  display: inline-block;
-  border: 1px solid var(--navy);
-  color: var(--navy);
-  font-size: 9px; font-weight: 400; letter-spacing: 0.18em;
-  text-transform: uppercase; padding: 4px 9px;
-}
-.set {
-  display: inline-block;
-  background: var(--navy);
-  color: #fff;
-  font-size: 9px; font-weight: 400; letter-spacing: 0.18em;
-  text-transform: uppercase; padding: 4px 9px;
-}
-.dl-btn {
-  display: inline-block; margin-top: 32px;
-  background: var(--navy-deep); color: #fff;
-  text-decoration: none; font-size: 11px; font-weight: 400;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  padding: 16px 26px;
-}
-.dl-btn:hover { background: var(--navy); }
-.dl-note { font-size: 11px; color: var(--muted); margin-top: 12px; letter-spacing: 0.04em; }
-.del-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
-.del-card {
-  background: var(--page); padding: 28px 26px 24px;
-  text-decoration: none; display: block;
-}
-.del-card h3 {
-  font-family: var(--serif); font-size: 22px; font-weight: 400;
-  color: var(--navy-deep); margin-bottom: 10px;
-}
-.del-card p { font-size: 14px; color: var(--ink); line-height: 1.55; opacity: 0.9; }
-.del-card .del-k {
-  font-size: 9px; font-weight: 400; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
-}
-.del-card .del-fmt {
-  display: inline-block; margin-top: 16px;
-  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy);
-}
-.del-card.is-ready:hover { background: #fafafa; }
-.cal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 8px; border-top: 1px solid var(--navy); }
-.cal-item { padding: 20px 24px 8px 0; }
-.cal-item .k { font-size: 9px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-.cal-item .v { font-family: var(--serif); font-size: 26px; color: var(--navy-deep); margin: 10px 0 6px; }
-.cal-item .s { font-size: 13px; color: var(--ink); opacity: 0.8; }
 .roster { width: 100%; border-collapse: collapse; margin-top: 8px; }
 .roster td { padding: 11px 0; border-bottom: 1px solid var(--hair); font-size: 14px; }
 .roster td:first-child { color: var(--muted); width: 38%; letter-spacing: 0.04em; }
@@ -276,72 +202,6 @@ a { color: inherit; }
   padding-top: 18px;
 }
 .footer-bar a { color: #fff; text-decoration: none; }
-/* Deliverables rail */
-.rail {
-  margin-top: 28px; padding-top: 22px;
-  border-top: 1px solid var(--hair);
-}
-.rail-label {
-  font-size: 9px; font-weight: 400; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
-}
-.rail-item {
-  display: block; text-decoration: none;
-  padding: 10px 0; border-bottom: 1px solid var(--hair);
-}
-.rail-item:last-child { border-bottom: none; }
-.rail-item .rail-top {
-  display: flex; align-items: baseline; gap: 8px;
-}
-.rail-item .rail-title {
-  font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--navy-deep);
-}
-.rail-item .rail-fmt {
-  margin-left: auto; font-size: 9px; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--muted);
-}
-.rail-item .rail-why {
-  display: block; margin-top: 3px;
-  font-size: 11px; color: var(--muted); line-height: 1.4;
-}
-.rail-item.is-all .rail-title { color: var(--navy); }
-.rail-item:hover .rail-title { color: var(--navy); }
-.dl-row { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
-
-.net30-strip {
-  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
-  background: var(--navy-deep); color: #fff; text-decoration: none;
-  padding: 10px 80px;
-  border-bottom: 1px solid var(--navy-deep);
-}
-.net30-strip .net30-k {
-  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.7;
-}
-.net30-strip .net30-v {
-  font-family: var(--serif); font-size: 16px; font-weight: 400;
-}
-.net30-strip .net30-fmt {
-  margin-left: auto; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.75;
-}
-.net30-strip:hover .net30-v { opacity: 0.88; }
-
-.term-list, .rev-list, .guard-list {
-  list-style: none; max-width: 820px; margin: 0;
-}
-.term-list li, .rev-list li, .guard-list li {
-  padding: 12px 0; border-bottom: 1px solid var(--hair);
-  font-size: 14px; color: var(--ink); line-height: 1.5;
-}
-.term-list li:last-child, .rev-list li:last-child, .guard-list li:last-child { border-bottom: none; }
-.term-list strong, .rev-list strong, .guard-list strong {
-  font-family: var(--serif); font-weight: 400; color: var(--navy-deep);
-  margin-right: 8px;
-}
-
-.tm p { margin-top: 6px; }
-.team-line {
-  font-size: 15px; color: var(--ink); line-height: 1.55; max-width: 820px;
-}
 
 .dl-rail {
   margin-top: 28px;
@@ -384,14 +244,12 @@ a { color: inherit; }
 @media (max-width: 900px) {
   .sidebar { display: none; }
   .main { margin-left: 0; }
-  .hero, .sect, .banner, .footer-quote, .footer-bar, .net30-strip, .facts-strip { padding-left: 28px; padding-right: 28px; }
+  .hero, .sect, .banner, .footer-quote, .footer-bar { padding-left: 28px; padding-right: 28px; }
   .sect { padding-top: 48px; padding-bottom: 48px; }
   .hero { padding-top: 48px; }
   .hero h1 { font-size: 36px; }
-  .u-grid, .rev-grid, .diff-grid, .team-grid, .cal, .del-grid { grid-template-columns: 1fr; }
+  .terms-row { grid-template-columns: 1fr; gap: 4px; }
   .dl-rail-row { grid-template-columns: 1fr; gap: 6px; }
-  .dl-row { flex-direction: column; }
-  .net30-strip .net30-v { font-size: 15px; }
 }
 </style>
 </head>
@@ -405,13 +263,8 @@ a { color: inherit; }
   </div>
   <nav>
     <a href="#deliverables">Deliverables</a>
-    <a href="#understanding">Understanding</a>
-    <a href="#team">Team</a>
-    <a href="#revisions">Revisions</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#schedule">Schedule</a>
+    <a href="#terms">Terms</a>
     <a href="#roster">Roster</a>
-    <a href="#guardrails">Guardrails</a>
     <a href="#proposal-assistant">Assistant</a>
   </nav>
   <div class="sidebar-footer">
@@ -436,18 +289,6 @@ a { color: inherit; }
   <h1>Town Center at Boca Raton · <em>space 1062</em></h1>
   <p class="tagline">Open-book cost-plus construction management. Prepared for Charrette Management Group — the owner's representative reviewing this exhibit. 600 Glades Road.</p>
   <div class="meta">NDA 14 Jul 2026 &nbsp;·&nbsp; Architect TPG &nbsp;·&nbsp; Drawings contact Dorit Alexander &nbsp;·&nbsp; 3,384 sf</div>
-  <div class="meta">Set &nbsp;·&nbsp; CM 10% &nbsp;·&nbsp; Super $4,400/wk &nbsp;·&nbsp; PM $3,500/wk + 4 trips &nbsp;·&nbsp; 21 weeks &nbsp;·&nbsp; Parking 5 mo &nbsp;·&nbsp; Insurance 1.5% &nbsp;·&nbsp; Pre-con 1% first pay app</div>
-</div>
-
-<a class="net30-strip" href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf" download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
-  <span class="net30-k">Opening ask</span>
-  <span class="net30-v">Opening ask net 30 · why it matters.</span>
-  <span class="net30-fmt">Cash PDF</span>
-</a>
-
-<div class="facts-strip">
-  <p>Cost-plus CM, open book · commence 2 Apr 2027 · substantial 18 Aug · final 25 Aug 2027</p>
-  <p>Set · 10% CM · $4,400/wk super · 21 weeks · 1.5% insurance</p>
 </div>
 
 <div class="sect" id="deliverables">
@@ -485,94 +326,44 @@ a { color: inherit; }
   </div>
 </div>
 
-<div class="sect" id="understanding">
+<div class="sect" id="terms">
   <div class="sect-num">01</div>
-  <div class="sect-label">Understanding</div>
-  <h2>Confirmed terms.</h2>
-  <p class="sect-sub">Prepared for Landis Kauffman and Claudia Mardones at Charrette Management Group, the owner's representative reviewing this exhibit.</p>
-  <ul class="term-list">
-    <li><strong>Cost-plus, open book</strong> 10% CM. Not a lump sum.</li>
-    <li><strong>Competitive bid</strong> Roster named first. Trade dollars TBD until bids.</li>
-    <li><strong>Mall and city</strong> Boca / Simon before start. JCI fire alarm. Polaris sprinkler.</li>
-    <li><strong>Run-up</strong> Bid package ~8 weeks. Filing ~1 month. Permits and tax invoiced separately, no markup on permits.</li>
-  </ul>
-</div>
-
-<div class="sect" id="team">
-  <div class="sect-num">02</div>
-  <div class="sect-label">Team</div>
-  <h2>Who is on this job.</h2>
-  <p class="team-line">Luke Shank · owner · Shawn Rasmusen · PM $3,500/wk + 4 trips · Robert Colvin · super $4,400/wk (proposed, not awarded) · Jenny Morrow · accounting · Chris Deutschlaender · coordinator</p>
-</div>
-
-<div class="sect" id="revisions">
-  <div class="sect-num">03</div>
-  <div class="sect-label">Revisions</div>
-  <h2>Set and open.</h2>
-  <ul class="rev-list">
-    <li><strong>Set · duration</strong> 21 weeks. Commence 2 Apr 2027 · substantial 18 Aug · final 25 Aug.</li>
-    <li><strong>Set · fees</strong> 10% CM · 10% CO (not stacked) · 1.5% insurance · 1% pre-con first pay app.</li>
-    <li><strong>Set · staff</strong> Super $4,400/wk · PM $3,500/wk + 4 trips · parking 5 mo × $250.</li>
-  </ul>
-</div>
-
-<div class="sect" id="pricing">
-  <div class="sect-num">04</div>
-  <div class="sect-label">Pricing</div>
-  <h2>Open-book GC / CM exhibit.</h2>
-  <table class="price-table">
-    <tr class="head"><td>Item</td><td>Status</td></tr>
-    <tr class="group"><td colspan="2">Duration and staffing</td></tr>
-    <tr><td>Project duration (weeks)</td><td>21 weeks &nbsp; <span class="set">Set</span></td></tr>
-    <tr><td>Weekly GC and supervision</td><td>Weekly lump — breakouts below</td></tr>
-    <tr><td>Superintendent weekly rate</td><td>$4,400 / wk &nbsp; <span class="set">Set</span></td></tr>
-    <tr><td>Project manager</td><td>$3,500 / wk + 4 trips &nbsp; <span class="set">Set</span></td></tr>
-    <tr class="group"><td colspan="2">Fees</td></tr>
-    <tr><td>Pre-construction fee</td><td>1% first pay app &nbsp; <span class="set">Set</span></td></tr>
-    <tr><td>CM fee % of cost of work</td><td>10% &nbsp; <span class="set">Set</span></td></tr>
-    <tr><td>Insurance %</td><td>1.5% · WC 1.2% payroll separate &nbsp; <span class="set">Set</span></td></tr>
-    <tr><td>CO markup %</td><td>10% · not stacked with CM &nbsp; <span class="set">Set</span></td></tr>
-    <tr><td>Main-office overhead</td><td>N/A</td></tr>
-    <tr class="group"><td colspan="2">Trade packages</td></tr>
-    <tr><td>Packages 1–20</td><td>TBD — bids not received</td></tr>
-    <tr class="group"><td colspan="2">Mall fees (3,384 sf) — unit rates, not a bid total</td></tr>
-    <tr><td>Temp electric</td><td>$0.43 / sf</td></tr>
-    <tr><td>Temp water</td><td>$0.10 / sf</td></tr>
-    <tr><td>After hours</td><td>$400 one-time</td></tr>
-    <tr><td>Parking</td><td>5 months × $250 = $1,250 &nbsp; <span class="set">Set</span></td></tr>
-    <tr><td>Tenant coordination</td><td>$250 one-time</td></tr>
-    <tr><td>Sprinkler shutdown</td><td>$250 each · count TBD &nbsp; <span class="open">Open</span></td></tr>
-    <tr class="total"><td>Grand total</td><td><span class="open">Open / TBD — pending bids</span></td></tr>
-  </table>
-</div>
-
-<div class="sect" id="schedule">
-  <div class="sect-num">05</div>
-  <div class="sect-label">Schedule</div>
-  <h2>21 weeks · set.</h2>
-  <div class="cal">
-    <div class="cal-item">
-      <div class="k">Commence</div>
-      <div class="v">2 Apr 2027</div>
+  <div class="sect-label">Commercial terms</div>
+  <h2>One set of numbers.</h2>
+  <p class="sect-sub">Open-book exhibit for Charrette review. Prepared for Landis Kauffman and Claudia Mardones at Charrette Management Group, the owner's representative.</p>
+  <div class="terms">
+    <div class="terms-row">
+      <div class="k">Set</div>
+      <div class="v">21 weeks · 10% CM · 10% CO markup (one-or-the-other, not stacked) · 1.5% insurance · $4,400/wk superintendent · $3,500/wk PM + 4 trips · parking 5 months × $250 = $1,250 · 1% pre-con on first pay app · opening ask net 30 (net 45 settlement band if 30 is refused). Cost-plus, open book — not a lump sum. Competitive bid. Permits and tax invoiced separately, no markup on permits. Overhead N/A. Boca / Simon. JCI fire alarm. Polaris sprinkler. South Palm FA rough-in.</div>
     </div>
-    <div class="cal-item">
-      <div class="k">Substantial</div>
-      <div class="v">18 Aug 2027</div>
+    <div class="terms-row">
+      <div class="k">Open</div>
+      <div class="v">Trade dollars · sprinkler-shutdown count · grand total. WC 1.2% of payroll is not in the insurance line.</div>
     </div>
-    <div class="cal-item">
-      <div class="k">Final</div>
-      <div class="v">25 Aug 2027</div>
+    <div class="terms-row">
+      <div class="k">Dates</div>
+      <div class="v">Commence 2 Apr 2027 · substantial 18 Aug · final 25 Aug 2027. Bid package ~8 weeks. Filing ~1 month.</div>
+    </div>
+    <div class="terms-row">
+      <div class="k">Mall unit rates</div>
+      <div class="v">3,384 sf — unit rates, not a bid total. Temp electric $0.43/sf · temp water $0.10/sf · after hours $400 · tenant coordination $250 · sprinkler shutdown $250 each (count TBD).</div>
     </div>
   </div>
 </div>
 
 <div class="sect" id="roster">
-  <div class="sect-num">06</div>
+  <div class="sect-num">02</div>
   <div class="sect-label">Proposed roster</div>
-  <h2>Named before bidding.</h2>
-  <p class="sect-sub">Proposed, not awarded. Mall-required trades marked.</p>
+  <h2>Who is on this job.</h2>
+  <ul class="team-list">
+    <li><strong>Luke Shank</strong> · owner</li>
+    <li><strong>Shawn Rasmusen</strong> · PM $3,500/wk + 4 trips</li>
+    <li><strong>Robert Colvin</strong> · super $4,400/wk (proposed, not awarded)</li>
+    <li><strong>Jenny Morrow</strong> · accounting</li>
+    <li><strong>Chris Deutschlaender</strong> · coordinator</li>
+  </ul>
+  <p class="sect-sub">Named trades before bidding. Mall-required marked.</p>
   <table class="roster">
-    <tr><td>Superintendent</td><td>Robert Colvin</td></tr>
     <tr><td>Demo</td><td>MSA Painting</td></tr>
     <tr><td>Scan / cut</td><td>Big T</td></tr>
     <tr><td>Framing / drywall</td><td>Hunt Interiors</td></tr>
@@ -595,19 +386,8 @@ a { color: inherit; }
   </table>
 </div>
 
-<div class="sect" id="guardrails">
-  <div class="sect-num">07</div>
-  <div class="sect-label">Guardrails</div>
-  <h2>Set stays set. Open stays open.</h2>
-  <ul class="guard-list">
-    <li><strong>Set</strong> 21 weeks, 10% CM, 10% CO (not stacked), 1.5% insurance, $4,400/wk super, $3,500/wk PM + 4 trips, 5 mo parking, 1% pre-con.</li>
-    <li><strong>Open</strong> Trade dollars, sprinkler-shutdown count, grand total. WC 1.2% of payroll is not in the insurance line.</li>
-    <li><strong>Roster</strong> Named before bidding. Colvin proposed, not awarded.</li>
-  </ul>
-</div>
-
 <div class="sect assistant">
-  <div class="sect-num">08</div>
+  <div class="sect-num">03</div>
   <div class="sect-label">Lux Brand proposal assistant for this page’s numbers</div>
   <h2>Ask these numbers.</h2>
   <p class="sect-sub">Answers from the figures on this exhibit. Not a bid. Not a send.</p>
@@ -630,7 +410,7 @@ a { color: inherit; }
 
 <script>
 (function(){
-  var nodes = document.querySelectorAll('.tm, .price-table tr, .cal-item, .dl-rail-row, .term-list li, .rev-list li, .guard-list li');
+  var nodes = document.querySelectorAll('.dl-rail-row, .terms-row, .team-list li, .roster tr');
   nodes.forEach(function(el, i){
     el.style.opacity = '0';
     el.style.transform = 'translateY(8px)';
