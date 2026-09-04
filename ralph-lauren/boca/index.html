@@ -460,24 +460,24 @@ a { color: inherit; }
   <h2>Files.</h2>
   <div class="dl-rail">
     <div class="dl-rail-head">
-      <div class="k">Downloads</div>
-      <a class="dl-all js-download-all" href="#deliverables">Download all</a>
+      <div class="k">Client pack</div>
+      <a class="dl-all" href="./RL-Boca-CLIENT-PACK-2026-09-04.zip?v=20260904b" download="RL-Boca-CLIENT-PACK-2026-09-04.zip">Download all</a>
     </div>
-    <a class="dl-rail-row is-primary" id="dl-cash"
-       href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904b"
-       download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
-      <h3>Payment cash impact</h3>
-      <p>Opening ask net 30 · why it matters.</p>
-      <span class="fmt">RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf</span>
-    </a>
     <a class="dl-rail-row" id="dl-cost-sheet"
        href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
        data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904"
        data-fallback="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx"
        download="RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx">
       <h3>CLIENT cost sheet</h3>
-      <p>Open-book CM exhibit</p>
+      <p>Landis-shaped open-book CM exhibit</p>
       <span class="fmt">RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx</span>
+    </a>
+    <a class="dl-rail-row is-primary" id="dl-cash"
+       href="./cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904b"
+       download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
+      <h3>Payment cash impact</h3>
+      <p>Why net 30 vs net 90</p>
+      <span class="fmt">RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf</span>
     </a>
     <a class="dl-rail-row" id="dl-redline"
        href="./RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf?v=20260904"
@@ -675,28 +675,6 @@ a { color: inherit; }
     });
   }
   wirePrefer(document.getElementById('dl-cost-sheet'));
-
-  var ALL_FILES = [
-    { href: './cashflow/RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf?v=20260904b', name: 'RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf' },
-    { href: './RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx?v=20260904', name: 'RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx' },
-    { href: './RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf?v=20260904', name: 'RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf' }
-  ];
-  function downloadAll(e) {
-    if (e) e.preventDefault();
-    ALL_FILES.forEach(function(f, i) {
-      setTimeout(function() {
-        var a = document.createElement('a');
-        a.href = f.href;
-        a.setAttribute('download', f.name);
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      }, i * 350);
-    });
-  }
-  document.querySelectorAll('.js-download-all').forEach(function(el) {
-    el.addEventListener('click', downloadAll);
-  });
 })();
 </script>
 </body>
