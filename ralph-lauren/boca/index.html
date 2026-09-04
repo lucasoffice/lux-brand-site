@@ -179,16 +179,31 @@ a { color: inherit; }
   text-transform: uppercase; color: var(--muted); padding-top: 3px;
 }
 .terms-row .v { font-size: 14px; color: var(--ink); line-height: 1.55; }
-.team-list {
-  max-width: 820px; margin: 0 0 28px; padding-left: 1.15em;
+.team-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px; background: var(--hair);
+  border: 1px solid var(--hair);
+  margin: 0 0 36px;
 }
-.team-list li {
-  padding: 7px 0;
-  font-size: 15px; color: var(--ink); line-height: 1.5;
+.tm { background: var(--page); padding: 28px 26px 24px; }
+.tm .initials {
+  font-family: var(--inscribe);
+  font-size: 11px; letter-spacing: 0.18em;
+  color: var(--navy-deep); margin-bottom: 16px;
+  border-bottom: 1px solid var(--hair); padding-bottom: 10px; width: fit-content;
 }
-.team-list strong {
-  font-family: var(--serif); font-weight: 400; color: var(--navy-deep);
+.tm h3 {
+  font-family: var(--serif); font-size: 24px; font-weight: 700;
+  color: var(--navy-deep); margin-bottom: 8px; line-height: 1.15;
 }
+.tm .role {
+  font-size: 9px; font-weight: 400; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
+}
+.tm p {
+  font-size: 14px; font-weight: 400; color: var(--muted); line-height: 1.55;
+}
+.tm p + p { margin-top: 8px; }
 .roster { width: 100%; border-collapse: collapse; margin-top: 8px; }
 .roster td { padding: 11px 0; border-bottom: 1px solid var(--hair); font-size: 14px; }
 .roster td:first-child { color: var(--muted); width: 38%; letter-spacing: 0.04em; }
@@ -249,6 +264,7 @@ a { color: inherit; }
   .hero { padding-top: 48px; }
   .hero h1 { font-size: 36px; }
   .terms-row { grid-template-columns: 1fr; gap: 4px; }
+  .team-grid { grid-template-columns: 1fr; }
   .dl-rail-row { grid-template-columns: 1fr; gap: 6px; }
 }
 </style>
@@ -353,15 +369,45 @@ a { color: inherit; }
 
 <div class="sect" id="roster">
   <div class="sect-num">02</div>
-  <div class="sect-label">Proposed roster</div>
+  <div class="sect-label">Team</div>
   <h2>Who is on this job.</h2>
-  <ul class="team-list">
-    <li><strong>Luke Shank</strong> · Owner / President, Lux Brand Company. GC lead for this Town Center job — open-book CM with Charrette.</li>
-    <li><strong>Shawn Rasmusen</strong> · Project manager. Day-to-day PM for schedule, mall coordination, and field chase on Ralph Lauren Boca.</li>
-    <li><strong>Robert Colvin</strong> · Site superintendent (proposed, not awarded). ~40 years as a site superintendent — full-time on-the-job field lead.</li>
-    <li><strong>Jenny Morrow</strong> · Director of Accounting / HR. Cost-plus pay applications, AR/AP, insurance/COI paperwork, and commercial billing with Charrette and Ralph Lauren.</li>
-    <li><strong>Chris Deutschlaender</strong> · Project coordinator. Day-to-day chase, mall/GC logistics, and service-warranty coordination.</li>
-  </ul>
+  <div class="team-grid">
+    <div class="tm">
+      <div class="initials">RC</div>
+      <h3>Robert Colvin</h3>
+      <div class="role">Site Superintendent · proposed</div>
+      <p>Robert Colvin brings about forty years as a superintendent on luxury retail fit-outs.</p>
+      <p>On Boca he owns day-to-day field sequencing for Town Center space 1062 so the trade packages hit the 21-week window.</p>
+    </div>
+    <div class="tm">
+      <div class="initials">SR</div>
+      <h3>Shawn Rasmusen</h3>
+      <div class="role">Project Manager</div>
+      <p>Shawn Rasmusen coordinates LBC’s multi-store ops cadence and will PM Boca.</p>
+      <p>He is the single point for Landis and Claudia on RFIs, schedule, and pay-app rhythm.</p>
+    </div>
+    <div class="tm">
+      <div class="initials">CD</div>
+      <h3>Chris Deutschlaender</h3>
+      <div class="role">Project Coordinator</div>
+      <p>Chris Deutschlaender is LBC’s Project Coordinator (chris@lbco.com).</p>
+      <p>On Boca he keeps submittals, mall paperwork, and the Charrette file trail tight so nothing stalls behind the CM form.</p>
+    </div>
+    <div class="tm">
+      <div class="initials">JM</div>
+      <h3>Jenny Morrow</h3>
+      <div class="role">Accounting / HR</div>
+      <p>Jenny Morrow owns LBC accounting and HR.</p>
+      <p>For Boca she runs the cost-plus pay-app trail and insurance certificate handoff so Charrette’s net-30 ask stays clean on paper.</p>
+    </div>
+    <div class="tm">
+      <div class="initials">LS</div>
+      <h3>Luke Shank</h3>
+      <div class="role">Principal / GC</div>
+      <p>Luke Shank is Owner of Lux Brand Co. and holds the GC seat on Boca.</p>
+      <p>He signs the Charrette CM path and stays the decision point for Landis and Claudia through substantial completion.</p>
+    </div>
+  </div>
   <p class="sect-sub">Named trades before bidding. Mall-required marked.</p>
   <table class="roster">
     <tr><td>Demo</td><td>MSA Painting</td></tr>
@@ -410,7 +456,7 @@ a { color: inherit; }
 
 <script>
 (function(){
-  var nodes = document.querySelectorAll('.dl-rail-row, .terms-row, .team-list li, .roster tr');
+  var nodes = document.querySelectorAll('.dl-rail-row, .terms-row, .tm, .roster tr');
   nodes.forEach(function(el, i){
     el.style.opacity = '0';
     el.style.transform = 'translateY(8px)';
