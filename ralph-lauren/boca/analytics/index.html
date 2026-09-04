@@ -366,11 +366,11 @@ td { padding: 10px 10px 10px 0; border-bottom: 1px solid #f0ebe3; vertical-align
     }
     if (!map) {
       map = L.map("map", { worldCopyJump: true }).setView([20, 0], 2);
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png", {
-        attribution: "&copy; OpenStreetMap &copy; CARTO", subdomains: "abcd", maxZoom: 18
+      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+        attribution: "Tiles &copy; Esri", maxZoom: 16
       }).addTo(map);
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png", {
-        subdomains: "abcd", maxZoom: 18, pane: "overlayPane"
+      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 16, pane: "overlayPane"
       }).addTo(map);
       markerLayer = L.layerGroup().addTo(map);
     }
