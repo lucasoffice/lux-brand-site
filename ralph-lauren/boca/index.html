@@ -6,10 +6,11 @@
 <title>Ralph Lauren | Boca Raton</title>
 <style>
 /* Heritage Prep. Page language is Ralph Lauren. LBCo is the GC in the sidebar only.
-   TODO(cody): drop binaries into this folder —
+   TODO(cody): drop binaries into this folder — exact hub hrefs already point here:
      RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf
      RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx
-   Hub already links those exact names. Do not send to Charrette.
+     RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf
+   Do not invent bytes. Do not send to Charrette.
    SET: 21 weeks, 10% CM, 1.5% insurance, $4,400/wk super, $3,500/wk PM (Shawn) + 4 trips,
    5 months parking × $250 = $1,250, 1% pre-con first pay app.
    OPEN: trades / sprinkler-shutdown count / CO markup / grand total.
@@ -359,31 +360,34 @@ a { color: inherit; }
   <div class="sect-num">00</div>
   <div class="sect-label">Deliverables</div>
   <h2>What to take from this page.</h2>
-  <p class="sect-sub">Named files only. Missing assets read TBD. Cost sheet prefers the 4 Sep CLIENT workbook when it lands; until then the 3 Sep CLIENT exhibit downloads.</p>
+  <p class="sect-sub">Named files in this folder. Cost sheet href is the 4 Sep CLIENT workbook; until Cody drops that file the download falls back to the 3 Sep CLIENT exhibit.</p>
   <div class="del-grid">
     <a class="del-card is-ready" id="dl-cost-sheet"
-       href="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx"
+       href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx"
        data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx"
        data-fallback="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx"
-       download="RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx">
-      <div class="del-k">Ready</div>
+       download="RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx">
+      <div class="del-k" id="dl-cost-k">CLIENT xlsx</div>
       <h3>Cost sheet</h3>
-      <p>CLIENT GC / CM exhibit. Landis-aligned. Five sheets. No internal workbook.</p>
+      <p>CLIENT GC / CM exhibit. Landis-aligned. Path: <span style="letter-spacing:0">RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx</span>.</p>
       <span class="del-fmt">XLSX</span>
     </a>
-    <a class="del-card" id="dl-cash"
+    <a class="del-card is-ready" id="dl-cash"
        href="./RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf"
        download="RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf">
-      <div class="del-k" id="dl-cash-k">TBD</div>
+      <div class="del-k">CLIENT PDF</div>
       <h3>Payment terms · cash impact</h3>
-      <p>CLIENT one-pager. Opening ask net 30. Net 45 is a possible settlement band. Ralph Lauren stated policy is net 90.</p>
+      <p>Opening ask net 30. Net 45 is a possible settlement band. Ralph Lauren stated policy is net 90. Path: <span style="letter-spacing:0">RL-Boca-PAYMENT-TERMS-CASH-IMPACT-CLIENT-2026-09-04.pdf</span>.</p>
       <span class="del-fmt">PDF</span>
     </a>
-    <div class="del-card" id="dl-redline">
-      <div class="del-k">TBD</div>
+    <a class="del-card is-ready" id="dl-redline"
+       href="./RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf"
+       download="RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf">
+      <div class="del-k">CLIENT PDF</div>
       <h3>CM agreement redline</h3>
-      <p>Claudia Sept 2024 form markups. Path when issued: <span style="letter-spacing:0">RL_Boca_CM_Agreement_Redline_Claudia_2024-09.pdf</span>.</p>
-    </div>
+      <p>Claudia form mark-up. Path: <span style="letter-spacing:0">RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf</span>.</p>
+      <span class="del-fmt">PDF</span>
+    </a>
     <a class="del-card" href="#cody">
       <div class="del-k">TBD</div>
       <h3>Page chatbot</h3>
@@ -546,10 +550,10 @@ a { color: inherit; }
     <tr class="total"><td>Grand total</td><td><span class="open">Open / TBD — pending bids</span></td></tr>
   </table>
   <a class="dl-btn" id="dl-cost-btn"
-     href="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx"
+     href="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx"
      data-prefer="./RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx"
      data-fallback="./RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx"
-     download="RL_Boca_CostPlus_CLIENT_2026-09-03.xlsx">Download GC / CM exhibit</a>
+     download="RL_Boca_CostPlus_CLIENT_2026-09-04.xlsx">Download GC / CM exhibit</a>
   <p class="dl-note">Ralph Lauren Boca · space 1062 · cost-plus CM · 21 weeks · $4,400/wk superintendent · $3,500/wk PM + 4 trips · 5 months parking · 10% CM · 1.5% insurance · 1% pre-con first pay app · opening ask net 30.</p>
 </div>
 
@@ -669,7 +673,7 @@ a { color: inherit; }
     nodes.forEach(function(el){ io.observe(el); });
   }
 
-  /* Prefer 4 Sep CLIENT xlsx when Cody drops it; else 3 Sep. Cash PDF uses the exact CLIENT filename. */
+  /* Exact Cody drop-in names stay on the href. Prefer 4 Sep CLIENT xlsx; else 3 Sep. Never invent bytes. */
   function headOk(url, yes, no) {
     fetch(url, { method: 'HEAD' }).then(function(r){ r.ok ? yes() : no(); }).catch(no);
   }
@@ -682,27 +686,14 @@ a { color: inherit; }
       el.setAttribute('href', prefer);
       el.setAttribute('download', prefer.split('/').pop());
     }, function(){
-      el.setAttribute('href', fallback);
-      el.setAttribute('download', fallback.split('/').pop());
+      if (fallback) {
+        el.setAttribute('href', fallback);
+        el.setAttribute('download', fallback.split('/').pop());
+      }
     });
   }
   wirePrefer(document.getElementById('dl-cost-sheet'));
   wirePrefer(document.getElementById('dl-cost-btn'));
-
-  var cash = document.getElementById('dl-cash');
-  var cashK = document.getElementById('dl-cash-k');
-  if (cash) {
-    var href = cash.getAttribute('href');
-    headOk(href, function(){
-      cash.classList.add('is-ready');
-      if (cashK) cashK.textContent = 'Ready';
-    }, function(){
-      cash.removeAttribute('href');
-      cash.removeAttribute('download');
-      cash.classList.remove('is-ready');
-      if (cashK) cashK.textContent = 'TBD';
-    });
-  }
 })();
 </script>
 </body>
