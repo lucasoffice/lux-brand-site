@@ -159,7 +159,7 @@ a { color: inherit; }
 }
 .facts .v { font-family: var(--serif); font-size: 18px; color: var(--navy-deep); font-weight: 400; }
 .sect { position: relative; padding: 72px 80px; border-bottom: 1px solid var(--hair); }
-.sect#team, .sect#schedule, .sect#guardrails, .sect#deliverables, .sect#cody { background: var(--band); }
+.sect#team, .sect#schedule, .sect#guardrails, .sect#deliverables { background: var(--band); }
 .sect-num {
   position: absolute; top: 32px; right: 56px;
   font-family: var(--inscribe); font-size: 42px; font-weight: 400;
@@ -266,12 +266,6 @@ a { color: inherit; }
   font-size: 9px; font-weight: 400; letter-spacing: 0.18em;
   text-transform: uppercase; padding: 4px 9px;
 }
-#boca-cody {
-  min-height: 120px;
-  border: 1px solid var(--hair);
-  background: var(--page);
-  padding: 28px 26px;
-}
 .cal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 8px; border-top: 1px solid var(--navy); }
 .cal-item { padding: 20px 24px 8px 0; }
 .cal-item .k { font-size: 9px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
@@ -319,7 +313,6 @@ a { color: inherit; }
     <a href="#schedule">Schedule</a>
     <a href="#roster">Roster</a>
     <a href="#guardrails">Guardrails</a>
-    <a href="#cody">Chat</a>
   </nav>
   <div class="sidebar-footer">
     Lux Brand Company<br>
@@ -340,7 +333,7 @@ a { color: inherit; }
 <div class="hero">
   <div class="hero-label">Prepared for Charrette Management Group</div>
   <div class="brand">Ralph Lauren</div>
-  <h1>Town Center at Boca Raton<em>space 1062</em></h1>
+  <h1>Town Center at Boca Raton <em>space 1062</em></h1>
   <p class="tagline">Open-book cost-plus construction management. 600 Glades Road.</p>
   <div class="meta">NDA 14 Jul 2026 &nbsp;·&nbsp; Architect TPG &nbsp;·&nbsp; Drawings contact Dorit Alexander &nbsp;·&nbsp; 3,384 sf</div>
   <div class="meta">Set &nbsp;·&nbsp; CM 10% &nbsp;·&nbsp; Super $4,400/wk &nbsp;·&nbsp; PM $3,500/wk + 4 trips &nbsp;·&nbsp; 21 weeks &nbsp;·&nbsp; Parking 5 mo &nbsp;·&nbsp; Insurance 1.5% &nbsp;·&nbsp; Pre-con 1% first pay app</div>
@@ -388,12 +381,6 @@ a { color: inherit; }
       <h3>CM agreement redline</h3>
       <p>Claudia form mark-up. Path: <span style="letter-spacing:0">RL-Boca-CM-FORM-REDLINE-2026-09-04.pdf</span>.</p>
       <span class="del-fmt">PDF</span>
-    </a>
-    <a class="del-card" href="#cody">
-      <div class="del-k">TBD</div>
-      <h3>Page chatbot</h3>
-      <p>Mount point for Cody. Not live on this exhibit yet.</p>
-      <span class="del-fmt">#cody</span>
     </a>
   </div>
 </div>
@@ -626,16 +613,6 @@ a { color: inherit; }
       <h4>Roster before bidding</h4>
       <p>The proposed Boca roster is named before trades go out. Mall fire alarm is Johnson Controls. Robert Colvin is proposed, not awarded. Nothing on that list is an award.</p>
     </div>
-  </div>
-</div>
-
-<div class="sect" id="cody" data-cody-mount="ralph-lauren-boca">
-  <div class="sect-num">08</div>
-  <div class="sect-label">Page chatbot</div>
-  <h2>Ask this exhibit.</h2>
-  <p class="sect-sub">Mount point for Cody. Not live yet. No send from this page.</p>
-  <div id="boca-cody" data-cody-mount="ralph-lauren-boca" aria-live="polite">
-    <p>TBD — page chatbot when Cody ships.</p>
   </div>
 </div>
 
