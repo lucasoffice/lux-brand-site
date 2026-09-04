@@ -179,6 +179,17 @@ a { color: inherit; }
   text-transform: uppercase; color: var(--muted); padding-top: 3px;
 }
 .terms-row .v { font-size: 14px; color: var(--ink); line-height: 1.55; }
+.team-list {
+  list-style: none; max-width: 820px; margin: 0 0 28px;
+}
+.team-list li {
+  padding: 12px 0; border-bottom: 1px solid var(--hair);
+  font-size: 15px; color: var(--ink); line-height: 1.5;
+}
+.team-list li:last-child { border-bottom: none; }
+.team-list strong {
+  font-family: var(--serif); font-weight: 400; color: var(--navy-deep);
+}
 .roster { width: 100%; border-collapse: collapse; margin-top: 8px; }
 .roster td { padding: 11px 0; border-bottom: 1px solid var(--hair); font-size: 14px; }
 .roster td:first-child { color: var(--muted); width: 38%; letter-spacing: 0.04em; }
@@ -344,8 +355,15 @@ a { color: inherit; }
 <div class="sect" id="roster">
   <div class="sect-num">02</div>
   <div class="sect-label">Proposed roster</div>
-  <h2>People and trades.</h2>
-  <p class="sect-sub">Luke Shank · owner · Shawn Rasmusen · PM · Robert Colvin · superintendent (proposed, not awarded) · Jenny Morrow · accounting · Chris Deutschlaender · coordinator. Named trades before bidding. Mall-required marked.</p>
+  <h2>Who is on this job.</h2>
+  <ul class="team-list">
+    <li><strong>Luke Shank</strong> · owner</li>
+    <li><strong>Shawn Rasmusen</strong> · PM $3,500/wk + 4 trips</li>
+    <li><strong>Robert Colvin</strong> · super $4,400/wk (proposed, not awarded)</li>
+    <li><strong>Jenny Morrow</strong> · accounting</li>
+    <li><strong>Chris Deutschlaender</strong> · coordinator</li>
+  </ul>
+  <p class="sect-sub">Named trades before bidding. Mall-required marked.</p>
   <table class="roster">
     <tr><td>Demo</td><td>MSA Painting</td></tr>
     <tr><td>Scan / cut</td><td>Big T</td></tr>
@@ -393,7 +411,7 @@ a { color: inherit; }
 
 <script>
 (function(){
-  var nodes = document.querySelectorAll('.dl-rail-row, .terms-row, .roster tr');
+  var nodes = document.querySelectorAll('.dl-rail-row, .terms-row, .team-list li, .roster tr');
   nodes.forEach(function(el, i){
     el.style.opacity = '0';
     el.style.transform = 'translateY(8px)';
