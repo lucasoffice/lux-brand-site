@@ -1,0 +1,431 @@
+point,existing_mm,background_mm,zone,target_mm,tributary_sf,fill_cf,grind_cf,extra_fill_and_grind_for_quarter_cf,over_1p5in_sf,under_quarter_sf,zone_area_split
+A1,-29,-29,Front and lower-right slopes,-17.112,15.13023,0.608081,0.0,0,0,0,Front and lower-right slopes: 15.130
+A2,-11,-11,Front and lower-right slopes,-17.112,15.13023,0.0,0.282284,0,0,0,Front and lower-right slopes: 15.130
+A3,-11,-11,Front and lower-right slopes,-17.112,15.13023,0.0,0.282229,0,0,0,Front and lower-right slopes: 15.130
+A4,-9,-9,Front and lower-right slopes,-17.112,15.13023,0.0,0.381505,0,0,0,Front and lower-right slopes: 15.130
+A5,-9,-9,Front and lower-right slopes,-17.112,15.13023,0.0,0.381501,0,0,0,Front and lower-right slopes: 15.130
+A6,-9,-9,Front and lower-right slopes,-17.112,15.13023,0.0,0.381497,0,0,0,Front and lower-right slopes: 15.130
+A7,-18,-18,Front and lower-right slopes,-17.112,15.13023,0.065266,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+A8,-14,-14,Front and lower-right slopes,-17.112,15.13023,0.0,0.133289,0,0,0,Front and lower-right slopes: 15.130
+A9,-40,-40,Front and lower-right slopes,-17.112,15.13023,1.157352,0.0,0,0,0,Front and lower-right slopes: 15.130
+A10,-36,-36,Front and lower-right slopes,-17.112,15.13023,0.958796,0.0,0,0,0,Front and lower-right slopes: 15.130
+A11,-37,-37,Front and lower-right slopes,-17.112,15.13023,1.00844,0.0,0,0,0,Front and lower-right slopes: 15.130
+A12,-38,-38,Front and lower-right slopes,-17.112,15.13023,1.058084,0.0,0,0,0,Front and lower-right slopes: 15.130
+A13,-19,-19,Front and lower-right slopes,-17.112,15.13023,0.11493,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+A14,-41,-41,Front and lower-right slopes,-17.112,15.13023,1.207012,0.0,0,0,0,Front and lower-right slopes: 15.130
+A15,-48,-48,Front and lower-right slopes,-17.112,15.13023,1.554495,0.0,0,0,0,Front and lower-right slopes: 15.130
+A16,-44,-44,Front and lower-right slopes,-17.112,15.13023,1.355939,0.0,0,0,0,Front and lower-right slopes: 15.130
+A17,-49,-49,Front and lower-right slopes,-17.112,15.13023,1.599255,0.0,0,0,0,Front and lower-right slopes: 15.130
+B1,-11,-11,Front and lower-right slopes,-13.18,15.13023,0.0,0.107041,0,0,0.0591,Front and lower-right slopes: 15.130
+B2,-12,-12,Front and lower-right slopes,-12.75,15.13023,0.012166,0.04805,0,0,5.20102,Front and lower-right slopes: 15.130
+B3,-11,-11,Front and lower-right slopes,-12.365,15.13023,0.007093,0.07525,0,0,3.78256,Front and lower-right slopes: 15.130
+B4,-11,-11,Front and lower-right slopes,-12.365,15.13023,0.007491,0.075242,0,0,3.78256,Front and lower-right slopes: 15.130
+B5,-11,-11,Front and lower-right slopes,-12.365,15.13023,0.007493,0.075234,0,0,3.78256,Front and lower-right slopes: 15.130
+B6,-12,-12,Front and lower-right slopes,-12.364,15.13023,0.024148,0.042238,0,0,6.61948,Front and lower-right slopes: 15.130
+B7,-14,-14,Front and lower-right slopes,-12.364,15.13023,0.085823,0.004623,0,0,12.29331,Front and lower-right slopes: 15.130
+B8,-15,-15,Front and lower-right slopes,-12.364,15.13023,0.130851,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+B9,-30,-30,Front and lower-right slopes,-12.364,15.13023,0.87546,0.0,0,0,0,Front and lower-right slopes: 15.130
+B10,-28,-28,Front and lower-right slopes,-12.364,15.13023,0.776191,0.0,0,0,0,Front and lower-right slopes: 15.130
+B11,-21,-21,Front and lower-right slopes,-12.363,15.13023,0.428723,0.0,0,0,0.94564,Front and lower-right slopes: 15.130
+B12,-28,-28,Front and lower-right slopes,-12.363,15.13023,0.776213,0.0,0,0,0,Front and lower-right slopes: 15.130
+B13,-29,-29,Front and lower-right slopes,-12.363,15.13023,0.825863,0.0,0,0,0,Front and lower-right slopes: 15.130
+B14,-51,-51,Front and lower-right slopes,-12.363,15.13023,1.917951,0.0,0,9.4564,0,Front and lower-right slopes: 15.130
+B15,-33,-33,Front and lower-right slopes,-12.362,15.13023,1.024444,0.0,0,0,0,Front and lower-right slopes: 15.130
+B16,-37,-37,Front and lower-right slopes,-12.356,15.13023,1.22347,0.0,0,0,0,Front and lower-right slopes: 15.130
+B17,-42,-42,Front and lower-right slopes,-14.029,15.13023,1.409257,0.0,0,0,0,Front and lower-right slopes: 15.130
+C1,-10,-10,Front and lower-right slopes,-8.832,15.13023,0.064646,0.005475,0,0,11.52498,Front and lower-right slopes: 15.130
+C2,-11,-11,Front and lower-right slopes,-8.402,15.13023,0.128989,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+C3,-11,-11,Front and lower-right slopes,-7.862,15.13023,0.16265,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+C4,-11,-11,Front and lower-right slopes,-7.116,15.13023,0.191556,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+C5,-11,-11,Front and lower-right slopes,-7.115,15.13023,0.192829,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+C6,-11,-11,Front and lower-right slopes,-7.115,15.13023,0.19284,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+C7,-11,-11,Front and lower-right slopes,-7.115,15.13023,0.192851,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+C8,-12,-12,Front and lower-right slopes,-7.115,15.13023,0.242502,0.0,0,0,11.34767,Front and lower-right slopes: 15.130
+C9,-23,-23,Front and lower-right slopes,-7.115,15.13023,0.788551,0.0,0,0,0,Front and lower-right slopes: 15.130
+C10,-19,-19,Front and lower-right slopes,-7.114,15.13023,0.590002,0.0,0,0,0,Front and lower-right slopes: 15.130
+C11,-23,-23,Front and lower-right slopes,-7.114,15.13023,0.788573,0.0,0,0,0,Front and lower-right slopes: 15.130
+C12,-80,-22.0,Front and lower-right slopes,-7.114,15.13023,0.738944,0.0,0,0,0,Front and lower-right slopes: 15.130
+C13,-19,-19,Front and lower-right slopes,-7.114,15.13023,0.590035,0.0,0,0,0,Front and lower-right slopes: 15.130
+C14,-24,-24,Front and lower-right slopes,-7.113,15.13023,0.838245,0.0,0,0,0,Front and lower-right slopes: 15.130
+C15,-84,-28.5,Front and lower-right slopes,-7.113,15.13023,1.062445,0.0,0,0,0,Front and lower-right slopes: 15.130
+C16,-64,-38.0,Front and lower-right slopes,-7.08,15.13023,1.532044,0.0,0,0,0,Front and lower-right slopes: 15.130
+C17,-39,-39,Front and lower-right slopes,-10.622,15.13023,1.434353,0.0,0,0,0,Front and lower-right slopes: 15.130
+D1,-9,-9,Front and lower-right slopes,-4.483,15.13023,0.225382,0.0,0,0,14.00729,Front and lower-right slopes: 15.130
+D2,-9,-9,Front and lower-right slopes,-4.053,15.13023,0.24556,0.0,0,0,12.41152,Front and lower-right slopes: 15.130
+D3,-9,-9,Front and lower-right slopes,-3.514,15.13023,0.272336,0.0,0,0,10.52024,Front and lower-right slopes: 15.130
+D4,-9,-9,Front and lower-right slopes,-2.945,15.13023,0.310575,0.0,0,0,7.86063,Front and lower-right slopes: 15.130
+D5,-9,-9,Front and lower-right slopes,-1.866,15.13023,0.351203,0.0,0,0,5.67384,Front and lower-right slopes: 15.130
+D6,-9,-9,Front and lower-right slopes,-1.866,15.13023,0.354131,0.0,0,0,5.67384,Front and lower-right slopes: 15.130
+D7,-9,-9,Front and lower-right slopes,-1.866,15.13023,0.354141,0.0,0,0,5.67384,Front and lower-right slopes: 15.130
+D8,-9,-9,Front and lower-right slopes,-1.866,15.13023,0.354152,0.0,0,0,5.67384,Front and lower-right slopes: 15.130
+D9,-19,-19,Front and lower-right slopes,-1.865,15.13023,0.850562,0.0,0,0,0,Front and lower-right slopes: 15.130
+D10,-15,-15,Front and lower-right slopes,-1.865,15.13023,0.652013,0.0,0,0,0,Front and lower-right slopes: 15.130
+D11,-18,-18,Front and lower-right slopes,-1.865,15.13023,0.800944,0.0,0,0,0,Front and lower-right slopes: 15.130
+D12,-84,-16.0,Front and lower-right slopes,-1.865,15.13023,0.701675,0.0,0,0,0,Front and lower-right slopes: 15.130
+D13,-14,-14,Front and lower-right slopes,-1.864,15.13023,0.602406,0.0,0,0,0,Front and lower-right slopes: 15.130
+D14,-19,-19,Front and lower-right slopes,-1.864,15.13023,0.851722,0.0,0,0,0,Front and lower-right slopes: 15.130
+D15,-19,-19,Front and lower-right slopes,-1.814,15.13023,0.853119,0.0,0,0,0,Front and lower-right slopes: 15.130
+D16,-24,-24,Front and lower-right slopes,-1.814,15.13023,1.077607,0.0,0,0,0,Front and lower-right slopes: 15.130
+D17,-39,-39,Front and lower-right slopes,-7.215,15.13023,1.60348,0.0,0,0,0,Front and lower-right slopes: 15.130
+E1,-3,-3,Front and lower-right slopes,-0.135,15.13023,0.143395,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+E2,-3,-3,Front and lower-right slopes,0.295,15.13023,0.163571,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+E3,-2,-2,Front and lower-right slopes,0.835,15.13023,0.140707,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+E4,-2,-2,Front and lower-right slopes,1.374,15.13023,0.167483,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+E5,-2,-2,Front and lower-right slopes,2.033,15.13023,0.209633,0.0,0,0,15.07113,Front and lower-right slopes: 15.130
+E6,-2,-2,Front and lower-right slopes,3.383,15.13023,0.261613,0.0,0,0,10.99306,Front and lower-right slopes: 15.130
+E7,-2,-2,Front and lower-right slopes,3.383,15.13023,0.267233,0.0,0,0,10.40203,Front and lower-right slopes: 15.130
+E8,-3,-3,Front and lower-right slopes,3.384,15.13023,0.316883,0.0,0,0,7.56512,Front and lower-right slopes: 15.130
+E9,-18,-18,Front and lower-right slopes,3.384,15.13023,1.061492,0.0,0,0,0,Front and lower-right slopes: 15.130
+E10,-17,-17,Front and lower-right slopes,3.384,15.13023,1.011863,0.0,0,0,0,Front and lower-right slopes: 15.130
+E11,-11,-11,Front and lower-right slopes,3.384,15.13023,0.714035,0.0,0,0,0,Front and lower-right slopes: 15.130
+E12,-11,-11,Front and lower-right slopes,3.385,15.13023,0.714045,0.0,0,0,0,Front and lower-right slopes: 15.130
+E13,-14,-14,Front and lower-right slopes,3.385,15.13023,0.864318,0.0,0,0,0,Front and lower-right slopes: 15.130
+E14,-14,-14,Front and lower-right slopes,3.453,15.13023,0.866323,0.0,0,0,0,Front and lower-right slopes: 15.130
+E15,-14,-14,Front and lower-right slopes,3.453,15.13023,0.866355,0.0,0,0,0,Front and lower-right slopes: 15.130
+E16,-22,-22,Front and lower-right slopes,2.706,15.13023,1.195869,0.0,0,0,0,Front and lower-right slopes: 15.130
+E17,-39,-39,Front and lower-right slopes,-3.808,15.13023,1.772607,0.0,0,0.70923,0,Front and lower-right slopes: 15.130
+F1,3,3,Front and lower-right slopes,4.213,15.13023,0.066356,0.004949,0,0,11.58408,Front and lower-right slopes: 15.130
+F2,6,6,Front and lower-right slopes,4.643,15.13023,0.003919,0.071256,0,0,2.83692,Front and lower-right slopes: 15.130
+F3,6,6,Front and lower-right slopes,5.183,15.13023,0.010615,0.051176,0,0,4.7282,Front and lower-right slopes: 15.130
+F4,6,6,Front and lower-right slopes,5.722,15.13023,0.020632,0.034417,0,0,6.61948,Front and lower-right slopes: 15.130
+F5,6,6,Front and lower-right slopes,6.262,15.13023,0.03397,0.020973,0,0,8.51076,Front and lower-right slopes: 15.130
+F6,6,6,Front and lower-right slopes,7.011,15.13023,0.062502,0.003853,0,0,12.58883,Front and lower-right slopes: 15.130
+F7,6,6,Front and lower-right slopes,8.633,15.13023,0.121087,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+F8,8,8,Front and lower-right slopes,8.633,15.13023,0.05017,0.018755,0,0,9.4564,Front and lower-right slopes: 15.130
+F9,-14,-14,Front and lower-right slopes,8.633,15.13023,1.123503,0.0,0,0,0,Front and lower-right slopes: 15.130
+F10,-12,-12,Front and lower-right slopes,8.633,15.13023,1.024234,0.0,0,0,0,Front and lower-right slopes: 15.130
+F11,-14,-14,Front and lower-right slopes,8.634,15.13023,1.123524,0.0,0,0,0,Front and lower-right slopes: 15.130
+F12,-13,-13,Front and lower-right slopes,8.634,15.13023,1.075413,0.0,0,0,0,Front and lower-right slopes: 15.130
+F13,-13,-13,Front and lower-right slopes,8.719,15.13023,1.078071,0.0,0,0,0,Front and lower-right slopes: 15.130
+F14,-9,-9,Front and lower-right slopes,8.719,15.13023,0.879574,0.0,0,0,0,Front and lower-right slopes: 15.130
+F15,-13,-13,Front and lower-right slopes,8.719,15.13023,1.078145,0.0,0,0,0,Front and lower-right slopes: 15.130
+F16,-13,-13,Front and lower-right slopes,6.114,15.13023,0.943674,0.0,0,0,0,Front and lower-right slopes: 15.130
+F17,-39,-39,Front and lower-right slopes,-0.401,15.13023,1.941733,0.0,0,11.17037,0,Front and lower-right slopes: 15.130
+G1,6,6,Front and lower-right slopes,8.562,15.13023,0.128338,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+G2,9,9,Front and lower-right slopes,8.992,15.13023,0.026881,0.027288,0,0,7.56512,Front and lower-right slopes: 15.130
+G3,8,8,Front and lower-right slopes,9.531,15.13023,0.078472,0.002463,0,0,12.88434,Front and lower-right slopes: 15.130
+G4,11,11,Front and lower-right slopes,10.071,15.13023,0.008947,0.055081,0,0,4.37358,Front and lower-right slopes: 15.130
+G5,13,13,Front and lower-right slopes,10.61,15.13023,0.0,0.118638,0,0,0,Front and lower-right slopes: 15.130
+G6,14,14,Front and lower-right slopes,11.149,15.13023,0.0,0.141478,0,0,0,Front and lower-right slopes: 15.130
+G7,15,15,Front and lower-right slopes,11.989,15.13023,0.0,0.142183,0,0,0,Front and lower-right slopes: 15.130
+G8,15,15,Front and lower-right slopes,13.758,15.13023,0.003572,0.074126,0,0,2.4232,Front and lower-right slopes: 15.130
+G9,-16,-16,Front and lower-right slopes,13.882,15.13023,1.483283,0.0,0,0,0,Front and lower-right slopes: 15.130
+G10,-3,-3,Front and lower-right slopes,13.883,15.13023,0.838045,0.0,0,0,0,Front and lower-right slopes: 15.130
+G11,-7,-7,Front and lower-right slopes,13.883,15.13023,1.038257,0.0,0,0,0,Front and lower-right slopes: 15.130
+G12,-14,-14,Front and lower-right slopes,13.985,15.13023,1.389079,0.0,0,0,0,Front and lower-right slopes: 15.130
+G13,-10,-10,Front and lower-right slopes,13.985,15.13023,1.190633,0.0,0,0,0,Front and lower-right slopes: 15.130
+G14,-9,-9,Front and lower-right slopes,13.986,15.13023,1.141004,0.0,0,0,0,Front and lower-right slopes: 15.130
+G15,0,0,Front and lower-right slopes,13.986,15.13023,0.691585,0.0,0,0,0,Front and lower-right slopes: 15.130
+G16,-14,-14,Front and lower-right slopes,9.521,15.13023,1.167572,0.0,0,0,0,Front and lower-right slopes: 15.130
+G17,-22,-22,Front and lower-right slopes,3.006,15.13023,1.266982,0.0,0,0,0,Front and lower-right slopes: 15.130
+H1,16,16,Front and lower-right slopes,12.91,15.13023,0.0,0.152209,0,0,0,Front and lower-right slopes: 15.130
+H2,12,12,Front and lower-right slopes,13.34,15.13023,0.070597,0.004072,0,0,12.17511,Front and lower-right slopes: 15.130
+H3,15,15,Front and lower-right slopes,13.88,15.13023,0.006441,0.06206,0,0,3.66435,Front and lower-right slopes: 15.130
+H4,15,15,Front and lower-right slopes,14.419,15.13023,0.01459,0.043433,0,0,5.55563,Front and lower-right slopes: 15.130
+H5,15,15,Front and lower-right slopes,14.958,15.13023,0.02606,0.028128,0,0,7.44691,Front and lower-right slopes: 15.130
+H6,16,16,Front and lower-right slopes,15.498,15.13023,0.016058,0.040989,0,0,5.79204,Front and lower-right slopes: 15.130
+H7,15,15,Front and lower-right slopes,16.037,15.13023,0.058965,0.007409,0,0,11.17037,Front and lower-right slopes: 15.130
+H8,15,15,Front and lower-right slopes,16.967,15.13023,0.103929,0.000185,0,0,14.77562,Front and lower-right slopes: 15.130
+H9,-17,-17,Front and lower-right slopes,18.849,15.13023,1.771482,0.0,0.0,0,0,Front and lower-right slopes: 14.953; Level red: 0.177
+H10,0,0,Front and lower-right slopes,19.132,15.13023,0.948047,0.0,0.0,0,0,Level red: 2.423; Front and lower-right slopes: 12.707
+H11,-4,-4,Front and lower-right slopes,19.252,15.13023,1.150383,0.0,0.0,0,0,Level red: 2.837; Front and lower-right slopes: 12.293
+H12,-7,-7,Front and lower-right slopes,19.252,15.13023,1.299491,0.0,0.0,0,0,Level red: 2.837; Front and lower-right slopes: 12.293
+H13,-6,-6,Front and lower-right slopes,19.252,15.13023,1.24986,0.0,0.0,0,0,Level red: 2.837; Front and lower-right slopes: 12.293
+H14,-8,-8,Front and lower-right slopes,19.252,15.13023,1.349148,0.0,0.0,0,0,Level red: 2.837; Front and lower-right slopes: 12.293
+H15,-4,-4,Front and lower-right slopes,19.252,15.13023,1.128925,0.0,0.0,0,0,Level red: 1.596; Front and lower-right slopes: 13.534
+H16,-9,-9,Front and lower-right slopes,12.928,15.13023,1.088509,0.0,0,0,0,Front and lower-right slopes: 15.130
+H17,-19,-19,Front and lower-right slopes,6.412,15.13023,1.287189,0.0,0,0,0,Front and lower-right slopes: 15.130
+I1,6,6,Front and lower-right slopes,17.258,15.13023,0.560041,0.0,0,0,0,Front and lower-right slopes: 15.130
+I2,12,12,Front and lower-right slopes,17.688,15.13023,0.282375,0.0,0,0,9.87011,Front and lower-right slopes: 15.130
+I3,12,12,Front and lower-right slopes,18.228,15.13023,0.309151,0.0,0,0,8.03794,Front and lower-right slopes: 15.130
+I4,16,16,Front and lower-right slopes,18.767,15.13023,0.137351,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+I5,16,16,Front and lower-right slopes,19.307,15.13023,0.162721,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+I6,16,16,Front and lower-right slopes,19.846,15.13023,0.184875,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+I7,16,16,Front and lower-right slopes,20.385,15.13023,0.203707,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+I8,16,16,Front and lower-right slopes,20.925,15.13023,0.219363,0.0,0,0,15.13023,Front and lower-right slopes: 15.130
+I9,-19,-19,Level red,21.0,15.13023,1.980869,0.0,0.0,15.13023,0,Level red: 11.525; Front and lower-right slopes: 3.605
+I10,-4,-4,Level red,21.0,15.13023,1.240997,0.0,0.0,0,0,Level red: 15.130
+I11,-4,-4,Level red,21.0,15.13023,1.240997,0.0,0.0,0,0,Level red: 15.130
+I12,-10,-10,Level red,21.0,15.13023,1.538836,0.0,0.0,0,0,Level red: 15.130
+I13,-10,-10,Level red,21.0,15.13023,1.538836,0.0,0.0,0,0,Level red: 15.130
+I14,-5,-5,Level red,21.0,15.13023,1.290637,0.0,0.0,0,0,Level red: 15.130
+I15,-1,-1,Level red,21.0,15.13023,1.086192,0.0,0.0,0,0,Level red: 8.511; Front and lower-right slopes: 6.619
+I16,-4,-4,Front and lower-right slopes,16.335,15.13023,1.009318,0.0,0,0,0,Front and lower-right slopes: 15.130
+I17,-14,-14,Front and lower-right slopes,9.819,15.13023,1.208116,0.0,0,0,0,Front and lower-right slopes: 15.130
+J1,9,9,Level red,21.0,15.13023,0.582097,0.0,0.0,0,0,Level red: 9.456; Front and lower-right slopes: 5.674
+J2,11,11,Level red,21.0,15.13023,0.488913,0.0,0.0,0,0,Level red: 9.456; Front and lower-right slopes: 5.674
+J3,16,16,Level red,21.0,15.13023,0.246056,0.0,0.041884,0,15.13023,Level red: 9.456; Front and lower-right slopes: 5.674
+J4,16,16,Level red,21.0,15.13023,0.248093,0.0,0.041884,0,15.13023,Level red: 9.456; Front and lower-right slopes: 5.674
+J5,19,19,Level red,21.0,15.13023,0.09928,0.0,0.134958,0,15.13023,Level red: 9.456; Front and lower-right slopes: 5.674
+J6,21,21,Level red,21.0,15.13023,0.0,0.0,0.197008,0,0,Level red: 9.456; Front and lower-right slopes: 5.674
+J7,21,21,Level red,21.0,15.13023,0.0,0.0,0.197008,0,0,Level red: 9.456; Front and lower-right slopes: 5.674
+J8,16,16,Level red,21.0,15.13023,0.248199,0.0,0.041884,0,15.13023,Level red: 9.456; Front and lower-right slopes: 5.674
+J9,-18,-18,Level red,21.0,15.13023,1.935955,0.0,0.0,15.13023,0,Level red: 15.130
+J10,-9,-9,Level red,21.0,15.13023,1.489196,0.0,0.0,0,0,Level red: 15.130
+J11,-14,-14,Level red,21.0,15.13023,1.737395,0.0,0.0,0,0,Level red: 15.130
+J12,-9,-9,Level red,21.0,15.13023,1.489196,0.0,0.0,0,0,Level red: 15.130
+J13,-12,-12,Level red,21.0,15.13023,1.638116,0.0,0.0,0,0,Level red: 15.130
+J14,-5,-5,Level red,21.0,15.13023,1.290637,0.0,0.0,0,0,Level red: 15.130
+J15,2,2,Level red,21.0,15.13023,0.943158,0.0,0.0,0,0,Level red: 8.511; Front and lower-right slopes: 6.619
+J16,-5,-5,Front and lower-right slopes,19.743,15.13023,1.20469,0.0,0,0,0,Front and lower-right slopes: 15.130
+J17,-11,-11,Front and lower-right slopes,13.226,15.13023,1.228323,0.0,0,0,0,Front and lower-right slopes: 15.130
+K1,4,4,Level red,21.0,15.13023,0.843878,0.0,0.0,0,0,Level red: 15.130
+K2,11,11,Level red,21.0,15.13023,0.496399,0.0,0.0,0,0,Level red: 15.130
+K3,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+K4,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+K5,19,19,Level red,21.0,15.13023,0.09928,0.0,0.215933,0,15.13023,Level red: 15.130
+K6,20,20,Level red,21.0,15.13023,0.04964,0.0,0.265573,0,15.13023,Level red: 15.130
+K7,21,21,Level red,21.0,15.13023,0.0,0.0,0.315213,0,0,Level red: 15.130
+K8,20,20,Level red,21.0,15.13023,0.04964,0.0,0.265573,0,15.13023,Level red: 15.130
+K9,-21,-21,Level red,21.0,15.13023,2.084875,0.0,0.0,15.13023,0,Level red: 15.130
+K10,-14,-14,Level red,21.0,15.13023,1.737395,0.0,0.0,0,0,Level red: 15.130
+K11,-9,-9,Level red,21.0,15.13023,1.489196,0.0,0.0,0,0,Level red: 15.130
+K12,-14,-14,Level red,21.0,15.13023,1.737395,0.0,0.0,0,0,Level red: 15.130
+K13,-13,-13,Level red,21.0,15.13023,1.687756,0.0,0.0,0,0,Level red: 15.130
+K14,-4,-4,Level red,21.0,15.13023,1.240997,0.0,0.0,0,0,Level red: 15.130
+K15,-3,-3,Level red,21.0,15.13023,1.191357,0.0,0.0,0,0,Level red: 8.511; Front and lower-right slopes: 6.619
+K16,-3,-3,Front and lower-right slopes,21.0,15.13023,1.179872,0.0,0,0,0,Front and lower-right slopes: 15.130
+K17,-6,-6,Front and lower-right slopes,16.633,15.13023,1.149251,0.0,0,0,0,Front and lower-right slopes: 15.130
+L1,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+L2,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+L3,15,15,Level red,21.0,15.13023,0.297839,0.0,0.017374,0,15.13023,Level red: 15.130
+L4,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+L5,17,17,Level red,21.0,15.13023,0.198559,0.0,0.116654,0,15.13023,Level red: 15.130
+L6,17,17,Level red,21.0,15.13023,0.198559,0.0,0.116654,0,15.13023,Level red: 15.130
+L7,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+L8,19,19,Level red,21.0,15.13023,0.09928,0.0,0.215933,0,15.13023,Level red: 15.130
+L9,-11,-11,Level red,21.0,15.13023,1.588476,0.0,0.0,0,0,Level red: 15.130
+L10,-6,-6,Level red,21.0,15.13023,1.340277,0.0,0.0,0,0,Level red: 15.130
+L11,0,0,Level red,21.0,15.13023,1.042437,0.0,0.0,0,0,Level red: 15.130
+L12,-4,-4,Level red,21.0,15.13023,1.240997,0.0,0.0,0,0,Level red: 15.130
+L13,-4,-4,Level red,21.0,15.13023,1.240997,0.0,0.0,0,0,Level red: 15.130
+L14,5,5,Level red,21.0,15.13023,0.794238,0.0,0.0,0,0,Level red: 15.130
+L15,3,3,Level red,21.0,15.13023,0.820221,0.0,0.0,0,0,Level red: 8.511; Retained BOH: 1.241; Front and lower-right slopes: 5.378
+L16,-2,-2,Front and lower-right slopes,21.0,15.13023,0.927645,0.0,0,0,0,Retained BOH: 2.837; Front and lower-right slopes: 12.293
+L17,-4,-4,Front and lower-right slopes,20.04,15.13023,0.969865,0.0,0,0,0,Retained BOH: 2.837; Front and lower-right slopes: 12.293
+M1,12,12,Level red,21.0,15.13023,0.446759,0.0,0.0,0,0,Level red: 15.130
+M2,12,12,Level red,21.0,15.13023,0.446759,0.0,0.0,0,0,Level red: 15.130
+M3,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+M4,15,15,Level red,21.0,15.13023,0.297839,0.0,0.017374,0,15.13023,Level red: 15.130
+M5,17,17,Level red,21.0,15.13023,0.198559,0.0,0.116654,0,15.13023,Level red: 15.130
+M6,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+M7,18,18,Level red,21.0,15.13023,0.14892,0.0,0.166294,0,15.13023,Level red: 15.130
+M8,21,21,Level red,21.0,15.13023,0.0,0.0,0.315213,0,0,Level red: 15.130
+M9,-2,-2,Level red,21.0,15.13023,1.141717,0.0,0.0,0,0,Level red: 15.130
+M10,4,4,Level red,21.0,15.13023,0.843878,0.0,0.0,0,0,Level red: 15.130
+M11,-4,-4,Level red,21.0,15.13023,1.240997,0.0,0.0,0,0,Level red: 15.130
+M12,1,1,Level red,21.0,15.13023,0.992797,0.0,0.0,0,0,Level red: 15.130
+M13,-4,-4,Level red,21.0,15.13023,1.240997,0.0,0.0,0,0,Level red: 15.130
+M14,-3,-3,Level red,21.0,15.13023,1.191357,0.0,0.0,0,0,Level red: 15.130
+M15,-12,-12,Level red,21.0,15.13023,0.92144,0.0,0.0,0,0,Level red: 8.511; Retained BOH: 6.619
+N1,21,21,Level red,21.0,15.13023,0.0,0.0,0.315213,0,0,Level red: 15.130
+N2,21,21,Level red,21.0,15.13023,0.0,0.0,0.315213,0,0,Level red: 15.130
+N3,21,21,Level red,21.0,15.13023,0.0,0.0,0.315213,0,0,Level red: 15.130
+N4,17,17,Level red,21.0,15.13023,0.198559,0.0,0.116654,0,15.13023,Level red: 15.130
+N5,19,19,Level red,21.0,15.13023,0.09928,0.0,0.215933,0,15.13023,Level red: 15.130
+N6,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+N7,21,21,Level red,21.0,15.13023,0.0,0.0,0.315213,0,0,Level red: 15.130
+N8,21,21,Level red,21.0,15.13023,0.0,0.0,0.315213,0,0,Level red: 15.130
+N9,-3,-3,Level red,21.0,15.13023,1.191357,0.0,0.0,0,0,Level red: 15.130
+N10,2,2,Level red,21.0,15.13023,0.943158,0.0,0.0,0,0,Level red: 15.130
+N11,5,5,Level red,21.0,15.13023,0.794238,0.0,0.0,0,0,Level red: 15.130
+N12,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+N13,-14,-14,Level red,21.0,15.13023,1.737395,0.0,0.0,0,0,Level red: 15.130
+N14,-3,-3,Level red,21.0,15.13023,1.191357,0.0,0.0,0,0,Level red: 15.130
+N15,-6,-6,Level red,21.0,15.13023,0.753906,0.0,0.0,0,0,Level red: 8.511; Retained BOH: 6.619
+O1,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+O2,18,18,Level red,21.0,15.13023,0.14892,0.0,0.166294,0,15.13023,Level red: 15.130
+O3,19,19,Level red,21.0,15.13023,0.09928,0.0,0.215933,0,15.13023,Level red: 15.130
+O4,17,17,Level red,21.0,15.13023,0.198559,0.0,0.116654,0,15.13023,Level red: 15.130
+O5,17,17,Level red,21.0,15.13023,0.198559,0.0,0.116654,0,15.13023,Level red: 15.130
+O6,18,18,Level red,21.0,15.13023,0.14892,0.0,0.166294,0,15.13023,Level red: 15.130
+O7,18,18,Level red,21.0,15.13023,0.14892,0.0,0.166294,0,15.13023,Level red: 15.130
+O8,20,20,Level red,21.0,15.13023,0.04964,0.0,0.265573,0,15.13023,Level red: 15.130
+O9,1,1,Level red,21.0,15.13023,0.992797,0.0,0.0,0,0,Level red: 15.130
+O10,11,11,Level red,21.0,15.13023,0.496399,0.0,0.0,0,0,Level red: 15.130
+O11,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+O12,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+O13,-32,3.5,Level red,21.0,15.13023,0.868698,0.0,0.0,0,0,Level red: 15.130
+O14,1,1,Level red,21.0,15.13023,0.992797,0.0,0.0,0,0,Level red: 15.130
+O15,1,1,Level red,21.0,15.13023,0.558449,0.0,0.0,0,0,Level red: 8.511; Retained BOH: 6.619
+P1,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+P2,23,23,Level red,21.0,15.13023,0.0,0.09928,0.315213,0,0,Level red: 15.130
+P3,19,19,Level red,21.0,15.13023,0.09928,0.0,0.215933,0,15.13023,Level red: 15.130
+P4,11,11,Level red,21.0,15.13023,0.496399,0.0,0.0,0,0,Level red: 15.130
+P5,19,19,Level red,21.0,15.13023,0.09928,0.0,0.215933,0,15.13023,Level red: 15.130
+P6,19,19,Level red,21.0,15.13023,0.09928,0.0,0.215933,0,15.13023,Level red: 15.130
+P7,19,19,Level red,21.0,15.13023,0.09928,0.0,0.215933,0,15.13023,Level red: 15.130
+P8,19,19,Level red,21.0,15.13023,0.09928,0.0,0.215933,0,15.13023,Level red: 15.130
+P9,7,7,Level red,21.0,15.13023,0.694958,0.0,0.0,0,0,Level red: 15.130
+P10,10,10,Level red,21.0,15.13023,0.546039,0.0,0.0,0,0,Level red: 15.130
+P11,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+P12,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+P13,-33,6.0,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+P14,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+P15,11,11,Level red,21.0,15.13023,0.279224,0.0,0.0,0,0,Level red: 8.511; Retained BOH: 6.619
+Q1,19,19,Level red,21.0,15.13023,0.09928,0.0,0.215933,0,15.13023,Level red: 15.130
+Q2,24,24,Level red,21.0,15.13023,0.0,0.14892,0.315213,0,0,Level red: 15.130
+Q3,17,17,Level red,21.0,15.13023,0.198559,0.0,0.116654,0,15.13023,Level red: 15.130
+Q4,20,20,Level red,21.0,15.13023,0.04964,0.0,0.265573,0,15.13023,Level red: 15.130
+Q5,10,10,Level red,21.0,15.13023,0.546039,0.0,0.0,0,0,Level red: 15.130
+Q6,20,20,Level red,21.0,15.13023,0.04964,0.0,0.265573,0,15.13023,Level red: 15.130
+Q7,18,18,Level red,21.0,15.13023,0.14892,0.0,0.166294,0,15.13023,Level red: 15.130
+Q8,19,19,Level red,21.0,15.13023,0.09928,0.0,0.215933,0,15.13023,Level red: 15.130
+Q9,10,10,Level red,21.0,15.13023,0.546039,0.0,0.0,0,0,Level red: 15.130
+Q10,9,9,Level red,21.0,15.13023,0.595678,0.0,0.0,0,0,Level red: 15.130
+Q11,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+Q12,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+Q13,-28,6.0,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+Q14,11,11,Level red,21.0,15.13023,0.496399,0.0,0.0,0,0,Level red: 15.130
+Q15,9,9,Level red,21.0,15.13023,0.335069,0.0,0.0,0,0,Level red: 8.511; Retained BOH: 6.619
+R1,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+R2,23,23,Level red,21.0,15.13023,0.0,0.09928,0.315213,0,0,Level red: 15.130
+R3,21,21,Level red,21.0,15.13023,0.0,0.0,0.315213,0,0,Level red: 15.130
+R4,22,22,Level red,21.0,15.13023,0.0,0.04964,0.315213,0,0,Level red: 15.130
+R5,21,21,Level red,21.0,15.13023,0.0,0.0,0.315213,0,0,Level red: 15.130
+R6,20,20,Level red,21.0,15.13023,0.04964,0.0,0.265573,0,15.13023,Level red: 15.130
+R7,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+R8,20,20,Level red,21.0,15.13023,0.04964,0.0,0.265573,0,15.13023,Level red: 15.130
+R9,11,11,Level red,21.0,15.13023,0.496399,0.0,0.0,0,0,Level red: 15.130
+R10,11,11,Level red,21.0,15.13023,0.496399,0.0,0.0,0,0,Level red: 15.130
+R11,13,13,Level red,21.0,15.13023,0.397119,0.0,0.0,0,0,Level red: 15.130
+R12,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+R13,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+R14,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+R15,11,11,Level red,21.0,15.13023,0.279224,0.0,0.0,0,0,Level red: 8.511; Retained BOH: 6.619
+S1,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+S2,24,24,Level red,21.0,15.13023,0.0,0.14892,0.315213,0,0,Level red: 15.130
+S3,18,18,Level red,21.0,15.13023,0.14892,0.0,0.166294,0,15.13023,Level red: 15.130
+S4,20,20,Level red,21.0,15.13023,0.04964,0.0,0.265573,0,15.13023,Level red: 15.130
+S5,21,21,Level red,21.0,15.13023,0.0,0.0,0.315213,0,0,Level red: 15.130
+S6,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+S7,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+S8,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+S9,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+S10,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+S11,11,11,Level red,21.0,15.13023,0.496399,0.0,0.0,0,0,Level red: 15.130
+S12,13,13,Level red,21.0,15.13023,0.397119,0.0,0.0,0,0,Level red: 15.130
+S13,11,11,Level red,21.0,15.13023,0.496399,0.0,0.0,0,0,Level red: 15.130
+S14,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+S15,14,14,Level red,21.0,15.13023,0.195457,0.0,0.0,0,0,Level red: 8.511; Retained BOH: 6.619
+T1,9,9,Level red,21.0,15.13023,0.595678,0.0,0.0,0,0,Level red: 15.130
+T2,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+T3,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+T4,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+T5,20,20,Level red,21.0,15.13023,0.04964,0.0,0.265573,0,15.13023,Level red: 15.130
+T6,-3,-3,Level red,21.0,15.13023,1.191357,0.0,0.0,0,0,Level red: 15.130
+T7,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+T8,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+T9,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+T10,11,11,Level red,21.0,15.13023,0.496399,0.0,0.0,0,0,Level red: 15.130
+T11,15,15,Level red,21.0,15.13023,0.297839,0.0,0.017374,0,15.13023,Level red: 15.130
+T12,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+T13,16,16,Level red,21.0,15.13023,0.166759,0.0,0.045025,0,10.16563,Level red: 10.166; Retained BOH: 4.965
+T14,16,16,Level red,21.0,15.13023,0.139612,0.0,0.037695,0,8.51076,Retained BOH: 6.619; Level red: 8.511
+T15,11,11,Level red,21.0,15.13023,0.157064,0.0,0.0,0,0,Retained BOH: 10.343; Level red: 4.787
+U1,11,11,Level red,21.0,15.13023,0.496399,0.0,0.0,0,0,Level red: 15.130
+U2,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+U3,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+U4,15,15,Level red,21.0,15.13023,0.297839,0.0,0.017374,0,15.13023,Level red: 15.130
+U5,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+U6,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+U7,11,11,Level red,21.0,15.13023,0.496399,0.0,0.0,0,0,Level red: 15.130
+U8,5,5,Level red,21.0,15.13023,0.794238,0.0,0.0,0,0,Level red: 15.130
+U9,7,7,Level red,21.0,15.13023,0.694958,0.0,0.0,0,0,Level red: 15.130
+U10,6,6,Level red,21.0,15.13023,0.744598,0.0,0.0,0,0,Level red: 15.130
+U11,16,16,Level red,21.0,15.13023,0.248199,0.0,0.067014,0,15.13023,Level red: 15.130
+U12,16,16,Level red,21.0,15.13023,0.233656,0.0,0.063087,0,14.2437,Level red: 14.244; Retained BOH: 0.887
+U13,16,16,Retained BOH,16,15.13023,0.031025,0.0,0.008377,0,1.89128,Retained BOH: 13.239; Level red: 1.891
+U14,11,11,Retained BOH,11,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+U15,11,11,Retained BOH,11,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+V1,6,6,Level red,21.0,15.13023,0.698061,0.0,0.0,0,0,Retained BOH: 0.946; Level red: 14.185
+V2,24,24,Level red,21.0,15.13023,0.0,0.133795,0.283199,0,0,Retained BOH: 1.537; Level red: 13.594
+V3,11,11,Level red,21.0,15.13023,0.434349,0.0,0.0,0,0,Retained BOH: 1.891; Level red: 13.239
+V4,6,6,Level red,21.0,15.13023,0.651523,0.0,0.0,0,0,Retained BOH: 1.891; Level red: 13.239
+V5,2,2,Level red,21.0,15.13023,0.825263,0.0,0.0,0,0,Retained BOH: 1.891; Level red: 13.239
+V6,-3,-3,Level red,21.0,15.13023,0.991246,0.0,0.0,0,0,Retained BOH: 2.541; Level red: 12.589
+V7,-4,-4,Level red,21.0,15.13023,1.197368,0.0,0.0,0,0,Retained BOH: 0.532; Level red: 14.598
+V8,0,0,Level red,21.0,15.13023,1.042437,0.0,0.0,0,0,Level red: 15.130
+V9,4,4,Level red,21.0,15.13023,0.843878,0.0,0.0,0,0,Level red: 15.130
+V10,1,1,Level red,21.0,15.13023,0.992797,0.0,0.0,0,0,Level red: 15.130
+V11,11,11,Level red,21.0,15.13023,0.47313,0.0,0.0,0,0,Level red: 14.421; Retained BOH: 0.709
+V12,13,13,Retained BOH,13,15.13023,0.085319,0.0,0.0,0,0,Retained BOH: 11.880; Level red: 3.251
+V13,21,21,Retained BOH,21,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+V14,-49,13.5,Retained BOH,13.5,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+V15,11,11,Retained BOH,11,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W1,20,20,Retained BOH,20,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W2,21,21,Retained BOH,21,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W3,5,5,Retained BOH,5,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W4,-4,-4,Retained BOH,-4,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W5,1,1,Retained BOH,1,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W6,-1,-1,Retained BOH,-1,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W7,-3,-3,Level red,21.0,15.13023,0.967977,0.0,0.0,0,0,Retained BOH: 2.837; Level red: 12.293
+W8,-4,-4,Level red,21.0,15.13023,1.240997,0.0,0.0,0,0,Level red: 15.130
+W9,-8,-8,Level red,21.0,15.13023,1.439556,0.0,0.0,0,0,Level red: 15.130
+W10,2,2,Level red,21.0,15.13023,0.943158,0.0,0.0,0,0,Level red: 15.130
+W11,12,12,Level red,21.0,15.13023,0.362992,0.0,0.0,0,0,Level red: 12.293; Retained BOH: 2.837
+W12,14,14,Retained BOH,14,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W13,20,20,Retained BOH,20,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W14,20,20,Retained BOH,20,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W15,3,3,Retained BOH,3,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W16,12,12,Retained BOH,12,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W17,9,9,Retained BOH,9,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W18,-1,-1,Retained BOH,-1,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+W19,-2,-2,Retained BOH,-2,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+X5,-4,-4,Retained BOH,-4,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+X6,-4,-4,Retained BOH,-4,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+X7,0,0,Level red,21.0,15.13023,0.84698,0.0,0.0,0,0,Retained BOH: 2.837; Level red: 12.293
+X8,1,1,Level red,21.0,15.13023,0.992797,0.0,0.0,0,0,Level red: 15.130
+X9,-5,-5,Level red,21.0,15.13023,1.290637,0.0,0.0,0,0,Level red: 15.130
+X10,0,0,Level red,21.0,15.13023,1.042437,0.0,0.0,0,0,Level red: 15.130
+X11,6,6,Level red,21.0,15.13023,0.648615,0.0,0.0,0,0,Level red: 13.180; Retained BOH: 1.950
+X12,10,10,Retained BOH,10,15.13023,0.117313,0.0,0.0,0,0,Level red: 3.251; Retained BOH: 11.880
+X13,20,20,Retained BOH,20,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+X14,14,14,Retained BOH,14,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+X15,14,14,Retained BOH,14,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+X16,11,11,Retained BOH,11,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+X17,-1,-1,Retained BOH,-1,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+X18,-3,-3,Retained BOH,-3,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+X19,-8,-8,Retained BOH,-8,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+X20,-3,-3,Retained BOH,-3,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+Y7,-1,-1,Level red,21.0,15.13023,0.652687,0.0,0.0,0,0,Retained BOH: 6.088; Level red: 9.043
+Y8,1,1,Level red,21.0,15.13023,0.988919,0.0,0.0,0,0,Retained BOH: 0.059; Level red: 15.071
+Y9,-1,-1,Level red,21.0,15.13023,1.092077,0.0,0.0,0,0,Level red: 15.130
+Y10,1,1,Level red,21.0,15.13023,0.992797,0.0,0.0,0,0,Level red: 15.130
+Y11,-1,-1,Level red,21.0,15.13023,1.092077,0.0,0.0,0,0,Level red: 15.130
+Y12,6,6,Level red,21.0,15.13023,0.511911,0.0,0.0,0,0,Level red: 10.402; Retained BOH: 4.728
+Y13,12,12,Retained BOH,12,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+Y14,12,12,Retained BOH,12,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+Y15,14,14,Retained BOH,14,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+Y16,9,9,Retained BOH,9,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+Y17,1,1,Retained BOH,1,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+Y18,-2,-2,Retained BOH,-2,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+Y19,-3,-3,Retained BOH,-3,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+Z9,3,3,Level BOH triangle,21.0,15.13023,0.663158,0.0,0.0,0,0,Retained BOH: 3.901; Level BOH triangle: 8.393; Level red: 2.837
+Z10,2,2,Level BOH triangle,21.0,15.13023,0.943158,0.0,0.0,0,0,Level BOH triangle: 12.293; Level red: 2.837
+Z11,5,5,Level BOH triangle,21.0,15.13023,0.794238,0.0,0.0,0,0,Level BOH triangle: 12.293; Level red: 2.837
+Z12,2,2,Level BOH triangle,21.0,15.13023,0.851804,0.0,0.0,0,0,Level BOH triangle: 8.865; BOH feather taper: 3.428; Level red: 1.950; Retained BOH: 0.887
+Z13,5,5,BOH feather taper,5.735,15.13023,0.116931,0.0,0,0,3.95987,BOH feather taper: 6.679; Retained BOH: 8.452
+Z14,9,9,Retained BOH,9,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+Z15,7,7,Retained BOH,7,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+Z16,6,6,Retained BOH,6,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+Z17,-2,-2,Retained BOH,-2,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+Z18,0,0,Retained BOH,0,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AA11,1,1,Level BOH triangle,21.0,15.13023,0.841551,0.0,0.0,0,0,Retained BOH: 2.305; Level BOH triangle: 12.825
+AA13,-3,-3,BOH feather taper,0.828,15.13023,0.287105,0.0,0,0,3.42794,BOH feather taper: 9.634; Retained BOH: 5.497
+AA14,-2,-2,Retained BOH,-2,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AA15,1,1,Retained BOH,1,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AA16,2,2,Retained BOH,2,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AA17,2,2,Retained BOH,2,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AB13,-8,-8,BOH feather taper,-0.127,15.13023,0.372958,0.0,0,0,2.77782,Retained BOH: 5.437; BOH feather taper: 9.693
+AB14,-3,-3,Retained BOH,-3,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AB15,1,1,Retained BOH,1,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AB16,1,1,Retained BOH,1,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AB17,-4,-4,Retained BOH,-4,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AC14,-3,-3,Retained BOH,-3,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AC15,-1,-1,Retained BOH,-1,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AC16,1,1,Retained BOH,1,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AC17,-3,-3,Retained BOH,-3,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AD16,-2,-2,Retained BOH,-2,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AD17,-2,-2,Retained BOH,-2,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130
+AD18,1,1,Retained BOH,1,15.13023,0.0,0.0,0,0,0,Retained BOH: 15.130

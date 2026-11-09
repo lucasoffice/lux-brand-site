@@ -1,0 +1,9 @@
+point,zone,footprint_sf,existing_mm,neighbour_mm,target_mm,repair_top_mm,repair_depth_mm,repair_cf,finish_extra_cf,ordinary_concrete_depth_supported
+C12,Front and lower-right slopes,16,-80,-22.0,-7.114,-22.0,58.0,3.0446194225721785,0.0,True
+C15,Front and lower-right slopes,16,-84,-28.5,-7.113,-28.5,55.5,2.9133858267716533,0.0,True
+C16,Front and lower-right slopes,16,-64,-38.0,-7.08,-38.0,26.0,1.3648293963254592,0.0,False
+D12,Front and lower-right slopes,16,-84,-16.0,-1.865,-16.0,68.0,3.569553805774278,0.0,True
+O13,Level red,16,-32,3.5,21.0,3.5,35.5,1.863517060367454,0.0,False
+P13,Level red,16,-33,6.0,21.0,6.0,39.0,2.047244094488189,0.0,False
+Q13,Level red,16,-28,6.0,21.0,6.0,34.0,1.784776902887139,0.0,False
+V14,Retained BOH,16,-49,13.5,13.5,13.5,62.5,3.2808398950131235,0.0,True
