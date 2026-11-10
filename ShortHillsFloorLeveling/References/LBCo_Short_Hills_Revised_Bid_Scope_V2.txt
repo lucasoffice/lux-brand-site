@@ -1,0 +1,17 @@
+LBCo — SuitSupply Short Hills MAIN — Revised Vendor Bid Scope V2
+Issued November 9, 2026. Bids due Thursday November 12, 2026 at 5:00 PM Eastern.
+Return to the LBCo contact issuing the invitation.
+
+V2 supersedes the blanket 1/4-inch coat and associated grinding/quantity allowances in V1 and the earlier ITB PDF.
+RED AREA AND BOH TRIANGLE: finish at +21 mm prepared elevation. Fill below target; leave sound slab at target alone; grind only above target. No blanket topping or minimum-coat grinding. Use compatible thin patching where required.
+FRONT/LOWER-RIGHT: retain the modeled slope targets and conditional -17.1125 mm storefront edge. Fill/grind against the target at each location.
+BOH: retain general floor except eight defect readings and the defined doorway triangle/feather transition. V14 is a confirmed depression, likely a hole.
+DEEP REPAIRS: conventional concrete only where depth and bond detail support it; repair mortar for shallow features. Leave approximately 1/4–1/2 inch for precision work over deep repairs where practical, not as a blanket coat elsewhere. Assumed repair footprints: 16 sf per reading; O13–Q13 is one 12x4 ft trench. Field-verify cleanout dimensions.
+
+REVISED QUANTITIES: level-zone fill 126.88 cf (4.70 cy), approximately 280 50-lb bag equivalents including 10%; contractor to split thin patch / self-leveler by thickness. Slopes plus shallow repairs 102.94 cf, 227–272 50-lb Quickpatch equivalents incl 10%. Feather material 1.38 cf, 5 10-lb Planiprep SC equivalents incl 10%. Deep concrete 12.81 cf neat, 0.52 cy incl 10%, approximately 24 80-lb bags. Total grinding 4.06 cf: red 0.68 cf across 89 sf; slopes 3.38 cf across 353 sf. No extra minimum-coat volume.
+
+INCLUDE: labor, equipment, protection, substrate verification/preparation, dust control, disposal, localized repairs, fill/grind to modeled grades, compatible primer, joints, curing and floor-ready acceptance checks. Submit proposed compatible materials and deeper-lift method where needed.
+SEPARATE: moisture mitigation pending tests; optional local entry-tile work. Wood/adhesive installation excluded. 12.5 mm wood plus adhesive and final entry details remain to be coordinated.
+RESPONSE: fixed price by work category; included quantities; unit rates for added repairs, filling and grinding; tax/freight, exclusions, alternates, validity, crew, shifts and mobilizations. State earliest start, working duration, repair/topping curing, earliest date ready for glue-down wood, and prerequisites.
+BASIS: 430 usable points on 4-ft grid; model and boundaries for pricing, not released setting-out. Actual conditions and system suitability require verification. No broad thin concrete overlay.
+MATTERPORT: https://my.matterport.com/show/?m=ByebbZee98c
