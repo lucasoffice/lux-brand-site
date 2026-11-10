@@ -62,4 +62,237 @@ $('#fill-zoom').onclick=()=>{$('#fill-svg').style.width='200%';};
 renderFillMap();
 document.querySelectorAll('.pointlink').forEach(b=>b.onclick=()=>{showPage('fill-work');const r=FILL_POINTS.find(r=>r.point===b.dataset.point);fillShow(r);$('#fill-find').value=r.point;$('#fill-svg').setAttribute('viewBox',`${Math.max(0,r.xy[0]-400)} ${Math.max(0,r.xy[1]-300)} 800 600`);});
 $('#load-tour').onclick=()=>{$('#tour').src='https://my.matterport.com/show/?m=ByebbZee98c&play=1&qs=1';$('#load-tour').textContent='Reload walkthrough';};
+</script>
+<script>
+(function () {
+  "use strict";
+  if (window.__shflTracker) return;
+  window.__shflTracker = 1;
+  var API = "https://rl-boca-chat.vercel.app/api/event";
+  var MAX_SLICE = 120000;
+  var currentTab = "scope";
+  var mark = document.visibilityState === "visible" ? Date.now() : 0;
+  var tabCarry = 0;
+  var engaged = 0;
+  var beats = 0;
+
+  function uuid() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+      var r = Math.random() * 16 | 0;
+      return (c === "x" ? r : (r & 3 | 8)).toString(16);
+    });
+  }
+
+  function stored(area, key, create) {
+    try {
+      var cur = area.getItem(key);
+      if (cur) return cur;
+      if (!create) return "";
+      var next = uuid();
+      area.setItem(key, next);
+      return next;
+    } catch (e) {
+      return create ? uuid() : "";
+    }
+  }
+
+  function cleanBidder(raw) {
+    var s = String(raw || "").trim().toLowerCase();
+    if (!s || s.indexOf("@") !== -1) return "";
+    if (/\d{3}[-.\s]?\d{3}[-.\s]?\d{4}/.test(s)) return "";
+    return s.replace(/[^a-z0-9._-]+/g, "").slice(0, 48);
+  }
+
+  function bidderCode() {
+    var fromUrl = "";
+    try { fromUrl = new URLSearchParams(location.search).get("b") || ""; } catch (e) {}
+    var cleaned = cleanBidder(fromUrl);
+    try {
+      if (cleaned) localStorage.setItem("shfl_b", cleaned);
+      else cleaned = cleanBidder(localStorage.getItem("shfl_b") || "");
+    } catch (e) {}
+    return cleaned;
+  }
+
+  var sessionId = stored(window.sessionStorage, "shfl_sid", true);
+  var visitorId = stored(window.localStorage, "shfl_vid", true);
+  var bidder = bidderCode();
+
+  function deviceKind() {
+    var ua = navigator.userAgent || "";
+    var w = window.innerWidth || document.documentElement.clientWidth || 0;
+    var iPad = /iPad/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    var tabletUA = iPad || /Tablet|PlayBook|Silk/i.test(ua) || (/Android/.test(ua) && !/Mobile/.test(ua));
+    var phoneUA = !tabletUA && /iPhone|iPod|Windows Phone|IEMobile|BlackBerry|Opera Mini|Mobile|Mobi/i.test(ua);
+    if (tabletUA) return "tablet";
+    if (phoneUA) return "phone";
+    if (w > 0 && w < 768) return "phone";
+    if (w > 0 && w < 1024) return "tablet";
+    return "desktop";
+  }
+
+  function send(type, name, extra) {
+    var payload = {
+      type: type,
+      name: name || "",
+      path: location.pathname + location.search,
+      session: sessionId,
+      meta: {
+        site: "shfl",
+        href: String(location.href || "").slice(0, 500),
+        b: bidder,
+        device: deviceKind(),
+        ref: String(document.referrer || "").slice(0, 300),
+        vw: Math.round(window.innerWidth || 0),
+        vid: visitorId
+      }
+    };
+    if (extra) {
+      Object.keys(extra).forEach(function (k) { payload.meta[k] = extra[k]; });
+    }
+    var body = JSON.stringify(payload);
+    try {
+      if (navigator.sendBeacon) {
+        var blob = new Blob([body], { type: "text/plain" });
+        if (navigator.sendBeacon(API, blob)) return;
+      }
+    } catch (e) {}
+    try {
+      fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: body,
+        keepalive: true,
+        mode: "cors",
+        credentials: "omit"
+      }).catch(function () {});
+    } catch (e) {}
+  }
+
+  function pull() {
+    if (!mark) {
+      mark = document.visibilityState === "visible" ? Date.now() : 0;
+      return;
+    }
+    var d = Date.now() - mark;
+    if (d < 0) d = 0;
+    if (d > MAX_SLICE) d = MAX_SLICE;
+    tabCarry += d;
+    engaged += d;
+    mark = document.visibilityState === "visible" ? Date.now() : 0;
+  }
+
+  function flushTab() {
+    pull();
+    var seconds = Math.round(tabCarry / 1000);
+    if (seconds > 7200) seconds = 7200;
+    var name = currentTab;
+    tabCarry = 0;
+    if (seconds > 0 && name) send("section_time", name, { seconds: seconds });
+  }
+
+  function switchTab(id) {
+    id = String(id || "");
+    if (!id || id === currentTab) return;
+    flushTab();
+    currentTab = id;
+    mark = document.visibilityState === "visible" ? Date.now() : 0;
+    send("section_view", id);
+  }
+
+  var tourNoted = false;
+  if (typeof window.showPage === "function") {
+    var previous = window.showPage;
+    window.showPage = function (id) {
+      var tour = document.getElementById("tour");
+      var hadSrc = !!(tour && tour.getAttribute("src"));
+      var result = previous.apply(this, arguments);
+      var next = String(id || "");
+      switchTab(next);
+      if (next === "site" && tour && tour.getAttribute("src") && !hadSrc) {
+        tourNoted = true;
+        send("tour_load", "site");
+      }
+      return result;
+    };
+  }
+
+  function targetEl(ev) {
+    var t = ev.target;
+    if (!t) return null;
+    if (t.nodeType === 3) t = t.parentElement;
+    return t && t.closest ? t : null;
+  }
+
+  document.addEventListener("click", function (ev) {
+    var t = targetEl(ev);
+    if (!t) return;
+    var nav = t.closest("nav button[data-page], .jump[data-to]");
+    if (nav) {
+      var id = nav.getAttribute("data-page") || nav.getAttribute("data-to");
+      var tour = document.getElementById("tour");
+      var hadSrc = !!(tour && tour.getAttribute("src"));
+      setTimeout(function () {
+        switchTab(id);
+        if (id === "site" && tour && tour.getAttribute("src") && !hadSrc && !tourNoted) send("tour_load", "site");
+        tourNoted = false;
+      }, 0);
+    }
+    var point = t.closest(".pointlink");
+    if (point) {
+      send("point_click", point.getAttribute("data-point") || "");
+      return;
+    }
+    if (t.closest("#fill-zoom")) {
+      send("fill_zoom", "fill-zoom");
+      return;
+    }
+    if (t.closest("#load-tour")) {
+      send("tour_load", "load-tour");
+      return;
+    }
+    var a = t.closest("a");
+    if (!a) return;
+    var href = a.getAttribute("href") || "";
+    if (/^mailto:/i.test(href)) {
+      var label = (a.textContent || "quote").replace(/\s+/g, " ").trim().slice(0, 60);
+      send("quote_click", label || "quote");
+      return;
+    }
+    var abs;
+    try { abs = new URL(href, location.href); } catch (e) { return; }
+    var path = abs.pathname || "";
+    var file = path.split("/").filter(Boolean).pop() || "";
+    try { file = decodeURIComponent(file); } catch (e) {}
+    if (path.indexOf("/References/") !== -1 || /\.(csv|txt|pdf)$/i.test(path)) {
+      send("download", file.slice(0, 120));
+      return;
+    }
+    if ((abs.protocol === "http:" || abs.protocol === "https:") && abs.hostname !== location.hostname) {
+      send("link_click", abs.hostname);
+    }
+  }, true);
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "hidden") {
+      flushTab();
+      mark = 0;
+    } else {
+      mark = Date.now();
+    }
+  });
+  window.addEventListener("pagehide", function () { flushTab(); });
+
+  setInterval(function () {
+    if (document.visibilityState !== "visible") return;
+    if (beats >= 40) return;
+    pull();
+    beats += 1;
+    send("heartbeat", currentTab, { seconds: Math.min(7200, Math.round(engaged / 1000)) });
+  }, 30000);
+
+  send("pageview", "bid");
+  send("section_view", "scope");
+})();
 </script></body></html>

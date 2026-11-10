@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>LBCo | Short Hills bid analytics</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+<style>
+:root {
+  --ink: #202925;
+  --muted: #657169;
+  --paper: #f5f6f2;
+  --green: #244b3f;
+  --line: #d8ded7;
+  --card: #fff;
+  --soft: #e8eee7;
+  --callout: #e9efe8;
+  --red: #ce2d26;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.55 system-ui, sans-serif;
+}
+header {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 28px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.logo {
+  border: 3px solid var(--red);
+  color: var(--red);
+  padding: 5px 6px;
+  font-weight: 850;
+  line-height: 1.05;
+  letter-spacing: 2px;
+  font-size: 14px;
+  flex: none;
+}
+.small { font-size: 12px; color: var(--muted); }
+.badge {
+  background: var(--soft);
+  color: var(--green);
+  padding: 7px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 28px 24px 72px; }
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--green);
+}
+h1 { font-size: 34px; line-height: 1.15; letter-spacing: -0.8px; margin: 8px 0 10px; }
+h2 { font-size: 22px; letter-spacing: -0.3px; margin: 0; }
+.lead { color: var(--muted); max-width: 640px; margin: 0; }
+.gate {
+  min-height: 58vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+}
+.gate-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 32px 28px;
+  width: min(420px, 100%);
+}
+.gate form { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; margin: 0; }
+.gate h1 { font-size: 28px; }
+.gate input {
+  width: 100%;
+  max-width: 240px;
+  text-align: center;
+  font: 600 18px/1 ui-monospace, Menlo, monospace;
+  letter-spacing: 0.22em;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+}
+.gate input:focus { outline: 2px solid var(--green); border-color: var(--green); }
+button, select { font: inherit; }
+button {
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 6px;
+  padding: 9px 14px;
+}
+button:hover { border-color: var(--green); }
+button.primary { background: var(--green); color: #fff; border-color: var(--green); font-weight: 700; }
+button:disabled { opacity: 0.55; cursor: default; }
+.err { color: #8d2a24; min-height: 1.3em; font-size: 14px; }
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+.when { color: var(--muted); font-size: 13px; }
+.controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+select {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 6px;
+  padding: 9px 12px;
+  color: var(--ink);
+}
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.kpi, .panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.kpi { padding: 16px 16px 14px; }
+.kpi .v { font-size: 30px; font-weight: 750; letter-spacing: -0.6px; color: var(--green); }
+.kpi .l { margin-top: 4px; font-size: 12px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: var(--muted); }
+.panel { margin-bottom: 16px; padding: 18px 18px 16px; }
+.panel h2 { margin-bottom: 6px; }
+.hint { color: var(--muted); font-size: 13px; margin: 0 0 14px; }
+.callout {
+  background: var(--callout);
+  border-left: 4px solid #52765d;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.callout p { margin: 0 0 8px; }
+.callout p:last-child { margin: 0; }
+.funnel, .split { display: flex; flex-direction: column; gap: 12px; }
+.f-row, .s-row { display: grid; grid-template-columns: 148px 1fr auto; gap: 10px; align-items: center; font-size: 14px; }
+.track { height: 10px; background: #e7eee6; border-radius: 99px; overflow: hidden; }
+.fill { display: block; height: 100%; background: var(--green); border-radius: 99px; }
+.f-n, .s-n { color: var(--muted); font-size: 13px; text-align: right; }
+.chart-scroll { overflow-x: auto; }
+.chart-svg { display: block; min-height: 180px; width: 100%; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 880px; }
+th {
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+  padding: 8px 10px 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+td { padding: 10px 10px 10px 0; border-bottom: 1px solid #eef1ec; vertical-align: top; }
+#map {
+  height: 420px;
+  width: 100%;
+  background: #e7eee6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.leaflet-container { font-family: inherit; background: #d5ddd4; }
+.places { margin-top: 12px; }
+.place { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid #eef1ec; font-size: 14px; }
+.two { display: grid; grid-template-columns: 1fr 1.4fr; gap: 22px; margin-top: 14px; }
+.two h3 { margin: 0 0 12px; }
+.feed-item { padding: 12px 0; border-bottom: 1px solid #eef1ec; }
+.feed-item time { display: block; color: var(--muted); font-size: 12px; margin-bottom: 3px; }
+.empty { color: var(--muted); padding: 8px 0 4px; }
+.hidden { display: none !important; }
+@media (max-width: 800px) {
+  header { padding: 14px 16px; align-items: flex-start; }
+  .badge { display: none; }
+  .wrap { padding: 20px 16px 56px; }
+  h1 { font-size: 28px; }
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .f-row, .s-row { grid-template-columns: 1fr auto; }
+  .f-row .name, .s-row .name { grid-column: 1 / -1; }
+  .two { grid-template-columns: 1fr; }
+  #map { height: 300px; }
+}
+@media (max-width: 520px) {
+  .kpis { grid-template-columns: 1fr; }
+  .kpi .v { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="logo">LBCO</div>
+    <div>
+      <strong>Short Hills · Floor preparation</strong>
+      <div class="small">Vendor bid analytics · internal</div>
+    </div>
+  </div>
+  <span class="badge">Not linked from the bid</span>
+</header>
+
+<div id="gate" class="wrap gate">
+  <div class="gate-card">
+    <div class="eyebrow">LBCo</div>
+    <h1>Enter PIN</h1>
+    <p class="lead">This page stays off the public bid. The PIN is checked on the server.</p>
+    <form id="pinForm" action="#" autocomplete="off">
+      <input id="pin" type="password" inputmode="numeric" autocomplete="off" aria-label="PIN" autofocus>
+      <div><button type="submit" class="primary" id="unlock">Open</button></div>
+    </form>
+    <div id="pinErr" class="err" role="status"></div>
+  </div>
+</div>
+
+<div id="dash" class="wrap hidden">
+  <div class="eyebrow">Short Hills MAIN · vendor activity</div>
+  <h1>Who opened the bid</h1>
+  <p class="lead">Times are Eastern Time (ET). Amounts and contact details are not collected.</p>
+  <div class="toolbar">
+    <div class="when" id="updated">—</div>
+    <div class="controls">
+      <label for="days">Period</label>
+      <select id="days" aria-label="Period">
+        <option value="7">Last 7 days</option>
+        <option value="30" selected>Last 30 days</option>
+        <option value="60">Last 60 days</option>
+        <option value="365">Last 365 days</option>
+      </select>
+      <button type="button" id="refresh">Refresh</button>
+    </div>
+  </div>
+  <div class="kpis" id="kpis"></div>
+  <section class="panel">
+    <h2>What’s working</h2>
+    <div class="callout" id="insights"></div>
+  </section>
+  <section class="panel">
+    <h2>Bidders</h2>
+    <p class="hint">One row per <code>?b=</code> code. Opens without a code sit in unknown / untagged.</p>
+    <div class="scroll" id="bidders"></div>
+  </section>
+  <section class="panel">
+    <h2>Tab funnel</h2>
+    <p class="hint">Visits that opened each tab, and the average visible time on it.</p>
+    <div class="funnel" id="funnel"></div>
+  </section>
+  <section class="panel">
+    <h2>Opens over time</h2>
+    <p class="hint" id="chartHint">Bid page opens per day, Eastern Time (ET).</p>
+    <div class="chart-scroll" id="chart"></div>
+  </section>
+  <section class="panel">
+    <h2>Where visits open</h2>
+    <p class="hint">City estimates from the network address. VPNs can place someone in the wrong city.</p>
+    <div id="map" role="img" aria-label="Map of visit locations"></div>
+    <div class="places" id="places"></div>
+  </section>
+  <section class="panel">
+    <h2>Devices and referrers</h2>
+    <div class="two">
+      <div>
+        <h3 class="eyebrow">Device</h3>
+        <div class="split" id="devices"></div>
+      </div>
+      <div>
+        <h3 class="eyebrow">Referrers</h3>
+        <div class="split" id="refs"></div>
+      </div>
+    </div>
+  </section>
+  <section class="panel">
+    <h2>Recent activity</h2>
+    <p class="hint">The latest actions. Routine time checks while the page stays open are left out.</p>
+    <div id="feed"></div>
+  </section>
+</div>
+<noscript><p class="wrap">This dashboard needs JavaScript.</p></noscript>
+<script>
+(function () {
+  "use strict";
+  var API = "https://rl-boca-chat.vercel.app/api/bid-analytics";
+  var PIN_KEY = "shfl_analytics_pin";
+  var DAY_KEY = "shfl_analytics_days";
+  var TABS = [
+    { id: "scope", label: "The work" },
+    { id: "fill-work", label: "Fill map" },
+    { id: "repairs", label: "Quantities" },
+    { id: "site", label: "Site scan" },
+    { id: "quote", label: "Send your quote" }
+  ];
+  var STATES = {
+    alabama: "AL", alaska: "AK", arizona: "AZ", arkansas: "AR", california: "CA", colorado: "CO",
+    connecticut: "CT", delaware: "DE", florida: "FL", georgia: "GA", hawaii: "HI", idaho: "ID",
+    illinois: "IL", indiana: "IN", iowa: "IA", kansas: "KS", kentucky: "KY", louisiana: "LA",
+    maine: "ME", maryland: "MD", massachusetts: "MA", michigan: "MI", minnesota: "MN",
+    mississippi: "MS", missouri: "MO", montana: "MT", nebraska: "NE", nevada: "NV",
+    "new hampshire": "NH", "new jersey": "NJ", "new mexico": "NM", "new york": "NY",
+    "north carolina": "NC", "north dakota": "ND", ohio: "OH", oklahoma: "OK", oregon: "OR",
+    pennsylvania: "PA", "rhode island": "RI", "south carolina": "SC", "south dakota": "SD",
+    tennessee: "TN", texas: "TX", utah: "UT", vermont: "VT", virginia: "VA", washington: "WA",
+    "west virginia": "WV", wisconsin: "WI", wyoming: "WY", "district of columbia": "DC"
+  };
+  var pin = "";
+  var map = null;
+  var markers = null;
+  var mapTries = 0;
+
+  function $(id) { return document.getElementById(id); }
+  function el(tag, cls, text) {
+    var node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+  function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); }
+  function metaOf(ev) {
+    var m = ev && ev.meta;
+    if (typeof m === "string") {
+      try { m = JSON.parse(m); } catch (e) { m = null; }
+    }
+    return m && typeof m === "object" ? m : null;
+  }
+  function keep(ev) {
+    var m = metaOf(ev);
+    return !!(m && m.site === "shfl");
+  }
+  function cleanBidder(raw) {
+    var s = String(raw == null ? "" : raw).trim().toLowerCase();
+    if (!s || s.indexOf("@") !== -1) return "";
+    return s.replace(/[^a-z0-9._-]+/g, "").slice(0, 48);
+  }
+  function bidderOf(ev) {
+    var m = metaOf(ev);
+    return cleanBidder(m && m.b);
+  }
+  function deviceOf(ev) {
+    var m = metaOf(ev);
+    var d = m && m.device ? String(m.device) : "";
+    if (d === "phone" || d === "tablet" || d === "desktop") return d;
+    return "";
+  }
+  function secondsOf(ev) {
+    var m = metaOf(ev);
+    var n = m ? Number(m.seconds) : NaN;
+    return isFinite(n) && n >= 0 ? n : 0;
+  }
+  function when(ev) {
+    var t = Date.parse(ev && ev.created_at);
+    return isNaN(t) ? 0 : t;
+  }
+  function fmtDur(sec) {
+    if (sec == null || !isFinite(sec)) return "—";
+    sec = Math.max(0, Math.round(sec));
+    var h = Math.floor(sec / 3600);
+    var m = Math.floor((sec % 3600) / 60);
+    var s = sec % 60;
+    if (h) return h + "h " + m + "m";
+    if (m) return m + "m " + s + "s";
+    return s + "s";
+  }
+  function fmtEt(value) {
+    var d = value instanceof Date ? value : new Date(value);
+    if (isNaN(d.getTime())) return "—";
+    var s = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York",
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit"
+    }).format(d);
+    return s + " ET";
+  }
+  function dayKey(value) {
+    var d = value instanceof Date ? value : new Date(value);
+    var parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(d);
+    var o = {};
+    parts.forEach(function (p) { if (p.type !== "literal") o[p.type] = p.value; });
+    return o.year + "-" + o.month + "-" + o.day;
+  }
+  function labelDay(key) {
+    var d = new Date(key + "T16:00:00Z");
+    return new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York",
+      month: "short",
+      day: "numeric"
+    }).format(d);
+  }
+  function tabLabel(id) {
+    for (var i = 0; i < TABS.length; i++) if (TABS[i].id === id) return TABS[i].label;
+    return id || "a tab";
+  }
+  function place(city, region, country) {
+    var c = String(city || "").trim();
+    var r = String(region || "").trim();
+    var countryName = String(country || "").trim();
+    if (r && STATES[r.toLowerCase()]) r = STATES[r.toLowerCase()];
+    var us = !countryName || /^(us|usa|united states|united states of america)$/i.test(countryName);
+    if (c && r) return c + ", " + r;
+    if (c && !us) return c + ", " + countryName;
+    return c || r || "";
+  }
+  function refHost(ref) {
+    if (!ref) return "Direct";
+    try {
+      var host = new URL(ref).hostname.replace(/^www\./, "");
+      return host || "Direct";
+    } catch (e) {
+      return "Direct";
+    }
+  }
+  function mode(pairs) {
+    var best = "";
+    var bestN = -1;
+    var bestT = -1;
+    Object.keys(pairs).forEach(function (k) {
+      var row = pairs[k];
+      if (row.n > bestN || (row.n === bestN && row.t >= bestT)) {
+        best = k;
+        bestN = row.n;
+        bestT = row.t;
+      }
+    });
+    return best;
+  }
+  function median(values) {
+    if (!values.length) return null;
+    var a = values.slice().sort(function (x, y) { return x - y; });
+    var mid = Math.floor(a.length / 2);
+    if (a.length % 2) return a[mid];
+    return Math.round((a[mid - 1] + a[mid]) / 2);
+  }
+  function daySpan(sinceIso, events) {
+    var start = Date.parse(sinceIso);
+    if (isNaN(start)) {
+      start = events.reduce(function (min, ev) {
+        var t = when(ev);
+        return t && t < min ? t : min;
+      }, Date.now());
+    }
+    var keys = [];
+    var seen = {};
+    var cursor = start;
+    var end = Date.now();
+    var guard = 0;
+    while (cursor <= end + 86400000 && guard < 400) {
+      var key = dayKey(new Date(cursor));
+      if (!seen[key]) { seen[key] = 1; keys.push(key); }
+      cursor += 12 * 3600000;
+      guard += 1;
+    }
+    var today = dayKey(new Date());
+    keys = keys.filter(function (key) { return key <= today; });
+    if (keys.indexOf(today) === -1) keys.push(today);
+    keys.sort();
+    return keys;
+  }
+
+  function build(rawEvents, since) {
+    var events = (rawEvents || []).filter(keep).slice().sort(function (a, b) { return when(a) - when(b); });
+    var sessions = {};
+    events.forEach(function (ev, i) {
+      var sid = ev.session_id || ("event-" + i);
+      if (!sessions[sid]) {
+        sessions[sid] = {
+          id: sid,
+          vid: "",
+          bidder: "",
+          start: when(ev) || Date.now(),
+          end: when(ev) || 0,
+          device: "",
+          deviceT: -1,
+          ref: "",
+          city: "",
+          region: "",
+          country: "",
+          lat: null,
+          lng: null,
+          hb: 0,
+          tabTime: {},
+          tabs: {},
+          quote: false,
+          quoteAt: 0,
+          tour: false,
+          placeT: -1
+        };
+      }
+      var s = sessions[sid];
+      var t = when(ev);
+      if (t && t < s.start) s.start = t;
+      if (t >= s.end) s.end = t;
+      var m = metaOf(ev);
+      if (!s.vid && m && m.vid) s.vid = String(m.vid);
+      if (!s.bidder) s.bidder = bidderOf(ev);
+      var dev = deviceOf(ev);
+      if (dev && t >= s.deviceT) { s.device = dev; s.deviceT = t; }
+      if (!s.ref && m && m.ref) s.ref = String(m.ref);
+      if (ev.city && t >= s.placeT) {
+        s.city = ev.city;
+        s.region = ev.region || "";
+        s.country = ev.country || "";
+        s.placeT = t;
+      }
+      var lat = Number(ev.lat);
+      var lng = Number(ev.lng);
+      if (s.lat == null && isFinite(lat) && isFinite(lng)) { s.lat = lat; s.lng = lng; }
+      if (ev.event_type === "heartbeat") s.hb = Math.max(s.hb, secondsOf(ev));
+      if (ev.event_type === "section_time") {
+        var tab = ev.name || "";
+        s.tabTime[tab] = (s.tabTime[tab] || 0) + secondsOf(ev);
+      }
+      if (ev.event_type === "section_view" && ev.name) s.tabs[ev.name] = 1;
+      if (ev.event_type === "quote_click") {
+        s.quote = true;
+        if (!s.quoteAt || (t && t < s.quoteAt)) s.quoteAt = t || s.quoteAt;
+      }
+      if (ev.event_type === "tour_load") s.tour = true;
+    });
+
+    var list = Object.keys(sessions).map(function (k) { return sessions[k]; });
+    list.forEach(function (s) {
+      var summed = 0;
+      Object.keys(s.tabTime).forEach(function (tab) { summed += s.tabTime[tab]; });
+      s.engaged = Math.max(s.hb, summed);
+      s.visitor = s.vid || s.id;
+    });
+
+    var visitors = {};
+    var bidders = {};
+    list.forEach(function (s) { visitors[s.visitor] = 1; if (s.bidder) bidders[s.bidder] = 1; });
+
+    var quoteClicks = events.filter(function (ev) { return ev.event_type === "quote_click"; }).length;
+    var tours = events.filter(function (ev) { return ev.event_type === "tour_load"; }).length;
+    var engagedVals = list.map(function (s) { return s.engaged; });
+
+    var bidderRows = {};
+    function rowFor(key) {
+      if (!bidderRows[key]) {
+        bidderRows[key] = {
+          id: key,
+          label: key === "__none__" ? "unknown / untagged" : key,
+          first: 0,
+          last: 0,
+          visits: 0,
+          engaged: 0,
+          tabs: {},
+          quote: false,
+          tour: false,
+          devices: {},
+          places: {}
+        };
+      }
+      return bidderRows[key];
+    }
+    list.forEach(function (s) {
+      var row = rowFor(s.bidder || "__none__");
+      row.visits += 1;
+      row.engaged += s.engaged;
+      if (!row.first || s.start < row.first) row.first = s.start;
+      if (s.end > row.last) row.last = s.end;
+      Object.keys(s.tabs).forEach(function (tab) { row.tabs[tab] = 1; });
+      if (s.quote) row.quote = true;
+      if (s.tour) row.tour = true;
+      if (s.device) {
+        if (!row.devices[s.device]) row.devices[s.device] = { n: 0, t: 0 };
+        row.devices[s.device].n += 1;
+        row.devices[s.device].t = Math.max(row.devices[s.device].t, s.end);
+      }
+      var pl = place(s.city, s.region, s.country);
+      if (pl) {
+        if (!row.places[pl]) row.places[pl] = { n: 0, t: 0 };
+        row.places[pl].n += 1;
+        row.places[pl].t = Math.max(row.places[pl].t, s.end);
+      }
+    });
+    var bidderList = Object.keys(bidderRows).map(function (k) {
+      var row = bidderRows[k];
+      row.device = mode(row.devices);
+      row.city = mode(row.places);
+      row.tabList = TABS.filter(function (tab) { return row.tabs[tab.id]; }).map(function (tab) { return tab.label; });
+      return row;
+    }).sort(function (a, b) { return b.last - a.last; });
+
+    var funnel = TABS.map(function (tab) {
+      var seen = list.filter(function (s) { return s.tabs[tab.id]; });
+      var avg = seen.length ? seen.reduce(function (sum, s) { return sum + (s.tabTime[tab.id] || 0); }, 0) / seen.length : 0;
+      return { id: tab.id, label: tab.label, visits: seen.length, avg: avg };
+    });
+
+    var days = {};
+    events.forEach(function (ev) {
+      if (ev.event_type !== "pageview") return;
+      var key = dayKey(ev.created_at);
+      days[key] = (days[key] || 0) + 1;
+    });
+    var span = daySpan(since, events);
+    var series = span.map(function (key) { return { key: key, label: labelDay(key), n: days[key] || 0 }; });
+
+    var clusters = {};
+    list.forEach(function (s) {
+      if (s.lat == null || s.lng == null) return;
+      var key = s.lat.toFixed(2) + "," + s.lng.toFixed(2);
+      if (!clusters[key]) clusters[key] = { lat: s.lat, lng: s.lng, n: 0, places: {} };
+      clusters[key].n += 1;
+      var pl = place(s.city, s.region, s.country) || "Unknown area";
+      clusters[key].places[pl] = (clusters[key].places[pl] || 0) + 1;
+    });
+    var points = Object.keys(clusters).map(function (k) {
+      var c = clusters[k];
+      var label = "Unknown area";
+      var best = 0;
+      Object.keys(c.places).forEach(function (name) {
+        if (c.places[name] > best) { best = c.places[name]; label = name; }
+      });
+      return { lat: c.lat, lng: c.lng, n: c.n, label: label };
+    });
+
+    var deviceCounts = { phone: 0, tablet: 0, desktop: 0 };
+    var deviceOther = 0;
+    list.forEach(function (s) {
+      if (deviceCounts[s.device] != null) deviceCounts[s.device] += 1;
+      else deviceOther += 1;
+    });
+    var refCounts = {};
+    list.forEach(function (s) {
+      var host = refHost(s.ref);
+      refCounts[host] = (refCounts[host] || 0) + 1;
+    });
+
+    var delays = [];
+    list.forEach(function (s) {
+      if (!s.quote || !s.quoteAt || !s.start) return;
+      var delta = (s.quoteAt - s.start) / 1000;
+      if (delta >= 0 && delta <= 45 * 60) delays.push(delta);
+    });
+    var quoteVisits = list.filter(function (s) { return s.tabs.quote; }).length;
+
+    var feed = events.filter(function (ev) { return ev.event_type !== "heartbeat"; }).slice().sort(function (a, b) { return when(b) - when(a); }).slice(0, 100);
+
+    return {
+      events: events,
+      visits: list.length,
+      visitors: Object.keys(visitors).length,
+      bidders: Object.keys(bidders).length,
+      quoteClicks: quoteClicks,
+      tours: tours,
+      medianEngaged: list.length ? median(engagedVals) : null,
+      bidderList: bidderList,
+      funnel: funnel,
+      series: series,
+      opens: series.reduce(function (sum, d) { return sum + d.n; }, 0),
+      points: points,
+      deviceCounts: deviceCounts,
+      deviceOther: deviceOther,
+      refCounts: refCounts,
+      quoteVisits: quoteVisits,
+      avgQuoteDelay: delays.length ? delays.reduce(function (a, b) { return a + b; }, 0) / delays.length : null,
+      quoteDelayCount: delays.length,
+      quoteSessions: list.filter(function (s) { return s.quote; }).length,
+      feed: feed
+    };
+  }
+
+  function whoLabel(ev) {
+    var b = bidderOf(ev);
+    var label = b || "An untagged visitor";
+    var bits = [];
+    var pl = place(ev.city, ev.region, ev.country);
+    if (pl) bits.push(pl);
+    var dev = deviceOf(ev);
+    if (dev) bits.push(dev);
+    return bits.length ? label + " (" + bits.join(", ") + ")" : label;
+  }
+  function sentence(ev) {
+    var who = whoLabel(ev);
+    var name = ev.name || "";
+    switch (ev.event_type) {
+      case "pageview": return who + " opened the bid page";
+      case "section_view": return who + " opened " + tabLabel(name);
+      case "section_time": return who + " spent " + fmtDur(secondsOf(ev)) + " on " + tabLabel(name);
+      case "quote_click": return who + " clicked " + (name || "Send your quote");
+      case "tour_load": return who + " opened the site scan";
+      case "download": return who + " downloaded " + (name || "a file");
+      case "link_click": return who + " opened " + (name || "a link");
+      case "point_click": return who + " opened repair point " + (name || "");
+      case "fill_zoom": return who + " zoomed the fill map";
+      default: return null;
+    }
+  }
+
+  function insights(model) {
+    var lines = [];
+    if (model.visits < 5) {
+      lines.push("Not enough data yet.");
+      return lines;
+    }
+    var worst = null;
+    for (var i = 0; i < model.funnel.length - 1; i++) {
+      var from = model.funnel[i];
+      var to = model.funnel[i + 1];
+      var drop = from.visits - to.visits;
+      if (from.visits <= 0 || drop <= 0) continue;
+      var pct = drop / from.visits;
+      if (!worst || pct > worst.pct) worst = { from: from, to: to, pct: pct };
+    }
+    if (worst) {
+      lines.push("The biggest drop is after " + worst.from.label + ": " + worst.from.visits + (worst.from.visits === 1 ? " visit" : " visits") + " opened it, and " + worst.to.visits + (worst.to.visits === 1 ? " visit" : " visits") + " opened " + worst.to.label + ".");
+    } else {
+      lines.push("No tab is losing a clear share of visits.");
+    }
+    var pctReach = Math.round((model.quoteVisits / model.visits) * 100);
+    lines.push(pctReach + "% of visits reached Send your quote.");
+    if (!model.quoteSessions) lines.push("No one has clicked the quote button yet.");
+    else if (model.avgQuoteDelay == null) lines.push("Quote clicks came on a later return, so time-to-click is not clear.");
+    else lines.push("Average time from open to the quote click is " + fmtDur(model.avgQuoteDelay) + ".");
+    return lines;
+  }
+
+  function barRow(parent, label, value, max, note) {
+    var row = el("div", "f-row");
+    row.appendChild(el("div", "name", label));
+    var track = el("div", "track");
+    var fill = el("span", "fill");
+    var pct = max > 0 ? Math.max(0, Math.min(100, Math.round((value / max) * 100))) : 0;
+    fill.style.width = pct + "%";
+    track.appendChild(fill);
+    row.appendChild(track);
+    row.appendChild(el("div", "f-n", note));
+    parent.appendChild(row);
+  }
+
+  function renderKpis(model) {
+    var box = $("kpis");
+    clear(box);
+    var cards = [
+      [model.visitors, "Unique visitors"],
+      [model.visits, "Visits"],
+      [model.bidders, "Bidders identified"],
+      [model.quoteClicks, "Quote button clicks"],
+      [model.tours, "Matterport opens"],
+      [model.medianEngaged == null ? "—" : fmtDur(model.medianEngaged), "Median engaged time"]
+    ];
+    cards.forEach(function (card) {
+      var node = el("div", "kpi");
+      node.appendChild(el("div", "v", String(card[0])));
+      node.appendChild(el("div", "l", card[1]));
+      box.appendChild(node);
+    });
+  }
+
+  function renderInsights(model) {
+    var box = $("insights");
+    clear(box);
+    insights(model).forEach(function (line) { box.appendChild(el("p", "", line)); });
+  }
+
+  function renderBidders(model) {
+    var box = $("bidders");
+    clear(box);
+    if (!model.bidderList.length) {
+      box.appendChild(el("div", "empty", "No visits in this period. Tagged bidders and untagged opens will be listed here."));
+      return;
+    }
+    var table = document.createElement("table");
+    var thead = document.createElement("thead");
+    var hr = document.createElement("tr");
+    ["Bidder", "First opened", "Last seen", "Visits", "Engaged", "Tabs viewed", "Quote", "Tour", "Device", "City"].forEach(function (h) {
+      hr.appendChild(el("th", "", h));
+    });
+    thead.appendChild(hr);
+    table.appendChild(thead);
+    var tb = document.createElement("tbody");
+    model.bidderList.forEach(function (row) {
+      var tr = document.createElement("tr");
+      [
+        row.label,
+        row.first ? fmtEt(row.first) : "—",
+        row.last ? fmtEt(row.last) : "—",
+        String(row.visits),
+        fmtDur(row.engaged),
+        row.tabList.length ? row.tabList.join(", ") : "—",
+        row.quote ? "yes" : "no",
+        row.tour ? "yes" : "no",
+        row.device || "—",
+        row.city || "—"
+      ].forEach(function (value) { tr.appendChild(el("td", "", value)); });
+      tb.appendChild(tr);
+    });
+    table.appendChild(tb);
+    box.appendChild(table);
+  }
+
+  function renderFunnel(model) {
+    var box = $("funnel");
+    clear(box);
+    var max = model.funnel.reduce(function (m, tab) { return Math.max(m, tab.visits); }, 0);
+    model.funnel.forEach(function (tab) {
+      var note = tab.visits ? (tab.visits + (tab.visits === 1 ? " visit" : " visits") + " · avg " + fmtDur(tab.avg)) : "0 visits";
+      barRow(box, tab.label, tab.visits, max, note);
+    });
+  }
+
+  function renderChart(model) {
+    var box = $("chart");
+    clear(box);
+    var total = model.opens;
+    var active = model.series.filter(function (d) { return d.n > 0; }).length;
+    $("chartHint").textContent = total
+      ? (total + (total === 1 ? " open on " : " opens on ") + active + (active === 1 ? " day" : " days") + " · Eastern Time (ET).")
+      : "No opens in this period. Eastern Time (ET).";
+    if (!total) {
+      box.appendChild(el("div", "empty", "The daily chart will fill in after the first bid-page open."));
+      return;
+    }
+    var n = model.series.length;
+    var slot = n > 40 ? 10 : n > 16 ? 18 : 36;
+    var width = Math.max(640, n * slot);
+    var height = 196;
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 " + width + " " + height);
+    svg.setAttribute("class", "chart-svg");
+    svg.setAttribute("role", "img");
+    svg.setAttribute("aria-label", total + " bid page opens by day");
+    var max = model.series.reduce(function (m, d) { return Math.max(m, d.n); }, 1);
+    var base = 160;
+    var step = n > 16 ? Math.ceil(n / 8) : 1;
+    model.series.forEach(function (d, i) {
+      var bh = d.n ? Math.max(4, Math.round((d.n / max) * 130)) : 2;
+      var x = i * slot + 2;
+      var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rect.setAttribute("x", x);
+      rect.setAttribute("y", base - bh);
+      rect.setAttribute("width", Math.max(2, slot - 4));
+      rect.setAttribute("height", bh);
+      rect.setAttribute("rx", "2");
+      rect.setAttribute("fill", d.n ? "#244b3f" : "#d8ded7");
+      var title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+      title.textContent = d.label + ": " + d.n + (d.n === 1 ? " open" : " opens");
+      rect.appendChild(title);
+      svg.appendChild(rect);
+      if (i % step === 0) {
+        var text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("x", x);
+        text.setAttribute("y", 180);
+        text.setAttribute("fill", "#657169");
+        text.setAttribute("font-size", "11");
+        text.setAttribute("font-family", "system-ui, sans-serif");
+        text.textContent = d.label;
+        svg.appendChild(text);
+      }
+    });
+    box.appendChild(svg);
+  }
+
+  function renderMap(points) {
+    var list = $("places");
+    clear(list);
+    if (!points.length) list.appendChild(el("div", "empty", "No visit locations in this period."));
+    points.slice().sort(function (a, b) { return b.n - a.n; }).forEach(function (p) {
+      var row = el("div", "place");
+      row.appendChild(el("span", "", p.label));
+      row.appendChild(el("span", "", p.n + (p.n === 1 ? " visit" : " visits")));
+      list.appendChild(row);
+    });
+    if (typeof L === "undefined") {
+      if (mapTries < 20) {
+        mapTries += 1;
+        setTimeout(function () { renderMap(points); }, 200);
+      } else if (!list.querySelector(".empty")) {
+        list.appendChild(el("div", "empty", "The map did not load. Cities are listed above."));
+      }
+      return;
+    }
+    if (!map) {
+      map = L.map("map", { scrollWheelZoom: false }).setView([40.739, -74.359], 9);
+      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+        attribution: "Tiles &copy; Esri",
+        maxZoom: 16
+      }).addTo(map);
+      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 16,
+        pane: "overlayPane"
+      }).addTo(map);
+      markers = L.layerGroup().addTo(map);
+    }
+    markers.clearLayers();
+    if (!points.length) {
+      map.setView([40.739, -74.359], 9);
+    } else {
+      var maxN = points.reduce(function (m, p) { return Math.max(m, p.n); }, 1);
+      var latlngs = [];
+      points.forEach(function (p) {
+        var ll = [p.lat, p.lng];
+        latlngs.push(ll);
+        var popup = el("div", "");
+        popup.appendChild(el("strong", "", p.label));
+        popup.appendChild(document.createElement("br"));
+        popup.appendChild(document.createTextNode(p.n + (p.n === 1 ? " visit" : " visits")));
+        L.circleMarker(ll, {
+          radius: 8 + 16 * (p.n / maxN),
+          color: "#244b3f",
+          weight: 1,
+          fillColor: "#38805b",
+          fillOpacity: 0.75
+        }).bindPopup(popup).addTo(markers);
+      });
+      if (latlngs.length === 1) map.setView(latlngs[0], 8);
+      else map.fitBounds(L.latLngBounds(latlngs).pad(0.35));
+    }
+    setTimeout(function () { if (map) map.invalidateSize(); }, 0);
+  }
+
+  function renderSplits(model) {
+    var devices = $("devices");
+    var refs = $("refs");
+    clear(devices);
+    clear(refs);
+    if (!model.visits) {
+      devices.appendChild(el("div", "empty", "No visits yet."));
+      refs.appendChild(el("div", "empty", "No visits yet."));
+      return;
+    }
+    var deviceRows = [
+      ["Phone", model.deviceCounts.phone],
+      ["Tablet", model.deviceCounts.tablet],
+      ["Desktop", model.deviceCounts.desktop]
+    ];
+    if (model.deviceOther) deviceRows.push(["Unknown", model.deviceOther]);
+    var dmax = deviceRows.reduce(function (m, row) { return Math.max(m, row[1]); }, 0);
+    deviceRows.forEach(function (row) { barRow(devices, row[0], row[1], dmax, String(row[1])); });
+    var names = Object.keys(model.refCounts).sort(function (a, b) { return model.refCounts[b] - model.refCounts[a]; }).slice(0, 8);
+    var rmax = names.reduce(function (m, name) { return Math.max(m, model.refCounts[name]); }, 0);
+    names.forEach(function (name) { barRow(refs, name, model.refCounts[name], rmax, String(model.refCounts[name])); });
+  }
+
+  function renderFeed(model) {
+    var box = $("feed");
+    clear(box);
+    var shown = 0;
+    model.feed.forEach(function (ev) {
+      var text = sentence(ev);
+      if (!text) return;
+      shown += 1;
+      var item = el("div", "feed-item");
+      var time = document.createElement("time");
+      time.dateTime = ev.created_at || "";
+      time.textContent = fmtEt(ev.created_at);
+      item.appendChild(time);
+      item.appendChild(el("div", "", text));
+      box.appendChild(item);
+    });
+    if (!shown) box.appendChild(el("div", "empty", "No activity yet. When a vendor opens the bid, it will show up here."));
+  }
+
+  function render(payload) {
+    var model = build(payload.events, payload.since);
+    renderKpis(model);
+    renderInsights(model);
+    renderBidders(model);
+    renderFunnel(model);
+    renderChart(model);
+    renderMap(model.points);
+    renderSplits(model);
+    renderFeed(model);
+    var since = payload.since ? fmtEt(payload.since) : "—";
+    var n = model.events.length;
+    $("updated").textContent = n + (n === 1 ? " event" : " events") + " since " + since + " · Updated " + fmtEt(new Date());
+  }
+
+  function days() {
+    var n = parseInt($("days").value, 10);
+    if ([7, 30, 60, 365].indexOf(n) === -1) n = 30;
+    return n;
+  }
+
+  async function load(currentPin) {
+    var url = API + "?site=shfl&pin=" + encodeURIComponent(currentPin) + "&days=" + days();
+    var res = await fetch(url, { method: "GET", cache: "no-store", credentials: "omit" });
+    var body = null;
+    try { body = await res.json(); } catch (e) { body = null; }
+    return { res: res, body: body };
+  }
+
+  function failPin(message) {
+    $("pinErr").textContent = message;
+    $("gate").classList.remove("hidden");
+    $("dash").classList.add("hidden");
+  }
+
+  async function unlock(fromStore) {
+    $("pinErr").textContent = "";
+    var entered = fromStore ? pin : $("pin").value.trim();
+    if (!entered) {
+      $("pinErr").textContent = "Enter the PIN.";
+      return;
+    }
+    $("unlock").disabled = true;
+    try {
+      var out = await load(entered);
+      if (out.res.status === 401) {
+        try { sessionStorage.removeItem(PIN_KEY); } catch (e) {}
+        pin = "";
+        failPin("That PIN is not right.");
+        return;
+      }
+      if (!out.res.ok || !out.body || !Array.isArray(out.body.events)) {
+        failPin("Could not load (" + out.res.status + ").");
+        return;
+      }
+      pin = entered;
+      try { sessionStorage.setItem(PIN_KEY, pin); } catch (e) {}
+      $("gate").classList.add("hidden");
+      $("dash").classList.remove("hidden");
+      render(out.body);
+    } catch (e) {
+      failPin("Could not reach the analytics service.");
+    } finally {
+      $("unlock").disabled = false;
+    }
+  }
+
+  $("pinForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    unlock(false);
+  });
+  $("refresh").addEventListener("click", async function () {
+    if (!pin) return;
+    $("refresh").disabled = true;
+    try {
+      var out = await load(pin);
+      if (out.res.status === 401) {
+        try { sessionStorage.removeItem(PIN_KEY); } catch (e) {}
+        pin = "";
+        failPin("That PIN is not right.");
+        return;
+      }
+      if (out.res.ok && out.body && Array.isArray(out.body.events)) render(out.body);
+      else $("updated").textContent = "Could not refresh (" + out.res.status + ").";
+    } catch (e) {
+      $("updated").textContent = "Could not reach the analytics service.";
+    } finally {
+      $("refresh").disabled = false;
+    }
+  });
+  $("days").addEventListener("change", function () {
+    try { sessionStorage.setItem(DAY_KEY, $("days").value); } catch (e) {}
+    if (pin) $("refresh").click();
+  });
+
+  try {
+    var savedDays = sessionStorage.getItem(DAY_KEY);
+    if (["7", "30", "60", "365"].indexOf(savedDays) !== -1) $("days").value = savedDays;
+    var saved = sessionStorage.getItem(PIN_KEY);
+    if (saved) {
+      pin = saved;
+      $("pin").value = saved;
+      unlock(true);
+    }
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
