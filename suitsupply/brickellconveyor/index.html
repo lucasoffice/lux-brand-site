@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="lbco-logo.png">
+<title>SuitSupply Brickell — Conveyor</title>
+<style>
+:root{--red:#C8102E;--ink:#14161a;--mut:#5b6068;--line:#e6e8ec;--bg:#f6f7f9;--green:#2f8f4e;--orange:#f59a23}
+*{box-sizing:border-box}
+html{font-size:clamp(16px,.9vw + 11px,28px)}
+body{margin:0;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.4}
+.hidden{display:none!important}
+/* hero */
+.hero{background:#fff;border-bottom:1px solid var(--line);padding:1.6rem clamp(1rem,4vw,4rem)}
+.hero-in{max-width:90rem;margin:auto;display:flex;gap:1.4rem;align-items:center;flex-wrap:wrap}
+.hero img{width:4.2rem;height:4.2rem;border-radius:.3rem}
+.hero h1{margin:0;font-size:2.1rem;letter-spacing:-.01em;line-height:1.1}
+.ref{color:var(--mut);font-size:.8rem;margin-top:.3rem}
+.asof{margin-left:auto;text-align:right}
+.asof b{display:block;font-size:1.25rem}.asof span{font-size:.7rem;color:var(--mut);text-transform:uppercase;letter-spacing:.1em}
+.ribbon{background:#fff3cd;color:#7a5b00;text-align:center;font-weight:700;padding:.4rem;font-size:.8rem;letter-spacing:.08em}
+.stats{max-width:90rem;margin:1.2rem auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1rem}
+.stat{background:var(--bg);border-radius:.7rem;padding:.8rem 1rem}
+.stat b{font-size:2.2rem;line-height:1;display:block}.stat.r span{text-transform:none;letter-spacing:0;font-size:.85rem;font-weight:600}.stat span{font-size:.75rem;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.stat.o b{color:var(--red)}.stat.d b{color:var(--green)}
+/* sections */
+main{min-width:0;grid-template-columns:minmax(0,1fr);max-width:90rem;margin:auto;padding:1.5rem clamp(1rem,4vw,4rem) 4rem;display:grid;gap:1.6rem}
+.card{min-width:0;background:#fff;border-radius:1rem;padding:1.4rem 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.card>h2{margin:0 0 1rem;font-size:1.35rem;display:flex;align-items:center;gap:.7rem;justify-content:space-between;flex-wrap:wrap}
+.card>h2:before{content:"";width:.35rem;height:1.3rem;background:var(--red);border-radius:2px;display:inline-block;margin-right:-.2rem}
+.card>h2 .t{margin-right:auto}
+.tg{font-size:.75rem;font-weight:500;color:var(--mut);cursor:pointer}
+/* topics */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr));gap:1.4rem 2.4rem}
+.tsec h3{margin:0 0 .4rem;font-size:1.05rem;display:flex;justify-content:space-between;gap:1rem;border-bottom:2px solid var(--line);padding-bottom:.3rem}
+.tsec h3 span{color:var(--mut);font-weight:600;font-size:.8rem;white-space:nowrap}
+ul{list-style:none;margin:0;padding:0}
+li{padding:.4rem 0 .4rem 1.5rem;position:relative;border-bottom:1px solid var(--line)}
+li:before{content:"";position:absolute;left:0;top:.7rem;width:.75rem;height:.75rem;border:.17rem solid var(--red);border-radius:50%}
+li.open .t{font-weight:650}
+li.done{color:#9096a0}li.done:before{background:#b4b9c2;border-color:#b4b9c2}li.done .t{text-decoration:line-through}
+.m{font-size:.72rem;color:var(--mut)}li.done .m{color:#9096a0}
+.hide-done li.done{display:none}
+/* rfi / big number */
+.rfi{display:flex;gap:2.5rem;align-items:center;flex-wrap:wrap}
+.big{font-size:6rem;font-weight:800;line-height:1;color:var(--red)}
+.big small{display:block;font-size:.8rem;font-weight:600;color:var(--mut);letter-spacing:.08em;text-transform:uppercase;margin-top:.4rem}
+.rfi ul{flex:1;min-width:min(100%,16rem)}
+.rfi li b{margin-right:.5rem;color:var(--red)}
+/* visits */
+.visits{display:grid;grid-template-columns:repeat(auto-fill,minmax(12rem,1fr));gap:.8rem}
+.v{border:1px solid var(--line);border-radius:.7rem;padding:.7rem 1rem}.v b{display:block}.v span{color:var(--mut);font-size:.8rem}
+/* treemap */
+.tmwrap{display:flex;gap:1.6rem;align-items:flex-start;flex-wrap:wrap}
+.tm{position:relative;width:min(100%,38rem);aspect-ratio:1/1;background:#fff;border-radius:.5rem;overflow:hidden;flex:0 0 auto}
+.tile{position:absolute;border:0;outline:3px solid #fff;outline-offset:-1.5px;padding:.6rem;text-align:left;cursor:pointer;font:inherit;font-weight:700;display:flex;align-items:flex-start;line-height:1.15;overflow:hidden}
+.tile.c0{background:#0f766e;color:#fff}.tile.c1{background:#c23b30;color:#fff}.tile.c2{background:#8f5a06;color:#fff}.tile.c3{background:#166534;color:#fff}.tile.c4{background:#1d4ed8;color:#fff}
+.tile.c5{background:#6d28d9;color:#fff}.tile.c6{background:#be185d;color:#fff}.tile.c7{background:#0369a1;color:#fff}.tile.c8{background:#c2410c;color:#fff}.tile.c9{background:#4338ca;color:#fff}
+.tile:hover,.tile:focus-visible{filter:brightness(1.1);outline-color:var(--ink)}
+.side{flex:1;min-width:min(100%,16rem)}
+.legend{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:1rem;font-weight:600;font-size:.85rem}
+.legend i{display:inline-block;width:1rem;height:1rem;border-radius:.2rem;margin-right:.4rem;vertical-align:-.15rem}
+.panel{border:2px solid var(--ink);border-radius:.8rem;padding:1rem 1.2rem}
+.panel h3{margin:0 0 .3rem}.panel .st{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.panel a{display:inline-block;margin:.3rem .5rem 0 0;padding:.35rem .8rem;border:1px solid var(--ink);border-radius:2rem;color:var(--ink);text-decoration:none;font-size:.8rem;font-weight:600}
+.panel .x{float:right;border:0;background:none;font-size:1.5rem;cursor:pointer;line-height:1}
+.hint{color:var(--mut);font-size:.85rem}
+/* gantt */
+.gscroll{overflow-x:auto}
+.gantt{min-width:44rem}
+.ghead{display:grid;margin-left:15rem;border-bottom:2px solid var(--line)}
+.ghead div{font-size:.75rem;font-weight:700;color:var(--mut);padding:.3rem .2rem;border-left:1px solid var(--line);text-transform:uppercase;letter-spacing:.06em}
+.grow{display:flex;align-items:center;border-bottom:1px solid var(--line);height:2.6rem}
+.glab{width:15rem;flex:0 0 15rem;font-size:.85rem;font-weight:600;padding-right:.8rem}
+.gtrack{position:relative;flex:1;height:100%;background:repeating-linear-gradient(90deg,transparent 0 calc(var(--mw) - 1px),var(--line) calc(var(--mw) - 1px) var(--mw))}
+.bar{position:absolute;top:.5rem;bottom:.5rem;border-radius:.4rem;color:#fff;font-size:.7rem;font-weight:700;padding:0 .5rem;display:flex;align-items:center;white-space:nowrap;overflow:hidden}
+.bar.demo{background:var(--red)}.bar.conveyor{background:var(--ink)}.bar.post{background:#3b6ea5}
+.bar.overlap{background:repeating-linear-gradient(45deg,#6d7380 0 .5rem,#5a606b .5rem 1rem)}
+.olab{position:absolute;top:50%;transform:translateY(-50%);font-size:.7rem;font-weight:700;color:var(--ink);white-space:nowrap}.today{position:absolute;top:0;bottom:0;width:2px;background:var(--red)}
+/* links */
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:1.15rem;padding:.9rem 2rem;border-radius:.6rem}
+.btn:hover{background:var(--red)}
+@media (max-width:700px){.hero h1{font-size:1.5rem}.asof{margin-left:0;text-align:left}.big{font-size:4.5rem}.card{padding:1rem}.glab{width:9rem;flex-basis:9rem}.ghead{margin-left:9rem}}
+@media print{.tg{display:none}html{font-size:11px}body{background:#fff}}
+</style></head><body>
+<div id="app">
+<div id="ribbon" class="ribbon hidden">SAMPLE DATA — layout preview only</div>
+<div class="hero"><div class="hero-in">
+<img src="lbco-logo.png" alt="LBCo">
+<div><h1>SuitSupply Brickell — Conveyor</h1><div class="ref">26_SuitSupply_Miami, FL_Brickell Conveyor</div></div>
+<div class="asof"><span>Status</span><b id="asof"></b></div></div>
+<div class="stats" id="stats"></div></div>
+<main id="main"></main></div>
+
+<script>
+const $=id=>document.getElementById(id);
+let flagged=0;
+/* render-time dollar guard: every text value passes through clean() */
+function clean(v){
+  if(v==null)return '';
+  let s=String(v);
+  if(s.indexOf('$')>=0){flagged++;console.warn('guard: dropped a $ value');document.body.dataset.guard=flagged;s=s.replace(/\$\s*[\d][\d,.]*\s*[kKmM]?/g,'').replace(/\$/g,'');}
+  return s;
+}
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=clean(x);return e}
+function safeUrl(u){try{const x=new URL(u,location.href);return /^https?:$/.test(x.protocol)?x.href:null}catch(e){return null}}
+const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function fmt(d){
+  if(!d)return '';
+  let m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(d);
+  if(m)return M[+m[2]-1]+' '+(+m[3])+', '+m[1];
+  m=/^(\d{1,2})\/(\d{4})$/.exec(d);
+  if(m)return M[+m[1]-1]+' '+m[2];
+  return d;
+}
+const arr=a=>Array.isArray(a)?a:[];
+function card(id,title){const c=el('section','card');c.id=id;const h=el('h2');h.appendChild(el('span','t',title));c.appendChild(h);return [c,h]}
+
+function topicsSec(t,main){
+  const secs=arr(t&&t.sections); if(!secs.length)return {D:0,T:0};
+  let D=0,T=0;
+  const [c,h]=card('sec-topics','Topics');
+  const lab=el('label','tg');const cb=document.createElement('input');cb.type='checkbox';cb.onchange=()=>document.body.classList.toggle('hide-done',cb.checked);
+  lab.append(cb,' Hide done items');h.appendChild(lab);
+  const g=el('div','tgrid');
+  for(const s of secs){
+    const items=arr(s.items);const n=items.filter(i=>i.status==='done').length;D+=n;T+=items.length;
+    const sec=el('div','tsec'),hh=el('h3',null,s.title);hh.appendChild(el('span',null,n+' of '+items.length+' done'));
+    sec.appendChild(hh);const ul=el('ul');
+    for(const i of items){
+      const li=el('li',i.status==='done'?'done':'open');li.appendChild(el('div','t',i.text));
+      const meta=[fmt(i.date),i.note].filter(Boolean).join(' — ');if(meta)li.appendChild(el('div','m',meta));
+      ul.appendChild(li);
+    }
+    sec.appendChild(ul);g.appendChild(sec);
+  }
+  c.appendChild(g);main.appendChild(c);return {D,T};
+}
+let ASOF='';
+function rfiLabel(r){let d=r.asOf||ASOF;const m=/(\d{4})-(\d{2})-(\d{2})/.exec(d);const dd=m?(+m[2])+'/'+(+m[3]):(r.asOf||'');return 'Open RFIs: '+r.open+(dd?' (as of '+dd+')':'')}
+function rfiSec(r,main){
+  if(!r||typeof r.open!=='number')return null;
+  const [c]=card('sec-rfi',rfiLabel(r));
+  const w=el('div','rfi');const b=el('div','big',r.open);b.appendChild(el('small',null,'open RFIs'));w.appendChild(b);
+  const items=arr(r.items);
+  if(items.length){const ul=el('ul');for(const i of items){const li=el('li','open');const t=el('div','t');t.appendChild(el('b',null,i.number||''));t.appendChild(document.createTextNode(clean(i.title)));li.appendChild(t);if(i.due)li.appendChild(el('div','m','Due '+fmt(i.due)));ul.appendChild(li)}w.appendChild(ul)}
+  c.appendChild(w);main.appendChild(c);return r.open;
+}
+function visitSec(v,main){
+  v=arr(v);if(!v.length)return;
+  const [c]=card('sec-visits','Subs who visited the site');const g=el('div','visits');
+  for(const x of v){const d=el('div','v');d.appendChild(el('b',null,x.sub));d.appendChild(el('span',null,fmt(x.date)));g.appendChild(d)}
+  c.appendChild(g);main.appendChild(c);
+}
+function squarify(items,W){
+  const tot=items.reduce((a,b)=>a+b.v,0);const arr2=items.map(i=>({it:i.it,a:i.v/tot*W*W})).sort((a,b)=>b.a-a.a);
+  const out=[];let x=0,y=0,w=W,h=W,row=[];
+  const sum=r=>r.reduce((a,b)=>a+b.a,0);
+  const worst=(r,s)=>{const t=sum(r),mx=Math.max(...r.map(q=>q.a)),mn=Math.min(...r.map(q=>q.a));return Math.max(s*s*mx/(t*t),t*t/(s*s*mn))};
+  const place=r=>{const t=sum(r);
+    if(w>=h){const cw=t/h;let cy=y;r.forEach(q=>{const rh=q.a/cw;out.push({it:q.it,x,y:cy,w:cw,h:rh});cy+=rh});x+=cw;w-=cw}
+    else{const rh=t/w;let cx=x;r.forEach(q=>{const rw=q.a/rh;out.push({it:q.it,x:cx,y,w:rw,h:rh});cx+=rw});y+=rh;h-=rh}};
+  for(const q of arr2){const s=Math.min(w,h);if(row.length&&worst(row.concat(q),s)>worst(row,s)){place(row);row=[]}row.push(q)}
+  if(row.length)place(row);return out;
+}
+function scopeSec(sc,main){
+  sc=arr(sc);if(!sc.length)return;
+  const [c]=card('sec-scope','Scope map');
+  const wrap=el('div','tmwrap'),tm=el('div','tm');
+  const side=el('div','side');
+  const panel=el('div','panel hidden');panel.id='panel';
+  const hint=el('div','hint','Tap a tile to see the scope and drawing references.');
+  side.append(hint,panel);
+  const items=sc.map(s=>({it:s,v:typeof s.weight==='number'&&s.weight>0?s.weight:(s.weight==='major'?4:1)}));
+  let idx=0;
+  for(const r of squarify(items,100)){
+    const s=r.it;const b=document.createElement('button');b.type='button';
+    b.className='tile c'+(idx++%10);b.dataset.id=s.id||'';
+    Object.assign(b.style,{left:r.x+'%',top:r.y+'%',width:r.w+'%',height:r.h+'%',fontSize:(r.w*r.h>900?'1.25rem':'.85rem')});
+    b.textContent=clean(s.name);
+    b.onclick=()=>{
+      panel.textContent='';panel.classList.remove('hidden');hint.classList.add('hidden');
+      const x=el('button','x','×');x.type='button';x.setAttribute('aria-label','Close');x.onclick=()=>{panel.classList.add('hidden');hint.classList.remove('hidden')};
+      panel.appendChild(x);
+      panel.appendChild(el('h3',null,s.name));panel.appendChild(el('p',null,s.text||''));
+      const ds=arr(s.drawings);
+      if(ds.length){const d=el('div');d.appendChild(el('div','m','Drawings (ACC)'));for(const dr of ds){const u=safeUrl(dr.url);if(!u)continue;const a=el('a',null,dr.label||'Drawing');a.href=u;a.target='_blank';a.rel='noopener noreferrer';d.appendChild(a)}panel.appendChild(d)}
+    };
+    tm.appendChild(b);
+  }
+  wrap.append(tm,side);c.appendChild(wrap);main.appendChild(c);
+}
+function ganttSec(p,main){
+  const ph=arr(p&&p.phases);const S=Date.parse(p&&p.start),E=Date.parse(p&&p.end);
+  if(!ph.length||isNaN(S)||isNaN(E)||E<=S)return;
+  const [c]=card('sec-gantt','Phasing');
+  const g=el('div','gantt');const sd=new Date(S),ed=new Date(E);
+  const months=[];let d=new Date(Date.UTC(sd.getUTCFullYear(),sd.getUTCMonth(),1));
+  const first=d.getTime();const end=Date.UTC(ed.getUTCFullYear(),ed.getUTCMonth()+1,1);
+  while(d.getTime()<end){months.push(new Date(d));d=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,1))}
+  const t0=first,t1=end,span=t1-t0;const pct=t=>Math.max(0,Math.min(100,(t-t0)/span*100));
+  const head=el('div','ghead');head.style.gridTemplateColumns=months.map((m,i)=>{const nx=i+1<months.length?months[i+1].getTime():t1;return (nx-m.getTime())+'fr'}).join(' ');
+  months.forEach(m=>head.appendChild(el('div',null,M[m.getUTCMonth()]+(m.getUTCMonth()===0||m===months[0]?" '"+String(m.getUTCFullYear()).slice(2):''))));
+  g.appendChild(head);
+  const todayT=Date.now();
+  for(const x of ph){
+    const a=Date.parse(x.start),b=Date.parse(x.end);if(isNaN(a)||isNaN(b))continue;
+    const row=el('div','grow');row.appendChild(el('div','glab',x.label));const tr=el('div','gtrack');
+    const bar=el('div','bar '+(['demo','overlap','conveyor','post'].includes(x.type)?x.type:'post'),fmt(x.start).replace(/, \d{4}/,'')+' – '+fmt(x.end).replace(/, \d{4}/,''));
+    const w=Math.max(.8,pct(b)-pct(a));bar.style.left=pct(a)+'%';bar.style.width=w+'%';
+    if(w<14){const lt=bar.textContent;bar.textContent='';const o=el('span','olab',lt);o.style.left=(pct(a)+w+.6)+'%';tr.appendChild(bar);tr.appendChild(o)}else tr.appendChild(bar);row.appendChild(tr);g.appendChild(row);
+  }
+  const lg=el('div','legend');lg.style.marginTop='1rem';
+  for(const [cl,t] of [['var(--red)','Demo'],['#6d7380','Sub overlap'],['var(--ink)','Conveyor install'],['#3b6ea5','Post-conveyor work']]){const s=document.createElement('span');const i=document.createElement('i');i.style.background=cl;s.append(i,t);lg.appendChild(s)}
+  const sc=el('div','gscroll');sc.appendChild(g);c.append(sc,lg);main.appendChild(c);
+}
+function linkSec(id,title,l,main){
+  const u=l&&safeUrl(l.url);if(!u)return;
+  const [c]=card(id,title);const a=el('a','btn',l.label||title);a.href=u;a.target='_blank';a.rel='noopener noreferrer';c.appendChild(a);main.appendChild(c);
+}
+function stat(cls,n,l){const s=el('div','stat '+cls);s.appendChild(el('b',null,n));s.appendChild(el('span',null,l));return s}
+function render(data){
+  const t=data.topics||{},m=data.meeting||{};
+  $('asof').textContent='As of '+clean(m.asOf||t.asOf||'');
+  if(m.sample)$('ribbon').classList.remove('hidden');
+  const main=$('main');main.textContent='';
+  ASOF=m.asOf||t.asOf||'';const tp=topicsSec(t,main);
+  const rfi=rfiSec(m.rfis,main);
+  visitSec(m.siteVisits,main);
+  scopeSec(m.scopes,main);
+  ganttSec(m.phasing,main);
+  const L=m.links||{};
+  linkSec('sec-matterport','3D site scan (Matterport)',L.matterport,main);
+  linkSec('sec-companycam','Site photos (CompanyCam)',L.companycam,main);
+  const st=$('stats');st.textContent='';
+  if(tp.T){st.appendChild(stat('d',tp.D,'Items done'));st.appendChild(stat('o',tp.T-tp.D,'Items open'))}
+  if(rfi!==null){const s2=stat('o r',rfi,rfiLabel(m.rfis));st.appendChild(s2)};
+  $('app').classList.remove('hidden');
+}
+async function load(){
+  const [topics, meeting]=await Promise.all([
+    fetch('./topics.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('topics '+r.status);return r.json()}),
+    fetch('./meeting-data.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('meeting '+r.status);return r.json()})
+  ]);
+  if(meeting&&typeof meeting==='object'){
+    delete meeting.demoPrice;
+    for(const sc of (Array.isArray(meeting.scopes)?meeting.scopes:[])){if(sc&&typeof sc==='object')delete sc.priced}
+  }
+  render({topics, meeting});
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){const p=$('panel');if(p&&!p.classList.contains('hidden'))p.querySelector('.x').click()}
+  if(e.key==='f'&&!/INPUT/.test(e.target.tagName)){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+});
+load().catch(x=>{console.error(x)});
+</script></body></html>

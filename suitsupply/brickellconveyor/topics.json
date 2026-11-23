@@ -1,0 +1,104 @@
+{
+  "asOf": "2026-11-23 9:15 AM ET",
+  "sections": [
+    {
+      "title": "Design & Permitting",
+      "items": [
+        {
+          "text": "Sprinkler design-basis engineer (RAN) approved, contracting with TH3",
+          "status": "done",
+          "note": "Approved 11/10",
+          "date": "2026-11-10"
+        },
+        {
+          "text": "Site walk with trade partners",
+          "status": "done",
+          "note": "Walked 11/16",
+          "date": "2026-11-16"
+        },
+        {
+          "text": "Water supply data for sprinkler calcs",
+          "status": "open",
+          "note": "Landlord data sent to fire engineer 11/19; sprinkler data expected about 11/27",
+          "date": "2026-11-27"
+        },
+        {
+          "text": "Revised floor-post grid drawings (DLG/TH3)",
+          "status": "open",
+          "note": "Drives steel and fireproofing scope",
+          "date": ""
+        },
+        {
+          "text": "Sprinkler design basis (RAN/WNA)",
+          "status": "open",
+          "note": "Needed before sprinkler design and fire permit",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "title": "Schedule",
+      "items": [
+        {
+          "text": "Draft construction schedule (Excel + PDF)",
+          "status": "done",
+          "note": "Shared 11/20; dates provisional",
+          "date": "2026-11-20"
+        },
+        {
+          "text": "Demo timing relative to permit",
+          "status": "open",
+          "note": "Discuss: start with landlord approval 1/4, or hold for landlord and City",
+          "date": ""
+        },
+        {
+          "text": "Steel install sequencing vs. conveyor start",
+          "status": "open",
+          "note": "Coordinate steel ahead of 1/18 conveyor start",
+          "date": ""
+        },
+        {
+          "text": "Metalprogetti / TH3 timeline review",
+          "status": "open",
+          "note": "Today 11/23",
+          "date": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "title": "RFIs / ACC",
+      "items": [
+        {
+          "text": "Six RFIs closed (001, 017, 022, 024, 025, 026)",
+          "status": "done",
+          "note": "Closed 11/12",
+          "date": "2026-11-12"
+        },
+        {
+          "text": "Project team added to ACC",
+          "status": "done",
+          "note": "TH3, WNA, SuitSupply",
+          "date": ""
+        },
+        {
+          "text": "RFI-010 answer",
+          "status": "open",
+          "note": "Awaiting TH3",
+          "date": ""
+        },
+        {
+          "text": "RFI-015 plumbing reroute design",
+          "status": "open",
+          "note": "Awaiting TH3",
+          "date": ""
+        },
+        {
+          "text": "Plumbing and electrical scope questions",
+          "status": "open",
+          "note": "Being prepared for TH3",
+          "date": ""
+        }
+      ]
+    }
+  ]
+}

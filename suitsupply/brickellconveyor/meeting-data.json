@@ -1,0 +1,223 @@
+{
+  "asOf": "2026-11-23 9:15 AM ET",
+  "rfis": {
+    "open": 18,
+    "source": "ACC, read 11/23 9:09 AM ET"
+  },
+  "siteVisits": [
+    {
+      "sub": "MSA Painting",
+      "date": "2026-11-16"
+    },
+    {
+      "sub": "Lange's Contracting",
+      "date": "2026-11-16"
+    },
+    {
+      "sub": "Polaris Fire Protection",
+      "date": "2026-11-16"
+    },
+    {
+      "sub": "Alcor Electric",
+      "date": "2026-11-16"
+    }
+  ],
+  "scopes": [
+    {
+      "id": "demo",
+      "name": "Selective demolition",
+      "weight": "major",
+      "text": "Remove ceilings, the spiral stair, mezzanine railing and part of the BOH wall in the conveyor zone. Salvage and store shelving. Protect the sales floor, slab and beams."
+    },
+    {
+      "id": "steel",
+      "name": "Structural steel and grid",
+      "weight": "major",
+      "text": "MP-2 platform and supports, independent ceiling support grid, access ladder, gate and guards. Grid redesign by the engineer may change the scope."
+    },
+    {
+      "id": "sprinkler",
+      "name": "Fire sprinkler",
+      "weight": "major",
+      "text": "Delegated sprinkler design and alteration: upper line relocations before the conveyor, lower lines and the under-mezzanine system after. Needs the fire sprinkler permit."
+    },
+    {
+      "id": "firealarm",
+      "name": "Fire alarm",
+      "weight": "major",
+      "text": "Fire alarm interface by the landlord-required vendor: bypass and fire watch, shop drawings, devices and acceptance tests."
+    },
+    {
+      "id": "elec",
+      "name": "Electrical",
+      "weight": "major",
+      "text": "Make-safe and lighting removal, conveyor and door power, lighting, testing."
+    },
+    {
+      "id": "drywall",
+      "name": "Drywall and ceilings",
+      "weight": "minor",
+      "text": "Partitions, gypsum ceilings and carpentry, door backing, rated walls, and lowering the storefront hard-lid ceiling during the install."
+    },
+    {
+      "id": "finishes",
+      "name": "Paint and finishes",
+      "weight": "minor",
+      "text": "Paint and base, flooring repair and transitions, parquet protection, wallcovering and upper window film."
+    },
+    {
+      "id": "hvac",
+      "name": "Mechanical / HVAC",
+      "weight": "minor",
+      "text": "Ductwork alteration in the conveyor zone, balancing and BMS tie-in."
+    },
+    {
+      "id": "plumbing",
+      "name": "Plumbing",
+      "weight": "minor",
+      "text": "Water and rain piping reroutes in the conveyor zone. Reroute design still to be issued."
+    },
+    {
+      "id": "fireproofing",
+      "name": "Fireproofing restore",
+      "weight": "minor",
+      "text": "Restore beam fireproofing at the conveyor clamp points. Count may change with the grid redesign."
+    },
+    {
+      "id": "scan",
+      "name": "Scan, core and cut",
+      "weight": "minor",
+      "text": "GPR scan of the slab, cores and saw-cuts, patching."
+    },
+    {
+      "id": "lowvolt",
+      "name": "Low voltage",
+      "weight": "minor",
+      "text": "Data, WAP, CCTV and RFID cabling."
+    },
+    {
+      "id": "doors",
+      "name": "Pickup door and window",
+      "weight": "minor",
+      "text": "Pickup door, frame, track, hardware and glazing, and the automatic sliding pickup window operator."
+    },
+    {
+      "id": "storage",
+      "name": "Receiving and storage",
+      "weight": "minor",
+      "text": "Receiving, storage and delivery to site."
+    }
+  ],
+  "phasing": {
+    "start": "2026-11-01",
+    "end": "2027-03-31",
+    "phases": [
+      {
+        "label": "Design: sprinkler data and calcs",
+        "start": "2026-11-20",
+        "end": "2026-11-30",
+        "type": "overlap"
+      },
+      {
+        "label": "Design: structural update and landlord review",
+        "start": "2026-12-01",
+        "end": "2026-12-21",
+        "type": "overlap"
+      },
+      {
+        "label": "Sprinkler shop drawings and fire permit",
+        "start": "2026-12-01",
+        "end": "2027-01-07",
+        "type": "overlap"
+      },
+      {
+        "label": "Permit addendum review (approval target 1/15)",
+        "start": "2026-12-22",
+        "end": "2027-01-15",
+        "type": "overlap"
+      },
+      {
+        "label": "Demo start (Phase 1)",
+        "start": "2027-01-04",
+        "end": "2027-01-08",
+        "type": "demo"
+      },
+      {
+        "label": "Pre-conveyor work",
+        "start": "2027-01-11",
+        "end": "2027-01-15",
+        "type": "demo"
+      },
+      {
+        "label": "Rough-in inspections",
+        "start": "2027-01-18",
+        "end": "2027-01-19",
+        "type": "demo"
+      },
+      {
+        "label": "Conveyor install",
+        "start": "2027-01-18",
+        "end": "2027-02-12",
+        "type": "conveyor"
+      },
+      {
+        "label": "Overlap: beam fireproofing patch",
+        "start": "2027-01-21",
+        "end": "2027-01-22",
+        "type": "overlap"
+      },
+      {
+        "label": "Overlap: storefront ceiling lowering",
+        "start": "2027-01-25",
+        "end": "2027-02-05",
+        "type": "overlap"
+      },
+      {
+        "label": "Overlap: platform and grid steel (conflict)",
+        "start": "2027-02-05",
+        "end": "2027-02-18",
+        "type": "overlap"
+      },
+      {
+        "label": "Overlap: conveyor power termination",
+        "start": "2027-02-08",
+        "end": "2027-02-09",
+        "type": "overlap"
+      },
+      {
+        "label": "Post-conveyor work",
+        "start": "2027-02-16",
+        "end": "2027-03-04",
+        "type": "post"
+      },
+      {
+        "label": "Punch list",
+        "start": "2027-03-05",
+        "end": "2027-03-05",
+        "type": "post"
+      },
+      {
+        "label": "Final inspections",
+        "start": "2027-03-08",
+        "end": "2027-03-11",
+        "type": "post"
+      },
+      {
+        "label": "Handover to SuitSupply",
+        "start": "2027-03-12",
+        "end": "2027-03-12",
+        "type": "post"
+      }
+    ]
+  },
+  "links": {
+    "matterport": {
+      "label": "Open the Matterport scan (SuitSupply Miami, Brickell City Centre)",
+      "url": "https://my.matterport.com/show/?m=sjZJ9CMpZDi"
+    },
+    "companycam": {
+      "label": "Open CompanyCam photos (site walk 11/16)",
+      "url": "https://app.companycam.com/project_page/atz5YcGHAJba8A5"
+    }
+  }
+}
