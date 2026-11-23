@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-23 9:15 AM ET",
+  "asOf": "11/23 1:38 PM ET",
   "rfis": {
     "open": 8,
     "source": "ACC, read 11/23 9:09 AM ET"
@@ -127,18 +127,6 @@
         "type": "overlap"
       },
       {
-        "label": "Sprinkler shop drawings and fire permit",
-        "start": "2026-12-01",
-        "end": "2027-01-07",
-        "type": "overlap"
-      },
-      {
-        "label": "Permit addendum review (approval target 1/15)",
-        "start": "2026-12-22",
-        "end": "2027-01-15",
-        "type": "overlap"
-      },
-      {
         "label": "Postponement deadline",
         "start": "2026-12-28",
         "end": "2026-12-28",
@@ -169,9 +157,9 @@
         "type": "overlap"
       },
       {
-        "label": "Main build (planned)",
+        "label": "Second phase: conveyor installation (planned)",
         "start": "2027-01-25",
-        "end": "2027-02-12",
+        "end": "2027-01-26",
         "type": "conveyor"
       },
       {
@@ -187,31 +175,31 @@
         "type": "overlap"
       },
       {
-        "label": "Overlap: conveyor power termination",
+        "label": "Overlap: conveyor power termination (provisional)",
         "start": "2027-02-08",
         "end": "2027-02-09",
         "type": "overlap"
       },
       {
-        "label": "Post-conveyor work",
+        "label": "Post-conveyor work (provisional)",
         "start": "2027-02-16",
         "end": "2027-03-04",
         "type": "post"
       },
       {
-        "label": "Punch list",
+        "label": "Punch list (provisional)",
         "start": "2027-03-05",
         "end": "2027-03-05",
         "type": "post"
       },
       {
-        "label": "Final inspections",
+        "label": "Final inspections (provisional)",
         "start": "2027-03-08",
         "end": "2027-03-11",
         "type": "post"
       },
       {
-        "label": "Handover to SuitSupply",
+        "label": "Handover to SuitSupply (provisional)",
         "start": "2027-03-12",
         "end": "2027-03-12",
         "type": "post"

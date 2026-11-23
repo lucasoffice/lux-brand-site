@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-23 9:15 AM ET",
+  "asOf": "11/23 1:38 PM ET",
   "sections": [
     {
       "title": "Design & Permitting",
@@ -19,8 +19,8 @@
         {
           "text": "Water supply data for sprinkler calcs",
           "status": "open",
-          "note": "Landlord data sent to fire engineer 11/19; best case 11/25, worst case 12/1",
-          "date": "2026-12-01"
+          "note": "Landlord data sent to fire engineer 11/19; Date TBD",
+          "date": ""
         },
         {
           "text": "Updated floor post and ceiling support drawings (TH3)",
@@ -35,15 +35,33 @@
           "date": "2026-11-24"
         },
         {
-          "text": "Final fire sprinkler design (RAN)",
+          "text": "Final fire sprinkler design (RAN): best case Wed 11/25, worst case Tue 12/1",
           "status": "open",
-          "note": "Best case 11/25; worst case 12/1",
+          "note": "",
           "date": "2026-12-01"
         },
         {
           "text": "Final ceiling-support removal drawing (Metal Progetti)",
           "status": "open",
           "note": "Date not stated",
+          "date": ""
+        },
+        {
+          "text": "Steel shop drawings releasable after TH3's structural update, target 12/14-12/15; production waits on landlord approval",
+          "status": "open",
+          "note": "",
+          "date": "2026-12-15"
+        },
+        {
+          "text": "Base permit issue date: TBD",
+          "status": "open",
+          "note": "Not yet provided",
+          "date": ""
+        },
+        {
+          "text": "City review: about 2 weeks once sprinkler drawings are submitted",
+          "status": "open",
+          "note": "",
           "date": ""
         }
       ]
@@ -58,9 +76,9 @@
           "date": "2027-01-18"
         },
         {
-          "text": "Main build",
+          "text": "Second phase: conveyor installation (planned)",
           "status": "open",
-          "note": "Planned Mon 1/25",
+          "note": "End TBD",
           "date": "2027-01-25"
         },
         {
@@ -96,8 +114,32 @@
         {
           "text": "Steel install sequencing vs. conveyor start",
           "status": "open",
-          "note": "Coordinate steel ahead of 1/18 conveyor start",
+          "note": "Steel sequencing under discussion with TH3 and Metal Progetti; TH3 doubts the suspended grid steel can go in before the conveyor.",
           "date": ""
+        },
+        {
+          "text": "Demo under Option A: TH3 asking the landlord to authorize",
+          "status": "open",
+          "note": "",
+          "date": ""
+        },
+        {
+          "text": "TH3 reviewing the draft construction schedule with Francisco",
+          "status": "open",
+          "note": "11/24",
+          "date": "2026-11-24"
+        },
+        {
+          "text": "Landlord approval for day and night shifts",
+          "status": "open",
+          "note": "Pending",
+          "date": ""
+        },
+        {
+          "text": "Conveyor shipping must leave by early December to hold the 1/18 start",
+          "status": "open",
+          "note": "",
+          "date": "2026-12-04"
         }
       ]
     },
