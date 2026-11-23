@@ -175,7 +175,7 @@
         "type": "conveyor"
       },
       {
-        "label": "Overlap: storefront ceiling lowering",
+        "label": "Overlap: storefront window wall lowering for conveyor (ceiling work TBD)",
         "start": "2027-01-25",
         "end": "2027-02-05",
         "type": "overlap"
