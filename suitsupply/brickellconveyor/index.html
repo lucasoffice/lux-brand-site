@@ -54,8 +54,8 @@ li.done{color:#9096a0}li.done:before{background:#b4b9c2;border-color:#b4b9c2}li.
 .tmwrap{display:flex;gap:1.6rem;align-items:flex-start;flex-wrap:wrap}
 .tm{position:relative;width:min(100%,38rem);aspect-ratio:1/1;background:#fff;border-radius:.5rem;overflow:hidden;flex:0 0 auto}
 .tile{position:absolute;border:0;outline:3px solid #fff;outline-offset:-1.5px;padding:.6rem;text-align:left;cursor:pointer;font:inherit;font-weight:700;display:flex;align-items:flex-start;line-height:1.15;overflow:hidden}
-.tile.c0{background:#0f766e;color:#fff}.tile.c1{background:#c23b30;color:#fff}.tile.c2{background:#8f5a06;color:#fff}.tile.c3{background:#166534;color:#fff}.tile.c4{background:#1d4ed8;color:#fff}
-.tile.c5{background:#6d28d9;color:#fff}.tile.c6{background:#be185d;color:#fff}.tile.c7{background:#0369a1;color:#fff}.tile.c8{background:#c2410c;color:#fff}.tile.c9{background:#4338ca;color:#fff}
+.tile.numin{background:#2E9E5B;color:#fff}
+.tile.numwait{background:#E8892B;color:#14161a}
 .tile:hover,.tile:focus-visible{filter:brightness(1.1);outline-color:var(--ink)}
 .side{flex:1;min-width:min(100%,16rem)}
 .legend{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:1rem;font-weight:600;font-size:.85rem}
@@ -166,16 +166,19 @@ function squarify(items,W){
 function scopeSec(sc,main){
   sc=arr(sc);if(!sc.length)return;
   const [c]=card('sec-scope','Scope map');
+  const key=el('div','legend');
+  for(const [cl,label] of [['#2E9E5B','Numbers in'],['#E8892B','Awaiting numbers']]){
+    const s=document.createElement('span');const i=document.createElement('i');i.style.background=cl;s.append(i,label);key.appendChild(s);
+  }
   const wrap=el('div','tmwrap'),tm=el('div','tm');
   const side=el('div','side');
   const panel=el('div','panel hidden');panel.id='panel';
   const hint=el('div','hint','Tap a tile to see the scope and drawing references.');
   side.append(hint,panel);
   const items=sc.map(s=>({it:s,v:typeof s.weight==='number'&&s.weight>0?s.weight:(s.weight==='major'?4:1)}));
-  let idx=0;
   for(const r of squarify(items,100)){
     const s=r.it;const b=document.createElement('button');b.type='button';
-    b.className='tile c'+(idx++%10);b.dataset.id=s.id||'';
+    b.className='tile '+(s.priced===true?'numin':'numwait');b.dataset.id=s.id||'';
     Object.assign(b.style,{left:r.x+'%',top:r.y+'%',width:r.w+'%',height:r.h+'%',fontSize:(r.w*r.h>900?'1.25rem':'.85rem')});
     b.textContent=clean(s.name);
     b.onclick=()=>{
@@ -188,7 +191,7 @@ function scopeSec(sc,main){
     };
     tm.appendChild(b);
   }
-  wrap.append(tm,side);c.appendChild(wrap);main.appendChild(c);
+  wrap.append(tm,side);c.append(key,wrap);main.appendChild(c);
 }
 function ganttSec(p,main){
   const ph=arr(p&&p.phases);const S=Date.parse(p&&p.start),E=Date.parse(p&&p.end);
@@ -242,10 +245,7 @@ async function load(){
     fetch('./topics.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('topics '+r.status);return r.json()}),
     fetch('./meeting-data.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('meeting '+r.status);return r.json()})
   ]);
-  if(meeting&&typeof meeting==='object'){
-    delete meeting.demoPrice;
-    for(const sc of (Array.isArray(meeting.scopes)?meeting.scopes:[])){if(sc&&typeof sc==='object')delete sc.priced}
-  }
+  if(meeting&&typeof meeting==='object') delete meeting.demoPrice;
   render({topics, meeting});
 }
 document.addEventListener('keydown',e=>{
