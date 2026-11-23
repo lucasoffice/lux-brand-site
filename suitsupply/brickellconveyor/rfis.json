@@ -1,0 +1,163 @@
+{
+  "asOf": "2026-11-23 11:25 AM ET",
+  "summary": {
+    "total": 27,
+    "open_needing_answer": 8,
+    "closed_or_answered": 19
+  },
+  "note": "Plain-language rewrite of open RFIs. Sheet links point to the 9/25 permit set in ACC (LL-Permit set).",
+  "rfis": [
+    {
+      "number": "RFI-006",
+      "title": "Written OK to drill the mall's beams",
+      "question": "The new platform bolts through the web of two existing mall beams (detail C-10) and of beam B4 (guides E1/E2). We can't drill until the mall's engineer approves in writing. DLG said on 11/4 the approval is \"in process.\"",
+      "conflict": "D101 Demolition Note 4 says \"No alteration to the landlord's structural members are allowed.\" S-101 note 4 and S-300 detail C-10 drill holes in existing beam webs at C-10 and E1/E2. DLG (11/4) suggested adding the exception to D101 note 4.",
+      "needBack": "The mall engineer's signed approval letter, and D101 note 4 revised to allow C-10 and E1/E2.",
+      "seeHere": [
+        {
+          "label": "S-300: detail C-10, support beam into the existing beam web",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=96631037-43a4-353e-bf34-ce493d5254b2&viewableGuid=30ae4c10-3d92-32fc-b161-f742c4a1c3b7"
+        },
+        {
+          "label": "D101: Demolition Notes, note 4",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=2a3df40b-9df5-3e94-aa6c-e61d92bfda6f&viewableGuid=a455c71f-f52c-3c8b-a0b6-8e9920f8ea3c"
+        }
+      ],
+      "accUrl": "https://acc.autodesk.com/build/rfis/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?preview=d6c7887f-8bf8-4682-9f1e-9477c2d1bcf3",
+      "status": "open"
+    },
+    {
+      "number": "RFI-007",
+      "title": "Who checks the conveyor's weight on the old beams?",
+      "question": "The conveyor hangs from the same Level 2 beams as the platform and grid. DLG wrote on 10/21 that it did not check the existing building for the conveyor. Your 11/20 email says DLG will re-check the conveyor loads. Who signs and seals that check, and who hires them?",
+      "conflict": "Not a drawing conflict, an answer conflict: DLG response to RFI-007 (10/21, item 2): existing structure \"not evaluated by DLG.\" TH3 email 11/20: DLG will \"re-verify the conveyor loads.\"",
+      "needBack": "Name of the engineer who seals the conveyor-load check, and who hires them.",
+      "seeHere": [
+        {
+          "label": "A220: details CS-1 and CS-2, conveyor ceiling support",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=a1db8dae-fdd0-3603-97de-d0c2fece9e00&viewableGuid=93b5449d-b803-3468-8912-664f62b371f3"
+        },
+        {
+          "label": "S-200-MG: Transverse Member Schedule, beams B-2E and B-3E",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=9e8b499b-5f09-3b59-a4f4-b5daff7bc24a&viewableGuid=6b3b688e-eec9-3209-a601-9d3d6a6b9176"
+        }
+      ],
+      "accUrl": "https://acc.autodesk.com/build/rfis/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?preview=f1d4865c-0899-4a95-a434-ad0bbc6d9167",
+      "status": "open"
+    },
+    {
+      "number": "RFI-008",
+      "title": "Fireproofing: where we patch it, and with what",
+      "question": "We scrape and re-spray fireproofing wherever we touch old steel. Your 10/20 answer said \"the 25 clamping points,\" but DLG cancelled the grid clamps on 11/4. What is the new list of spots, what product and UL design do we match, and when is the owner's asbestos test?",
+      "conflict": "TH3 10/20: restore at \"the 25 clamping points\" (the clamps on S-200-MG, called S-600 in the 10/6 sealed set). DLG 11/4: \"The clamps shown on S-600 are not part of it and shall not be installed.\" Rating basis is A000, Construction Type: \"Type II-B protected non-combustible.\"",
+      "needBack": "A spot list, the fireproofing product and UL design, and the asbestos test date.",
+      "seeHere": [
+        {
+          "label": "S-200-MG: Metal Grid Framing Plan, clamp hangers GH-1 to GH-17",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=9e8b499b-5f09-3b59-a4f4-b5daff7bc24a&viewableGuid=6b3b688e-eec9-3209-a601-9d3d6a6b9176"
+        },
+        {
+          "label": "S-300: detail C-10, new web holes",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=96631037-43a4-353e-bf34-ce493d5254b2&viewableGuid=30ae4c10-3d92-32fc-b161-f742c4a1c3b7"
+        }
+      ],
+      "accUrl": "https://acc.autodesk.com/build/rfis/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?preview=e97587cb-759d-40b5-a1d4-6e96f6b4bc4a",
+      "status": "open"
+    },
+    {
+      "number": "RFI-009",
+      "title": "Pickup window: automatic or manual?",
+      "question": "A220 shows a \"new automatic glass sliding door\" with a 2'-2 1/2\" opening. The Puur Plus sketch you sent 10/22 shows a manual slider about 2'-5 5/8\" wide. On 11/10 we heard the vendor changed. Which product is final?",
+      "conflict": "A220 DR-1: automatic, 2'-2 1/2\" clear. TH3 10/22 attachment (Puur Plus design intent): manual soft-close slider, about 2'-5 5/8\" glass.",
+      "needBack": "The final product sheet: make, model, automatic or manual, clear width.",
+      "seeHere": [
+        {
+          "label": "A220: details DR, DR-1 and DR-2, pickup sliding door",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=a1db8dae-fdd0-3603-97de-d0c2fece9e00&viewableGuid=93b5449d-b803-3468-8912-664f62b371f3"
+        },
+        {
+          "label": "E000: panel circuit 79, \"door opener connection\"",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=24ef0cb3-601d-3a07-9666-73275e5567e4&viewableGuid=366dae7e-d320-3b3e-b40d-99fffe2ed989"
+        }
+      ],
+      "accUrl": "https://acc.autodesk.com/build/rfis/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?preview=f403c0fe-5cfd-4539-b740-8889c1995f51",
+      "status": "open"
+    },
+    {
+      "number": "RFI-010",
+      "title": "Sprinklers: design basis and head heights",
+      "question": "The drawings give two different hazard classes, and the suggested heads don't fit. Under the conveyor, the line at 11'-7 3/4\" sits about 13 3/4\" over the 10'-6\" shelving, and standard heads need 18\". What design basis and head heights should the sprinkler designer use, above and below the conveyor?",
+      "conflict": "FP000 General Fire Protection Note 1: \"Class III commodity with CMDA type sprinklers, in-rack as required.\" FP600 section L, item 6.a: \"General storage areas: Ordinary Hazard, Group 1.\" A201 Section A: sprinkler line below conveyor at 11'-7 3/4\" vs. shelving at 10'-6\".",
+      "needBack": "RAN's design basis (hazard class) and the governing head heights above and below the conveyor.",
+      "seeHere": [
+        {
+          "label": "FP000: General Fire Protection Note 1, next to plans 3 and 4",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=47e99603-de19-35cc-95c0-b65e379defd0&viewableGuid=8182b51f-1dbc-3e7b-ab7c-0f8e039d4370"
+        },
+        {
+          "label": "A201: Cross Section A, elevation tags on the right",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=14509fcd-2b34-30a0-b418-0c08ef748935&viewableGuid=8abe5270-3923-3f2f-a3ba-5994779c7d7a"
+        }
+      ],
+      "accUrl": "https://acc.autodesk.com/build/rfis/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?preview=368337d4-f531-4f08-9b32-720f821a968c",
+      "status": "open"
+    },
+    {
+      "number": "RFI-012",
+      "title": "What do sprinkler pipe and conduit hang from?",
+      "question": "The grid is being redesigned. Today's grid only carries 7 lb per foot and no single item over 40 lb, which is too light for sprinkler pipe and conduit runs. Do those hang from the new grid, or clamp to Level 2 steel? If steel, which beams are OK?",
+      "conflict": "",
+      "needBack": "\"Hang from the new grid,\" or a list of beams that can take trade hangers.",
+      "seeHere": [
+        {
+          "label": "S-200-MG: Sheet Note 6, grid load limit",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=9e8b499b-5f09-3b59-a4f4-b5daff7bc24a&viewableGuid=6b3b688e-eec9-3209-a601-9d3d6a6b9176"
+        },
+        {
+          "label": "S-200-MG: Transverse Member Schedule, beams B-1E, B-2E, B-3E",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=9e8b499b-5f09-3b59-a4f4-b5daff7bc24a&viewableGuid=6b3b688e-eec9-3209-a601-9d3d6a6b9176"
+        }
+      ],
+      "accUrl": "https://acc.autodesk.com/build/rfis/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?preview=a925ee0b-92bd-4df2-a915-851587f19d1a",
+      "status": "open"
+    },
+    {
+      "number": "RFI-015",
+      "title": "Two pipes hit grid hangers: what are they, who moves them?",
+      "question": "Your 11/12 markup shows existing pipes hitting hangers GH-13 and GH-8. You already told us who owns which pipes. What are these two pipes, and who designs the reroute? If the new grid moves those hangers, just say so.",
+      "conflict": "",
+      "needBack": "Pipe type at each hanger and who designs the reroute, or \"clash goes away with the new grid.\"",
+      "seeHere": [
+        {
+          "label": "S-200-MG: hangers GH-13 and GH-8 (on MG-1)",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=9e8b499b-5f09-3b59-a4f4-b5daff7bc24a&viewableGuid=6b3b688e-eec9-3209-a601-9d3d6a6b9176"
+        },
+        {
+          "label": "D102: Demolition RCP note: pipes below 17'-4\" removed (title block reads D101)",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=a2eab42b-a108-38cb-86db-9807975a1606&viewableGuid=79ab4a8e-d9f4-3ea4-939d-6c5f05a4d26c"
+        }
+      ],
+      "accUrl": "https://acc.autodesk.com/build/rfis/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?preview=45fdec21-71f9-42c1-abe5-6055ea26b19b",
+      "status": "open"
+    },
+    {
+      "number": "RFI-016",
+      "title": "Storage mezzanine stair: moved or not?",
+      "question": "D103.1 and S-100 move the existing stair to a new spot. A101 and A003 show only a ladder. Your 10/20 answer covered the new platform, not the storage mezzanine. Does the storage mezzanine get a new stair? If yes, who designs it and where does it go?",
+      "conflict": "D103.1: \"Existing staircase to be removed and reinstall a new staircase in a new position.\" S-100: \"New staircase to be installed to access mezzanine.\" A101 and A003: ladder only (\"fixed walk-thru ladder\"; \"new ladder to access mezzanine level\").",
+      "needBack": "Yes or no on a new stair. If yes, its drawing. If no, a note deleting it from D103.1 and S-100.",
+      "seeHere": [
+        {
+          "label": "D103.1: note: existing staircase removed, new staircase in a new position",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=a6bc04b8-9e3e-3f5f-aa5c-08f1e81e46d1&viewableGuid=82db2e9b-73a5-3233-9e2b-2a5ecd689443"
+        },
+        {
+          "label": "A101: fixed walk-thru ladder, platform for maintenance access only",
+          "url": "https://acc.autodesk.com/build/sheets/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?moduleId=2d&viewModel=detail&index=1&entityId=05c63a01-69eb-3a07-b7bc-59df2a95ea30&viewableGuid=8d008e56-500f-3839-aa68-26be7b4e1a67"
+        }
+      ],
+      "accUrl": "https://acc.autodesk.com/build/rfis/projects/4ecc6c71-09d7-4cbb-a949-4934d187d213?preview=c14ea79a-1c17-47cf-a7f0-2e3e0bd53edd",
+      "status": "open"
+    }
+  ]
+}
