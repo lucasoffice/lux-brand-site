@@ -26,86 +26,100 @@
     {
       "id": "demo",
       "name": "Selective demolition",
-      "weight": "major",
-      "text": "Remove ceilings, the spiral stair, mezzanine railing and part of the BOH wall in the conveyor zone. Salvage and store shelving. Protect the sales floor, slab and beams."
+      "weight": 4,
+      "text": "Remove ceilings, the spiral stair, mezzanine railing and part of the BOH wall in the conveyor zone. Salvage and store shelving. Protect the sales floor, slab and beams.",
+      "priced": true
     },
     {
       "id": "steel",
       "name": "Structural steel and grid",
-      "weight": "major",
-      "text": "MP-2 platform and supports, independent ceiling support grid, access ladder, gate and guards. Grid redesign by the engineer may change the scope."
+      "weight": 6,
+      "text": "MP-2 platform and supports, independent ceiling support grid, access ladder, gate and guards. Grid redesign by the engineer may change the scope.",
+      "priced": true
     },
     {
       "id": "sprinkler",
       "name": "Fire sprinkler",
-      "weight": "major",
-      "text": "Delegated sprinkler design and alteration: upper line relocations before the conveyor, lower lines and the under-mezzanine system after. Needs the fire sprinkler permit."
+      "weight": 5,
+      "text": "Delegated sprinkler design and alteration: upper line relocations before the conveyor, lower lines and the under-mezzanine system after. Needs the fire sprinkler permit.",
+      "priced": true
     },
     {
       "id": "firealarm",
       "name": "Fire alarm",
-      "weight": "major",
-      "text": "Fire alarm interface by the landlord-required vendor: bypass and fire watch, shop drawings, devices and acceptance tests."
+      "weight": 4,
+      "text": "Fire alarm interface by the landlord-required vendor: bypass and fire watch, shop drawings, devices and acceptance tests.",
+      "priced": true
     },
     {
       "id": "elec",
       "name": "Electrical",
-      "weight": "major",
-      "text": "Make-safe and lighting removal, conveyor and door power, lighting, testing."
+      "weight": 4,
+      "text": "Make-safe and lighting removal, conveyor and door power, lighting, testing.",
+      "priced": true
     },
     {
       "id": "drywall",
       "name": "Drywall and ceilings",
-      "weight": "minor",
-      "text": "Partitions, gypsum ceilings and carpentry, door backing, rated walls, and lowering the storefront hard-lid ceiling during the install."
+      "weight": 2,
+      "text": "Partitions, gypsum ceilings and carpentry, door backing, rated walls, and lowering the storefront hard-lid ceiling during the install.",
+      "priced": false
     },
     {
       "id": "finishes",
       "name": "Paint and finishes",
-      "weight": "minor",
-      "text": "Paint and base, flooring repair and transitions, parquet protection, wallcovering and upper window film."
+      "weight": 2,
+      "text": "Paint and base, flooring repair and transitions, parquet protection, wallcovering and upper window film.",
+      "priced": true
     },
     {
       "id": "hvac",
       "name": "Mechanical / HVAC",
-      "weight": "minor",
-      "text": "Ductwork alteration in the conveyor zone, balancing and BMS tie-in."
+      "weight": 2,
+      "text": "Ductwork alteration in the conveyor zone, balancing and BMS tie-in.",
+      "priced": true
     },
     {
       "id": "plumbing",
       "name": "Plumbing",
-      "weight": "minor",
-      "text": "Water and rain piping reroutes in the conveyor zone. Reroute design still to be issued."
+      "weight": 2,
+      "text": "Water and rain piping reroutes in the conveyor zone. Reroute design still to be issued.",
+      "priced": true
     },
     {
       "id": "fireproofing",
       "name": "Fireproofing restore",
-      "weight": "minor",
-      "text": "Restore beam fireproofing at the conveyor clamp points. Count may change with the grid redesign."
+      "weight": 1.5,
+      "text": "Restore beam fireproofing at the conveyor clamp points. Count may change with the grid redesign.",
+      "priced": true
     },
     {
       "id": "scan",
       "name": "Scan, core and cut",
-      "weight": "minor",
-      "text": "GPR scan of the slab, cores and saw-cuts, patching."
+      "weight": 1,
+      "text": "GPR scan of the slab, cores and saw-cuts, patching.",
+      "priced": true
     },
     {
       "id": "lowvolt",
       "name": "Low voltage",
-      "weight": "minor",
-      "text": "Data, WAP, CCTV and RFID cabling."
+      "weight": 1.5,
+      "text": "Data, WAP, CCTV and RFID cabling.",
+      "priced": true
     },
     {
       "id": "doors",
       "name": "Pickup door and window",
-      "weight": "minor",
-      "text": "Pickup door, frame, track, hardware and glazing, and the automatic sliding pickup window operator."
+      "weight": 1.5,
+      "text": "Pickup door, frame, track, hardware and glazing, and the automatic sliding pickup window operator.",
+      "priced": false
     },
     {
       "id": "storage",
       "name": "Receiving and storage",
-      "weight": "minor",
-      "text": "Receiving, storage and delivery to site."
+      "weight": 1,
+      "text": "Receiving, storage and delivery to site.",
+      "priced": false
     }
   ],
   "phasing": {
