@@ -78,9 +78,9 @@ li.done{color:#9096a0}li.done:before{background:#b4b9c2;border-color:#b4b9c2}li.
 .gantt{min-width:44rem}
 .ghead{display:grid;margin-left:15rem;border-bottom:2px solid var(--line)}
 .ghead div{font-size:.75rem;font-weight:700;color:var(--mut);padding:.3rem .2rem;border-left:1px solid var(--line);text-transform:uppercase;letter-spacing:.06em}
-.grow{display:flex;align-items:center;border-bottom:1px solid var(--line);height:2.6rem}
-.glab{width:15rem;flex:0 0 15rem;font-size:.85rem;font-weight:600;padding-right:.8rem}
-.gtrack{position:relative;flex:1;height:100%;background:repeating-linear-gradient(90deg,transparent 0 calc(var(--mw) - 1px),var(--line) calc(var(--mw) - 1px) var(--mw))}
+.grow{display:flex;align-items:stretch;border-bottom:1px solid var(--line);min-height:2.6rem}
+.glab{width:15rem;flex:0 0 15rem;font-size:.85rem;font-weight:600;line-height:1.25;padding:.3rem .8rem .3rem 0;display:flex;align-items:center}
+.gtrack{position:relative;flex:1;min-height:2.6rem;background:repeating-linear-gradient(90deg,transparent 0 calc(var(--mw) - 1px),var(--line) calc(var(--mw) - 1px) var(--mw))}
 .bar{position:absolute;top:.5rem;bottom:.5rem;border-radius:.4rem;color:#fff;font-size:.7rem;font-weight:700;padding:0 .5rem;display:flex;align-items:center;white-space:nowrap;overflow:hidden}
 .bar.demo{background:var(--red)}.bar.conveyor{background:var(--ink)}.bar.post{background:#3b6ea5}
 .bar.overlap{background:repeating-linear-gradient(45deg,#6d7380 0 .5rem,#5a606b .5rem 1rem)}
@@ -164,12 +164,6 @@ function rfiCards(data,main){
   }
   c.appendChild(g);main.appendChild(c);
 }
-function visitSec(v,main){
-  v=arr(v);if(!v.length)return;
-  const [c]=card('sec-visits','Subs who visited the site');const g=el('div','visits');
-  for(const x of v){const d=el('div','v');d.appendChild(el('b',null,x.sub));d.appendChild(el('span',null,fmt(x.date)));g.appendChild(d)}
-  c.appendChild(g);main.appendChild(c);
-}
 function squarify(items,W){
   const tot=items.reduce((a,b)=>a+b.v,0);const arr2=items.map(i=>({it:i.it,a:i.v/tot*W*W})).sort((a,b)=>b.a-a.a);
   const out=[];let x=0,y=0,w=W,h=W,row=[];
@@ -225,11 +219,14 @@ function ganttSec(p,main){
   g.appendChild(head);
   const todayT=Date.now();
   for(const x of ph){
-    const a=Date.parse(x.start),b=Date.parse(x.end);if(isNaN(a)||isNaN(b))continue;
+    const a=Date.parse(x.start),b=Date.parse(x.end);if(isNaN(a)||isNaN(b)||b<a)continue;
     const row=el('div','grow');row.appendChild(el('div','glab',x.label));const tr=el('div','gtrack');
+    const same=!(b>a);
     const bar=el('div','bar '+(['demo','overlap','conveyor','post'].includes(x.type)?x.type:'post'),fmt(x.start).replace(/, \d{4}/,'')+' – '+fmt(x.end).replace(/, \d{4}/,''));
-    const w=Math.max(.8,pct(b)-pct(a));bar.style.left=pct(a)+'%';bar.style.width=w+'%';
-    if(w<14){const lt=bar.textContent;bar.textContent='';const o=el('span','olab',lt);o.style.left=(pct(a)+w+.6)+'%';tr.appendChild(bar);tr.appendChild(o)}else tr.appendChild(bar);row.appendChild(tr);g.appendChild(row);
+    const endT=same?a+86400000:b;
+    const w=Math.max(same?0:.8,pct(endT)-pct(a));bar.style.left=pct(a)+'%';bar.style.width=Math.max(w,.8)+'%';
+    if(same)bar.style.minWidth='1.25rem';
+    if(w<14){const lt=bar.textContent;bar.textContent='';const o=el('span','olab',lt);o.style.left=(pct(a)+Math.max(w,.8)+.6)+'%';tr.appendChild(bar);tr.appendChild(o)}else tr.appendChild(bar);row.appendChild(tr);g.appendChild(row);
   }
   const lg=el('div','legend');lg.style.marginTop='1rem';
   for(const [cl,t] of [['var(--red)','Demo'],['#6d7380','Sub overlap'],['var(--ink)','Conveyor install'],['#3b6ea5','Post-conveyor work']]){const s=document.createElement('span');const i=document.createElement('i');i.style.background=cl;s.append(i,t);lg.appendChild(s)}
@@ -247,7 +244,6 @@ function render(data){
   const main=$('main');main.textContent='';
   const tp=topicsSec(t,main);
   rfiCards(data.rfis,main);
-  visitSec(m.siteVisits,main);
   scopeSec(m.scopes,main);
   ganttSec(m.phasing,main);
   const L=m.links||{};
