@@ -1,27 +1,9 @@
 {
   "asOf": "2026-11-23 9:15 AM ET",
   "rfis": {
-    "open": 18,
+    "open": 8,
     "source": "ACC, read 11/23 9:09 AM ET"
   },
-  "siteVisits": [
-    {
-      "sub": "MSA Painting",
-      "date": "2026-11-16"
-    },
-    {
-      "sub": "Lange's Contracting",
-      "date": "2026-11-16"
-    },
-    {
-      "sub": "Polaris Fire Protection",
-      "date": "2026-11-16"
-    },
-    {
-      "sub": "Alcor Electric",
-      "date": "2026-11-16"
-    }
-  ],
   "scopes": [
     {
       "id": "demo",
@@ -127,9 +109,15 @@
     "end": "2027-03-31",
     "phases": [
       {
-        "label": "Design: sprinkler data and calcs",
+        "label": "Design: sprinkler design and calcs (best case 11/25, worst 12/1)",
         "start": "2026-11-20",
-        "end": "2026-11-30",
+        "end": "2026-12-01",
+        "type": "overlap"
+      },
+      {
+        "label": "Go / hold decision",
+        "start": "2026-12-01",
+        "end": "2026-12-04",
         "type": "overlap"
       },
       {
@@ -151,34 +139,40 @@
         "type": "overlap"
       },
       {
-        "label": "Demo start (Phase 1)",
+        "label": "Postponement deadline",
+        "start": "2026-12-28",
+        "end": "2026-12-28",
+        "type": "overlap"
+      },
+      {
+        "label": "Demo start (Phase 1) (provisional)",
         "start": "2027-01-04",
         "end": "2027-01-08",
         "type": "demo"
       },
       {
-        "label": "Pre-conveyor work",
+        "label": "Pre-conveyor work (provisional)",
         "start": "2027-01-11",
         "end": "2027-01-15",
         "type": "demo"
       },
       {
-        "label": "Rough-in inspections",
+        "label": "Pre-install ceiling mounting (planned)",
         "start": "2027-01-18",
-        "end": "2027-01-19",
-        "type": "demo"
-      },
-      {
-        "label": "Conveyor install",
-        "start": "2027-01-18",
-        "end": "2027-02-12",
+        "end": "2027-01-22",
         "type": "conveyor"
       },
       {
-        "label": "Overlap: beam fireproofing patch",
+        "label": "Overlap: beam fireproofing patch (provisional)",
         "start": "2027-01-21",
         "end": "2027-01-22",
         "type": "overlap"
+      },
+      {
+        "label": "Main build (planned)",
+        "start": "2027-01-25",
+        "end": "2027-02-12",
+        "type": "conveyor"
       },
       {
         "label": "Overlap: storefront ceiling lowering",
@@ -187,7 +181,7 @@
         "type": "overlap"
       },
       {
-        "label": "Overlap: platform and grid steel (conflict)",
+        "label": "Overlap: platform and grid steel (conflict) (provisional)",
         "start": "2027-02-05",
         "end": "2027-02-18",
         "type": "overlap"

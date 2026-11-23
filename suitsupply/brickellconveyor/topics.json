@@ -19,19 +19,31 @@
         {
           "text": "Water supply data for sprinkler calcs",
           "status": "open",
-          "note": "Landlord data sent to fire engineer 11/19; sprinkler data expected about 11/27",
+          "note": "Landlord data sent to fire engineer 11/19; best case 11/25, worst case 12/1",
+          "date": "2026-12-01"
+        },
+        {
+          "text": "Updated floor post and ceiling support drawings (TH3)",
+          "status": "open",
+          "note": "Due this week; needed to scan the floor before drilling",
           "date": "2026-11-27"
         },
         {
-          "text": "Revised floor-post grid drawings (DLG/TH3)",
+          "text": "Updated landlord construction requirements (TH3)",
           "status": "open",
-          "note": "Drives steel and fireproofing scope",
-          "date": ""
+          "note": "Expected 11/23 or 11/24",
+          "date": "2026-11-24"
         },
         {
-          "text": "Sprinkler design basis (RAN/WNA)",
+          "text": "Final fire sprinkler design (RAN)",
           "status": "open",
-          "note": "Needed before sprinkler design and fire permit",
+          "note": "Best case 11/25; worst case 12/1",
+          "date": "2026-12-01"
+        },
+        {
+          "text": "Final ceiling-support removal drawing (Metal Progetti)",
+          "status": "open",
+          "note": "Date not stated",
           "date": ""
         }
       ]
@@ -39,6 +51,36 @@
     {
       "title": "Schedule",
       "items": [
+        {
+          "text": "Pre-install ceiling mounting",
+          "status": "open",
+          "note": "Planned Mon 1/18, 3 to 4 days",
+          "date": "2027-01-18"
+        },
+        {
+          "text": "Main build",
+          "status": "open",
+          "note": "Planned Mon 1/25",
+          "date": "2027-01-25"
+        },
+        {
+          "text": "Go / hold decision on January dates",
+          "status": "open",
+          "note": "First week of December, after the fire design",
+          "date": "2026-12-04"
+        },
+        {
+          "text": "Postponement deadline",
+          "status": "open",
+          "note": "Any delay must be called by Mon 12/28 (three weeks before 1/18)",
+          "date": "2026-12-28"
+        },
+        {
+          "text": "Weekly coordination call",
+          "status": "open",
+          "note": "Tuesdays 10:30 AM ET; invite and agenda from TH3",
+          "date": "2026-12-01"
+        },
         {
           "text": "Draft construction schedule (Excel + PDF)",
           "status": "done",
@@ -48,7 +90,7 @@
         {
           "text": "Demo timing relative to permit",
           "status": "open",
-          "note": "Discuss: start with landlord approval 1/4, or hold for landlord and City",
+          "note": "Not decided on the 11/23 call",
           "date": ""
         },
         {
@@ -56,12 +98,6 @@
           "status": "open",
           "note": "Coordinate steel ahead of 1/18 conveyor start",
           "date": ""
-        },
-        {
-          "text": "Metalprogetti / TH3 timeline review",
-          "status": "open",
-          "note": "Today 11/23",
-          "date": "2026-11-23"
         }
       ]
     },
